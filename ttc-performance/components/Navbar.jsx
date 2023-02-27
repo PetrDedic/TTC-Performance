@@ -62,14 +62,14 @@ const Navbar = () => {
           Úvod
         </Link>
         <Link
-          href="/služby"
-          className={router.pathname == "/služby" ? "active" : ""}
+          href="/sluzby"
+          className={router.pathname == "/sluzby" ? "active" : ""}
         >
           Služby
         </Link>
         <Link
-          href="/ceník"
-          className={router.pathname == "/ceník" ? "active" : ""}
+          href="/cenik"
+          className={router.pathname == "/cenik" ? "active" : ""}
         >
           Ceník
         </Link>
