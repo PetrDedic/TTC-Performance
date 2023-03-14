@@ -175,10 +175,10 @@ const Sluzby = () => {
             Dle novely zákona č. 56/2001 Sb. o podmínkách provozu na pozemních
             komunikacích se vozidlo s neschválenou úpravou stává nezpůsobilé k
             provozu na pozemních komunikacích. Novela zákona, §83 odstavec 1,
-            písmeno i) definuje podmínky takto: "fyzická osoba se dopustí
+            písmeno i) definuje podmínky takto: &quot;fyzická osoba se dopustí
             přestupku tím, že jako provozovatel silničního vozidla v rozporu s
             §38 odst. 1 písm. a) provozuje na pozemních komunikacích vozidlo,
-            které je technicky nezpůsobilé k provozu."
+            které je technicky nezpůsobilé k provozu.&quot;
           </p>
         </div>
       </StyledSluzby>

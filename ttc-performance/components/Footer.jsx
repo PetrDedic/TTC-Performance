@@ -50,7 +50,7 @@ const Footer = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.797013450115!2d17.206229099999998!3d49.2423376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47130296060c25e1%3A0xe9c2927f66bc5632!2sCimburk%20563%2C%20768%2033%20Morkovice-Sl%C3%AD%C5%BEany-Morkovice!5e0!3m2!1scs!2scz!4v1677508256606!5m2!1scs!2scz"
             width="100%"
             height="100%"
-            allowFullscreen=""
+            allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
