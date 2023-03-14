@@ -4,7 +4,7 @@ import Head from "next/head";
 import styled from "styled-components";
 
 const StyledCenik = styled.main`
-  background-image: url("./media/texture.png");
+  background-image: url("./bg.svg");
   background-size: cover;
   background-position: top;
 

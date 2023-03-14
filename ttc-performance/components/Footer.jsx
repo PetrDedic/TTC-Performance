@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
   .flex {
-    background-image: url("./media/foto/footer.jpg");
+    background-image: url("../media/foto/footer.jpg");
     background-size: cover;
     background-position: center;
     padding: 8rem;
@@ -52,7 +52,7 @@ const Footer = () => {
             height="100%"
             allowFullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
         <div className="text">

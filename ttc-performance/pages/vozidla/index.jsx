@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
+import Link from "next/link";
 import styled from "styled-components";
 
 const StyledRealizace = styled.main`
@@ -30,6 +31,10 @@ const StyledRealizace = styled.main`
     justify-content: center;
     gap: 12rem;
 
+    a {
+      text-decoration: none !important;
+    }
+
     .card {
       width: 12rem;
       height: 14rem;
@@ -44,8 +49,11 @@ const StyledRealizace = styled.main`
       font-size: 1.55rem;
       text-align: center;
 
+      text-decoration: none !important;
+
       p {
         margin-top: auto;
+        text-decoration: none !important;
       }
 
       img {
@@ -59,7 +67,7 @@ const StyledRealizace = styled.main`
   }
 `;
 
-const Realizace = () => {
+const Vozidla = () => {
   return (
     <>
       <Head>
@@ -74,44 +82,53 @@ const Realizace = () => {
       <Navbar />
       <StyledRealizace>
         <img src="./media/foto/realizace.png" alt="" />
-        <h1>Realizace</h1>
+        <h1>Značky vozidel</h1>
         <div className="container">
-          <div className="card">
-            <p>Zemědělská vozidla</p>
-            <svg
-              fill="#fff"
-              height="800px"
-              width="800px"
-              version="1.2"
-              baseProfile="tiny"
-              id="tractor_by_Adioma"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 196"
-            >
-              <path
-                d="M175.9,154.3c0,21.6,17.5,39.1,39.1,39.1s39.1-17.5,39.1-39.1c0-21.6-17.5-39.1-39.1-39.1S175.9,132.7,175.9,154.3z
-	 M202.2,154.3c0-7,5.7-12.7,12.7-12.7c7,0,12.7,5.7,12.7,12.7c0,7-5.7,12.7-12.7,12.7C207.9,167,202.2,161.3,202.2,154.3z M2,148
-	c0,25,20.3,45.3,45.3,45.3c25,0,45.3-20.3,45.3-45.3s-20.3-45.3-45.3-45.3C22.3,102.7,2,123,2,148z M28.4,148c0-2.7,0.6-5.3,1.6-7.6
-	c2.9-6.7,9.6-11.3,17.3-11.3s14.4,4.7,17.3,11.3c1,2.3,1.6,4.9,1.6,7.6c0,10.4-8.5,18.9-18.9,18.9S28.4,158.5,28.4,148z M99.7,140.4
-	h70.6c5.9-19,23.7-32.8,44.6-32.8V75.4c0-8.1-6.6-14.7-14.7-14.7h-15.5V16.2h-12.5v44.5h-45.4L105.2,8.3c-1.5-3.3-4.8-5.5-8.4-5.5
-	H34.4v57.9L11.8,81.4v27.4c9.4-8.5,21.9-13.7,35.6-13.7C73.9,95.1,96,114.8,99.7,140.4z M47.3,60.7v-45H94l16.2,45H47.3z"
-              />
-            </svg>
-          </div>
-          <div className="card">
-            <p>Nákladní vozidla</p>
-            <img src="./media/icons/van.png" alt="" />
-          </div>
+          <Link href="/vozidla/osobni">
+            <div className="card">
+              <p>Osobní vozidla</p>
+              <img src="./media/icons/car.png" alt="" />
+            </div>
+          </Link>
+          <Link href="/vozidla/nakladni">
+            <div className="card">
+              <p>Nákladní vozidla</p>
+              <img src="./media/icons/car.png" alt="" />
+            </div>
+          </Link>
+          <Link href="/vozidla/agro">
+            <div className="card">
+              <p>Agro vozidla</p>
+              <img src="./media/icons/car.png" alt="" />
+            </div>
+          </Link>
+          <Link href="/vozidla/bus">
+            <div className="card">
+              <p>Autobusová vozidla</p>
+              <img src="./media/icons/car.png" alt="" />
+            </div>
+          </Link>
         </div>
+
         <div className="container">
-          <div className="card">
-            <p>Osobní vozidla</p>
-            <img src="./media/icons/car.png" alt="" />
-          </div>
-          <div className="card">
-            <p>Stavebvní technika</p>
-            <img src="./media/icons/const.png" alt="" />
-          </div>
+          <Link href="/vozidla/ctyrkolky">
+            <div className="card">
+              <p>Čtyřkolky</p>
+              <img src="./media/icons/car.png" alt="" />
+            </div>
+          </Link>
+          <Link href="/vozidla/lod">
+            <div className="card">
+              <p>Lodě</p>
+              <img src="./media/icons/car.png" alt="" />
+            </div>
+          </Link>
+          <Link href="/vozidla/bagry">
+            <div className="card">
+              <p>Bagry a stroje</p>
+              <img src="./media/icons/car.png" alt="" />
+            </div>
+          </Link>
         </div>
         <p>&#8203;</p>
       </StyledRealizace>
@@ -120,4 +137,4 @@ const Realizace = () => {
   );
 };
 
-export default Realizace;
+export default Vozidla;
