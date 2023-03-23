@@ -28,6 +28,10 @@ const StyledRealizace = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    @media (max-width: 1280px) {
+      flex-wrap: wrap;
+      gap: 6rem;
+    }
     gap: 12rem;
 
     .card {

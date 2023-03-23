@@ -5,7 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const StyledRealizace = styled.main`
-  background-image: url("./bg.svg");
+  background-image: url("../../bg.svg");
   background-size: cover;
   background-position: top;
 
@@ -29,6 +29,10 @@ const StyledRealizace = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    @media (max-width: 1280px) {
+      flex-wrap: wrap;
+      gap: 6rem;
+    }
     gap: 12rem;
 
     a {
@@ -93,19 +97,22 @@ const Vozidla = () => {
           <Link href="/vozidla/nakladni">
             <div className="card">
               <p>Nákladní vozidla</p>
-              <img src="./media/icons/car.png" alt="" />
+              <img src="./media/icons/iconmonstr-delivery-1.svg" alt="" />
             </div>
           </Link>
           <Link href="/vozidla/agro">
             <div className="card">
               <p>Agro vozidla</p>
-              <img src="./media/icons/car.png" alt="" />
+              <img
+                src="./media/icons/tractor-agriculture-torque-construction-equipment-svgrepo-com.svg"
+                alt=""
+              />
             </div>
           </Link>
           <Link href="/vozidla/bus">
             <div className="card">
               <p>Autobusová vozidla</p>
-              <img src="./media/icons/car.png" alt="" />
+              <img src="./media/icons/iconmonstr-bus-5.svg" alt="" />
             </div>
           </Link>
         </div>
@@ -114,19 +121,19 @@ const Vozidla = () => {
           <Link href="/vozidla/ctyrkolky">
             <div className="card">
               <p>Čtyřkolky</p>
-              <img src="./media/icons/car.png" alt="" />
+              <img src="./media/icons/quad-bike-2-svgrepo-com.svg" alt="" />
             </div>
           </Link>
           <Link href="/vozidla/lod">
             <div className="card">
               <p>Lodě</p>
-              <img src="./media/icons/car.png" alt="" />
+              <img src="./media/icons/ship-boat-svgrepo-com.svg" alt="" />
             </div>
           </Link>
           <Link href="/vozidla/bagry">
             <div className="card">
               <p>Bagry a stroje</p>
-              <img src="./media/icons/car.png" alt="" />
+              <img src="./media/icons/iconmonstr-construction-4.svg" alt="" />
             </div>
           </Link>
         </div>

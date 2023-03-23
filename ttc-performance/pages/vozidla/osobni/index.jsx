@@ -6,9 +6,10 @@ import styled from "styled-components";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { Show } from "../../../components/Show";
 import { If } from "../../../components/Show";
+import Link from "next/link";
 
 const StyledRealizace = styled.main`
-  background-image: url("./bg.svg");
+  background-image: url("../../bg.svg");
   background-size: cover;
   background-position: top;
 
@@ -31,14 +32,53 @@ const StyledRealizace = styled.main`
     height: auto;
     display: flex;
     gap: 1.5rem;
-    margin: 1rem;
+    margin: 2rem;
 
     .item {
-      width: 6rem;
-      min-width: 6rem;
-      height: 8rem;
+      width: auto;
+      white-space: nowrap;
+      height: 100%;
+      padding: 1rem;
       background-color: #cfcfcf;
+      transition: 150ms;
+      font-size: 1.25rem;
+
+      &.active {
+        background-color: #101c2499;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: #101c24;
+      }
     }
+  }
+
+  ul {
+    margin: auto;
+    width: 85vw;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+      width: calc(50% - 1rem);
+      text-align: left;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .nav {
+    margin: auto;
+    width: 85vw;
   }
 `;
 
@@ -7713,19 +7753,39 @@ const Vozidla = () => {
       <StyledRealizace>
         <img src="./media/foto/realizace.png" alt="" />
         <h1>Osobní</h1>
+        <div className="nav">
+          <Link href="/vozidla">Značky vozidel</Link>
+          {` > Osobní`}
+        </div>
         <ScrollContainer className="scroll-container container">
           {cars.map((car) => (
-            <div className="item" onClick={() => setCategory(car.name)}>
+            <div
+              key={car.name}
+              className={category == car.name ? "item active" : "item"}
+              onClick={() => setCategory(car.name)}
+            >
               <p>{car.name}</p>
             </div>
           ))}
         </ScrollContainer>
 
         {filteredData.map((item) => (
-          <ul>
-            {item?.params?.map((par) => (
-              <ul>{par}</ul>
-            ))}
+          <ul key={item}>
+            {item?.params?.map((par) => {
+              const first = par.split(" ")[0];
+              const second = par.split(" ")[1];
+              var parts = par.split(" ");
+              parts.shift();
+              parts.shift();
+              return (
+                <li key={par}>
+                  <span>
+                    {first} {second}
+                  </span>{" "}
+                  {parts.join(" ")}
+                </li>
+              );
+            })}
           </ul>
         ))}
 

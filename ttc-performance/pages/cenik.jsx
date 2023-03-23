@@ -20,6 +20,13 @@ const StyledCenik = styled.main`
     font-weight: 900;
     text-align: center;
     margin: 8rem 0;
+
+    @media (max-width: 1280px) {
+      font-size: 4rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 3rem;
+    }
   }
 
   section {
@@ -52,12 +59,28 @@ const StyledCenik = styled.main`
       letter-spacing: -4px;
       font-weight: 900;
       text-align: center;
+
+      @media (max-width: 1280px) {
+        font-size: 2rem !important;
+        letter-spacing: 0px;
+      }
+      @media (max-width: 600px) {
+        font-size: 1.5rem !important;
+      }
     }
 
     ul li {
       font-size: 2rem;
       margin: 1.5rem 0;
       font-weight: 400;
+
+      @media (max-width: 1280px) {
+        font-size: 1.5rem !important;
+        letter-spacing: 0px;
+      }
+      @media (max-width: 600px) {
+        font-size: 1rem !important;
+      }
 
       span {
         font-weight: 600;
@@ -68,6 +91,14 @@ const StyledCenik = styled.main`
       font-size: 3rem;
       font-weight: 400;
       text-align: center;
+
+      @media (max-width: 1280px) {
+        font-size: 2rem !important;
+        letter-spacing: 0px;
+      }
+      @media (max-width: 600px) {
+        font-size: 1.25rem !important;
+      }
 
       span {
         font-weight: 600;

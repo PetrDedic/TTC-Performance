@@ -16,6 +16,9 @@ const StyledSluzby = styled.main`
 
   h1 {
     font-size: 5rem;
+    @media (max-width: 1280px) {
+      font-size: 4rem;
+    }
     letter-spacing: -4px;
     font-weight: 900;
     text-align: center;
@@ -31,9 +34,23 @@ const StyledSluzby = styled.main`
 
     display: flex;
     flex-direction: row;
+    @media (max-width: 1280px) {
+      flex-direction: column;
+      margin-bottom: 4rem;
+      img {
+        margin: auto !important;
+      }
+    }
 
     &.reverse {
       flex-direction: row-reverse;
+      @media (max-width: 1280px) {
+        flex-direction: column;
+        margin-bottom: 4rem;
+        img {
+          margin: auto !important;
+        }
+      }
 
       padding: 2rem 0;
 
@@ -43,6 +60,7 @@ const StyledSluzby = styled.main`
 
       img {
         margin-left: 0 !important;
+
         margin-right: auto;
 
         -webkit-box-shadow: -48px 32px 0px 0px rgba(200, 196, 204, 1) !important;
@@ -71,6 +89,11 @@ const StyledSluzby = styled.main`
         margin: 1.5rem 0;
         font-weight: 700;
 
+        @media (max-width: 1280px) {
+          margin: 0.5rem 0;
+          font-size: 1rem;
+        }
+
         span {
           font-weight: 300;
         }
@@ -90,6 +113,11 @@ const StyledSluzby = styled.main`
         object-fit: cover;
         border-radius: 1.5rem;
 
+        @media (max-width: 1280px) {
+          margin-left: auto !important;
+          margin: auto !important;
+        }
+
         -webkit-box-shadow: 48px 32px 0px 0px rgba(200, 196, 204, 1);
         -moz-box-shadow: 48px 32px 0px 0px rgba(200, 196, 204, 1);
         box-shadow: 48px 32px 0px 0px rgba(200, 196, 204, 1);
@@ -108,6 +136,10 @@ const StyledSluzby = styled.main`
     p {
       font-size: 2rem;
       text-align: center;
+      @media (max-width: 1280px) {
+        text-align: justify;
+        font-size: 1rem;
+      }
     }
   }
 `;

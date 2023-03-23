@@ -13,6 +13,11 @@ const StyledFooter = styled.footer`
     flex-direction: row;
     gap: 8rem;
 
+    @media (max-width: 1280px) {
+      flex-direction: column;
+      padding: 4rem;
+    }
+
     .map {
       width: 100%;
       max-height: 100%;
@@ -24,6 +29,10 @@ const StyledFooter = styled.footer`
       gap: 2rem;
 
       width: 50%;
+      @media (max-width: 1280px) {
+        width: 100%;
+        font-size: 1.25rem;
+      }
       color: white;
       font-size: 1.5rem;
       font-weight: 100;
@@ -38,6 +47,10 @@ const StyledFooter = styled.footer`
     text-align: center;
     font-size: 1.5rem;
     padding: 2rem;
+    @media (max-width: 1280px) {
+      width: 100%;
+      font-size: 1.25rem;
+    }
   }
 `;
 

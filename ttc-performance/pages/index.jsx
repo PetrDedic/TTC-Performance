@@ -37,11 +37,26 @@ const Main = styled.main`
         font-size: 6rem;
         font-weight: bolder;
         line-height: 4.75rem;
+
+        @media (max-width: 1280px) {
+          font-size: 4rem;
+        }
+        @media (max-width: 600px) {
+          font-size: 3rem;
+        }
       }
       p {
         font-size: 4rem;
         font-weight: 100;
         letter-spacing: 0.25rem;
+
+        @media (max-width: 1280px) {
+          font-size: 3rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 2rem;
+        }
       }
     }
   }
@@ -59,6 +74,14 @@ const Main = styled.main`
 
     color: #fff;
 
+    @media (max-width: 1280px) {
+      flex-wrap: wrap;
+      gap: 0;
+      .mark {
+        margin: 1rem;
+      }
+    }
+
     .mark {
       width: 12rem;
       height: 13rem;
@@ -68,6 +91,21 @@ const Main = styled.main`
 
       display: flex;
       flex-direction: column;
+
+      @media (max-width: 600px) {
+        width: 6rem;
+        height: 7rem;
+
+        p {
+          padding: 0.75rem !important;
+          font-size: 0.75rem !important;
+        }
+
+        img {
+          margin: 1rem !important;
+          height: 3rem !important;
+        }
+      }
 
       p {
         padding: 2rem 0 1rem 0;
@@ -95,9 +133,18 @@ const Main = styled.main`
     display: flex;
     flex-direction: row;
 
+    @media (max-width: 1280px) {
+      flex-direction: column;
+
+      img {
+        margin: auto !important;
+      }
+    }
+
     &.reverse {
       flex-direction: row-reverse;
-      background-image: url("./media/traktor-bg.png");
+      background: #101c24b2;
+      border-radius: 2rem;
       background-repeat: no-repeat;
       background-size: cover 75%;
       background-position: right;
@@ -107,11 +154,26 @@ const Main = styled.main`
 
       h2 {
         font-size: 4.5rem !important;
+
+        @media (max-width: 1280px) {
+          font-size: 3rem !important;
+        }
+        @media (max-width: 600px) {
+          font-size: 2rem !important;
+        }
       }
 
       img {
         margin-left: 0 !important;
         margin-right: auto;
+      }
+
+      @media (max-width: 1280px) {
+        flex-direction: column;
+
+        img {
+          margin: auto !important;
+        }
       }
     }
 
@@ -128,6 +190,14 @@ const Main = styled.main`
         letter-spacing: -4px;
         font-weight: 900;
         text-align: left;
+
+        @media (max-width: 1280px) {
+          text-align: center;
+          font-size: 3.5rem;
+        }
+        @media (max-width: 600px) {
+          font-size: 2rem !important;
+        }
       }
 
       ul li {
@@ -169,6 +239,14 @@ const Main = styled.main`
       letter-spacing: -4px;
       font-weight: 900;
       text-align: center;
+
+      @media (max-width: 1280px) {
+        text-align: center;
+        font-size: 3.5rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 2rem !important;
+      }
     }
 
     .container {
@@ -176,6 +254,10 @@ const Main = styled.main`
       flex-direction: row;
       justify-content: space-between;
       gap: 4rem;
+
+      @media (max-width: 1280px) {
+        flex-wrap: wrap;
+      }
 
       .reason {
         display: flex;
@@ -228,6 +310,14 @@ const Main = styled.main`
       letter-spacing: -4px;
       font-weight: 900;
       text-align: center;
+
+      @media (max-width: 1280px) {
+        text-align: center;
+        font-size: 3.5rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 2.5rem !important;
+      }
     }
 
     .row {
@@ -236,6 +326,10 @@ const Main = styled.main`
       justify-content: center;
       justify-items: center;
       gap: 2rem;
+
+      @media (max-width: 1280px) {
+        flex-wrap: wrap;
+      }
 
       div {
         font-size: 3rem;
@@ -248,6 +342,9 @@ const Main = styled.main`
         font-size: 3.5rem;
         font-weight: bold;
         padding: 1.5rem 0 2rem 0;
+        @media (max-width: 1280px) {
+          display: none;
+        }
       }
     }
   }
@@ -263,6 +360,11 @@ const Main = styled.main`
     p {
       font-size: 2rem;
       text-align: center;
+
+      @media (max-width: 1280px) {
+        font-size: 1.5rem;
+        text-align: justify;
+      }
     }
   }
 `;

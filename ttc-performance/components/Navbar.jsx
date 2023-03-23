@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const StyledNavbar = styled.div`
   position: fixed;
@@ -14,6 +15,29 @@ const StyledNavbar = styled.div`
   z-index: 999;
 
   background-color: #101c24cc;
+  backdrop-filter: blur(10px);
+  svg {
+    display: none;
+  }
+
+  img {
+    max-width: 75vw;
+    object-fit: contain;
+  }
+  @media (max-width: 1400px) {
+    svg {
+      display: unset;
+      height: 64px;
+      align-self: center;
+      margin: 2rem;
+      fill: white;
+      transition: 250ms;
+
+      &:hover {
+        fill: #ffffff75;
+      }
+    }
+  }
 
   .links {
     display: flex;
@@ -22,6 +46,10 @@ const StyledNavbar = styled.div`
     padding: 0 3rem;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 1400px) {
+      display: none;
+    }
 
     a {
       font-size: 1.5rem;
@@ -46,10 +74,40 @@ const StyledNavbar = styled.div`
       }
     }
   }
+
+  .menu {
+    z-index: 99;
+
+    top: 8rem;
+    left: 100vw;
+    transition: 250ms;
+    &.open {
+      left: 0;
+    }
+    position: absolute;
+    height: calc(100vh - 8rem);
+    width: 100vw;
+    background-color: #101c24cc;
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 1rem;
+
+    a {
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
 `;
 
 const Navbar = () => {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
 
   return (
     <StyledNavbar>
@@ -58,6 +116,49 @@ const Navbar = () => {
         alt="Logo"
       />
       <div className="links">
+        <Link href="/" className={router.pathname == "/" ? "active" : ""}>
+          Úvod
+        </Link>
+        <Link
+          href="/sluzby"
+          className={router.pathname == "/sluzby" ? "active" : ""}
+        >
+          Služby
+        </Link>
+        <Link
+          href="/cenik"
+          className={router.pathname == "/cenik" ? "active" : ""}
+        >
+          Ceník
+        </Link>
+        <Link
+          href="/realizace"
+          className={router.pathname == "/realizace" ? "active" : ""}
+        >
+          Realizace
+        </Link>
+        <Link
+          href="/vozidla"
+          className={router.pathname == "/vozidla" ? "active" : ""}
+        >
+          Značky vozidel
+        </Link>
+        <Link
+          href="/kontakt"
+          className={router.pathname == "/kontakt" ? "active" : ""}
+        >
+          Kontakt
+        </Link>
+      </div>
+      <svg
+        className={open ? "open" : ""}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+        onClick={() => setOpen(!open)}
+      >
+        <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+      </svg>
+      <div className={open ? "open menu" : "menu"}>
         <Link href="/" className={router.pathname == "/" ? "active" : ""}>
           Úvod
         </Link>
