@@ -121,7 +121,7 @@ const Cenik = () => {
       </Head>
       <Navbar />
       <StyledCenik>
-        <img src="./media/foto/cenik.png" alt="" />
+        <img src="./media/foto/cenik.png" alt="" style={{ width: "100%" }} />
         <h1>Náš ceník</h1>
         <section>
           <h2>Optimalizace výkonu</h2>

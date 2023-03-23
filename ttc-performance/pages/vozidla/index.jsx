@@ -85,7 +85,11 @@ const Vozidla = () => {
       </Head>
       <Navbar />
       <StyledRealizace>
-        <img src="./media/foto/realizace.png" alt="" />
+        <img
+          src="./media/foto/realizace.png"
+          alt=""
+          style={{ width: "100%" }}
+        />
         <h1>Značky vozidel</h1>
         <div className="container">
           <Link href="/vozidla/osobni">

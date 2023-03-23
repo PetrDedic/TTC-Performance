@@ -158,7 +158,7 @@ const Sluzby = () => {
       </Head>
       <Navbar />
       <StyledSluzby>
-        <img src="./media/foto/sluzby.png" alt="" />
+        <img src="./media/foto/sluzby.png" alt="" style={{ width: "100%" }} />
         <h1>Naše služby</h1>
         <section>
           <div className="text">
