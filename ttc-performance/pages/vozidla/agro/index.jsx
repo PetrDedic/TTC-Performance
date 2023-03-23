@@ -3877,7 +3877,7 @@ const Vozidla = () => {
         </ScrollContainer>
 
         {filteredData.map((item) => (
-          <ul key={item}>
+          <ul key={item?.params}>
             {item?.params?.map((par) => {
               const first = par.split(" ")[0];
               const second = par.split(" ")[1];

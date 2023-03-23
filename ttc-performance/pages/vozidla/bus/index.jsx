@@ -276,11 +276,26 @@ const cars = [
   {
     name: "Volvo Bus",
     params: [
-      "Bus SB EURO 3 SB-230 9.2 V6 310 228kW / 310PS",
-      "Bus SB EURO 5 SB-180 6.7 V6 255 188kW / 256PS",
-      "Bus SB EURO 5 SB-200 6.7 V6 256 188kW / 256PS",
-      "Bus SB EURO 6 SB-200 6.7 V6 255 188kW / 256PS",
-      "Bus SB EURO 6 SB-230 8.7 V6 310 228kW / 310PS",
+      "7700 6l R6 158kW / 215PS",
+      "7700 6l R6 183kW / 249PS",
+      "7700 6l R6 202kW / 275PS",
+      "Volvo Bus 7900 280kW / 381PS",
+      "8700 D12D 12.1 R6 250kW / 340PS",
+      "8900 7,2l D7F E5 213kW / 290PS",
+      "8900 9,4l D9B E5 280kW / 381PS",
+      "9500 D9B 9,4l E5 280kW / 381PS",
+      "9700 D12D 12.1 R6 309kW / 420PS",
+      "9700 D12D 12.1 R6 250kW / 340PS",
+      "9700 D12D 12.1 R6 279kW / 379PS",
+      "9700 D13B 12.8 E5 353kW / 480PS",
+      "9900 D12D 12.1 R6 309kW / 420PS",
+      "9900 D13B 12,8l E3 353kW / 480PS",
+      "EURO 3 12.1 V6 340 250kW / 340PS",
+      "EURO 3 12.1 V6 380 279kW / 379PS",
+      "EURO 3 12.1 V6 420 309kW / 420PS",
+      "EURO 4 12.1 V6 420 309kW / 420PS",
+      "EURO 4 12.1 V6 460 339kW / 461PS",
+      "EURO 5 12.1 V6 340 250kW / 340PS",
     ],
   },
 ];
@@ -321,7 +336,7 @@ const Vozidla = () => {
         </ScrollContainer>
 
         {filteredData.map((item) => (
-          <ul key={item}>
+          <ul key={item?.params}>
             {item?.params?.map((par) => {
               const first = par.split(" ")[0];
               const second = par.split(" ")[1];
