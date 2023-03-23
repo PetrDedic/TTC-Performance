@@ -2287,19 +2287,28 @@ const Vozidla = () => {
         {filteredData.map((item) => (
           <ul key={item?.params}>
             {item?.params?.map((par) => {
-              const first = par.split(" ")[0];
-              const second = par.split(" ")[1];
-              var parts = par.split(" ");
-              parts.shift();
-              parts.shift();
-              return (
-                <li key={par}>
-                  <span>
-                    {first} {second}
-                  </span>{" "}
-                  {parts.join(" ")}
-                </li>
-              );
+              try {
+                const first = par.split(" ")[0];
+                const second = par.split(" ")[1];
+                var parts = par.split(" ");
+                parts.shift();
+                parts.shift();
+                return (
+                  <li key={par}>
+                    <span>
+                      {first} {second}
+                    </span>{" "}
+                    {parts.join(" ")}
+                  </li>
+                );
+              } catch (error) {
+                return (
+                  <li>
+                    Žádné informace o modelu, prosím, kontaktujte nás v případě
+                    zájmu.
+                  </li>
+                );
+              }
             })}
           </ul>
         ))}
