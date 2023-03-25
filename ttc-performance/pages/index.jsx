@@ -258,73 +258,93 @@ const Main = styled.main`
     }
   }
 
-  .boxes {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    gap: 2rem;
+  .box {
+    margin: 8rem auto;
 
-    .card {
-      background-color: white;
-      width: calc(40% - 4rem);
-      height: auto;
-      padding: 2rem;
-      border-radius: 1rem;
-      min-height: 20vh;
+    h2 {
+      font-size: 5rem;
+      letter-spacing: -4px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 4rem;
 
       @media (max-width: 1280px) {
-        width: calc(80% - 4rem);
+        text-align: center;
+        font-size: 3.5rem;
+        letter-spacing: 0px;
+      }
+      @media (max-width: 600px) {
+        font-size: 2rem !important;
+      }
+    }
+    .boxes {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      gap: 2rem;
 
-        &:nth-of-type(1) {
-          background-color: #fff !important;
-          color: #101c24 !important;
+      .card {
+        background-color: white;
+        width: calc(40% - 4rem);
+        height: auto;
+        padding: 2rem;
+        border-radius: 1rem;
+        min-height: 20vh;
+
+        @media (max-width: 1280px) {
+          width: calc(80% - 4rem);
+
+          &:nth-of-type(1) {
+            background-color: #fff !important;
+            color: #101c24 !important;
+          }
+
+          &:nth-of-type(2) {
+            background-color: #101c24;
+            color: white;
+          }
         }
 
-        &:nth-of-type(2) {
+        @media (max-width: 900px) {
+          h4 {
+            text-align: center;
+            font-size: 1.5rem !important;
+            font-weight: 900 !important;
+          }
+
+          p {
+            font-size: 1rem !important;
+            font-weight: 500 !important;
+            text-align: center;
+          }
+        }
+
+        &:nth-of-type(1) {
           background-color: #101c24;
           color: white;
         }
-      }
+        &:nth-of-type(4) {
+          background-color: #101c24;
+          color: white;
+        }
 
-      @media (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
         h4 {
           text-align: center;
-          font-size: 1.5rem !important;
-          font-weight: 900 !important;
+          font-size: 2.5rem;
+          font-weight: 900;
         }
 
         p {
-          font-size: 1rem !important;
-          font-weight: 500 !important;
+          font-size: 1.5rem;
+          font-weight: 500;
           text-align: center;
         }
-      }
-
-      &:nth-of-type(1) {
-        background-color: #101c24;
-        color: white;
-      }
-      &:nth-of-type(4) {
-        background-color: #101c24;
-        color: white;
-      }
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      h4 {
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: 900;
-      }
-
-      p {
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-align: center;
       }
     }
   }
@@ -575,27 +595,30 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="boxes">
-          <div className="card">
-            <h4>Dopravní technika</h4>
-            <p>nákladní vozy / autobusy</p>
-            <p>dodávky / obytné vozy</p>
-          </div>
-          <div className="card">
-            <h4>Zemědělská technika</h4>
-            <p>traktory / kombajny</p>
-            <p>manipulátory / řezačky</p>
-          </div>
-          <div className="card">
-            <h4>Stavební technika</h4>
-            <p>bagry / nakladače</p>
-            <p>rypadla / traktorbagry</p>
-            <p>drtiče</p>
-          </div>
-          <div className="card">
-            <h4>Lesní technika</h4>
-            <p>harvestory / vyvážecí soupravy</p>
-            <p>lesní traktory</p>
+        <div className="box">
+          <h2>Naše zaměření</h2>
+          <div className="boxes">
+            <div className="card">
+              <h4>Dopravní technika</h4>
+              <p>nákladní vozy / autobusy</p>
+              <p>dodávky / obytné vozy</p>
+            </div>
+            <div className="card">
+              <h4>Zemědělská technika</h4>
+              <p>traktory / kombajny</p>
+              <p>manipulátory / řezačky</p>
+            </div>
+            <div className="card">
+              <h4>Stavební technika</h4>
+              <p>bagry / nakladače</p>
+              <p>rypadla / traktorbagry</p>
+              <p>drtiče</p>
+            </div>
+            <div className="card">
+              <h4>Lesní technika</h4>
+              <p>harvestory / vyvážecí soupravy</p>
+              <p>lesní traktory</p>
+            </div>
           </div>
         </div>
         <div className="diagnose">
@@ -614,9 +637,6 @@ export default function Home() {
           <p>
             Služba je poskytována formou mobilního chiptuningu po celé České
             republice a také za Vámi přijedeme na Slovensko nebo do Polska.
-          </p>
-          <p>
-            Pokud stále váháte, nabízíme na 30 dní úpravu na zkoušku zdarma!
           </p>
         </div>
       </Main>

@@ -14,15 +14,55 @@ const StyledSluzby = styled.main`
 
   color: #101c24;
 
-  h1 {
-    font-size: 5rem;
-    @media (max-width: 1280px) {
-      font-size: 4rem;
+  .hero {
+    margin-bottom: 8rem;
+    width: 100vw;
+    height: 50vh;
+
+    @media (max-width: 900px) {
+      height: 90vh;
     }
-    letter-spacing: -4px;
-    font-weight: 900;
-    text-align: center;
-    margin: 8rem 0;
+
+    background-image: url("./media/foto/sluzby.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    color: white;
+
+    div {
+      align-self: center;
+      text-align: center;
+
+      h1 {
+        font-size: 6rem;
+        font-weight: bolder;
+        line-height: 4.75rem;
+
+        @media (max-width: 1280px) {
+          font-size: 4rem;
+        }
+        @media (max-width: 600px) {
+          font-size: 3rem;
+        }
+      }
+      p {
+        font-size: 4rem;
+        font-weight: 100;
+        letter-spacing: 0.25rem;
+
+        @media (max-width: 1280px) {
+          font-size: 3rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 2rem;
+        }
+      }
+    }
   }
 
   section {
@@ -63,9 +103,9 @@ const StyledSluzby = styled.main`
 
         margin-right: auto;
 
-        -webkit-box-shadow: -48px 32px 0px 0px rgba(200, 196, 204, 1) !important;
-        -moz-box-shadow: -48px 32px 0px 0px rgba(200, 196, 204, 1) !important;
-        box-shadow: -48px 32px 0px 0px rgba(200, 196, 204, 1) !important;
+        -webkit-box-shadow: -48px 48px 0px 0px #c3c7ca !important;
+        -moz-box-shadow: -48px 48px 0px 0px #c3c7ca !important;
+        box-shadow: -48px 48px 0px 0px #c3c7ca !important;
       }
     }
 
@@ -118,9 +158,9 @@ const StyledSluzby = styled.main`
           margin: auto !important;
         }
 
-        -webkit-box-shadow: 48px 32px 0px 0px rgba(200, 196, 204, 1);
-        -moz-box-shadow: 48px 32px 0px 0px rgba(200, 196, 204, 1);
-        box-shadow: 48px 32px 0px 0px rgba(200, 196, 204, 1);
+        -webkit-box-shadow: 48px 48px 0px 0px #c3c7ca;
+        -moz-box-shadow: 48px 48px 0px 0px #c3c7ca;
+        box-shadow: 48px 48px 0px 0px #c3c7ca;
       }
     }
   }
@@ -158,8 +198,11 @@ const Sluzby = () => {
       </Head>
       <Navbar />
       <StyledSluzby>
-        <img src="./media/foto/sluzby.png" alt="" style={{ width: "100%" }} />
-        <h1>Naše služby</h1>
+        <div className="hero">
+          <div>
+            <h1>Naše služby</h1>
+          </div>
+        </div>
         <section>
           <div className="text">
             <ul>
@@ -174,7 +217,7 @@ const Sluzby = () => {
             </ul>
           </div>
           <div className="image">
-            <img src="./media/truck.png" alt="" />
+            <img src="./media/IMG_3355-min.png" alt="" />
           </div>
         </section>
         <section className="reverse">
@@ -199,7 +242,7 @@ const Sluzby = () => {
             </ul>
           </div>
           <div className="image">
-            <img src="./media/truck2.png" alt="" />
+            <img src="./media/IMG_0758-min.png" alt="" />
           </div>
         </section>
         <div className="end-text">

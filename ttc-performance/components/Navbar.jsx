@@ -79,7 +79,7 @@ const StyledNavbar = styled.div`
     z-index: 99;
 
     top: 8rem;
-    left: 100vw;
+    left: 105vw;
     transition: 250ms;
     &.open {
       left: 0;
@@ -139,12 +139,12 @@ const Navbar = () => {
         </Link>
         <Link
           href="/vozidla"
-          className={router.pathname == "/vozidla" ? "active" : ""}
+          className={router.pathname.includes("/vozidla") ? "active" : ""}
         >
           Značky vozidel
         </Link>
         <Link
-          href="/kontakt"
+          href="#contact"
           className={router.pathname == "/kontakt" ? "active" : ""}
         >
           Kontakt

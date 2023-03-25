@@ -14,12 +14,55 @@ const StyledRealizace = styled.main`
 
   color: #101c24;
 
-  h1 {
-    font-size: 5rem;
-    letter-spacing: -4px;
-    font-weight: 900;
-    text-align: center;
-    margin: 8rem 0;
+  .hero {
+    margin-bottom: 8rem;
+    width: 100vw;
+    height: 50vh;
+
+    @media (max-width: 900px) {
+      height: 90vh;
+    }
+
+    background-image: url("./media/foto/realizace.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    color: white;
+
+    div {
+      align-self: center;
+      text-align: center;
+
+      h1 {
+        font-size: 6rem;
+        font-weight: bolder;
+        line-height: 4.75rem;
+
+        @media (max-width: 1280px) {
+          font-size: 4rem;
+        }
+        @media (max-width: 600px) {
+          font-size: 3rem;
+        }
+      }
+      p {
+        font-size: 4rem;
+        font-weight: 100;
+        letter-spacing: 0.25rem;
+
+        @media (max-width: 1280px) {
+          font-size: 3rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 2rem;
+        }
+      }
+    }
   }
 
   .container {
@@ -32,34 +75,69 @@ const StyledRealizace = styled.main`
       flex-wrap: wrap;
       gap: 6rem;
     }
-    gap: 12rem;
+    gap: 6rem;
 
     .card {
-      width: 12rem;
-      height: 14rem;
+      width: 25vw;
+      height: 12rem;
       padding: 1rem;
+      @media (max-width: 1600px) {
+        width: 30vw;
+      }
+      @media (max-width: 1280px) {
+        width: 80vw;
+      }
+      @media (max-width: 600px) {
+        img,
+        svg {
+          margin: 2rem !important;
+        }
+
+        height: 8rem;
+
+        p {
+          font-size: 1.25rem;
+        }
+      }
 
       display: flex;
-      flex-direction: column;
+      flex-direction: row-reverse;
+      justify-content: center;
 
       border-radius: 2rem;
       background-color: #101c24;
       color: white;
-      font-size: 1.55rem;
+      font-size: 1.5rem;
       text-align: center;
 
       p {
-        margin-top: auto;
+        align-self: center;
+        text-align: left;
+        height: max-content;
+        width: min-content;
+        border-left: 2px white solid;
+        padding-left: 2rem;
       }
 
       img {
-        padding: 2.5rem;
-        padding-top: 1.5rem;
+        height: calc(100% - 4rem);
+        width: auto;
+        object-fit: contain;
+        margin: 2rem;
       }
       svg {
-        padding: 1.5rem;
+        height: calc(100% - 4rem);
+        width: auto;
+        margin: 2rem;
       }
     }
+  }
+
+  p.text {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -77,12 +155,11 @@ const Realizace = () => {
       </Head>
       <Navbar />
       <StyledRealizace>
-        <img
-          src="./media/foto/realizace.png"
-          alt=""
-          style={{ width: "100%" }}
-        />
-        <h1>Realizace</h1>
+        <div className="hero">
+          <div>
+            <h1>Realizace</h1>
+          </div>
+        </div>
         <div className="container">
           <div className="card">
             <p>Zemědělská vozidla</p>
@@ -121,6 +198,11 @@ const Realizace = () => {
             <img src="./media/icons/const.png" alt="" />
           </div>
         </div>
+        <p className="text">
+          Všechny naše úpravy ladíme do nejmenšího detailu!
+          <br /> V případě vašeho zájmu jsme však schopni připravit úpravu
+          řídící jednotky téměř libovolného typu.
+        </p>
         <p>&#8203;</p>
       </StyledRealizace>
       <Footer />

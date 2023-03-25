@@ -14,18 +14,54 @@ const StyledCenik = styled.main`
 
   color: #101c24;
 
-  h1 {
-    font-size: 5rem;
-    letter-spacing: -4px;
-    font-weight: 900;
-    text-align: center;
-    margin: 8rem 0;
+  .hero {
+    margin-bottom: 8rem;
+    width: 100vw;
+    height: 50vh;
 
-    @media (max-width: 1280px) {
-      font-size: 4rem;
+    @media (max-width: 900px) {
+      height: 90vh;
     }
-    @media (max-width: 600px) {
-      font-size: 3rem;
+
+    background-image: url("./media/foto/cenik.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    color: white;
+
+    div {
+      align-self: center;
+      text-align: center;
+
+      h1 {
+        font-size: 6rem;
+        font-weight: bolder;
+        line-height: 4.75rem;
+
+        @media (max-width: 1280px) {
+          font-size: 4rem;
+        }
+        @media (max-width: 600px) {
+          font-size: 3rem;
+        }
+      }
+      p {
+        font-size: 4rem;
+        font-weight: 100;
+        letter-spacing: 0.25rem;
+
+        @media (max-width: 1280px) {
+          font-size: 3rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 2rem;
+        }
+      }
     }
   }
 
@@ -105,6 +141,118 @@ const StyledCenik = styled.main`
       }
     }
   }
+
+  .box {
+    margin: 8rem auto;
+
+    h2 {
+      font-size: 5rem;
+      letter-spacing: -4px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 4rem;
+
+      @media (max-width: 1280px) {
+        text-align: center;
+        font-size: 3.5rem;
+        letter-spacing: 0px;
+      }
+      @media (max-width: 600px) {
+        font-size: 2rem !important;
+      }
+    }
+    .boxes {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      gap: 2rem;
+
+      .card {
+        background-color: white;
+        width: calc(40% - 4rem);
+        height: auto;
+        padding: 2rem;
+        border-radius: 1rem;
+        min-height: 20vh;
+
+        @media (max-width: 1280px) {
+          width: calc(80% - 4rem);
+
+          &:nth-of-type(1) {
+            background-color: #fff !important;
+            color: #101c24 !important;
+          }
+
+          &:nth-of-type(2) {
+            background-color: #101c24;
+            color: white;
+          }
+        }
+
+        @media (max-width: 900px) {
+          h4 {
+            text-align: center;
+            font-size: 1.5rem !important;
+            font-weight: 900 !important;
+          }
+        }
+
+        &:nth-of-type(1) {
+          background-color: #101c24;
+          color: white;
+        }
+        &:nth-of-type(4) {
+          background-color: #101c24;
+          color: white;
+        }
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h4 {
+          text-align: center;
+          font-size: 2.5rem;
+          font-weight: 900;
+        }
+
+        p {
+          font-size: 1rem;
+          font-weight: 500;
+          text-align: left;
+          display: flex;
+          justify-content: space-between;
+          margin: 0.5rem 0;
+
+          span {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: right;
+          }
+
+          @media (max-width: 900px) {
+            margin: 1rem 0;
+            flex-direction: column;
+            gap: 0.25rem;
+            text-align: center;
+
+            span {
+              text-align: center !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  p.text {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
 `;
 
 const Cenik = () => {
@@ -121,70 +269,74 @@ const Cenik = () => {
       </Head>
       <Navbar />
       <StyledCenik>
-        <img src="./media/foto/cenik.png" alt="" style={{ width: "100%" }} />
-        <h1>Náš ceník</h1>
-        <section>
-          <h2>Optimalizace výkonu</h2>
-          <ul>
-            <li>
-              nákladní automobily obsah motoru do 7 000 ccm{" "}
-              <span>- 15 200 Kč</span>
-            </li>
-            <li>
-              nákladní automobily obsah motoru nad 7 000 ccm{" "}
-              <span>- 20 200 Kč</span>
-            </li>
-            <li>
-              zemědělské stroje <span>- 20 200 Kč</span>
-            </li>
-            <li>
-              stavební stroje <span>- od 23 200 Kč</span> (dle systému)
-            </li>
-            <li>
-              osobní automobily <span>- od 3 500 Kč</span> (dle systému)
-            </li>
-          </ul>
-        </section>
-        <section className="reverse">
-          <h2>Deaktivace SCR (AdBlue) / DPF</h2>
-          <ul>
-            <li>
-              nákladní automobily <span>- 22 200 Kč</span>
-            </li>
-            <li>
-              zemědělské stroje <span>- 22 200 Kč</span>
-            </li>
-            <li>
-              stavební stroje <span>- od 25 200 Kč </span> (dle systému)
-            </li>
-          </ul>
-          <p>
-            Deaktivace EGR <span>- 18 200 Kč</span>
-          </p>
-          <p>
-            Vypnutí chybových kódů DTC <span>- od 8000 Kč</span>
-          </p>
-          <p>
-            Plnění klimatizace <span>- od 400 Kč</span>
-          </p>
-        </section>
-        <section>
-          <h2>Diagnostika</h2>
-          <ul>
-            <li>
-              osobní automobily <span>- 400 Kč</span>
-            </li>
-            <li>
-              nákladní automobily <span>- 1 200 Kč</span>
-            </li>
-            <li>
-              stavební stroje <span>- od 25 200 Kč </span> (dle systému)
-            </li>
-          </ul>
-          <p>
-            Další úpravy <span>- dle dohody</span>
-          </p>
-        </section>
+        <div className="hero">
+          <div>
+            <h1>Náš ceník</h1>
+          </div>
+        </div>
+        <div className="box">
+          <div className="boxes">
+            <div className="card">
+              <p>
+                Chiptuning os. vozy <span>od 4.500,- Kč</span>
+              </p>
+              <p>
+                Chiptuning nákladní/bus do 7l <span>15.000,-Kč</span>
+              </p>
+              <p>
+                Chiptuning nákladní/bus od 7l <span>25.000,-Kč</span>
+              </p>
+            </div>
+            <div className="card">
+              <p>
+                Oprava systému AD Blue/DPF truck/bus <span>25.000,-Kč</span>
+              </p>
+              <p>
+                Odstranění funkce EGR ventilu <span>18.000,-Kč</span>
+              </p>
+              <p>
+                Snížení dávky vstřikování AD Blue E6 <span>22.000,-Kč</span>
+              </p>
+            </div>
+            <div className="card">
+              <p>
+                Odstranění nouzového režimu E4,E5 <span>15.000,-Kč</span>
+              </p>
+              <p>
+                Odstranění nouzového režimu E6 <span>20.000,-Kč</span>
+              </p>
+              <p>
+                Chiptuning agro <span>25.000,-Kč</span>
+              </p>
+              <p>
+                Oprava systému AD Blue/DPF agro
+                <span>od 25.000,-Kč (dle výrobce motoru/ECU)</span>
+              </p>
+            </div>
+            <div className="card">
+              <p>
+                Chiptuning stavební/lesní
+                <span>od 32.000,-Kč (dle výrobce motoru/ECU)</span>
+              </p>
+              <p>
+                Oprava systému AD Blue/DPF stavební/lesní
+                <span>od 32.000,-Kč (dle výrobce motoru/ECU)</span>
+              </p>
+              <p>
+                Odstranění funkce DPF, chiptuning{" "}
+                <span>+ 10.000,-Kč ( k AD blue off, EGR off atd)</span>
+              </p>
+              <p>
+                Opakovaný chiptuning po přehrání v autorizovaném servisu :
+                výjezd <span>3.000,-Kč</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <p className="text">
+          Další úpravy a žádosti na vozidlech ceníme dle dohody.
+        </p>
+
         <p>&#8203;</p>
       </StyledCenik>
       <Footer />

@@ -56,7 +56,7 @@ const StyledFooter = styled.footer`
 
 const Footer = () => {
   return (
-    <StyledFooter>
+    <StyledFooter id="contact">
       <div className="flex">
         <div className="map">
           <iframe

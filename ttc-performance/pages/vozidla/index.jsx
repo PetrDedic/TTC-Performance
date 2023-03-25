@@ -15,12 +15,55 @@ const StyledRealizace = styled.main`
 
   color: #101c24;
 
-  h1 {
-    font-size: 5rem;
-    letter-spacing: -4px;
-    font-weight: 900;
-    text-align: center;
-    margin: 8rem 0;
+  .hero {
+    margin-bottom: 8rem;
+    width: 100vw;
+    height: 50vh;
+
+    @media (max-width: 900px) {
+      height: 90vh;
+    }
+
+    background-image: url("../../media/foto/vozidla.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    color: white;
+
+    div {
+      align-self: center;
+      text-align: center;
+
+      h1 {
+        font-size: 6rem;
+        font-weight: bolder;
+        line-height: 4.75rem;
+
+        @media (max-width: 1280px) {
+          font-size: 4rem;
+        }
+        @media (max-width: 600px) {
+          font-size: 3rem;
+        }
+      }
+      p {
+        font-size: 4rem;
+        font-weight: 100;
+        letter-spacing: 0.25rem;
+
+        @media (max-width: 1280px) {
+          font-size: 3rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 2rem;
+        }
+      }
+    }
   }
 
   .container {
@@ -43,6 +86,10 @@ const StyledRealizace = styled.main`
       width: 12rem;
       height: 14rem;
       padding: 1rem;
+
+      -webkit-box-shadow: -16px 16px 0px 0px #c3c7ca;
+      -moz-box-shadow: -16px 16px 0px 0px #c3c7ca;
+      box-shadow: -16px 16px 0px 0px #c3c7ca;
 
       display: flex;
       flex-direction: column;
@@ -85,12 +132,11 @@ const Vozidla = () => {
       </Head>
       <Navbar />
       <StyledRealizace>
-        <img
-          src="./media/foto/realizace.png"
-          alt=""
-          style={{ width: "100%" }}
-        />
-        <h1>Značky vozidel</h1>
+        <div className="hero">
+          <div>
+            <h1>Značky vozidel</h1>
+          </div>
+        </div>
         <div className="container">
           <Link href="/vozidla/osobni">
             <div className="card">
