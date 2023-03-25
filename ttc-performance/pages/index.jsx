@@ -19,6 +19,10 @@ const Main = styled.main`
     width: 100vw;
     height: 100vh;
 
+    @media (max-width: 900px) {
+      height: 90vh;
+    }
+
     background-image: url("./media/foto/jay-huang-aeouwx28n6M-unsplash.jpg");
     background-size: cover;
     background-position: center;
@@ -143,7 +147,7 @@ const Main = styled.main`
 
     &.reverse {
       flex-direction: row-reverse;
-      background: #101c24b2;
+      background: #101c24;
       border-radius: 2rem;
       background-repeat: no-repeat;
       background-size: cover 75%;
@@ -151,6 +155,18 @@ const Main = styled.main`
       padding: 2rem 0;
 
       color: white;
+
+      ul {
+        list-style: none;
+        font-size: 1.25rem;
+
+        color: #dcdcdc;
+
+        span {
+          color: #fff;
+          font-weight: 700;
+        }
+      }
 
       h2 {
         font-size: 4.5rem !important;
@@ -175,6 +191,10 @@ const Main = styled.main`
           margin: auto !important;
         }
       }
+
+      img {
+        box-shadow: none !important;
+      }
     }
 
     .text {
@@ -182,6 +202,13 @@ const Main = styled.main`
       display: flex;
       flex-direction: column;
       align-self: center;
+
+      ul {
+        list-style: none;
+        font-size: 1.25rem;
+        padding-left: 0;
+        text-align: justify;
+      }
 
       gap: 1rem;
 
@@ -194,6 +221,7 @@ const Main = styled.main`
         @media (max-width: 1280px) {
           text-align: center;
           font-size: 3.5rem;
+          letter-spacing: 0px;
         }
         @media (max-width: 600px) {
           font-size: 2rem !important;
@@ -203,6 +231,10 @@ const Main = styled.main`
       ul li {
         font-size: 1.75rem;
         margin: 1.5rem 0;
+
+        @media (max-width: 900px) {
+          font-size: 1.25rem;
+        }
       }
     }
 
@@ -219,9 +251,80 @@ const Main = styled.main`
         object-fit: cover;
         border-radius: 1.5rem;
 
-        -webkit-box-shadow: -48px 32px 0px 0px rgba(200, 196, 204, 1);
-        -moz-box-shadow: -48px 32px 0px 0px rgba(200, 196, 204, 1);
-        box-shadow: -48px 32px 0px 0px rgba(200, 196, 204, 1);
+        -webkit-box-shadow: -48px 48px 0px 0px #c3c7ca;
+        -moz-box-shadow: -48px 48px 0px 0px #c3c7ca;
+        box-shadow: -48px 48px 0px 0px #c3c7ca;
+      }
+    }
+  }
+
+  .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    gap: 2rem;
+
+    .card {
+      background-color: white;
+      width: calc(40% - 4rem);
+      height: auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      min-height: 20vh;
+
+      @media (max-width: 1280px) {
+        width: calc(80% - 4rem);
+
+        &:nth-of-type(1) {
+          background-color: #fff !important;
+          color: #101c24 !important;
+        }
+
+        &:nth-of-type(2) {
+          background-color: #101c24;
+          color: white;
+        }
+      }
+
+      @media (max-width: 900px) {
+        h4 {
+          text-align: center;
+          font-size: 1.5rem !important;
+          font-weight: 900 !important;
+        }
+
+        p {
+          font-size: 1rem !important;
+          font-weight: 500 !important;
+          text-align: center;
+        }
+      }
+
+      &:nth-of-type(1) {
+        background-color: #101c24;
+        color: white;
+      }
+      &:nth-of-type(4) {
+        background-color: #101c24;
+        color: white;
+      }
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h4 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 900;
+      }
+
+      p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
       }
     }
   }
@@ -243,6 +346,7 @@ const Main = styled.main`
       @media (max-width: 1280px) {
         text-align: center;
         font-size: 3.5rem;
+        letter-spacing: 0px;
       }
       @media (max-width: 600px) {
         font-size: 2rem !important;
@@ -314,6 +418,7 @@ const Main = styled.main`
       @media (max-width: 1280px) {
         text-align: center;
         font-size: 3.5rem;
+        letter-spacing: 0px;
       }
       @media (max-width: 600px) {
         font-size: 2.5rem !important;
@@ -407,33 +512,46 @@ export default function Home() {
           <div className="text">
             <h2>Nejlepší v ČR!</h2>
             <ul>
-              <li>schválený Ministerstvem dopravy ČR</li>
-              <li>vždy měřený na válcové zkušebně 4x4</li>
-              <li>s podrobnou diagnostikou a emisním testem</li>
-              <li>s protokoly a certifkátem o provedené úpravě</li>
-              <li>s certifikací kvality ISO9001:2016 a auditem TÜV SÜD</li>
-              <li>s možností převzetí tovární záruky</li>
+              <li>
+                Vítejte na webových stránkách naší společnosti, která se zabývá
+                úpravou software v řídících jednotkách motorů.
+              </li>
+              <li>
+                Provádíme diagnostiku vozidel a strojů, zhotovíme optimalizaci
+                výkonové křivky - chiptuning, řešíme chybová hlášení a výstražné
+                kontrolky, upravujeme emisní systém AD blue, DPF filtry, EGR
+                ventily, snížený výkon motoru – nouzový režim.
+              </li>
             </ul>
           </div>
           <div className="image">
             <img src="./media/kombajn.jpg" alt="" />
           </div>
         </section>
-        <section className="reverse">
-          <div className="text">
-            <h2>Softwarové úpravy</h2>
-            <ul>
-              <li>nákladních automobilů</li>
-              <li>zemědělských a stavebních strojů</li>
-              <li>osobní automobily</li>
-              <li>motorky</li>
-              <li>lodě</li>
-            </ul>
-          </div>
-          <div className="image">
-            <img src="./media/traktor.jpg" alt="" />
-          </div>
-        </section>
+        <div style={{ backgroundColor: "#101c24" }}>
+          <section className="reverse">
+            <div className="text">
+              <ul>
+                <li>
+                  Našimi zákazníky jsou převážně majitelé dopravní techniky,
+                  kteří chtějí zvýšit jízdní výkon, snížit spotřebu pohonných
+                  hmot a močoviny AD blue, optimalizovat své provozní náklady za
+                  opravy a servis.
+                </li>
+                <li>
+                  K naší práci patří profesionální technika, získáváme informace
+                  o typech a elektronické výbavě motorů. Spolupracujeme se
+                  zahraničními i tuzemskými vývojáři, spojením s firmou{" "}
+                  <span>TTC Performance</span> z Kroměříže, jsme tým rozšířili o
+                  šikovné mobilní techniky, kteří přijedou až k Vám.
+                </li>
+              </ul>
+            </div>
+            <div className="image">
+              <img src="./media/traktor.jpg" alt="" />
+            </div>
+          </section>
+        </div>
         <div className="reasons">
           <h2>3 důvody pro chiptuning</h2>
           <div className="container">
@@ -455,6 +573,29 @@ export default function Home() {
               </div>
               <p>Náš chiptuning je bezpečný pro motor.</p>
             </div>
+          </div>
+        </div>
+        <div className="boxes">
+          <div className="card">
+            <h4>Dopravní technika</h4>
+            <p>nákladní vozy / autobusy</p>
+            <p>dodávky / obytné vozy</p>
+          </div>
+          <div className="card">
+            <h4>Zemědělská technika</h4>
+            <p>traktory / kombajny</p>
+            <p>manipulátory / řezačky</p>
+          </div>
+          <div className="card">
+            <h4>Stavební technika</h4>
+            <p>bagry / nakladače</p>
+            <p>rypadla / traktorbagry</p>
+            <p>drtiče</p>
+          </div>
+          <div className="card">
+            <h4>Lesní technika</h4>
+            <p>harvestory / vyvážecí soupravy</p>
+            <p>lesní traktory</p>
           </div>
         </div>
         <div className="diagnose">
