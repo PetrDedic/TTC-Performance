@@ -119,6 +119,15 @@ const StyledRealizace = styled.main`
 `;
 
 const Vozidla = () => {
+  const handleSearch = async () => {
+    fetch(
+      `/api/carModels?link=https://www.dynocheck.com/cs/catalog/detail/ducati-748-71kw`
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
+  };
+
   return (
     <>
       <Head>
@@ -134,7 +143,7 @@ const Vozidla = () => {
       <StyledRealizace>
         <div className="hero">
           <div>
-            <h1>Značky vozidel</h1>
+            <h1 onClick={() => handleSearch()}>Značky vozidel</h1>
           </div>
         </div>
         <div className="container">
