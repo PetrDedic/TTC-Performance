@@ -145,7 +145,15 @@ const Vozidla = () => {
                       })
                   );
                   const json = await res.json();
-                  setFeatures(json[0].features);
+
+                  const itemsWithIds = json.map((item) => {
+                    return {
+                      ...item,
+                      id: Math.random(),
+                    };
+                  });
+
+                  setFeatures(itemsWithIds[0].features);
                 }
                 fetchModels();
               }}
@@ -158,12 +166,12 @@ const Vozidla = () => {
         <ul>
           {features.map((feature) => {
             if (feature.tag == "h4") {
-              return <h4>{feature.mark}</h4>;
+              return <h4 key={feature.id}>{feature.mark}</h4>;
             } else if (feature.tag == "p") {
-              return <p>{feature.mark}</p>;
+              return <p key={feature.id}>{feature.mark}</p>;
             } else {
               return (
-                <li>
+                <li key={feature.id}>
                   <Link
                     href={
                       "/vozidla/" +
