@@ -1,10 +1,15 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import ScrollContainer from "react-indiana-drag-scroll";
+import { Show } from "../../../components/Show";
+import { If } from "../../../components/Show";
+import Link from "next/link";
 
 const StyledRealizace = styled.main`
-  background-image: url("./bg.svg");
+  background-image: url("../../bg.svg");
   background-size: cover;
   background-position: top;
 
@@ -21,9 +26,89 @@ const StyledRealizace = styled.main`
     text-align: center;
     margin: 8rem 0;
   }
+
+  .container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem;
+
+    .item {
+      width: auto;
+      white-space: nowrap;
+      height: 100%;
+      padding: 1rem;
+      background-color: #cfcfcf;
+      transition: 150ms;
+      font-size: 1.25rem;
+
+      &.active {
+        background-color: #101c2499;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: #101c24;
+      }
+    }
+  }
+
+  ul {
+    margin: auto;
+    width: 85vw;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    h4 {
+      font-size: 2.5rem;
+      width: 100%;
+      margin-top: 2rem;
+      font-weight: 600;
+    }
+    p {
+      margin-top: 1rem;
+      font-size: 2rem;
+      width: 100%;
+    }
+
+    li {
+      font-size: 1.25rem;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+      width: calc(50% - 1rem);
+      text-align: left;
+
+      a {
+        color: #101c24;
+      }
+    }
+  }
+
+  .nav {
+    margin: auto;
+    width: 85vw;
+  }
 `;
 
 const Vozidla = () => {
+  const [category, setCategory] = useState("");
+
+  const [brands, setBrands] = useState([]);
+  const [features, setFeatures] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch(`/api/brands?category=moto`);
+      const json = await res.json();
+      setBrands(json);
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       <Head>
@@ -38,7 +123,64 @@ const Vozidla = () => {
       <Navbar />
       <StyledRealizace>
         <img src="./media/foto/realizace.png" alt="" />
-        <h1>Moto</h1>
+        <h1>Motorky</h1>
+        <div className="nav">
+          <Link href="/vozidla">Značky vozidel</Link>
+          {` > Motorky`}
+        </div>
+        <ScrollContainer className="scroll-container container">
+          {brands.map((brand) => (
+            <div
+              key={brand.name}
+              className={category == brand.name ? "item active" : "item"}
+              onClick={() => {
+                setCategory(brand.name);
+
+                async function fetchModels() {
+                  const res = await fetch(
+                    `/api/models?` +
+                      new URLSearchParams({
+                        carName: brand.name,
+                        category: "moto",
+                      })
+                  );
+                  const json = await res.json();
+                  setFeatures(json[0].features);
+                }
+                fetchModels();
+              }}
+            >
+              <p>{brand.name}</p>
+            </div>
+          ))}
+        </ScrollContainer>
+
+        <ul>
+          {features.map((feature) => {
+            if (feature.tag == "h4") {
+              return <h4>{feature.mark}</h4>;
+            } else if (feature.tag == "p") {
+              return <p>{feature.mark}</p>;
+            } else {
+              return (
+                <li>
+                  <Link
+                    href={
+                      "/vozidla/" +
+                      feature.link.split("/")[6] +
+                      "?name=" +
+                      feature.mark +
+                      " " +
+                      category
+                    }
+                  >
+                    {feature.mark}
+                  </Link>
+                </li>
+              );
+            }
+          })}
+        </ul>
 
         <p>&#8203;</p>
       </StyledRealizace>

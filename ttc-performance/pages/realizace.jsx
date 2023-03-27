@@ -78,6 +78,9 @@ const StyledRealizace = styled.main`
     gap: 6rem;
 
     .card {
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+        0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+        0 16px 16px rgba(0, 0, 0, 0.12);
       width: 25vw;
       height: 12rem;
       padding: 1rem;
@@ -162,7 +165,7 @@ const Realizace = () => {
         </div>
         <div className="container">
           <div className="card">
-            <p>Zemědělská vozidla</p>
+            <p>Zemědělská technika</p>
             <svg
               fill="#fff"
               height="800px"

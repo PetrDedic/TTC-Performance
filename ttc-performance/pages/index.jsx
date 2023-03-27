@@ -293,6 +293,10 @@ const Main = styled.main`
         border-radius: 1rem;
         min-height: 20vh;
 
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+          0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+          0 16px 16px rgba(0, 0, 0, 0.12);
+
         @media (max-width: 1280px) {
           width: calc(80% - 4rem);
 
@@ -407,6 +411,10 @@ const Main = styled.main`
           background-color: #101c24;
           display: flex;
           align-items: center;
+
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
+            0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.12),
+            0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
 
           span {
             color: white;
@@ -558,13 +566,6 @@ export default function Home() {
                   hmot a močoviny AD blue, optimalizovat své provozní náklady za
                   opravy a servis.
                 </li>
-                <li>
-                  K naší práci patří profesionální technika, získáváme informace
-                  o typech a elektronické výbavě motorů. Spolupracujeme se
-                  zahraničními i tuzemskými vývojáři, spojením s firmou{" "}
-                  <span>TTC Performance</span> z Kroměříže, jsme tým rozšířili o
-                  šikovné mobilní techniky, kteří přijedou až k Vám.
-                </li>
               </ul>
             </div>
             <div className="image">
@@ -573,25 +574,25 @@ export default function Home() {
           </section>
         </div>
         <div className="reasons">
-          <h2>3 důvody pro chiptuning</h2>
+          <h2>3 důvody pro chiptuning u nás</h2>
           <div className="container">
             <div className="reason">
               <div>
                 <span>1.</span>
               </div>
-              <p>Všechny úpravy podrobujeme emisním testům.</p>
+              <p>Měření výkonu na válcové zkušebně 4x4 + Agro Dyno</p>
             </div>
             <div className="reason">
               <div>
                 <span>2.</span>
               </div>
-              <p>Chiptuning můžeme zapsat do TP.</p>
+              <p>Úpravy bezpečné pro motor a komponenty</p>
             </div>
             <div className="reason">
               <div>
                 <span>3.</span>
               </div>
-              <p>Náš chiptuning je bezpečný pro motor.</p>
+              <p>Garance zachování emisních limitů</p>
             </div>
           </div>
         </div>
@@ -600,6 +601,7 @@ export default function Home() {
           <div className="boxes">
             <div className="card">
               <h4>Dopravní technika</h4>
+              <p>osobní vozidla</p>
               <p>nákladní vozy / autobusy</p>
               <p>dodávky / obytné vozy</p>
             </div>
@@ -633,12 +635,7 @@ export default function Home() {
             <div>Delphi</div>
           </div>
         </div>
-        <div className="end-text">
-          <p>
-            Služba je poskytována formou mobilního chiptuningu po celé České
-            republice a také za Vámi přijedeme na Slovensko nebo do Polska.
-          </p>
-        </div>
+        <div className="end-text"></div>
       </Main>
       <Footer />
     </>

@@ -212,7 +212,7 @@ const Sluzby = () => {
               <li>
                 MOBILNÍ CHIPTUNING
                 <br />
-                <span>(celá ČR i SR)</span>
+                <span>(Truck, Agro, Harvest, Construct)</span>
               </li>
             </ul>
           </div>
@@ -238,7 +238,7 @@ const Sluzby = () => {
                   osobní a nákladní vozidla, zemědělské a stavební stroje
                 </span>
               </li>
-              <li>PLNĚNÍ KLIMATIZACE A DEZINFEKCE OZONEM</li>
+              <li>SERVIS KLIMATIZACÍ A DEZINFEKCE OZONEM</li>
             </ul>
           </div>
           <div className="image">

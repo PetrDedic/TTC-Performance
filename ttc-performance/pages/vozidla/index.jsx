@@ -161,7 +161,7 @@ const Vozidla = () => {
           </Link>
           <Link href="/vozidla/agro">
             <div className="card">
-              <p>Agro vozidla</p>
+              <p>Zemědělská technika</p>
               <img
                 src="./media/icons/tractor-agriculture-torque-construction-equipment-svgrepo-com.svg"
                 alt=""
@@ -170,13 +170,19 @@ const Vozidla = () => {
           </Link>
           <Link href="/vozidla/bus">
             <div className="card">
-              <p>Autobusová vozidla</p>
+              <p>Autobusy</p>
               <img src="./media/icons/iconmonstr-bus-5.svg" alt="" />
             </div>
           </Link>
         </div>
 
         <div className="container">
+          <Link href="/vozidla/moto">
+            <div className="card">
+              <p>Motorky</p>
+              <img src="./media/icons/motorcycle-f-svgrepo-com.svg" alt="" />
+            </div>
+          </Link>
           <Link href="/vozidla/ctyrkolky">
             <div className="card">
               <p>Čtyřkolky</p>
