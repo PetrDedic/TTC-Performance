@@ -43,23 +43,23 @@ const Main = styled.main`
         line-height: 4.75rem;
 
         @media (max-width: 1280px) {
-          font-size: 4rem;
+          font-size: 3.5rem;
         }
         @media (max-width: 600px) {
-          font-size: 3rem;
+          font-size: 2.5rem;
         }
       }
       p {
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-weight: 100;
         letter-spacing: 0.25rem;
 
         @media (max-width: 1280px) {
-          font-size: 3rem;
+          font-size: 2.5rem;
           letter-spacing: 0;
         }
         @media (max-width: 600px) {
-          font-size: 2rem;
+          font-size: 1.75rem;
         }
       }
     }
@@ -82,7 +82,7 @@ const Main = styled.main`
       flex-wrap: wrap;
       gap: 0;
       .mark {
-        margin: 1rem;
+        margin: 0.5rem;
       }
     }
 
@@ -97,7 +97,7 @@ const Main = styled.main`
       flex-direction: column;
 
       @media (max-width: 600px) {
-        width: 6rem;
+        width: 5rem;
         height: 7rem;
 
         p {
@@ -106,7 +106,7 @@ const Main = styled.main`
         }
 
         img {
-          margin: 1rem !important;
+          margin: 0.5rem 0 !important;
           height: 3rem !important;
         }
       }
@@ -229,7 +229,7 @@ const Main = styled.main`
       }
 
       ul li {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         margin: 1.5rem 0;
 
         @media (max-width: 900px) {
@@ -623,18 +623,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="diagnose">
-          <h2>Diagnostika</h2>
-          <div className="row">
-            <div>LAUNCH</div>
-            <div className="spacer">|</div>
-            <div>JALTEST</div>
-            <div className="spacer">|</div>
-            <div>WÜRTH</div>
-            <div className="spacer">|</div>
-            <div>Delphi</div>
-          </div>
-        </div>
+
         <div className="end-text"></div>
       </Main>
       <Footer />

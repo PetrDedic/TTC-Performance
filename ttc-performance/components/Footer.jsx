@@ -60,33 +60,51 @@ const Footer = () => {
       <div className="flex">
         <div className="map">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.797013450115!2d17.206229099999998!3d49.2423376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47130296060c25e1%3A0xe9c2927f66bc5632!2sCimburk%20563%2C%20768%2033%20Morkovice-Sl%C3%AD%C5%BEany-Morkovice!5e0!3m2!1scs!2scz!4v1677508256606!5m2!1scs!2scz"
+            src="https://frame.mapy.cz/s/cojetuvuvo"
             width="100%"
             height="100%"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            frameborder="0"
           ></iframe>
         </div>
         <div className="text">
           <p className="name">TTC Performance s. r. o.</p>
           <p>
-            Vlastimil Okálek
+            Kotojedy 110
             <br />
-            Cimburk 563
-            <br />
-            Morkovice-Slížany 768 33
+            76701 Kroměříž
           </p>
-          <p>IČO: 11991356</p>
-          <p>DIČ: CZ11991356</p>
           <p>
-            +420 604 892 755
+            <span style={{ fontWeight: 700 }}>Kontaktní osoby:</span>
             <br />
-            info@ttcperformance.cz
+            Technické oddělení
+            <br />
+            Vlastimil Okálek -{" "}
+            <a style={{ color: "white" }} href="tel:+420604892755">
+              604 892 755
+            </a>
+            <br />
+            <br />
+            Obchodní oddělení
+            <br />
+            Zbyněk Pitaš -{" "}
+            <a style={{ color: "white" }} href="tel:+420777684498">
+              777 684 498
+            </a>
+            <br />
+            <br />
+            Ekonomické oddělení
+            <br />
+            Ing. Pavla Okálková -{" "}
+            <a style={{ color: "white" }} href="tel:+420724226468">
+              724 226 468
+            </a>
           </p>
         </div>
       </div>
       <div className="paryn">
+        <p>IČO: 11991356</p>
+        <p>DIČ: CZ11991356</p>
+        <br />
         <p>
           TTC Performance s. r. o., Cimburk 563, 768 33 Morkovice-Slížany, +420
           604 892 755
