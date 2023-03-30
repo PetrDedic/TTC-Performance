@@ -124,15 +124,15 @@ const Vozidla = () => {
     async function fetchData() {
       const res = await fetch(`/api/brands?category=bus`);
       const json = await res.json();
-      function remove_duplicates_es6(arr) {
-        let s = new Set(arr);
-        let it = s.values();
-        return Array.from(it);
-      }
 
-      const arr = remove_duplicates_es6(json);
+      const uniqueArr = json.filter((item, index) => {
+        // Find the index of the first occurrence of the object with the same name
+        const firstIndex = json.findIndex((obj) => obj.name === item.name);
+        // Keep only the first occurrence of the object and remove the rest
+        return index === firstIndex;
+      });
 
-      setBrands(arr);
+      setBrands(uniqueArr);
     }
     fetchData();
   }, []);
