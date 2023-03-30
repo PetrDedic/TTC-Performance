@@ -33,18 +33,38 @@ const StyledRealizace = styled.main`
     display: flex;
     gap: 1.5rem;
     margin: 2rem;
+    padding: 1.5rem;
 
     .item {
       width: auto;
       white-space: nowrap;
       height: 100%;
       padding: 1rem;
-      background-color: #cfcfcf;
+      background-color: #fff;
       transition: 150ms;
       font-size: 1.25rem;
 
+      p {
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+        0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+        0 16px 16px rgba(0, 0, 0, 0.12);
+
+      img {
+        margin: auto;
+        min-width: 6rem;
+        width: 6rem;
+        min-height: 5rem;
+        height: 5rem;
+        object-fit: contain;
+      }
+
       &.active {
         background-color: #101c2499;
+        color: white;
       }
 
       &:hover {
@@ -159,6 +179,7 @@ const Vozidla = () => {
               }}
             >
               <p>{brand.name}</p>
+              <img src={"/media/brands/" + brand.name + ".jpg"} alt="" />
             </div>
           ))}
         </ScrollContainer>

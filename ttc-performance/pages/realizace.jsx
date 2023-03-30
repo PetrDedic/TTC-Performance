@@ -197,7 +197,7 @@ const Realizace = () => {
             <img src="./media/icons/car.png" alt="" />
           </div>
           <div className="card">
-            <p>Stavebvní technika</p>
+            <p>Stavební technika</p>
             <img src="./media/icons/const.png" alt="" />
           </div>
         </div>

@@ -538,7 +538,6 @@ export default function Home() {
         </div>
         <section>
           <div className="text">
-            <h2>Nejlepší v ČR!</h2>
             <ul>
               <li>
                 Vítejte na webových stránkách naší společnosti, která se zabývá
