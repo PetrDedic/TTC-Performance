@@ -124,7 +124,15 @@ const Vozidla = () => {
     async function fetchData() {
       const res = await fetch(`/api/brands?category=machines`);
       const json = await res.json();
-      setBrands(json);
+      function remove_duplicates_es6(arr) {
+        let s = new Set(arr);
+        let it = s.values();
+        return Array.from(it);
+      }
+
+      const arr = remove_duplicates_es6(json);
+
+      setBrands(arr);
     }
     fetchData();
   }, []);
