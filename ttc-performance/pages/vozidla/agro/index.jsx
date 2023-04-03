@@ -19,12 +19,56 @@ const StyledRealizace = styled.main`
 
   color: #101c24;
 
-  h1 {
-    font-size: 5rem;
-    letter-spacing: -4px;
-    font-weight: 900;
-    text-align: center;
-    margin: 8rem 0;
+  .hero {
+    margin-bottom: 8rem;
+    width: 100vw;
+    height: 50vh;
+
+    @media (max-width: 900px) {
+      height: 90vh;
+    }
+
+    background-image: url("../../media/foto/vozidla.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    color: white;
+
+    div {
+      align-self: center;
+      text-align: center;
+
+      h1 {
+        font-size: 6rem;
+        font-weight: bolder;
+        line-height: 4.75rem;
+        margin-top: 4rem;
+
+        @media (max-width: 1280px) {
+          font-size: 4rem;
+        }
+        @media (max-width: 600px) {
+          font-size: 3rem;
+        }
+      }
+      p {
+        font-size: 4rem;
+        font-weight: 100;
+        letter-spacing: 0.25rem;
+
+        @media (max-width: 1280px) {
+          font-size: 3rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 2rem;
+        }
+      }
+    }
   }
 
   .container {
@@ -92,6 +136,10 @@ const StyledRealizace = styled.main`
       margin-top: 1rem;
       font-size: 2rem;
       width: 100%;
+
+      @media (max-width: 900px) {
+        font-size: 1.5rem;
+      }
     }
 
     li {
@@ -101,6 +149,10 @@ const StyledRealizace = styled.main`
       border-radius: 0.5rem;
       width: calc(50% - 1rem);
       text-align: left;
+
+      @media (max-width: 900px) {
+        font-size: 1rem;
+      }
 
       a {
         color: #101c24;
@@ -149,8 +201,11 @@ const Vozidla = () => {
       </Head>
       <Navbar />
       <StyledRealizace>
-        <img src="./media/foto/realizace.png" alt="" />
-        <h1>Zemědělská technika</h1>
+        <div className="hero">
+          <div>
+            <h1>ZEMĚDĚLSKÁ TECHNIKA</h1>
+          </div>
+        </div>
         <div className="nav">
           <Link href="/vozidla">Značky vozidel</Link>
           {` > Zemědělská technika`}

@@ -49,7 +49,7 @@ const StyledFooter = styled.footer`
     padding: 2rem;
     @media (max-width: 1280px) {
       width: 100%;
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
   }
 `;
@@ -102,14 +102,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="paryn">
-        <p>IČO: 11991356</p>
-        <p>DIČ: CZ11991356</p>
-        <br />
-        <p>
+        <p style={{ marginBottom: "1rem" }}>IČO: 11991356 | DIČ: CZ11991356</p>
+        <p style={{ marginBottom: "1rem" }}>
           TTC Performance s. r. o., Cimburk 563, 768 33 Morkovice-Slížany, +420
           604 892 755
         </p>
-        <p>Designed by: paryn design</p>
+        <p style={{ fontWeight: "600" }}>Designed by: paryn design</p>
       </div>
     </StyledFooter>
   );

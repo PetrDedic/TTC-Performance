@@ -255,6 +255,10 @@ const StyledCenik = styled.main`
     font-weight: 700;
     text-align: center;
     margin-bottom: 4rem;
+
+    @media (max-width: 900px) {
+      font-size: 1.25rem;
+    }
   }
 `;
 
@@ -274,7 +278,7 @@ const Cenik = () => {
       <StyledCenik>
         <div className="hero">
           <div>
-            <h1>Náš ceník</h1>
+            <h1>NÁŠ CENÍK</h1>
           </div>
         </div>
         <div className="box">

@@ -141,6 +141,10 @@ const StyledRealizace = styled.main`
     font-weight: 700;
     text-align: center;
     margin-bottom: 4rem;
+
+    @media (max-width: 900px) {
+      font-size: 1.25rem;
+    }
   }
 `;
 
@@ -160,7 +164,7 @@ const Realizace = () => {
       <StyledRealizace>
         <div className="hero">
           <div>
-            <h1>Realizace</h1>
+            <h1>REALIZACE</h1>
           </div>
         </div>
         <div className="container">
@@ -203,6 +207,7 @@ const Realizace = () => {
         </div>
         <p className="text">
           Všechny naše úpravy ladíme do nejmenšího detailu!
+          <br />
           <br /> V případě vašeho zájmu jsme však schopni připravit úpravu
           řídící jednotky téměř libovolného typu.
         </p>

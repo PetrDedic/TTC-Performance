@@ -208,6 +208,19 @@ const Main = styled.main`
         font-size: 1.25rem;
         padding-left: 0;
         text-align: justify;
+        @media (max-width: 900px) {
+          text-align: left;
+        }
+
+        .bold {
+          font-size: 1.5rem;
+          font-weight: 900;
+
+          @media (max-width: 900px) {
+            font-size: 1.25rem;
+            font-weight: 700;
+          }
+        }
       }
 
       gap: 1rem;
@@ -254,6 +267,12 @@ const Main = styled.main`
         -webkit-box-shadow: -48px 48px 0px 0px #c3c7ca;
         -moz-box-shadow: -48px 48px 0px 0px #c3c7ca;
         box-shadow: -48px 48px 0px 0px #c3c7ca;
+
+        @media (max-width: 900px) {
+          -webkit-box-shadow: -16px 16px 0px 0px #c3c7ca;
+          -moz-box-shadow: -16px 16px 0px 0px #c3c7ca;
+          box-shadow: -16px 16px 0px 0px #c3c7ca;
+        }
       }
     }
   }
@@ -262,15 +281,14 @@ const Main = styled.main`
     margin: 8rem auto;
 
     h2 {
-      font-size: 5rem;
-      letter-spacing: -4px;
+      font-size: 4rem;
       font-weight: 900;
       text-align: center;
       margin-bottom: 4rem;
 
       @media (max-width: 1280px) {
         text-align: center;
-        font-size: 3.5rem;
+        font-size: 3rem;
         letter-spacing: 0px;
       }
       @media (max-width: 600px) {
@@ -362,14 +380,14 @@ const Main = styled.main`
     margin-bottom: 12rem !important;
 
     h2 {
-      font-size: 5rem;
-      letter-spacing: -4px;
+      font-size: 4rem;
       font-weight: 900;
       text-align: center;
+      letter-spacing: -4px;
 
       @media (max-width: 1280px) {
         text-align: center;
-        font-size: 3.5rem;
+        font-size: 3rem;
         letter-spacing: 0px;
       }
       @media (max-width: 600px) {
@@ -438,18 +456,18 @@ const Main = styled.main`
     margin-bottom: 12rem !important;
 
     h2 {
-      font-size: 5rem;
+      font-size: 4rem;
       letter-spacing: -4px;
       font-weight: 900;
       text-align: center;
 
       @media (max-width: 1280px) {
         text-align: center;
-        font-size: 3.5rem;
+        font-size: 3rem;
         letter-spacing: 0px;
       }
       @media (max-width: 600px) {
-        font-size: 2.5rem !important;
+        font-size: 2rem !important;
       }
     }
 
@@ -539,7 +557,7 @@ export default function Home() {
         <section>
           <div className="text">
             <ul>
-              <li>
+              <li className="bold">
                 Vítejte na webových stránkách naší společnosti, která se zabývá
                 úpravou software v řídících jednotkách motorů.
               </li>
@@ -573,7 +591,7 @@ export default function Home() {
           </section>
         </div>
         <div className="reasons">
-          <h2>3 důvody pro chiptuning u nás</h2>
+          <h2>3 DŮVODY PRO CHIPTUNING U NÁS</h2>
           <div className="container">
             <div className="reason">
               <div>
@@ -596,7 +614,7 @@ export default function Home() {
           </div>
         </div>
         <div className="box">
-          <h2>Naše zaměření</h2>
+          <h2>NAŠE ZAMĚŘENÍ</h2>
           <div className="boxes">
             <div className="card">
               <h4>Dopravní technika</h4>

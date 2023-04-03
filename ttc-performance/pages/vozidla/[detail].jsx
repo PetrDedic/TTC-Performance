@@ -19,36 +19,36 @@ const StyledDetail = styled.main`
   color: #101c24;
 
   h1 {
-    font-size: 5rem;
-    font-weight: bolder;
+    font-size: 4rem;
+    font-weight: 900;
     line-height: 4rem;
     text-align: center;
     padding: 2rem;
 
     @media (max-width: 1280px) {
-      font-size: 4rem;
+      font-size: 3rem;
     }
     @media (max-width: 600px) {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
   p.support {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 100;
     letter-spacing: 0.25rem;
     text-align: center;
 
     @media (max-width: 1280px) {
-      font-size: 2rem;
+      font-size: 1.5rem;
       letter-spacing: 0;
     }
     @media (max-width: 600px) {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
   }
   h2 {
     font-size: 4rem;
-    font-weight: bolder;
+    font-weight: 900;
     line-height: 4rem;
     text-align: center;
     padding: 2rem;
@@ -98,7 +98,7 @@ const StyledDetail = styled.main`
 
       &:nth-of-type(even) .param,
       &:nth-of-type(even) p {
-        color: crimson;
+        color: #e84048;
       }
 
       .param {
@@ -149,7 +149,7 @@ const StyledDetail = styled.main`
     .card {
       width: max-content;
       height: auto;
-      padding: 3rem;
+      padding: 3rem 2rem;
       font-size: 1.5rem;
       text-align: center;
       display: flex;
@@ -163,16 +163,21 @@ const StyledDetail = styled.main`
         0 16px 16px rgba(0, 0, 0, 0.12);
 
       &.racing p {
-        color: crimson;
-
+        color: #e84048;
+        span {
+          color: #101c24;
+        }
         span:nth-of-type(even) {
-          border-left: crimson 1px solid;
+          border-left: #101c24 1px solid;
         }
       }
       &.eco p {
         color: #39ff14;
+        span {
+          color: #101c24;
+        }
         span:nth-of-type(even) {
-          border-left: #39ff14 1px solid;
+          border-left: #101c24 1px solid;
         }
       }
 
@@ -293,7 +298,7 @@ const Detail = () => {
             </div>
             {params && params.eco ? (
               <>
-                <h2>VÍCE VERZÍ PRO ZÁKAZNÍKY</h2>
+                <h2>3 RŮZNÉ VARIANTY ÚPRAV</h2>
 
                 <div className="cards">
                   <div className="card optimal">
@@ -329,7 +334,7 @@ const Detail = () => {
                     </p>
                   </div>
                   <div className="card racing">
-                    <p className="name">ECO-FUEL</p>
+                    <p className="name">RACING+</p>
                     <p>
                       {params &&
                         params.racing.split(" ")[0].toUpperCase().slice(0, -2)}

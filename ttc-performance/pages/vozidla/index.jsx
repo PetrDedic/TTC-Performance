@@ -24,7 +24,7 @@ const StyledRealizace = styled.main`
       height: 90vh;
     }
 
-    background-image: url("../../media/foto/vozidla.png");
+    background-image: url("./media/foto/vozidla.png");
     background-size: cover;
     background-position: center;
 
@@ -42,6 +42,7 @@ const StyledRealizace = styled.main`
         font-size: 6rem;
         font-weight: bolder;
         line-height: 4.75rem;
+        margin-top: 4rem;
 
         @media (max-width: 1280px) {
           font-size: 4rem;
@@ -143,7 +144,7 @@ const Vozidla = () => {
       <StyledRealizace>
         <div className="hero">
           <div>
-            <h1 onClick={() => handleSearch()}>Značky vozidel</h1>
+            <h1 onClick={() => handleSearch()}>ZNAČKY VOZIDEL</h1>
           </div>
         </div>
         <div className="container">

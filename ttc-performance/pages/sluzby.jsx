@@ -158,6 +158,13 @@ const StyledSluzby = styled.main`
           margin: auto !important;
         }
 
+        @media (max-width: 900px) {
+          margin-top: 2rem !important;
+          -webkit-box-shadow: 16px 16px 0px 0px #c3c7ca !important;
+          -moz-box-shadow: 16px 16px 0px 0px #c3c7ca !important;
+          box-shadow: 16px 16px 0px 0px #c3c7ca !important;
+        }
+
         -webkit-box-shadow: 48px 48px 0px 0px #c3c7ca;
         -moz-box-shadow: 48px 48px 0px 0px #c3c7ca;
         box-shadow: 48px 48px 0px 0px #c3c7ca;
@@ -177,7 +184,7 @@ const StyledSluzby = styled.main`
       font-size: 2rem;
       text-align: center;
       @media (max-width: 1280px) {
-        text-align: justify;
+        text-align: center;
         font-size: 1rem;
       }
     }
@@ -200,7 +207,7 @@ const Sluzby = () => {
       <StyledSluzby>
         <div className="hero">
           <div>
-            <h1>Naše služby</h1>
+            <h1>NAŠE SLUŽBY</h1>
           </div>
         </div>
         <section>
