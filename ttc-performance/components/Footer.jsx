@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
@@ -63,6 +64,24 @@ const StyledFooter = styled.footer`
     flex-direction: row;
     gap: 2rem;
     justify-content: center;
+
+    .socials {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: center;
+
+      a {
+        display: flex;
+      }
+
+      img {
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
+        min-height: 2rem;
+      }
+    }
 
     @media (max-width: 900px) {
       flex-direction: column;
@@ -154,6 +173,18 @@ const Footer = () => {
           </div>
         </div>
         <div className="logos">
+          <div className="socials">
+            <Link href="https://www.facebook.com/ttcperformance">
+              <img src="..\..\iconmonstr-facebook-3.svg" alt="fb logo" />
+            </Link>
+            <Link href="https://www.instagram.com/vlastaokalek/">
+              <img
+                src="..\..\..\..\iconmonstr-instagram-11.svg"
+                alt="ig logo"
+              />
+            </Link>
+          </div>
+          <span></span>
           <img
             src="..\..\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
             alt="ttc logo"

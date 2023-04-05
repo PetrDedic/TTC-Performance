@@ -23,6 +23,7 @@ const StyledNavbar = styled.div`
   img {
     max-width: 75vw;
     object-fit: contain;
+    cursor: pointer;
   }
   @media (max-width: 1400px) {
     svg {
@@ -114,6 +115,7 @@ const Navbar = () => {
       <img
         src="..\..\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
         alt="Logo"
+        onClick={() => router.push("/")}
       />
       <div className="links">
         <Link href="/" className={router.pathname == "/" ? "active" : ""}>
