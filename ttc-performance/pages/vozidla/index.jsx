@@ -69,15 +69,15 @@ const StyledRealizace = styled.main`
 
   .container {
     width: 75vw;
-    margin: 0 auto 6rem auto;
+    margin: 0 auto 3rem auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
     @media (max-width: 1280px) {
       flex-wrap: wrap;
-      gap: 6rem;
+      gap: 3rem;
     }
-    gap: 12rem;
+    gap: 3rem;
 
     a {
       text-decoration: none !important;
@@ -162,11 +162,17 @@ const Vozidla = () => {
           </Link>
           <Link href="/vozidla/agro">
             <div className="card">
-              <p>Zemědělská technika</p>
+              <p>Zemědělská a lesní technika</p>
               <img
                 src="./media/icons/tractor-agriculture-torque-construction-equipment-svgrepo-com.svg"
                 alt=""
               />
+            </div>
+          </Link>
+          <Link href="/vozidla/bagry">
+            <div className="card">
+              <p>Stavební technika</p>
+              <img src="./media/icons/iconmonstr-construction-4.svg" alt="" />
             </div>
           </Link>
           <Link href="/vozidla/bus">
@@ -194,12 +200,6 @@ const Vozidla = () => {
             <div className="card">
               <p>Lodě</p>
               <img src="./media/icons/ship-boat-svgrepo-com.svg" alt="" />
-            </div>
-          </Link>
-          <Link href="/vozidla/bagry">
-            <div className="card">
-              <p>Bagry a stroje</p>
-              <img src="./media/icons/iconmonstr-construction-4.svg" alt="" />
             </div>
           </Link>
         </div>

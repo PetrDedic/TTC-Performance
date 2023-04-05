@@ -99,6 +99,7 @@ const Main = styled.main`
       @media (max-width: 600px) {
         width: 5rem;
         height: 7rem;
+        justify-content: center;
 
         p {
           padding: 0.75rem !important;
@@ -106,7 +107,7 @@ const Main = styled.main`
         }
 
         img {
-          margin: 0.5rem 0 !important;
+          margin: 0 !important;
           height: 3rem !important;
         }
       }
@@ -116,7 +117,6 @@ const Main = styled.main`
         font-size: 2rem;
         text-align: center;
         font-weight: 100;
-        height: 6rem;
       }
       img {
         padding: 0.5rem 1rem 0;
@@ -284,15 +284,16 @@ const Main = styled.main`
       font-size: 4rem;
       font-weight: 900;
       text-align: center;
-      margin-bottom: 4rem;
+      letter-spacing: -4px;
+      margin-bottom: 6rem;
 
       @media (max-width: 1280px) {
         text-align: center;
-        font-size: 3rem;
+        font-size: 2.5rem;
         letter-spacing: 0px;
       }
       @media (max-width: 600px) {
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
       }
     }
     .boxes {
@@ -360,6 +361,7 @@ const Main = styled.main`
           text-align: center;
           font-size: 2.5rem;
           font-weight: 900;
+          margin-bottom: 1rem;
         }
 
         p {
@@ -387,11 +389,11 @@ const Main = styled.main`
 
       @media (max-width: 1280px) {
         text-align: center;
-        font-size: 3rem;
+        font-size: 2.5rem;
         letter-spacing: 0px;
       }
       @media (max-width: 600px) {
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
       }
     }
 
@@ -418,6 +420,10 @@ const Main = styled.main`
           font-weight: 200;
           height: min-content;
           margin: auto;
+
+          @media (max-width: 900px) {
+            font-size: 1rem;
+          }
         }
 
         div {
@@ -442,6 +448,17 @@ const Main = styled.main`
             font-weight: 900;
             text-align: center;
           }
+
+          @media (max-width: 900px) {
+            width: 100%;
+            min-width: 4rem;
+            max-width: 4rem;
+            height: 4rem;
+            span {
+              font-size: 2rem;
+              letter-spacing: 0px;
+            }
+          }
         }
       }
     }
@@ -457,17 +474,17 @@ const Main = styled.main`
 
     h2 {
       font-size: 4rem;
-      letter-spacing: -4px;
       font-weight: 900;
       text-align: center;
+      letter-spacing: -4px;
 
       @media (max-width: 1280px) {
         text-align: center;
-        font-size: 3rem;
+        font-size: 2.5rem;
         letter-spacing: 0px;
       }
       @media (max-width: 600px) {
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
       }
     }
 

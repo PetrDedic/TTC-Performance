@@ -254,7 +254,7 @@ const StyledCenik = styled.main`
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 
     @media (max-width: 900px) {
       font-size: 1.25rem;
@@ -284,65 +284,114 @@ const Cenik = () => {
         <div className="box">
           <div className="boxes">
             <div className="card">
-              <p>
-                Chiptuning os. vozy <span>od 4.500,- Kč</span>
+              <p
+                style={{
+                  textAlign: "center",
+                  margin: "1rem auto",
+                  fontWeight: "700",
+                  fontSize: "1.25rem",
+                }}
+              >
+                Osobní a užitková vozidla
               </p>
               <p>
-                Chiptuning nákladní/bus do 7l <span>15.000,-Kč</span>
+                Chiptuning vč. měření výkonu <span>od 4.000,- Kč</span>
               </p>
               <p>
-                Chiptuning nákladní/bus od 7l <span>25.000,-Kč</span>
+                Oprava systému adblue/dpf <span>od 4.200,- Kč</span>
+              </p>
+              <p>
+                Odstranění funkce egr <span>3.000,- Kč</span>
+              </p>
+              <p>
+                Programování automatických převodovek<span>od 2.450,- Kč</span>
+              </p>
+              <p>
+                Oprava špatných teplých startů<span>od 900,- Kč</span>
+              </p>
+              <p>
+                Omezovače otáček<span>od 2.600,- Kč</span>
+              </p>
+              <p>
+                Omezovače rychlosti <span>od 900,- Kč</span>
+              </p>
+              <p>
+                Klonování řídících jednotek <span>1.500,- Kč</span>
+              </p>
+              <p>
+                Měření výkonu<span>od 2.600,- Kč</span>
               </p>
             </div>
             <div className="card">
-              <p>
-                Oprava systému AD Blue/DPF truck/bus <span>25.000,-Kč</span>
+              <p
+                style={{
+                  textAlign: "center",
+                  margin: "1rem auto",
+                  fontWeight: "700",
+                  fontSize: "1.25rem",
+                }}
+              >
+                Nákladní vozidla a autobusy
               </p>
               <p>
-                Odstranění funkce EGR ventilu <span>18.000,-Kč</span>
+                Oprava systému AD Blue/DPF truck/bus <span>25.000,- Kč</span>
               </p>
               <p>
-                Snížení dávky vstřikování AD Blue E6 <span>22.000,-Kč</span>
+                Odstranění funkce EGR ventilu <span>18.000,- Kč</span>
+              </p>
+              <p>
+                Snížení dávky vstřikování AD Blue E6 <span>22.000,- Kč</span>
+              </p>
+              <p>
+                Odstranění nouzového režimu E4,E5 <span>15.000,- Kč</span>
+              </p>
+              <p>
+                Odstranění nouzového režimu E6 <span>2.000,- Kč</span>
               </p>
             </div>
             <div className="card">
-              <p>
-                Odstranění nouzového režimu E4,E5 <span>15.000,-Kč</span>
+              <p
+                style={{
+                  textAlign: "center",
+                  margin: "1rem auto",
+                  fontWeight: "700",
+                  fontSize: "1.25rem",
+                }}
+              >
+                Zemědělská technika
               </p>
               <p>
-                Odstranění nouzového režimu E6 <span>20.000,-Kč</span>
-              </p>
-              <p>
-                Chiptuning agro <span>25.000,-Kč</span>
+                Chiptuning agro <span>25.000,- Kč</span>
               </p>
               <p>
                 Oprava systému AD Blue/DPF agro
-                <span>od 25.000,-Kč (dle výrobce motoru/ECU)</span>
+                <span>od 25.000,- Kč (dle výrobce motoru/ECU)</span>
               </p>
             </div>
             <div className="card">
+              <p
+                style={{
+                  textAlign: "center",
+                  margin: "1rem auto",
+                  fontWeight: "700",
+                  fontSize: "1.25rem",
+                }}
+              >
+                Stavební a lesní technika
+              </p>
               <p>
                 Chiptuning stavební/lesní
-                <span>od 32.000,-Kč (dle výrobce motoru/ECU)</span>
+                <span>od 32.000,- Kč (dle výrobce motoru/ECU)</span>
               </p>
               <p>
                 Oprava systému AD Blue/DPF stavební/lesní
-                <span>od 32.000,-Kč (dle výrobce motoru/ECU)</span>
-              </p>
-              <p>
-                Odstranění funkce DPF, chiptuning{" "}
-                <span>+ 10.000,-Kč ( k AD blue off, EGR off atd)</span>
-              </p>
-              <p>
-                Opakovaný chiptuning po přehrání v autorizovaném servisu :
-                výjezd <span>3.000,-Kč</span>
+                <span>od 32.000,- Kč (dle výrobce motoru/ECU)</span>
               </p>
             </div>
           </div>
         </div>
-        <p className="text">
-          Další úpravy a žádosti na vozidlech ceníme dle dohody.
-        </p>
+        <p className="text">Uvedené ceny jsou bez DPH.</p>
+        <p className="text">Další úpravy naceníme dle vašich požadavků.</p>
 
         <p>&#8203;</p>
       </StyledCenik>

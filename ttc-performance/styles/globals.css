@@ -25,14 +25,14 @@ body {
 
 @media (max-width: 1400px) {
   body {
-    line-height: 1.3;
+    line-height: 1.15;
     -webkit-font-smoothing: antialiased;
   }
 }
 
 @media (max-width: 900px) {
   body {
-    line-height: 1.2;
+    line-height: 1;
     -webkit-font-smoothing: antialiased;
   }
 }

@@ -173,7 +173,7 @@ const StyledSluzby = styled.main`
   }
 
   .end-text {
-    margin: 3rem auto 0 auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
     max-width: 70vw;
@@ -181,11 +181,11 @@ const StyledSluzby = styled.main`
     padding-bottom: 12rem !important;
 
     p {
-      font-size: 2rem;
+      font-size: 1rem;
       text-align: center;
       @media (max-width: 1280px) {
         text-align: center;
-        font-size: 1rem;
+        font-size: 0.75rem;
       }
     }
   }

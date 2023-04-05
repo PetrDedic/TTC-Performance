@@ -141,9 +141,11 @@ const StyledRealizace = styled.main`
     font-weight: 700;
     text-align: center;
     margin-bottom: 4rem;
+    max-width: 80vw;
+    margin: 0 auto 4rem auto;
 
     @media (max-width: 900px) {
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
   }
 `;

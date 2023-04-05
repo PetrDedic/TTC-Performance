@@ -3,9 +3,7 @@ import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import ScrollContainer from "react-indiana-drag-scroll";
-import { Show } from "../../../components/Show";
-import { If } from "../../../components/Show";
+
 import Link from "next/link";
 
 const StyledRealizace = styled.main`
@@ -18,6 +16,7 @@ const StyledRealizace = styled.main`
   min-height: 100vh;
 
   color: #101c24;
+
   .hero {
     margin-bottom: 8rem;
     width: 100vw;
@@ -69,26 +68,29 @@ const StyledRealizace = styled.main`
       }
     }
   }
+
   .container {
-    width: 100%;
+    width: 100vw;
     height: auto;
     display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
-    margin: 2rem;
     padding: 1.5rem;
+    justify-content: center;
 
     .item {
-      width: auto;
+      width: 8rem;
       white-space: nowrap;
-      height: 100%;
+      height: auto;
       padding: 1rem;
       background-color: #fff;
       transition: 150ms;
-      font-size: 1.25rem;
+      font-size: 1rem;
 
       p {
         text-align: center;
         margin-bottom: 0.5rem;
+        white-space: pre-wrap;
       }
 
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
@@ -97,10 +99,10 @@ const StyledRealizace = styled.main`
 
       img {
         margin: auto;
-        min-width: 6rem;
-        width: 6rem;
-        min-height: 5rem;
-        height: 5rem;
+        min-width: 4rem;
+        width: 4rem;
+        min-height: 3rem;
+        height: 3rem;
         object-fit: contain;
       }
 
@@ -118,6 +120,7 @@ const StyledRealizace = styled.main`
   }
 
   ul {
+    scroll-margin: 8rem;
     margin: auto;
     width: 85vw;
     list-style-type: none;
@@ -125,18 +128,18 @@ const StyledRealizace = styled.main`
     flex-wrap: wrap;
 
     h4 {
-      font-size: 2.5rem;
+      font-size: 1.75rem;
       width: 100%;
       margin-top: 2rem;
       font-weight: 600;
     }
     p {
       margin-top: 1rem;
-      font-size: 2rem;
+      font-size: 1.25rem;
       width: 100%;
 
       @media (max-width: 900px) {
-        font-size: 1.5rem;
+        font-size: 1.15rem;
       }
     }
 
@@ -149,11 +152,12 @@ const StyledRealizace = styled.main`
       text-align: left;
 
       @media (max-width: 900px) {
+        width: calc(100% - 1rem);
         font-size: 1rem;
       }
 
       a {
-        color: #101c24;
+        color: #e84048;
       }
     }
   }
@@ -201,20 +205,21 @@ const Vozidla = () => {
       <StyledRealizace>
         <div className="hero">
           <div>
-            <h1>BAGRY A STROJE</h1>
+            <h1>STAVEBNÍ TECHNIKA</h1>
           </div>
         </div>
         <div className="nav">
           <Link href="/vozidla">Značky vozidel</Link>
-          {` > Bagry a stroje`}
+          {` > Stavební technika`}
         </div>
-        <ScrollContainer className="scroll-container container">
+        <div className="scroll-container container">
           {brands.map((brand) => (
             <div
               key={brand.name}
               className={category == brand.name ? "item active" : "item"}
               onClick={() => {
                 setCategory(brand.name);
+                document.getElementById("list").scrollIntoView();
 
                 async function fetchModels() {
                   const res = await fetch(
@@ -242,9 +247,9 @@ const Vozidla = () => {
               <img src={"/media/brands/" + brand.name + ".jpg"} alt="" />
             </div>
           ))}
-        </ScrollContainer>
+        </div>
 
-        <ul>
+        <ul id="list">
           {features.map((feature) => {
             if (feature.tag == "h4") {
               return <h4 key={feature.id}>{feature.mark}</h4>;
