@@ -190,7 +190,7 @@ const Navbar = () => {
         </Link>
         <Link
           href="/kontakt"
-          className={router.pathname == "/kontakt" ? "active" : ""}
+          className={router.pathname == "#contact" ? "active" : ""}
         >
           Kontakt
         </Link>
