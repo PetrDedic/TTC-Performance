@@ -189,8 +189,8 @@ const Navbar = () => {
           Značky vozidel
         </Link>
         <Link
-          href="/kontakt"
-          className={router.pathname == "#contact" ? "active" : ""}
+          href="#contact"
+          className={router.pathname == "/contact" ? "active" : ""}
         >
           Kontakt
         </Link>
