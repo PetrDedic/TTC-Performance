@@ -147,6 +147,7 @@ const Navbar = () => {
         </Link>
         <Link
           href="#contact"
+          onClick={() => setOpen(false)}
           className={router.pathname == "/kontakt" ? "active" : ""}
         >
           Kontakt
@@ -190,6 +191,7 @@ const Navbar = () => {
         </Link>
         <Link
           href="#contact"
+          onClick={() => setOpen(false)}
           className={router.pathname == "/contact" ? "active" : ""}
         >
           Kontakt
