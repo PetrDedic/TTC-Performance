@@ -300,7 +300,7 @@ const Cenik = () => {
                 Oprava systému adblue/dpf <span>od 4.200,- Kč</span>
               </p>
               <p>
-                Odstranění funkce egr <span>3.000,- Kč</span>
+                Odstranění funkce egr <span>od 3.000,- Kč</span>
               </p>
               <p>
                 Programování automatických převodovek<span>od 2.450,- Kč</span>
