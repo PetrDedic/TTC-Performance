@@ -11,12 +11,11 @@ const StyledRealizace = styled.main`
 
   width: 100%;
   height: auto;
-  min-height: 100vh;
 
   color: #101c24;
 
   .hero {
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     width: 100vw;
     height: 50vh;
 

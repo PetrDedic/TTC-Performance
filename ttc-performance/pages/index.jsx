@@ -22,7 +22,7 @@ const Main = styled.main`
 
     background-image: url("./media/foto/jay-huang-aeouwx28n6M-unsplash.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: 50% 60%;
 
     display: flex;
     align-content: center;

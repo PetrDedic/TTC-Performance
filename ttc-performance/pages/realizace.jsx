@@ -10,7 +10,6 @@ const StyledRealizace = styled.main`
 
   width: 100%;
   height: auto;
-  min-height: 100vh;
 
   color: #101c24;
 
