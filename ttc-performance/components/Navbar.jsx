@@ -7,7 +7,7 @@ const StyledNavbar = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 8rem;
+  height: 5rem;
 
   display: flex;
   flex-direction: row;
@@ -28,7 +28,7 @@ const StyledNavbar = styled.div`
   @media (max-width: 1400px) {
     svg {
       display: unset;
-      height: 64px;
+      height: 32px;
       align-self: center;
       margin: 2rem;
       fill: white;
@@ -53,7 +53,7 @@ const StyledNavbar = styled.div`
     }
 
     a {
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: bold;
       color: white;
       text-decoration: none;
@@ -79,14 +79,14 @@ const StyledNavbar = styled.div`
   .menu {
     z-index: 99;
 
-    top: 8rem;
+    top: 5rem;
     left: 105vw;
     transition: 250ms;
     &.open {
       left: 0;
     }
     position: absolute;
-    height: calc(100vh - 8rem);
+    height: calc(100vh - 5rem);
     width: 100vw;
     background-color: #101c24cc;
     backdrop-filter: blur(10px);
@@ -99,7 +99,7 @@ const StyledNavbar = styled.div`
 
     a {
       color: white;
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: bold;
       text-decoration: none;
     }

@@ -41,36 +41,35 @@ const StyledRealizace = styled.main`
       text-align: center;
 
       h1 {
-        font-size: 6rem;
+        font-size: 4rem;
         font-weight: bolder;
         line-height: 4.75rem;
-        margin-top: 4rem;
-
-        @media (max-width: 1280px) {
-          font-size: 4rem;
-        }
-        @media (max-width: 600px) {
-          font-size: 3rem;
-        }
-      }
-      p {
-        font-size: 4rem;
-        font-weight: 100;
-        letter-spacing: 0.25rem;
 
         @media (max-width: 1280px) {
           font-size: 3rem;
-          letter-spacing: 0;
         }
         @media (max-width: 600px) {
           font-size: 2rem;
+        }
+      }
+      p {
+        font-size: 2rem;
+        font-weight: 100;
+
+        @media (max-width: 1280px) {
+          font-size: 1.5rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 1.5rem;
         }
       }
     }
   }
 
   .container {
-    width: 100vw;
+    width: 80vw;
+    margin: auto;
     height: auto;
     display: flex;
     flex-wrap: wrap;

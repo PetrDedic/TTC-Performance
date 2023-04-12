@@ -19,13 +19,9 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    @media (max-width: 900px) {
-      height: 90vh;
-    }
-
     background-image: url("./media/foto/sluzby.png");
     background-size: cover;
-    background-position: center;
+    background-position: 75%;
 
     display: flex;
     align-content: center;
@@ -38,28 +34,27 @@ const StyledSluzby = styled.main`
       text-align: center;
 
       h1 {
-        font-size: 6rem;
+        font-size: 4rem;
         font-weight: bolder;
         line-height: 4.75rem;
 
         @media (max-width: 1280px) {
-          font-size: 4rem;
-        }
-        @media (max-width: 600px) {
           font-size: 3rem;
-        }
-      }
-      p {
-        font-size: 4rem;
-        font-weight: 100;
-        letter-spacing: 0.25rem;
-
-        @media (max-width: 1280px) {
-          font-size: 3rem;
-          letter-spacing: 0;
         }
         @media (max-width: 600px) {
           font-size: 2rem;
+        }
+      }
+      p {
+        font-size: 2rem;
+        font-weight: 100;
+
+        @media (max-width: 1280px) {
+          font-size: 1.5rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 1.5rem;
         }
       }
     }
@@ -69,11 +64,13 @@ const StyledSluzby = styled.main`
     width: 100%;
     max-width: 75vw;
     margin: auto;
-    margin-bottom: 12rem;
+    margin-bottom: 4rem;
     height: auto;
 
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
     @media (max-width: 1280px) {
       flex-direction: column;
       margin-bottom: 4rem;
@@ -103,14 +100,14 @@ const StyledSluzby = styled.main`
 
         margin-right: auto;
 
-        -webkit-box-shadow: -48px 48px 0px 0px #c3c7ca !important;
-        -moz-box-shadow: -48px 48px 0px 0px #c3c7ca !important;
-        box-shadow: -48px 48px 0px 0px #c3c7ca !important;
+        -webkit-box-shadow: -48px 48px 0px 0px #c3c7ca7a !important;
+        -moz-box-shadow: -48px 48px 0px 0px #c3c7ca7a !important;
+        box-shadow: -48px 48px 0px 0px #c3c7ca7a !important;
       }
     }
 
     .text {
-      width: 100%;
+      width: auto;
       display: flex;
       flex-direction: column;
       align-self: center;
@@ -125,7 +122,7 @@ const StyledSluzby = styled.main`
       }
 
       ul li {
-        font-size: 2rem;
+        font-size: 1rem;
         margin: 1.5rem 0;
         font-weight: 700;
 
@@ -141,15 +138,24 @@ const StyledSluzby = styled.main`
     }
 
     .image {
+      max-width: 30vw;
       width: 100%;
       height: 100%;
+      max-height: 40vh;
       align-self: center;
 
-      img {
-        margin-left: auto;
+      @media (max-width: 900px) {
+        max-width: 70vw;
+        width: 100%;
         height: 100%;
-        max-height: 65vh;
-        width: 80%;
+        max-height: 70vh;
+      }
+
+      img {
+        max-width: 30vw;
+        width: 100%;
+        height: 100%;
+        max-height: 40vh;
         object-fit: cover;
         border-radius: 1.5rem;
 
@@ -160,14 +166,21 @@ const StyledSluzby = styled.main`
 
         @media (max-width: 900px) {
           margin-top: 2rem !important;
-          -webkit-box-shadow: 16px 16px 0px 0px #c3c7ca !important;
-          -moz-box-shadow: 16px 16px 0px 0px #c3c7ca !important;
-          box-shadow: 16px 16px 0px 0px #c3c7ca !important;
+          -webkit-box-shadow: 16px 16px 0px 0px #c3c7ca7a !important;
+          -moz-box-shadow: 16px 16px 0px 0px #c3c7ca7a !important;
+          box-shadow: 16px 16px 0px 0px #c3c7ca7a !important;
         }
 
-        -webkit-box-shadow: 48px 48px 0px 0px #c3c7ca;
-        -moz-box-shadow: 48px 48px 0px 0px #c3c7ca;
-        box-shadow: 48px 48px 0px 0px #c3c7ca;
+        @media (max-width: 900px) {
+          max-width: 70vw;
+          width: 100%;
+          height: 100%;
+          max-height: 70vh;
+        }
+
+        -webkit-box-shadow: 48px 48px 0px 0px #c3c7ca7a;
+        -moz-box-shadow: 48px 48px 0px 0px #c3c7ca7a;
+        box-shadow: 48px 48px 0px 0px #c3c7ca7a;
       }
     }
   }
@@ -178,10 +191,17 @@ const StyledSluzby = styled.main`
     flex-direction: column;
     max-width: 70vw;
     gap: 4rem;
-    padding-bottom: 12rem !important;
+    padding: 4rem !important;
+    @media (max-width: 900px) {
+      padding: 1rem !important;
+    }
 
     p {
-      font-size: 1rem;
+      font-size: 0.75rem;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 2rem;
+
       text-align: center;
       @media (max-width: 1280px) {
         text-align: center;
@@ -224,7 +244,7 @@ const Sluzby = () => {
             </ul>
           </div>
           <div className="image">
-            <img src="./media/IMG_3355-min.png" alt="" />
+            <img src="./media/IMG_2207-min (1).png" alt="" />
           </div>
         </section>
         <section className="reverse">
@@ -235,8 +255,8 @@ const Sluzby = () => {
                 SOFTWAROVÉ ÚPRAVY
                 <br />
                 <span>
-                  EGR, START/STOP, DTC, LAMBDA, POPCORN, LAUNCH CONTROL, VÍŘIVÉ
-                  KLAPKY, V-MAX OFF
+                  EGR, START/STOP, DTC, LAMBDA, POPCORN,
+                  <br /> LAUNCH CONTROL, VÍŘIVÉ KLAPKY, V-MAX OFF
                 </span>
               </li>
               <li>
@@ -249,7 +269,7 @@ const Sluzby = () => {
             </ul>
           </div>
           <div className="image">
-            <img src="./media/IMG_0758-min.png" alt="" />
+            <img src="./media/IMG_8754 (1).png" alt="" />
           </div>
         </section>
         <div className="end-text">

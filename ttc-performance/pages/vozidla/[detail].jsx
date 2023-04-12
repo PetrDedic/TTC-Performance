@@ -10,7 +10,7 @@ const StyledDetail = styled.main`
   background-image: url("../../bg.svg");
   background-size: cover;
   background-position: top;
-  padding: 12rem 0 8rem 0;
+  padding: 6rem 0 8rem 0;
 
   width: 100%;
   height: auto;
@@ -19,45 +19,47 @@ const StyledDetail = styled.main`
   color: #101c24;
 
   h1 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 900;
-    line-height: 4rem;
+    line-height: 2rem;
     text-align: center;
     padding: 2rem;
+    padding-bottom: 0rem;
 
     @media (max-width: 1280px) {
-      font-size: 3rem;
+      font-size: 1.75rem;
+      padding-bottom: 1rem;
     }
     @media (max-width: 600px) {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
   p.support {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 100;
     letter-spacing: 0.25rem;
     text-align: center;
 
     @media (max-width: 1280px) {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       letter-spacing: 0;
     }
     @media (max-width: 600px) {
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
   }
   h2 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 900;
-    line-height: 4rem;
+    line-height: 2rem;
     text-align: center;
     padding: 2rem;
 
     @media (max-width: 1280px) {
-      font-size: 3rem;
+      font-size: 1.75rem;
     }
     @media (max-width: 600px) {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -66,7 +68,7 @@ const StyledDetail = styled.main`
 
     height: auto;
     margin: 4rem 0;
-    padding: 4rem 25vw;
+    padding: 4rem 27.7vw;
 
     background-color: #101c24;
     color: white;
@@ -84,11 +86,11 @@ const StyledDetail = styled.main`
       justify-content: space-between;
       @media (max-width: 1280px) {
         flex-direction: column;
-        gap: 1rem;
+        gap: 2.5rem;
       }
 
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
 
       * {
         justify-self: center;
@@ -105,6 +107,10 @@ const StyledDetail = styled.main`
         width: min-content;
         text-align: left;
         line-height: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
 
         @media (max-width: 1280px) {
           margin: auto;
@@ -113,8 +119,13 @@ const StyledDetail = styled.main`
 
         span {
           font-weight: 100;
-          font-size: 1.25rem;
+          font-size: 1rem;
           color: white;
+          margin-right: auto;
+
+          @media (max-width: 1280px) {
+            margin: 0.5rem auto;
+          }
         }
       }
       .value {

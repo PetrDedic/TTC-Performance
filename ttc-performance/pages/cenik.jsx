@@ -19,10 +19,6 @@ const StyledCenik = styled.main`
     width: 100vw;
     height: 50vh;
 
-    @media (max-width: 900px) {
-      height: 90vh;
-    }
-
     background-image: url("./media/foto/cenik.png");
     background-size: cover;
     background-position: center;
@@ -38,28 +34,27 @@ const StyledCenik = styled.main`
       text-align: center;
 
       h1 {
-        font-size: 6rem;
+        font-size: 4rem;
         font-weight: bolder;
         line-height: 4.75rem;
 
         @media (max-width: 1280px) {
-          font-size: 4rem;
-        }
-        @media (max-width: 600px) {
           font-size: 3rem;
-        }
-      }
-      p {
-        font-size: 4rem;
-        font-weight: 100;
-        letter-spacing: 0.25rem;
-
-        @media (max-width: 1280px) {
-          font-size: 3rem;
-          letter-spacing: 0;
         }
         @media (max-width: 600px) {
           font-size: 2rem;
+        }
+      }
+      p {
+        font-size: 2rem;
+        font-weight: 100;
+
+        @media (max-width: 1280px) {
+          font-size: 1.5rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 1.5rem;
         }
       }
     }
@@ -143,7 +138,7 @@ const StyledCenik = styled.main`
   }
 
   .box {
-    margin: 8rem auto;
+    margin: 3rem auto;
 
     h2 {
       font-size: 5rem;
@@ -250,14 +245,18 @@ const StyledCenik = styled.main`
     }
   }
 
+  .texts {
+    margin: 4rem auto 3rem auto;
+  }
+
   p.text {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 
     @media (max-width: 900px) {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
     }
   }
 `;
@@ -287,9 +286,9 @@ const Cenik = () => {
               <p
                 style={{
                   textAlign: "center",
-                  margin: "1rem auto",
+                  margin: "1rem auto 1rem 0",
                   fontWeight: "700",
-                  fontSize: "1.25rem",
+                  fontSize: "1.5rem",
                 }}
               >
                 Osobní a užitková vozidla
@@ -316,7 +315,7 @@ const Cenik = () => {
                 Omezovače rychlosti <span>od 900,- Kč</span>
               </p>
               <p>
-                Klonování řídících jednotek <span>1.500,- Kč</span>
+                Klonování řídících jednotek <span>od 1.500,- Kč</span>
               </p>
               <p>
                 Měření výkonu<span>od 2.600,- Kč</span>
@@ -326,9 +325,9 @@ const Cenik = () => {
               <p
                 style={{
                   textAlign: "center",
-                  margin: "1rem auto",
+                  margin: "1rem auto 1rem 0",
                   fontWeight: "700",
-                  fontSize: "1.25rem",
+                  fontSize: "1.5rem",
                 }}
               >
                 Nákladní vozidla a autobusy
@@ -353,9 +352,9 @@ const Cenik = () => {
               <p
                 style={{
                   textAlign: "center",
-                  margin: "1rem auto",
+                  margin: "1rem auto 1rem 0",
                   fontWeight: "700",
-                  fontSize: "1.25rem",
+                  fontSize: "1.5rem",
                 }}
               >
                 Zemědělská technika
@@ -372,9 +371,9 @@ const Cenik = () => {
               <p
                 style={{
                   textAlign: "center",
-                  margin: "1rem auto",
+                  margin: "1rem auto 1rem 0",
                   fontWeight: "700",
-                  fontSize: "1.25rem",
+                  fontSize: "1.5rem",
                 }}
               >
                 Stavební a lesní technika
@@ -390,8 +389,10 @@ const Cenik = () => {
             </div>
           </div>
         </div>
-        <p className="text">Uvedené ceny jsou bez DPH.</p>
-        <p className="text">Další úpravy naceníme dle vašich požadavků.</p>
+        <div className="texts">
+          <p className="text">Uvedené ceny jsou bez DPH.</p>
+          <p className="text">Další úpravy naceníme dle vašich požadavků.</p>
+        </div>
 
         <p>&#8203;</p>
       </StyledCenik>

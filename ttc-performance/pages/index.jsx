@@ -16,12 +16,9 @@ const Main = styled.main`
   background-position: top;
 
   .hero {
+    margin-bottom: 8rem;
     width: 100vw;
-    height: 100vh;
-
-    @media (max-width: 900px) {
-      height: 90vh;
-    }
+    height: 50vh;
 
     background-image: url("./media/foto/jay-huang-aeouwx28n6M-unsplash.jpg");
     background-size: cover;
@@ -38,28 +35,27 @@ const Main = styled.main`
       text-align: center;
 
       h1 {
-        font-size: 6rem;
+        font-size: 4rem;
         font-weight: bolder;
         line-height: 4.75rem;
 
         @media (max-width: 1280px) {
-          font-size: 3.5rem;
+          font-size: 3rem;
         }
         @media (max-width: 600px) {
-          font-size: 2.5rem;
+          font-size: 2rem;
         }
       }
       p {
-        font-size: 3.5rem;
+        font-size: 2rem;
         font-weight: 100;
-        letter-spacing: 0.25rem;
 
         @media (max-width: 1280px) {
-          font-size: 2.5rem;
+          font-size: 1.5rem;
           letter-spacing: 0;
         }
         @media (max-width: 600px) {
-          font-size: 1.75rem;
+          font-size: 1.5rem;
         }
       }
     }
@@ -69,12 +65,13 @@ const Main = styled.main`
     width: 100%;
     height: auto;
     position: relative;
-    bottom: 6rem;
+    margin-top: -14rem;
+    margin-bottom: 6rem;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 7.5%;
+    gap: 3%;
 
     color: #fff;
 
@@ -87,8 +84,8 @@ const Main = styled.main`
     }
 
     .mark {
-      width: 12rem;
-      height: 13rem;
+      width: 8rem;
+      height: auto;
       background-color: #101c24cc;
       border: solid 1px gray;
       border-radius: 1rem;
@@ -97,45 +94,48 @@ const Main = styled.main`
       flex-direction: column;
 
       @media (max-width: 600px) {
+        justify-content: center;
         width: 5rem;
         height: 7rem;
-        justify-content: center;
+        font-size: 1rem;
 
         p {
-          padding: 0.75rem !important;
-          font-size: 0.75rem !important;
+          padding: 1rem 0 !important;
+          font-size: 0.55rem !important;
         }
 
         img {
           margin: 0 !important;
-          height: 3rem !important;
+          height: 2rem !important;
         }
       }
 
       p {
-        padding: 2rem 0 1rem 0;
-        font-size: 2rem;
+        font-size: 1rem;
+        padding: 1rem;
+        padding-bottom: 0;
         text-align: center;
-        font-weight: 100;
+        font-weight: 700;
       }
       img {
-        padding: 0.5rem 1rem 0;
+        margin: auto 0;
+        padding: 0 1rem;
         font-size: 2rem;
         text-align: center;
-        height: 6rem;
+        width: 100%;
+        max-height: 50%;
       }
     }
   }
 
   section {
     width: 100%;
-    max-width: 75vw;
+    max-width: 60vw;
     margin: auto;
-    margin-bottom: 12rem;
     height: auto;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
 
     @media (max-width: 1280px) {
       flex-direction: column;
@@ -179,17 +179,8 @@ const Main = styled.main`
         }
       }
 
-      img {
-        margin-left: 0 !important;
-        margin-right: auto;
-      }
-
       @media (max-width: 1280px) {
         flex-direction: column;
-
-        img {
-          margin: auto !important;
-        }
       }
 
       img {
@@ -213,8 +204,9 @@ const Main = styled.main`
         }
 
         .bold {
-          font-size: 1.5rem;
+          font-size: 1.15rem;
           font-weight: 900;
+          text-align: left;
 
           @media (max-width: 900px) {
             font-size: 1.25rem;
@@ -227,7 +219,6 @@ const Main = styled.main`
 
       h2 {
         font-size: 5rem;
-        letter-spacing: -4px;
         font-weight: 900;
         text-align: left;
 
@@ -242,12 +233,9 @@ const Main = styled.main`
       }
 
       ul li {
-        font-size: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.2;
         margin: 1.5rem 0;
-
-        @media (max-width: 900px) {
-          font-size: 1.25rem;
-        }
       }
     }
 
@@ -257,35 +245,40 @@ const Main = styled.main`
       align-self: center;
 
       img {
-        margin-left: auto;
+        margin: 1rem 3rem 1rem auto;
         height: 100%;
-        max-height: 65vh;
-        width: 80%;
+        max-height: 25vh;
+        width: 70%;
         object-fit: cover;
         border-radius: 1.5rem;
+        aspect-ratio: 4/2.75;
 
-        -webkit-box-shadow: -48px 48px 0px 0px #c3c7ca;
-        -moz-box-shadow: -48px 48px 0px 0px #c3c7ca;
-        box-shadow: -48px 48px 0px 0px #c3c7ca;
+        -webkit-box-shadow: -48px 48px 0px 0px #c3c7ca81;
+        -moz-box-shadow: -48px 48px 0px 0px #c3c7ca81;
+        box-shadow: -48px 48px 0px 0px #c3c7ca81;
 
         @media (max-width: 900px) {
-          -webkit-box-shadow: -16px 16px 0px 0px #c3c7ca;
-          -moz-box-shadow: -16px 16px 0px 0px #c3c7ca;
-          box-shadow: -16px 16px 0px 0px #c3c7ca;
+          max-height: 25vh;
+          width: 100%;
+          -webkit-box-shadow: -16px 16px 0px 0px #c3c7ca81;
+          -moz-box-shadow: -16px 16px 0px 0px #c3c7ca81;
+          box-shadow: -16px 16px 0px 0px #c3c7ca81;
+          margin-bottom: 2rem !important;
         }
       }
     }
   }
 
   .box {
-    margin: 8rem auto;
+    margin: 0 auto;
+    margin-top: 8rem;
 
     h2 {
-      font-size: 4rem;
+      font-size: 2.5rem;
       font-weight: 900;
       text-align: center;
-      letter-spacing: -4px;
-      margin-bottom: 6rem;
+      margin-bottom: 3rem;
+      letter-spacing: -2px;
 
       @media (max-width: 1280px) {
         text-align: center;
@@ -299,16 +292,17 @@ const Main = styled.main`
     .boxes {
       display: flex;
       flex-wrap: wrap;
-      width: 100%;
+      width: 75vw;
       height: auto;
       justify-content: center;
       gap: 2rem;
+      margin: 0 auto;
 
       .card {
         background-color: white;
-        width: calc(40% - 4rem);
+        width: 25vw;
         height: auto;
-        padding: 2rem;
+        padding: 2rem 1rem;
         border-radius: 1rem;
         min-height: 20vh;
 
@@ -359,13 +353,13 @@ const Main = styled.main`
 
         h4 {
           text-align: center;
-          font-size: 2.5rem;
+          font-size: 2rem;
           font-weight: 900;
           margin-bottom: 1rem;
         }
 
         p {
-          font-size: 1.5rem;
+          font-size: 1rem;
           font-weight: 500;
           text-align: center;
         }
@@ -374,18 +368,18 @@ const Main = styled.main`
   }
 
   .reasons {
-    margin: 3rem auto;
+    margin: 0 auto;
+    margin-top: 8rem;
     display: flex;
     flex-direction: column;
     max-width: 75vw;
-    gap: 6rem;
-    margin-bottom: 12rem !important;
+    gap: 3rem;
 
     h2 {
-      font-size: 4rem;
+      font-size: 2.5rem;
       font-weight: 900;
       text-align: center;
-      letter-spacing: -4px;
+      letter-spacing: -2px;
 
       @media (max-width: 1280px) {
         text-align: center;
@@ -400,8 +394,8 @@ const Main = styled.main`
     .container {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      gap: 4rem;
+      justify-content: center;
+      gap: 2rem;
 
       @media (max-width: 1280px) {
         flex-wrap: wrap;
@@ -410,27 +404,30 @@ const Main = styled.main`
       .reason {
         display: flex;
         flex-direction: row;
-        width: 100%;
+        width: auto;
         justify-items: center;
-        gap: 2rem;
+        gap: 1rem;
+
+        @media (max-width: 900px) {
+          width: 60vw;
+        }
 
         p {
           justify-self: center;
-          font-size: 1.5rem;
           font-weight: 200;
           height: min-content;
-          margin: auto;
+          margin: auto 1rem;
 
           @media (max-width: 900px) {
-            font-size: 1rem;
+            font-size: 0.75rem;
           }
         }
 
         div {
           width: 100%;
-          min-width: 8rem;
-          max-width: 8rem;
-          height: 8rem;
+          min-width: 6rem;
+          max-width: 6rem;
+          height: 6rem;
           border-radius: 1rem;
           background-color: #101c24;
           display: flex;
@@ -443,8 +440,7 @@ const Main = styled.main`
           span {
             color: white;
             margin: auto;
-            font-size: 4rem;
-            letter-spacing: -4px;
+            font-size: 3rem;
             font-weight: 900;
             text-align: center;
           }
@@ -476,7 +472,7 @@ const Main = styled.main`
       font-size: 4rem;
       font-weight: 900;
       text-align: center;
-      letter-spacing: -4px;
+      letter-spacing: -2px;
 
       @media (max-width: 1280px) {
         text-align: center;
@@ -535,6 +531,12 @@ const Main = styled.main`
       }
     }
   }
+
+  .welcome {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto 6rem auto;
+  }
 `;
 
 export default function Home() {
@@ -559,38 +561,20 @@ export default function Home() {
         </div>
         <div className="marks">
           <div className="mark">
-            <p>Kvalita!</p>
+            <p>KVALITA</p>
             <img src="./media/icons/iconmonstr-award-7.svg" />
           </div>
           <div className="mark">
-            <p>Rychlost!</p>
+            <p>RYCHLOST</p>
             <img src="./media/icons/iconmonstr-time-19.svg" />
           </div>
           <div className="mark">
-            <p>Záruka!</p>
+            <p>ZÁRUKA</p>
             <img src="./media/icons/iconmonstr-certificate-12.svg" />
           </div>
         </div>
-        <section>
-          <div className="text">
-            <ul>
-              <li className="bold">
-                Vítejte na webových stránkách naší společnosti, která se zabývá
-                úpravou software v řídících jednotkách motorů.
-              </li>
-              <li>
-                Provádíme diagnostiku vozidel a strojů, zhotovíme optimalizaci
-                výkonové křivky - chiptuning, řešíme chybová hlášení a výstražné
-                kontrolky, upravujeme emisní systém AD blue, DPF filtry, EGR
-                ventily, snížený výkon motoru – nouzový režim.
-              </li>
-            </ul>
-          </div>
-          <div className="image">
-            <img src="./media/kombajn.jpg" alt="" />
-          </div>
-        </section>
-        <div style={{ backgroundColor: "#101c24" }}>
+        <img className="welcome" src="./media/web (1).png" alt="" />
+        <div style={{ backgroundColor: "#101c24", height: "auto" }}>
           <section className="reverse">
             <div className="text">
               <ul>
@@ -614,19 +598,27 @@ export default function Home() {
               <div>
                 <span>1.</span>
               </div>
-              <p>Měření výkonu na válcové zkušebně 4x4 + Agro Dyno</p>
+              <p>
+                Měření výkonu na válcové zkušebně <br /> 4x4 + Agro Dyno
+              </p>
             </div>
             <div className="reason">
               <div>
                 <span>2.</span>
               </div>
-              <p>Úpravy bezpečné pro motor a komponenty</p>
+              <p>
+                Úpravy bezpečné pro <br />
+                motor a komponenty
+              </p>
             </div>
             <div className="reason">
               <div>
                 <span>3.</span>
               </div>
-              <p>Garance zachování emisních limitů</p>
+              <p>
+                Garance zachování <br />
+                emisních limitů
+              </p>
             </div>
           </div>
         </div>

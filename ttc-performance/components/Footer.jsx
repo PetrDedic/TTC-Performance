@@ -24,15 +24,21 @@ const StyledFooter = styled.footer`
   .flex {
     display: flex;
     flex-direction: row;
-    gap: 8rem;
+    gap: 4rem;
+    justify-content: center;
 
     @media (max-width: 1280px) {
       flex-direction: column;
     }
 
     .map {
-      width: 100%;
+      width: 50%;
       max-height: 100%;
+
+      @media (max-width: 1280px) {
+        width: 100%;
+        height: 256px;
+      }
     }
 
     .text {
@@ -40,13 +46,12 @@ const StyledFooter = styled.footer`
       flex-direction: column;
       gap: 2rem;
 
-      width: 50%;
+      width: max-content;
       @media (max-width: 1280px) {
         width: 100%;
         font-size: 1.25rem;
       }
       color: white;
-      font-size: 1.5rem;
       font-weight: 100;
 
       span {
@@ -62,7 +67,7 @@ const StyledFooter = styled.footer`
   .logos {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: center;
 
     .socials {
@@ -115,12 +120,16 @@ const StyledFooter = styled.footer`
 
   .paryn {
     text-align: center;
-    font-size: 1.5rem;
-    padding: 2rem;
+    font-size: 0.75rem;
+    padding: 1rem;
     @media (max-width: 1280px) {
       width: 100%;
       font-size: 1rem;
     }
+  }
+
+  .width {
+    max-width: 400px;
   }
 `;
 
@@ -191,15 +200,17 @@ const Footer = () => {
           />
           <img src="..\..\CHIPman-vodorovna varianta-bila.png" alt="chipman" />
           <span></span>
-          <p>
+          <p className="width">
             Společnost je zapsaná v obchodním rejstříku vedeném u Krajského
             soudu v Brně, spisová značka C 125704.
           </p>
         </div>
       </div>
       <div className="paryn">
-        <p style={{ marginBottom: "1rem" }}>IČO: 11991356 | DIČ: CZ11991356</p>
-        <p style={{ marginBottom: "1rem" }}>
+        <p style={{ marginBottom: "0.25rem" }}>
+          IČO: 11991356 | DIČ: CZ11991356
+        </p>
+        <p style={{ marginBottom: "0.25rem" }}>
           TTC Performance s. r. o., Cimburk 563, 768 33 Morkovice-Slížany, +420
           604 892 755
         </p>

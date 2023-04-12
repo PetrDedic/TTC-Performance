@@ -16,13 +16,9 @@ const StyledRealizace = styled.main`
   color: #101c24;
 
   .hero {
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
     width: 100vw;
     height: 50vh;
-
-    @media (max-width: 900px) {
-      height: 90vh;
-    }
 
     background-image: url("./media/foto/vozidla.png");
     background-size: cover;
@@ -39,29 +35,27 @@ const StyledRealizace = styled.main`
       text-align: center;
 
       h1 {
-        font-size: 6rem;
+        font-size: 4rem;
         font-weight: bolder;
         line-height: 4.75rem;
-        margin-top: 4rem;
-
-        @media (max-width: 1280px) {
-          font-size: 4rem;
-        }
-        @media (max-width: 600px) {
-          font-size: 3rem;
-        }
-      }
-      p {
-        font-size: 4rem;
-        font-weight: 100;
-        letter-spacing: 0.25rem;
 
         @media (max-width: 1280px) {
           font-size: 3rem;
-          letter-spacing: 0;
         }
         @media (max-width: 600px) {
           font-size: 2rem;
+        }
+      }
+      p {
+        font-size: 2rem;
+        font-weight: 100;
+
+        @media (max-width: 1280px) {
+          font-size: 1.5rem;
+          letter-spacing: 0;
+        }
+        @media (max-width: 600px) {
+          font-size: 1.5rem;
         }
       }
     }
@@ -84,13 +78,14 @@ const StyledRealizace = styled.main`
     }
 
     .card {
-      width: 12rem;
-      height: 14rem;
+      width: 8rem;
+      height: 9rem;
       padding: 1rem;
+      font-size: 0.75rem;
 
-      -webkit-box-shadow: -16px 16px 0px 0px #c3c7ca;
-      -moz-box-shadow: -16px 16px 0px 0px #c3c7ca;
-      box-shadow: -16px 16px 0px 0px #c3c7ca;
+      -webkit-box-shadow: -16px 16px 0px 0px #c3c7ca89;
+      -moz-box-shadow: -16px 16px 0px 0px #c3c7ca89;
+      box-shadow: -16px 16px 0px 0px #c3c7ca89;
 
       display: flex;
       flex-direction: column;
@@ -98,7 +93,6 @@ const StyledRealizace = styled.main`
       border-radius: 2rem;
       background-color: #101c24;
       color: white;
-      font-size: 1.55rem;
       text-align: center;
 
       text-decoration: none !important;
@@ -109,8 +103,7 @@ const StyledRealizace = styled.main`
       }
 
       img {
-        padding: 2.5rem;
-        padding-top: 1.5rem;
+        padding: 1rem;
       }
       svg {
         padding: 1.5rem;
@@ -199,7 +192,11 @@ const Vozidla = () => {
           <Link href="/vozidla/lod">
             <div className="card">
               <p>Lodě</p>
-              <img src="./media/icons/ship-boat-svgrepo-com.svg" alt="" />
+              <img
+                src="./media/icons/ship-boat-svgrepo-com.svg"
+                alt=""
+                style={{ transform: "scaleX(-1)" }}
+              />
             </div>
           </Link>
         </div>
