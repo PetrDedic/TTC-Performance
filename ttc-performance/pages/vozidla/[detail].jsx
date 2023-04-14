@@ -14,7 +14,6 @@ const StyledDetail = styled.main`
 
   width: 100%;
   height: auto;
-  min-height: 100vh;
 
   color: #101c24;
 
@@ -232,6 +231,7 @@ const Detail = () => {
     const json = await res.json();
     setParams(json[0]);
     setLoaded(true);
+    document.getElementById("top").scrollIntoView();
   }
 
   useEffect(() => {

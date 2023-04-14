@@ -63,6 +63,7 @@ export default function Document() {
         </style>
       </Head>
       <body>
+        <div id="top"></div>
         <div id="spin-cont">
           <div id="spinner">TTC</div>
         </div>
