@@ -146,7 +146,7 @@ const Navbar = () => {
           Značky vozidel
         </Link>
         <Link
-          href="#contact"
+          href="/#contact"
           onClick={() => setOpen(false)}
           className={router.pathname == "/kontakt" ? "active" : ""}
         >

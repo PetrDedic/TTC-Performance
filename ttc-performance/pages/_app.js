@@ -15,6 +15,11 @@ export default function App({ Component, pageProps }) {
       }
     }, 16);
   }, [router.asPath]);
+  useEffect(() => {
+    setTimeout(() => {
+      document.getElementById("spin-cont").classList.add("hidden");
+    }, 2000);
+  }, []);
 
   return (
     <>

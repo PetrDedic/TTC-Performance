@@ -19,7 +19,7 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("./media/foto/sluzby.png");
+    background-image: url("./media/foto/sluzby.webp");
     background-size: cover;
     background-position: 75%;
 

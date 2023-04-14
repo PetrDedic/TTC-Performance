@@ -16,7 +16,12 @@ html,
 body {
   height: 100%;
   background-color: #f1f1f1;
-overflow-x: clip;}
+overflow-x: clip;
+}
+
+body {
+overflow-y: scroll;
+}
 
 body {
   line-height: 1.5;

@@ -1,13 +1,74 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <style>
+          {`
+          #spin-cont {
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100vw;
+            height: 100vh;
+            background-color:rgba(16, 28, 36, 1);
+            z-index:99999999;
+
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            pointer-events: none;
+            transition: 500ms;
+          }
+
+          #spin-cont.hidden {
+            opacity: 0;
+          }
+          
+          #spinner {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: rgba(16, 28, 36, 1);
+  width: 56px;
+  height: 56px;
+  border-radius: 5px;
+  background: #f7f7f7;
+  animation: rotate 1.2s infinite ease-in-out;
+  margin: auto;
+  pointer-events: none;
+}
+
+#loader-text {
+  text-align: center;
+  margin: auto;
+  font-size: 2rem;
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateY(-359.9deg);
+  }
+}`}
+        </style>
+      </Head>
       <body>
+        <div id="spin-cont">
+          <div id="spinner">TTC</div>
+        </div>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }

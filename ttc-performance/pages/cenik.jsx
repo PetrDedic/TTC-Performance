@@ -19,7 +19,7 @@ const StyledCenik = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("./media/foto/cenik.png");
+    background-image: url("./media/foto/cenik.webp");
     background-size: cover;
     background-position: center;
 
@@ -294,31 +294,25 @@ const Cenik = () => {
                 Osobní a užitková vozidla
               </p>
               <p>
-                Chiptuning vč. měření výkonu <span>od 4.000,- Kč</span>
+                Chiptuning s měřením výkonu<span>od 5.000,- Kč</span>
               </p>
               <p>
-                Oprava systému adblue/dpf <span>od 4.200,- Kč</span>
+                Oprava systému ADblue / DPF<span>od 5.000,- Kč</span>
               </p>
               <p>
-                Odstranění funkce egr <span>od 3.000,- Kč</span>
+                Programování AUT převodovek<span>od 5.000,- Kč</span>
               </p>
               <p>
-                Programování automatických převodovek<span>od 2.450,- Kč</span>
+                Odstranění funkce EGR<span>od 3.000,- Kč</span>
               </p>
               <p>
-                Oprava špatných teplých startů<span>od 900,- Kč</span>
+                Omezovače otáček<span>od 3.000,- Kč</span>
               </p>
               <p>
-                Omezovače otáček<span>od 2.600,- Kč</span>
+                Omezovače rychlosti<span>od 3.000,- Kč</span>
               </p>
               <p>
-                Omezovače rychlosti <span>od 900,- Kč</span>
-              </p>
-              <p>
-                Klonování řídících jednotek <span>od 1.500,- Kč</span>
-              </p>
-              <p>
-                Měření výkonu<span>od 2.600,- Kč</span>
+                Měření výkonu na brzdě 4x4<span>od 3.000,- Kč</span>
               </p>
             </div>
             <div className="card">
@@ -333,7 +327,7 @@ const Cenik = () => {
                 Nákladní vozidla a autobusy
               </p>
               <p>
-                Oprava systému AD Blue/DPF truck/bus <span>25.000,- Kč</span>
+                Oprava systému AD Blue / DPF truck/bus <span>25.000,- Kč</span>
               </p>
               <p>
                 Odstranění funkce EGR ventilu <span>18.000,- Kč</span>
@@ -342,10 +336,13 @@ const Cenik = () => {
                 Snížení dávky vstřikování AD Blue E6 <span>22.000,- Kč</span>
               </p>
               <p>
-                Odstranění nouzového režimu E4,E5 <span>15.000,- Kč</span>
+                Odstranění nouzového režimu <span>15.000,- Kč</span>
               </p>
               <p>
-                Odstranění nouzového režimu E6 <span>2.000,- Kč</span>
+                Odstranění nouzového režimu E6 <span>20.000,- Kč</span>
+              </p>
+              <p>
+                Výjezd mobilního technika <span>3.000,- Kč </span>
               </p>
             </div>
             <div className="card">

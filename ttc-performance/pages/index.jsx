@@ -20,7 +20,7 @@ const Main = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("./media/foto/jay-huang-aeouwx28n6M-unsplash.jpg");
+    background-image: url("./media/foto/jay-huang-aeouwx28n6M-unsplash.webp");
     background-size: cover;
     background-position: 50% 60%;
 
@@ -233,7 +233,8 @@ const Main = styled.main`
       }
 
       ul li {
-        font-size: 1rem;
+        text-align: left;
+        font-size: 1.5rem;
         line-height: 1.2;
         margin: 1.5rem 0;
       }
@@ -413,8 +414,9 @@ const Main = styled.main`
         }
 
         p {
+          font-size: 1.05rem;
           justify-self: center;
-          font-weight: 200;
+          font-weight: 700;
           height: min-content;
           margin: auto 1rem;
 
@@ -573,7 +575,18 @@ export default function Home() {
             <img src="./media/icons/iconmonstr-certificate-12.svg" />
           </div>
         </div>
-        <img className="welcome" src="./media/web (1).png" alt="" />
+        <picture>
+          <source
+            media="(max-width: 599px)"
+            srcset="./media/banner_ttc_phone.webp"
+          />
+          <source media="(min-width: 600px)" srcset="./media/banner_ttc.webp" />
+          <img
+            className="welcome"
+            src="./media/banner_ttc.webp"
+            alt="Welcome"
+          />
+        </picture>
         <div style={{ backgroundColor: "#101c24", height: "auto" }}>
           <section className="reverse">
             <div className="text">
@@ -599,7 +612,9 @@ export default function Home() {
                 <span>1.</span>
               </div>
               <p>
-                Měření výkonu na válcové zkušebně <br /> 4x4 + Agro Dyno
+                Motorové brzdy 4x4 a AGRO
+                <br />
+                Tým profesionálních techniků
               </p>
             </div>
             <div className="reason">
@@ -607,8 +622,9 @@ export default function Home() {
                 <span>2.</span>
               </div>
               <p>
-                Úpravy bezpečné pro <br />
-                motor a komponenty
+                Vlastní vývoj software
+                <br />
+                Zkušenosti a reference
               </p>
             </div>
             <div className="reason">
@@ -616,8 +632,9 @@ export default function Home() {
                 <span>3.</span>
               </div>
               <p>
-                Garance zachování <br />
-                emisních limitů
+                Kvalitní bezpečné úpravy
+                <br />
+                Záruky na veškeré služby
               </p>
             </div>
           </div>
