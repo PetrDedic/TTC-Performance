@@ -612,30 +612,21 @@ export default function Home() {
                 <span>1.</span>
               </div>
               <p>
-                Motorové brzdy 4x4 a AGRO
-                <br />
-                Tým profesionálních techniků
+                Měření výkonu na válcové
+                <br /> zkušebně 4x4 + Agro Dyno{" "}
               </p>
             </div>
             <div className="reason">
               <div>
                 <span>2.</span>
               </div>
-              <p>
-                Vlastní vývoj software
-                <br />
-                Zkušenosti a reference
-              </p>
+              <p>Kvalitní bezpečné úpravy</p>
             </div>
             <div className="reason">
               <div>
                 <span>3.</span>
               </div>
-              <p>
-                Kvalitní bezpečné úpravy
-                <br />
-                Záruky na veškeré služby
-              </p>
+              <p>Garance zachování emisních limitů.</p>
             </div>
           </div>
         </div>
@@ -656,7 +647,7 @@ export default function Home() {
             <div className="card">
               <h4>Stavební technika</h4>
               <p>bagry / nakladače</p>
-              <p>rypadla / traktorbagry</p>
+              <p>buldozery / traktorbagry</p>
               <p>drtiče</p>
             </div>
             <div className="card">

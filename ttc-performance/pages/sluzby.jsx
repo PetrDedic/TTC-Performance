@@ -185,6 +185,28 @@ const StyledSluzby = styled.main`
     }
   }
 
+  .final {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+
+    font-weight: 700;
+    max-width: 80vw;
+    margin: auto;
+    margin-bottom: 2rem;
+
+    h2 {
+      padding-bottom: 1rem;
+      font-size: 2.5rem;
+
+      @media (max-width: 600px) {
+        font-size: 1.5rem !important;
+      }
+    }
+  }
+
   .end-text {
     margin: auto;
     display: flex;
@@ -272,6 +294,15 @@ const Sluzby = () => {
             <img src="./media/IMG_8754 (1).png" alt="" />
           </div>
         </section>
+        <div className="final">
+          <h2 style={{ fontWeight: 900 }}>ZÁRUKA NA NAŠE SLUŽBY</h2>
+          <p>Záruka 14 dní na vrácení peněz.</p>
+          <p>
+            Záruka 12 měsíců na řídící jednotku. (V případě mechanického zásahu
+            do řídící jednotky).
+          </p>
+          <p>Záruka 10 let na námi upravený software.</p>
+        </div>
         <div className="end-text">
           <p>
             Dle novely zákona č. 56/2001 Sb. o podmínkách provozu na pozemních
