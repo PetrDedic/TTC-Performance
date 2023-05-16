@@ -297,7 +297,7 @@ const Cenik = () => {
                 Chiptuning s měřením výkonu<span>od 5.000,- Kč</span>
               </p>
               <p>
-                Oprava systému ADblue / DPF<span>od 5.000,- Kč</span>
+                Oprava systému SCR AdBlue / DPF<span>od 5.000,- Kč</span>
               </p>
               <p>
                 Programování AUT převodovek<span>od 5.000,- Kč</span>
@@ -327,13 +327,14 @@ const Cenik = () => {
                 Nákladní vozidla a autobusy
               </p>
               <p>
-                Oprava systému AD Blue / DPF truck/bus <span>25.000,- Kč</span>
+                Oprava systému SCR AdBlue / DPF truck/bus{" "}
+                <span>25.000,- Kč</span>
               </p>
               <p>
                 Odstranění funkce EGR ventilu <span>18.000,- Kč</span>
               </p>
               <p>
-                Snížení dávky vstřikování AD Blue E6 <span>22.000,- Kč</span>
+                Snížení dávky vstřikování SCR AdBlue E6 <span>22.000,- Kč</span>
               </p>
               <p>
                 Odstranění nouzového režimu <span>15.000,- Kč</span>
@@ -360,7 +361,7 @@ const Cenik = () => {
                 Chiptuning agro <span>25.000,- Kč</span>
               </p>
               <p>
-                Oprava systému AD Blue/DPF agro
+                Oprava systému SCR AdBlue/DPF agro
                 <span>od 25.000,- Kč (dle výrobce motoru/ECU)</span>
               </p>
             </div>
@@ -380,7 +381,7 @@ const Cenik = () => {
                 <span>od 32.000,- Kč (dle výrobce motoru/ECU)</span>
               </p>
               <p>
-                Oprava systému AD Blue/DPF stavební/lesní
+                Oprava systému SCR AdBlue/DPF stavební/lesní
                 <span>od 32.000,- Kč (dle výrobce motoru/ECU)</span>
               </p>
             </div>

@@ -594,8 +594,8 @@ export default function Home() {
                 <li>
                   Našimi zákazníky jsou převážně majitelé dopravní techniky,
                   kteří chtějí zvýšit jízdní výkon, snížit spotřebu pohonných
-                  hmot a močoviny AD blue, optimalizovat své provozní náklady za
-                  opravy a servis.
+                  hmot a močoviny SCR AdBlue, optimalizovat své provozní náklady
+                  za opravy a servis.
                 </li>
               </ul>
             </div>
