@@ -186,7 +186,7 @@ const Footer = () => {
             <Link href="https://www.facebook.com/ttcperformance">
               <img src="..\..\iconmonstr-facebook-3.svg" alt="fb logo" />
             </Link>
-            <Link href="https://www.instagram.com/vlastaokalek/">
+            <Link href="https://www.instagram.com/ttc_performance/">
               <img
                 src="..\..\..\..\iconmonstr-instagram-11.svg"
                 alt="ig logo"
