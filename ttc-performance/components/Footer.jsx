@@ -164,14 +164,6 @@ const Footer = () => {
               </a>
               <br />
               <br />
-              Obchodní oddělení
-              <br />
-              Zbyněk Pitaš -{" "}
-              <a style={{ color: "white" }} href="tel:+420777684498">
-                777 684 498
-              </a>
-              <br />
-              <br />
               Ekonomické oddělení
               <br />
               Ing. Pavla Okálková -{" "}
@@ -198,7 +190,6 @@ const Footer = () => {
             src="..\..\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
             alt="ttc logo"
           />
-          <img src="..\..\CHIPman-vodorovna varianta-bila.png" alt="chipman" />
           <span></span>
           <p className="width">
             Společnost je zapsaná v obchodním rejstříku vedeném u Krajského
