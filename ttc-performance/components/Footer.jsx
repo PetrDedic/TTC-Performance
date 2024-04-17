@@ -156,7 +156,7 @@ const Footer = () => {
             <p>
               <span style={{ fontWeight: 700 }}>Kontaktní osoby:</span>
               <br />
-              Technické oddělení
+              Jednatel a Technické oddělení
               <br />
               Vlastimil Okálek -{" "}
               <a style={{ color: "white" }} href="tel:+420604892755">
@@ -169,6 +169,14 @@ const Footer = () => {
               Ing. Pavla Okálková -{" "}
               <a style={{ color: "white" }} href="tel:+420724226468">
                 724 226 468
+              </a>
+              <br />
+              <br />
+              Obchodní zástupce
+              <br />
+              Luděk Zapletal -{" "}
+              <a style={{ color: "white" }} href="tel:+420725084680">
+                725 084 680
               </a>
             </p>
           </div>
