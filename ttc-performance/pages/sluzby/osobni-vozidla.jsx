@@ -197,6 +197,11 @@ export const TwoOneSection = styled.section`
     width: 100%;
     object-fit: cover;
     border-radius: 1rem;
+    max-width: 50%;
+
+    @media (max-width: 1280px) {
+      max-width: 100%;
+    }
   }
 
   .text-area {
@@ -227,6 +232,7 @@ const Styled6 = styled.div`
   margin: auto;
   margin-top: 6rem;
   margin-bottom: 6rem;
+  max-width: 1280px;
   width: 75vw;
   display: flex;
   flex-direction: column;

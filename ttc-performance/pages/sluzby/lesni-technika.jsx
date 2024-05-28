@@ -197,6 +197,11 @@ export const TwoOneSection = styled.section`
     width: 100%;
     object-fit: cover;
     border-radius: 1rem;
+    max-width: 50%;
+
+    @media (max-width: 1280px) {
+      max-width: 100%;
+    }
   }
 
   .text-area {

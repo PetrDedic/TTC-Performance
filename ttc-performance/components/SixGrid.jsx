@@ -4,6 +4,7 @@ const Styled6 = styled.div`
   margin: auto;
   margin-top: 6rem;
   width: 75vw;
+  max-width: 1280px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
