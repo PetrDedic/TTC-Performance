@@ -393,7 +393,7 @@ const Sluzby = () => {
         </div>
         <TwoOneSection>
           <img
-            src="../Fotky_WEBP/TTC_Performance_Ferrari-47 kopie.webp"
+            src="../Fotky_WEBP/TTC_Performance_Ferrari-47 kopie copy.webp"
             alt="auto"
           />
           <div className="text-area">
