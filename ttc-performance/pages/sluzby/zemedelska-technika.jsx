@@ -9,7 +9,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const StyledSluzby = styled.main`
-  background-image: url("./bg.svg");
+  background-image: url("./Web_pozadi.svg");
   background-size: cover;
   background-position: top;
 
@@ -239,7 +239,8 @@ const Styled6 = styled.div`
   gap: 4rem;
 
   a {
-    margin-top: 1rem;
+    width: 10rem;
+    text-align: center;
     background: #e84048;
     color: white;
     padding: 0.5rem 1rem;
@@ -247,7 +248,6 @@ const Styled6 = styled.div`
     text-decoration: none;
     transition: 250ms;
     border: 1px solid #e84048;
-    width: max-content;
 
     &:hover {
       background: none;
@@ -260,7 +260,7 @@ const Styled6 = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem 2rem;
   }
 
   .card {
@@ -315,7 +315,7 @@ export const SixGrid = ({ cards }) => {
         ))}
       </div>
       <div className="flexbox">
-        <Link href="#contact">Kontaktujste nás</Link>
+        <Link href="#contact">Kontaktujte nás</Link>
         <Link href="/sluzby">Více služeb</Link>
       </div>
     </Styled6>

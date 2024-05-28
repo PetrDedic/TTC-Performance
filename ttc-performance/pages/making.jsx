@@ -5,7 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const StyledRealizace = styled.main`
-  background-image: url("./bg.svg");
+  background-image: url("./Web_pozadi.svg");
   background-size: cover;
   background-position: top;
 

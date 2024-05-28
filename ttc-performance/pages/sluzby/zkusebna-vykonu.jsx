@@ -5,10 +5,11 @@ import FourGrid from "@/components/FourGrid";
 import Navbar from "@/components/Navbar";
 import Params from "@/components/Params";
 import Head from "next/head";
+import Link from "next/link";
 import styled from "styled-components";
 
 const StyledSluzby = styled.main`
-  background-image: url("./bg.svg");
+  background-image: url("./Web_pozadi.svg");
   background-size: cover;
   background-position: top;
 
@@ -167,6 +168,8 @@ const StyledSluzby = styled.main`
         border-radius: 5px;
         text-decoration: none;
         transition: 250ms;
+        width: 10rem;
+        text-align: center;
 
         &:hover {
           background: white;
@@ -225,6 +228,25 @@ export const TwoOneSection = styled.section`
       gap: 1rem;
     }
   }
+
+  a {
+    font-size: 16px;
+    margin-top: 1rem;
+    background: #e84048;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 250ms;
+    border: 1px solid #e84048;
+    width: 10rem;
+    text-align: center;
+
+    &:hover {
+      background: none;
+      color: #e84048;
+    }
+  }
 `;
 
 const cardData = [
@@ -232,13 +254,13 @@ const cardData = [
     img: "../Fotky_WEBP/TTC_Performance_Ferrari-70 kopie.webp",
   },
   {
-    img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-028 kopie.webp",
+    img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-016 kopie.webp",
   },
   {
     img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-052 kopie.webp",
   },
   {
-    img: "../Fotky_WEBP/BMW_TTC_Holik-08 kopie.webp",
+    img: "../Fotky_WEBP/Touareg-24 kopie.webp",
   },
 ];
 
@@ -302,7 +324,18 @@ const Sluzby = () => {
             PTO. Maximální měřitelný výkon je do 450 Hp a 2 000 Nm.
           </p>
         </section>
-        <Thirty />
+        <TwoOneSection>
+          <img src="../Fotky_WEBP/IMG_6446 kopie.webp" alt="auto" />
+          <div className="text-area">
+            <h2>Zkušební lhůta</h2>
+            <p>
+              Zdarma 30 dní zkušební lhůta,
+              <br />
+              na námi provedenou optimalizaci výkonu.
+            </p>
+            <Link href="#contact">Kontaktujte nás</Link>
+          </div>
+        </TwoOneSection>
         <Params />
         <section className="text" style={{ marginTop: 64 }}>
           <h2>Pronájem zkušebny</h2>

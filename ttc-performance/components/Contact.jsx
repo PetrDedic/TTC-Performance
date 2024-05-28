@@ -6,8 +6,8 @@ const Styled30 = styled.div`
   margin-top: 6rem;
   margin-bottom: 6rem;
   width: 75vw;
-  max-width: 1280px;
   display: flex;
+  max-width: 1280px;
   flex-direction: column;
   gap: 2rem;
 
@@ -26,6 +26,8 @@ const Styled30 = styled.div`
   }
 
   form {
+    max-width: 720px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -126,8 +128,8 @@ const Contact = () => {
 
   return (
     <Styled30>
-      <h3>Kontaktujte nás</h3>
-      <p>
+      <h3 style={{ textAlign: "center" }}>Kontaktujte nás</h3>
+      <p style={{ textAlign: "center" }}>
         Kontaktujte nás na telefonním čísle{" "}
         <a href="tel:+420 602 562 650">+420 602 562 650</a>, a nebo pomocí níže
         uvedeného formuláře a my se Vám ozveme.
@@ -183,24 +185,22 @@ const Contact = () => {
           />
         </div>
         <textarea
-          rows="8"
+          rows="4"
           name="modifications"
           placeholder="Poptávka úpravy na daném vozidle"
           value={formData.modifications}
           onChange={handleChange}
         />
-        <div className="flex" style={{ flexDirection: "row-reverse" }}>
-          <div className="checkbox">
-            <input
-              type="checkbox"
-              name="consent"
-              checked={formData.consent}
-              onChange={handleChange}
-            />
-            <label>Souhlasím se zpracováním osobních údajů</label>
-          </div>
-          <input type="submit" value="Odeslat dotazník" />
+        <div className="checkbox">
+          <input
+            type="checkbox"
+            name="consent"
+            checked={formData.consent}
+            onChange={handleChange}
+          />
+          <label>Souhlasím se zpracováním osobních údajů</label>
         </div>
+        <input type="submit" value="Odeslat dotazník" />
       </form>
     </Styled30>
   );

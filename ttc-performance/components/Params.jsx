@@ -31,7 +31,8 @@ const Styled30 = styled.div`
     text-decoration: none;
     transition: 250ms;
     border: 1px solid #e84048;
-    width: max-content;
+    width: 10rem;
+    text-align: center;
 
     &:hover {
       background: none;

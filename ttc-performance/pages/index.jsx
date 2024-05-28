@@ -11,7 +11,7 @@ const Main = styled.main`
 
   color: #101c24;
 
-  background-image: url("./bg.svg");
+  background-image: url("./Web_pozadi.svg");
   background-size: cover;
   background-position: top;
 
