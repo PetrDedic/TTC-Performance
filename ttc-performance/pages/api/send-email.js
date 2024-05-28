@@ -1,6 +1,14 @@
-import sendgrid from "@sendgrid/mail";
+import nodemailer from "nodemailer";
 
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: process.env.EMAIL_HOST,
+  port: process.env.EMAIL_PORT,
+  secure: process.env.EMAIL_SECURE === "true", // true for 465, false for other ports
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -15,9 +23,9 @@ export default async function handler(req, res) {
       consent,
     } = req.body;
 
-    const message = {
-      to: process.env.EMAIL_TO,
-      from: process.env.EMAIL_FROM,
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: "info@ttcperformance.cz",
       subject: "New Contact Form Submission",
       html: `
         <p><strong>Jméno:</strong> ${name}</p>
@@ -34,19 +42,10 @@ export default async function handler(req, res) {
     };
 
     try {
-      await sendgrid.send(message).then(
-        () => {},
-        (error) => {
-          console.error(error);
-
-          if (error.response) {
-            console.error(error.response.body);
-          }
-        }
-      );
+      await transporter.sendMail(mailOptions);
       res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {
-      console.error(error);
+      console.error("Error sending email:", error);
       res.status(500).json({ message: "Error sending email", error });
     }
   } else {
