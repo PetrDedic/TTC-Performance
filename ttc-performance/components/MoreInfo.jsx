@@ -40,14 +40,14 @@ const Styled30 = styled.div`
   }
 `;
 
-const Params = () => {
+const MoreInfo = () => {
   return (
     <Styled30>
-      <h3>Parametry výkonu</h3>
-      <p>Zjisti více informací o možném navýšení výkonu svého vozidla.</p>
-      <Link href="/vozidla">Značky vozidel</Link>
+      <h3>Více informací o našich službách?</h3>
+      <p>Zjistěte více informací o dané službě pro vaše vozidlo.</p>
+      <Link href="/vozidla">Mám zájem</Link>
     </Styled30>
   );
 };
 
-export default Params;
+export default MoreInfo;

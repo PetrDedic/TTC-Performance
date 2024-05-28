@@ -76,20 +76,20 @@ const StyledSluzby = styled.main`
     flex-direction: column;
 
     h2 {
-      font-size: 2%.5;
+      font-size: 2rem;
       font-weight: 700;
     }
 
     &.text {
       gap: 2rem;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       margin-bottom: 4rem;
       ul {
         padding-left: 1rem;
         list-style-type: "- ";
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
       }
     }
 
@@ -161,7 +161,7 @@ const StyledSluzby = styled.main`
       }
 
       a {
-        background: crimson;
+        background: #e84048;
         color: white;
         padding: 0.5rem 1rem;
         border-radius: 5px;
@@ -170,7 +170,7 @@ const StyledSluzby = styled.main`
 
         &:hover {
           background: white;
-          color: crimson;
+          color: #e84048;
         }
       }
     }
@@ -205,10 +205,10 @@ export const TwoOneSection = styled.section`
     gap: 2rem;
     justify-content: center;
     align-content: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 
     h2 {
-      font-size: 2%.5;
+      font-size: 2rem;
       font-weight: 700;
     }
 
@@ -254,7 +254,7 @@ const Sluzby = () => {
         <div className="hero">
           <div>
             <h1>NAŠE SLUŽBY</h1>
-            <span style={{ color: "crimson", fontSize: 20 }}>
+            <span style={{ color: "#e84048", fontSize: 20 }}>
               Na co se specializujeme?
             </span>
           </div>

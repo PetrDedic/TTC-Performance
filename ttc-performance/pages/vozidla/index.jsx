@@ -19,7 +19,7 @@ const StyledRealizace = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("./media/foto/vozidla.webp");
+    background-image: url("./Foty_web_uvodni_hlavni_fotky/Znacky_vozidel_foto.webp");
     background-size: cover;
     background-position: center;
 

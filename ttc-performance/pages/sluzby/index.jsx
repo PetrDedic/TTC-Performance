@@ -68,7 +68,7 @@ const StyledSluzby = styled.main`
     flex-direction: column;
 
     h2 {
-      font-size: 2%.5;
+      font-size: 2rem;
       font-weight: 700;
     }
 
@@ -80,14 +80,14 @@ const StyledSluzby = styled.main`
       }
 
       gap: 2rem;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       margin-bottom: 4rem;
       ul {
         padding-left: 1rem;
         list-style-type: "- ";
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
       }
     }
 
@@ -145,7 +145,7 @@ const StyledSluzby = styled.main`
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.25);
         border-radius: 1rem;
       }
 
@@ -167,7 +167,7 @@ const StyledSluzby = styled.main`
       }
 
       a {
-        background: crimson;
+        background: #e84048;
         color: white;
         padding: 0.5rem 1rem;
         border-radius: 5px;
@@ -176,7 +176,7 @@ const StyledSluzby = styled.main`
 
         &:hover {
           background: white;
-          color: crimson;
+          color: #e84048;
         }
       }
     }
@@ -189,42 +189,42 @@ const cardData = [
     subheading: "Osobní vozidla & Zemědělská technika",
     button: "Více informací",
     link: "/sluzby/zkusebna-vykonu",
-    background: "./Fotky_WEBP/TTC_Performance_Ferrari-70 kopie.webp",
+    background: "./dlazdice/Fotky_dlazdice_2.webp",
   },
   {
     heading: "ZEMĚDĚLSKÁ TECHNIKA",
     subheading: "",
     button: "Více informací",
     link: "/sluzby/zemedelska-technika",
-    background: "./Fotky_WEBP/Traktor_AGRO_DYNO_brzda-109 kopie.webp",
+    background: "./dlazdice/Fotky_dlazdice_4.webp",
   },
   {
     heading: "NÁKLADNÍ VOZIDLA",
     subheading: "",
     button: "Více informací",
     link: "/sluzby/nakladni-vozidla",
-    background: "./Fotky_WEBP/IMG_2971 kopie.webp",
+    background: "./dlazdice/Fotky_dlazdice_6.webp",
   },
   {
     heading: "STAVEBNÍ TECHNIKA",
     subheading: "",
     button: "Více informací",
     link: "/sluzby/stavebni-technika",
-    background: "./Fotky_WEBP/IMG_4773 kopie.webp",
+    background: "./dlazdice/Fotky_dlazdice_3.webp",
   },
   {
     heading: "LESNÍ TECHNIKA",
     subheading: "",
     button: "Více informací",
     link: "/sluzby/lesni-technika",
-    background: "./Fotky_WEBP/untitled-2.22.1 kopie.webp",
+    background: "./dlazdice/Fotky_dlazdice_5.webp",
   },
   {
     heading: "OSOBNÍ VOZIDLA",
     subheading: "",
     button: "Více informací",
     link: "/sluzby/osobni-vozidla",
-    background: "./Fotky_WEBP/TTC_Performance_Ferrari-47 kopie.webp",
+    background: "./dlazdice/Fotky_dlazdice_1.webp",
   },
 ];
 
@@ -245,7 +245,7 @@ const Sluzby = () => {
         <div className="hero">
           <div>
             <h1>NAŠE SLUŽBY</h1>
-            <span style={{ color: "crimson", fontSize: 20 }}>
+            <span style={{ color: "#e84048", fontSize: 20 }}>
               Na co se specializujeme?
             </span>
           </div>

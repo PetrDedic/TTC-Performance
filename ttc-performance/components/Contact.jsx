@@ -21,7 +21,7 @@ const Styled30 = styled.div`
     transition: 250ms;
 
     &:hover {
-      color: crimson;
+      color: #e84048;
     }
   }
 
@@ -53,7 +53,7 @@ const Styled30 = styled.div`
   }
 
   input[type="submit"] {
-    background-color: crimson;
+    background-color: #e84048;
     color: white;
     border: none;
     padding: 1rem;
