@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Styled30 = styled.div`
   max-width: 75vw;
+  max-width: 1280px;
   margin: auto;
   display: flex;
   flex-direction: column;

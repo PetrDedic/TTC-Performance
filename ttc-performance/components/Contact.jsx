@@ -6,6 +6,7 @@ const Styled30 = styled.div`
   margin-top: 6rem;
   margin-bottom: 6rem;
   width: 75vw;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
   gap: 2rem;

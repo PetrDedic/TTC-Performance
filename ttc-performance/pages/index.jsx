@@ -20,7 +20,7 @@ const Main = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("./media/foto/jay-huang-aeouwx28n6M-unsplash.webp");
+    background-image: url("./Foty_web_uvodni_hlavni_fotky/Uvod_foto.webp");
     background-size: cover;
     background-position: 50% 60%;
 

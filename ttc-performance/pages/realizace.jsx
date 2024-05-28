@@ -19,7 +19,7 @@ const StyledRealizace = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("./media/foto/realizace.webp");
+    background-image: url("./Foty_web_uvodni_hlavni_fotky/Realizace_foto.webp");
     background-size: cover;
     background-position: center;
 

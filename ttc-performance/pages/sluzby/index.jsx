@@ -20,7 +20,7 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("./media/foto/sluzby.webp");
+    background-image: url("./Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
     background-size: cover;
     background-position: 75%;
 
@@ -73,6 +73,12 @@ const StyledSluzby = styled.main`
     }
 
     &.text {
+      max-width: 1280px;
+
+      @media (max-width: 1400px) {
+        max-width: 75vw;
+      }
+
       gap: 2rem;
       font-size: 1.5rem;
       margin-bottom: 4rem;
@@ -86,12 +92,20 @@ const StyledSluzby = styled.main`
     }
 
     &.warn {
+      max-width: 1280px;
+      @media (max-width: 1400px) {
+        max-width: 75vw;
+      }
       margin-bottom: 4rem;
       text-align: center;
       font-size: 14px;
     }
 
     &.grid {
+      max-width: 1280px;
+      @media (max-width: 1400px) {
+        max-width: 75vw;
+      }
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;

@@ -24,7 +24,7 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("../media/foto/sluzby.webp");
+    background-image: url("../Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
     background-size: cover;
     background-position: 75%;
 
@@ -66,7 +66,12 @@ const StyledSluzby = styled.main`
   }
 
   section {
-    max-width: 75vw;
+    max-width: 1280px;
+
+    @media (max-width: 1400px) {
+      max-width: 75vw;
+    }
+
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -223,6 +228,7 @@ const Styled6 = styled.div`
   margin-top: 6rem;
   margin-bottom: 6rem;
   width: 75vw;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
   gap: 4rem;
