@@ -107,6 +107,15 @@ const Contact = () => {
 
       if (response.ok) {
         alert("Email sent successfully");
+
+        // Push to dataLayer
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: "form_sent",
+            lead_type: "contact", // Replace 'contact' with the appropriate form type if needed
+          });
+        }
+
         setFormData({
           name: "",
           email: "",
