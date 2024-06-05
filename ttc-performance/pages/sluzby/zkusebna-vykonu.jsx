@@ -325,7 +325,10 @@ const Sluzby = () => {
           </p>
         </section>
         <TwoOneSection>
-          <img src="../Fotky_WEBP/IMG_6446 kopie.webp" alt="auto" />
+          <img
+            src="../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-028 kopie.webp"
+            alt="auto"
+          />
           <div className="text-area">
             <h2>Zkušební lhůta</h2>
             <p>
