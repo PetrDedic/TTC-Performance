@@ -315,7 +315,7 @@ export const SixGrid = ({ cards }) => {
         ))}
       </div>
       <div className="flexbox">
-        <Link href="#contact">Kontaktujte nás</Link>
+        <Link href="#form">Kontaktujte nás</Link>
         <Link href="/sluzby">Více služeb</Link>
       </div>
     </Styled6>

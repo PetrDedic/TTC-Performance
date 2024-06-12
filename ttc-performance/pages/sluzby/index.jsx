@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import Form from "@/components/Form";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import Link from "next/link";
@@ -307,6 +308,7 @@ const Sluzby = () => {
             </p>
           </p>
         </section>
+        <Form />
       </StyledSluzby>
       <Footer />
     </>

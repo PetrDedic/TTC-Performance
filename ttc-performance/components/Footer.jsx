@@ -206,7 +206,17 @@ const Footer = () => {
         </div>
       </div>
       <div className="paryn">
-        <p style={{ marginBottom: "0.25rem" }}>
+        <Link
+          href="/gdpr"
+          style={{
+            color: "black",
+            fontSize: 16,
+            textDecoration: "underline",
+          }}
+        >
+          Ochrana osobních údajů
+        </Link>
+        <p style={{ marginBottom: "0.25rem", marginTop: "1rem" }}>
           IČO: 11991356 | DIČ: CZ11991356
         </p>
         <p style={{ marginBottom: "0.25rem" }}>

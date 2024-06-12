@@ -73,7 +73,7 @@ const Styled30 = styled.div`
   }
 `;
 
-const Contact = () => {
+const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -168,29 +168,6 @@ const Contact = () => {
             onChange={handleChange}
             required
           />
-          <input
-            type="text"
-            name="carModel"
-            placeholder="Značka a typ vozidla"
-            value={formData.carModel}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex">
-          <input
-            type="text"
-            name="discountCode"
-            placeholder="Slevový kód"
-            value={formData.discountCode}
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            name="power"
-            placeholder="Základní výkon v kW"
-            value={formData.power}
-            onChange={handleChange}
-          />
         </div>
         <textarea
           rows="4"
@@ -214,4 +191,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Form;

@@ -336,7 +336,7 @@ const Sluzby = () => {
               <br />
               na námi provedenou optimalizaci výkonu.
             </p>
-            <Link href="#contact">Kontaktujte nás</Link>
+            <Link href="#form">Kontaktujte nás</Link>
           </div>
         </TwoOneSection>
         <Params />
