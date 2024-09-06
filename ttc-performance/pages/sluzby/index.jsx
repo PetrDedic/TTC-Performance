@@ -207,7 +207,7 @@ const StyledSluzby = styled.main`
     overflow: hidden;
     transition: 500ms ease-in-out;
     aspect-ratio: auto 1543 / 693;
-    max-width: 75vw;
+    max-width: min(75vw, 1280px);
     &:hover {
       transform: scale(1.025);
       box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 1);
@@ -363,11 +363,11 @@ const Sluzby = () => {
         <section className="text">
           <h2>Jsme mobilní po celé České republice</h2>
           <p>
-            Platí pro nákladní vozidla, zemědělskou, lesní a stavební techniku
+            Platí pro nákladní vozidla, zemědělskou, lesní a stavební techniku.
           </p>
           <p>
             Pro měření výkonu osobních vozidel je nutné dojet na válcovou
-            zkušebnu výkonu na adresu Kotojedy 110, 767 01 Kroměříž - Kotojedy
+            zkušebnu výkonu na adresu Kotojedy 110, 767 01 Kroměříž - Kotojedy.
           </p>
         </section>
         <section className="grid">
