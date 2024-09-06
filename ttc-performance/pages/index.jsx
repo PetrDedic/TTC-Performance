@@ -628,7 +628,7 @@ export default function Home() {
                   opravy a servis.
                 </li>
                 <li>
-                  <Link href="#form" className="contact-us">
+                  <Link href="/sluzby#form" className="contact-us">
                     Kontaktujte nás
                   </Link>
                 </li>
