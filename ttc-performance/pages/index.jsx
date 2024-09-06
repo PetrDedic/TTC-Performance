@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 const Main = styled.main`
@@ -307,12 +308,21 @@ const Main = styled.main`
         border-radius: 1rem;
         min-height: 20vh;
 
+        transition: 500ms ease-in-out;
+        &:hover {
+          transform: scale(1.025);
+          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 1);
+        }
+
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
           0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
           0 16px 16px rgba(0, 0, 0, 0.12);
 
+        aspect-ratio: 16/9;
+
         @media (max-width: 1280px) {
-          width: calc(80% - 4rem);
+          width: calc(100% - 4rem);
+          aspect-ratio: 1/1;
 
           &:nth-of-type(1) {
             background-color: #fff !important;
@@ -539,6 +549,24 @@ const Main = styled.main`
     width: 100%;
     margin: 0 auto 6rem auto;
   }
+
+  .contact-us {
+    font-size: 16px;
+    background: #e84048;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 250ms;
+    border: 1px solid #e84048;
+    width: 10rem;
+    text-align: center;
+
+    &:hover {
+      background: none;
+      color: #e84048;
+    }
+  }
 `;
 
 export default function Home() {
@@ -558,7 +586,9 @@ export default function Home() {
         <div className="hero">
           <div>
             <h1>TTC Performance</h1>
-            <p>profesionální chiptuning</p>
+            <p style={{ color: "#e84048", fontSize: 20 }}>
+              Profesionální chiptuning
+            </p>
           </div>
         </div>
         <div className="marks">
@@ -597,10 +627,18 @@ export default function Home() {
                   hmot a močoviny AdBlue, optimalizovat své provozní náklady za
                   opravy a servis.
                 </li>
+                <li>
+                  <Link href="#form" className="contact-us">
+                    Kontaktujte nás
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="image">
-              <img src="./media/traktor.jpg" alt="" />
+              <img
+                src="./media/Traktor_AGRO_DYNO_brzda-076 kopie.webp"
+                alt="Traktor brzda"
+              />
             </div>
           </section>
         </div>
@@ -633,28 +671,44 @@ export default function Home() {
         <div className="box">
           <h2>NAŠE ZAMĚŘENÍ</h2>
           <div className="boxes">
-            <div className="card">
+            <Link
+              className="card"
+              href="/sluzby/zkusebna-vykonu"
+              style={{ textDecoration: "inherit" }}
+            >
               <h4>Dopravní technika</h4>
               <p>osobní vozidla</p>
               <p>nákladní vozy / autobusy</p>
               <p>dodávky / obytné vozy</p>
-            </div>
-            <div className="card">
+            </Link>
+            <Link
+              className="card"
+              href="/sluzby/zemedelska-technika"
+              style={{ textDecoration: "inherit", color: "inherit" }}
+            >
               <h4>Zemědělská technika</h4>
               <p>traktory / kombajny</p>
               <p>manipulátory / řezačky</p>
-            </div>
-            <div className="card">
+            </Link>
+            <Link
+              className="card"
+              href="/sluzby/stavebni-technika"
+              style={{ textDecoration: "inherit", color: "inherit" }}
+            >
               <h4>Stavební technika</h4>
               <p>bagry / nakladače</p>
               <p>buldozery / traktorbagry</p>
               <p>drtiče</p>
-            </div>
-            <div className="card">
+            </Link>
+            <Link
+              className="card"
+              href="/sluzby/lesni-technika"
+              style={{ textDecoration: "inherit" }}
+            >
               <h4>Lesní technika</h4>
               <p>harvestory / vyvážecí soupravy</p>
               <p>lesní traktory</p>
-            </div>
+            </Link>
           </div>
         </div>
 

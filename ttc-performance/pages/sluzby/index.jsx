@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const StyledSluzby = styled.main`
   background-image: url("./Web_pozadi.svg");
@@ -119,6 +121,7 @@ const StyledSluzby = styled.main`
         width: calc(50% - 2rem);
         @media (max-width: 1280px) {
           width: calc(100% - 2rem);
+          aspect-ratio: 4/3;
         }
         margin: 1rem;
         aspect-ratio: 16/9;
@@ -136,6 +139,7 @@ const StyledSluzby = styled.main`
         transition: 500ms ease-in-out;
         &:hover {
           transform: scale(1.025);
+          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 1);
         }
       }
 
@@ -180,6 +184,48 @@ const StyledSluzby = styled.main`
           color: #e84048;
         }
       }
+    }
+  }
+  .banner {
+    &.mobile {
+      display: none;
+      @media (max-width: 1280px) {
+        display: block;
+        aspect-ratio: auto 904 / 761;
+      }
+    }
+    @media (max-width: 1280px) {
+      display: none;
+    }
+    position: relative;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 500ms ease-in-out;
+    aspect-ratio: auto 1543 / 693;
+    max-width: 75vw;
+    &:hover {
+      transform: scale(1.025);
+      box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 1);
+    }
+
+    .banner-image {
+      position: absolute;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      object-fit: contain;
+      aspect-ratio: auto 1543 / 693;
+    }
+
+    .active {
+      opacity: 1;
     }
   }
 `;
@@ -230,6 +276,29 @@ const cardData = [
 ];
 
 const Sluzby = () => {
+  const router = useRouter();
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const bannerImagesPC = [
+    "./TTC_SLEVA_WEB-PC kopie.webp",
+    "./TTC_SLEVA_WEB-PC_v2 kopie.webp",
+  ];
+  const bannerImagesMB = [
+    "./TTC_SLEVA_WEB-PHONE kopie.webp",
+    "./TTC_SLEVA_WEB-PHONE_v2 kopie.webp",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === bannerImagesPC.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval); // Clean up on component unmount
+  }, [bannerImagesPC.length]);
+
   return (
     <>
       <Head>
@@ -251,6 +320,30 @@ const Sluzby = () => {
             </span>
           </div>
         </div>
+        <a className="banner" href="#form">
+          {bannerImagesPC.map((image, index) => (
+            <img
+              key={index}
+              className={`banner-image ${
+                index === currentImageIndex ? "active" : ""
+              }`}
+              src={image}
+              alt={`Banner ${index + 1}`}
+            />
+          ))}
+        </a>
+        <a className="banner mobile" href="#form">
+          {bannerImagesMB.map((image, index) => (
+            <img
+              key={index}
+              className={`banner-image ${
+                index === currentImageIndex ? "active" : ""
+              }`}
+              src={image}
+              alt={`Banner ${index + 1}`}
+            />
+          ))}
+        </a>
         <section className="text">
           <h2>Nabízíme široký sortiment služeb</h2>
           <p>
@@ -267,12 +360,26 @@ const Sluzby = () => {
             systémy, DTE systémy a Eventuri karbonové sání a další ..
           </p>
         </section>
+        <section className="text">
+          <h2>Jsme mobilní po celé České republice</h2>
+          <p>
+            Platí pro nákladní vozidla, zemědělskou, lesní a stavební techniku
+          </p>
+          <p>
+            Pro měření výkonu osobních vozidel je nutné dojet na válcovou
+            zkušebnu výkonu na adresu Kotojedy 110, 767 01 Kroměříž - Kotojedy
+          </p>
+        </section>
         <section className="grid">
           {cardData.map((card, index) => (
             <div
               key={index}
               className="card"
-              style={{ backgroundImage: `url("${card.background}")` }}
+              style={{
+                backgroundImage: `url("${card.background}")`,
+                cursor: "pointer",
+              }}
+              onClick={() => router.push(card.link)}
             >
               <h3>{card.heading}</h3>
               {card.subheading && (
