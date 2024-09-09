@@ -331,7 +331,7 @@ const Main = styled.main`
 
           &:nth-of-type(2) {
             background-color: #101c24;
-            color: white;
+            color: white !important;
           }
         }
 
