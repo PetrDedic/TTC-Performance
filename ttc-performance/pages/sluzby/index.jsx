@@ -278,27 +278,6 @@ const cardData = [
 const Sluzby = () => {
   const router = useRouter();
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const bannerImagesPC = [
-    "./TTC_SLEVA_WEB-PC kopie.webp",
-    "./TTC_SLEVA_WEB-PC_v2 kopie.webp",
-  ];
-  const bannerImagesMB = [
-    "./TTC_SLEVA_WEB-PHONE kopie.webp",
-    "./TTC_SLEVA_WEB-PHONE_v2 kopie.webp",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === bannerImagesPC.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(interval); // Clean up on component unmount
-  }, [bannerImagesPC.length]);
-
   return (
     <>
       <Head>
@@ -320,30 +299,7 @@ const Sluzby = () => {
             </span>
           </div>
         </div>
-        <a className="banner" href="#form">
-          {bannerImagesPC.map((image, index) => (
-            <img
-              key={index}
-              className={`banner-image ${
-                index === currentImageIndex ? "active" : ""
-              }`}
-              src={image}
-              alt={`Banner ${index + 1}`}
-            />
-          ))}
-        </a>
-        <a className="banner mobile" href="#form">
-          {bannerImagesMB.map((image, index) => (
-            <img
-              key={index}
-              className={`banner-image ${
-                index === currentImageIndex ? "active" : ""
-              }`}
-              src={image}
-              alt={`Banner ${index + 1}`}
-            />
-          ))}
-        </a>
+
         <section className="text">
           <h2>Nabízíme široký sortiment služeb</h2>
           <p>
