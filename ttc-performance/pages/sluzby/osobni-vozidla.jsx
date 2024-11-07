@@ -333,16 +333,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../Fotky_WEBP/TTC_Performance_Ferrari-66 kopie.webp",
+      img: "../nove/Fotky_osobni_vozidla/1_osobni_vozidla.webp",
     },
     {
-      img: "../Fotky_WEBP/Touareg-13 kopie.webp",
+      img: "../nove/Fotky_osobni_vozidla/3_osobni_vozidla.webp",
     },
     {
-      img: "../Fotky_WEBP/BMW_TTC_Holik-08 kopie.webp",
+      img: "../nove/Fotky_osobni_vozidla/4_osobni_vozidla.webp",
     },
     {
-      img: "../Fotky_WEBP/TTC_Performance_Ferrari-70 kopie.webp",
+      img: "../nove/Fotky_osobni_vozidla/5_osobni_vozidla.webp",
     },
   ];
 
@@ -407,7 +407,7 @@ const Sluzby = () => {
         </div>
         <TwoOneSection>
           <img
-            src="../Fotky_WEBP/TTC_Performance_Ferrari-47 kopie copy.webp"
+            src="../nove/Fotky_osobni_vozidla/2_osobni_vozidla.webp"
             alt="auto"
           />
           <div className="text-area">

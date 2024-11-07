@@ -325,16 +325,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../Fotky_WEBP/IMG_7277 kopie.webp",
+      img: "../nove/Fotky_lesni_technika/2_lesni_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/IMG_4002 kopie.webp",
+      img: "../nove/Fotky_lesni_technika/3_lesni_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/IMG_6446 kopie.webp",
+      img: "../nove/Fotky_lesni_technika/4_lesni_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/QLZQ9471 kopie.webp",
+      img: "../nove/Fotky_lesni_technika/5_lesni_technika.webp",
     },
   ];
 
@@ -392,7 +392,10 @@ const Sluzby = () => {
           </div>
         </div>
         <TwoOneSection>
-          <img src="../Fotky_WEBP/untitled-2.22.1 kopie.webp" alt="auto" />
+          <img
+            src="../nove/Fotky_lesni_technika/1_lesni_technika.webp"
+            alt="auto"
+          />
           <div className="text-area">
             <h2>
               S využitím naších služeb, Vaše lesní technika dosáhne zcela jiných

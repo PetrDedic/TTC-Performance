@@ -325,16 +325,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../Fotky_WEBP/IMG_0562 kopie.webp",
+      img: "../nove/Fotky_Nakladni_vozidla/1_nakladni_vozidla.webp",
     },
     {
-      img: "../Fotky_WEBP/IMG_3068 kopie.webp",
+      img: "../nove/Fotky_Nakladni_vozidla/3_nakladni_vozidla.webp",
     },
     {
-      img: "../Fotky_WEBP/IMG_2971 kopie.webp",
+      img: "../nove/Fotky_Nakladni_vozidla/4_nakladni_vozidla.webp",
     },
     {
-      img: "../Fotky_WEBP/IMG_2722.png",
+      img: "../nove/Fotky_Nakladni_vozidla/5_nakladni_vozidla.webp",
     },
   ];
 
@@ -397,7 +397,10 @@ const Sluzby = () => {
           </div>
         </div>
         <TwoOneSection>
-          <img src="../Fotky_WEBP/IMG_0562 kopie.webp" alt="auto" />
+          <img
+            src="../nove/Fotky_Nakladni_vozidla/2_nakladni_vozidla.webp"
+            alt="auto"
+          />
           <div className="text-area">
             <h2>
               S využitím naších služeb, Vaše nákladní vozidlo dosáhne zcela

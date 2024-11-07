@@ -333,16 +333,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../Fotky_WEBP/IMG_3220 kopie.webp",
+      img: "../nove/Fotky_stavebni_technika/2_stavebni_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/IMG_4773 kopie.webp",
+      img: "../nove/Fotky_stavebni_technika/3_stavebni_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/GJNN2273 kopie.webp",
+      img: "../nove/Fotky_stavebni_technika/4_stavebni_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/IMG_8797 kopie.webp",
+      img: "../nove/Fotky_stavebni_technika/5_stavebni_technika.webp",
     },
   ];
 
@@ -400,7 +400,10 @@ const Sluzby = () => {
           </div>
         </div>
         <TwoOneSection>
-          <img src="../Fotky_WEBP/IMG_1911 kopie.webp" alt="auto" />
+          <img
+            src="../nove/Fotky_stavebni_technika/1_stavebni_technika.webp"
+            alt="auto"
+          />
           <div className="text-area">
             <h2>
               S využitím naších služeb, Vaše stavební technika dosáhne zcela

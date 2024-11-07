@@ -292,6 +292,9 @@ const Cenik = () => {
               </tr>
             </tbody>
           </table>
+          <p style={{ fontStyle: "italic", fontSize: 14 }}>
+            *Veškeré uvedené ceny jsou bez DPH.
+          </p>
         </Table>
         <Header>
           <h2>Nákladní vozidla a autobusy</h2>
@@ -410,6 +413,9 @@ const Cenik = () => {
               </tr>
             </tbody>
           </table>
+          <p style={{ fontStyle: "italic", fontSize: 14 }}>
+            *Veškeré uvedené ceny jsou bez DPH.
+          </p>
         </Table>
         <Header>
           <h2>Zemědělská technika</h2>
@@ -462,6 +468,9 @@ const Cenik = () => {
               </tr>
             </tbody>
           </table>
+          <p style={{ fontStyle: "italic", fontSize: 14 }}>
+            *Veškeré uvedené ceny jsou bez DPH.
+          </p>
         </Table>
         <Header>
           <h2>Stavební a lesní technika</h2>
@@ -514,6 +523,9 @@ const Cenik = () => {
               </tr>
             </tbody>
           </table>
+          <p style={{ fontStyle: "italic", fontSize: 14 }}>
+            *Veškeré uvedené ceny jsou bez DPH.
+          </p>
         </Table>
         <div className="flexbox">
           <Link href="#form">Kontaktujte nás</Link>

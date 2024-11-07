@@ -5,6 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import { TwoOneSection } from "./sluzby/lesni-technika";
 
 const Main = styled.main`
   width: 100%;
@@ -248,10 +249,10 @@ const Main = styled.main`
       align-self: center;
 
       img {
-        margin: 1rem 3rem 1rem auto;
+        margin: auto;
         height: 100%;
-        max-height: 25vh;
-        width: 70%;
+        max-height: 30vh;
+        width: 80%;
         object-fit: cover;
         border-radius: 1.5rem;
         aspect-ratio: 4/2.75;
@@ -568,6 +569,25 @@ const Main = styled.main`
       color: #e84048;
     }
   }
+
+  .red-button {
+    font-size: 16px;
+    margin-top: 1rem;
+    background: #e84048;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 250ms;
+    border: 1px solid #e84048;
+    width: 10rem;
+    text-align: center;
+
+    &:hover {
+      background: none;
+      color: #e84048;
+    }
+  }
 `;
 
 export default function Home() {
@@ -587,8 +607,18 @@ export default function Home() {
         <div className="hero">
           <div>
             <h1>TTC Performance</h1>
-            <p style={{ color: "#e84048", fontSize: 20 }}>
-              Profesionální chiptuning
+            <p
+              style={{
+                color: "#e84048",
+                fontSize: 20,
+                maxWidth: 480,
+                textAlign: "center",
+                margin: "0 auto",
+                padding: "0 1rem",
+              }}
+            >
+              Profesionální úpravy řídících jednotek motorů, emisních systémů a
+              automatických převodovek.
             </p>
           </div>
         </div>
@@ -606,38 +636,60 @@ export default function Home() {
             <img src="./media/icons/iconmonstr-certificate-12.svg" />
           </div>
         </div>
-        <picture>
-          <source
-            media="(max-width: 599px)"
-            srcset="./media/banner_ttc_phone.webp"
-          />
-          <source media="(min-width: 600px)" srcset="./media/banner_ttc.webp" />
+        <TwoOneSection>
           <img
-            className="welcome"
-            src="./media/banner_ttc.webp"
-            alt="Welcome"
+            src="../nove/Fotky_uvodni_stranka/1_foto_text.webp"
+            alt="Uvod 1"
           />
-        </picture>
-        <div style={{ backgroundColor: "#101c24", height: "auto" }}>
+          <div className="text-area">
+            <p>
+              Zaměřujeme se převážně na chiptuning - optimalizace softwaru v
+              řídicích jednotkách motorů, opravu & deaktivaci emisních systémů
+              jako je SCR AdBlue, DPF a EGR. Dále na diagnostiku vozidel a
+              strojů, řešíme chybová hlášení a kontrolky závad, programování
+              automatických převodovek, opravy elektronických jednotek a mnoho
+              dalšího ...
+            </p>
+            <Link href="/sluzby" className="red-button">
+              Více služeb
+            </Link>
+          </div>
+        </TwoOneSection>
+        <div
+          style={{ backgroundColor: "#101c24", height: "auto", marginTop: 128 }}
+        >
           <section className="reverse">
             <div className="text">
               <ul>
                 <li>
-                  Našimi zákazníky jsou převážně majitelé dopravní techniky,
-                  kteří chtějí zvýšit jízdní výkon, snížit spotřebu pohonných
-                  hmot a močoviny AdBlue, optimalizovat své provozní náklady za
-                  opravy a servis.
+                  Našimi zákazníky, jsou převážně majitelé dopravní techniky,
+                  zemědělských strojů a osobních aut, kteří chtějí zvýšit výkon,
+                  snížit spotřebu pohonných hmot a optimalizovat své provozní
+                  náklady za opravy a servis emisních systému (SCR AdBlue, DPF a
+                  EGR) a nebo měli problémy po neodborném chiptuningu.
                 </li>
                 <li>
-                  <Link href="/sluzby#form" className="contact-us">
-                    Kontaktujte nás
-                  </Link>
+                  Pokud máte i vy zájem, kontaktujte nás na telefonním čísle{" "}
+                  <a
+                    href="tel:+420 602 562 650"
+                    style={{
+                      fontWeight: 700,
+                      color: "white",
+                      textDecoration: "none",
+                    }}
+                  >
+                    +420 602 562 650
+                  </a>{" "}
+                  a nebo vyplňte jednoduchý formulář.
                 </li>
+                <Link href="/sluzby#form" className="contact-us">
+                  Kontaktujte nás
+                </Link>
               </ul>
             </div>
             <div className="image">
               <img
-                src="./media/Traktor_AGRO_DYNO_brzda-076 kopie.webp"
+                src="../nove/Fotky_uvodni_stranka/2_foto_text.webp"
                 alt="Traktor brzda"
               />
             </div>

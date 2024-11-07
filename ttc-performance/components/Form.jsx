@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import Link from "next/link";
 
 const Styled30 = styled.div`
   margin: auto;
@@ -139,8 +140,10 @@ const Form = () => {
       <h3 style={{ textAlign: "center" }}>Kontaktujte nás</h3>
       <p style={{ textAlign: "center" }}>
         Kontaktujte nás na telefonním čísle{" "}
-        <a href="tel:+420 602 562 650">+420 602 562 650</a>, a nebo pomocí níže
-        uvedeného formuláře a my se Vám ozveme.
+        <a href="tel:+420 602 562 650" style={{ fontWeight: 700 }}>
+          +420 602 562 650
+        </a>
+        , a nebo pomocí níže uvedeného formuláře a my se Vám ozveme.
       </p>
       <form onSubmit={handleSubmit}>
         <input
@@ -183,7 +186,15 @@ const Form = () => {
             checked={formData.consent}
             onChange={handleChange}
           />
-          <label>Souhlasím se zpracováním osobních údajů</label>
+          <label>
+            Souhlasím se{" "}
+            <Link
+              href="/gdpr"
+              style={{ textDecoration: "underline", color: "white" }}
+            >
+              zpracováním osobních údajů
+            </Link>
+          </label>
         </div>
         <input type="submit" value="Odeslat dotazník" />
       </form>

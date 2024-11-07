@@ -325,16 +325,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-057 kopie.webp",
+      img: "../nove/Fotky_zemedelska_technika/3_zemedelska_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-028 kopie.webp",
+      img: "../nove/Fotky_zemedelska_technika/1_zemedelska_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-109 kopie.webp",
+      img: "../nove/Fotky_zemedelska_technika/2_zemedelska_technika.webp",
     },
     {
-      img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-085 kopie.webp",
+      img: "../nove/Fotky_zemedelska_technika/4_zemedelska_technika.webp",
     },
   ];
 
@@ -398,7 +398,7 @@ const Sluzby = () => {
         </div>
         <TwoOneSection>
           <img
-            src="../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-085 kopie.webp"
+            src="../nove/Fotky_zemedelska_technika/5_zemedelska_technika.webp"
             alt="auto"
           />
           <div className="text-area">

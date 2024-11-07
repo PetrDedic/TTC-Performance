@@ -251,16 +251,16 @@ export const TwoOneSection = styled.section`
 
 const cardData = [
   {
-    img: "../Fotky_WEBP/TTC_Performance_Ferrari-70 kopie.webp",
+    img: "../nove/Fotky_mereni_vykonu/4_mereni_vykonu.webp",
   },
   {
-    img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-016 kopie.webp",
+    img: "../nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp",
   },
   {
-    img: "../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-052 kopie.webp",
+    img: "../nove/Fotky_mereni_vykonu/3_mereni_vykonu.webp",
   },
   {
-    img: "../Fotky_WEBP/Touareg-24 kopie.webp",
+    img: "../nove/Fotky_mereni_vykonu/1_mereni_vykonu.webp",
   },
 ];
 
@@ -306,7 +306,10 @@ const Sluzby = () => {
           </p>
         </section>
         <TwoOneSection>
-          <img src="../Fotky_WEBP/BMW_TTC_Holik-70 kopie.webp" alt="auto" />
+          <img
+            src="../nove/Fotky_mereni_vykonu/5_mereni_vykonu.webp"
+            alt="auto"
+          />
           <div className="text-area">
             <h2>Základní informace</h2>
             <ul>
@@ -326,7 +329,7 @@ const Sluzby = () => {
         </section>
         <TwoOneSection>
           <img
-            src="../Fotky_WEBP/Traktor_AGRO_DYNO_brzda-028 kopie.webp"
+            src="../nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp"
             alt="auto"
           />
           <div className="text-area">
