@@ -325,16 +325,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../nove/Fotky_Nakladni_vozidla/1_nakladni_vozidla.webp",
+      img: "../nove/Fotky_nakladni_vozidla/1_nakladni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_Nakladni_vozidla/3_nakladni_vozidla.webp",
+      img: "../nove/Fotky_nakladni_vozidla/3_nakladni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_Nakladni_vozidla/4_nakladni_vozidla.webp",
+      img: "../nove/Fotky_nakladni_vozidla/4_nakladni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_Nakladni_vozidla/5_nakladni_vozidla.webp",
+      img: "../nove/Fotky_nakladni_vozidla/5_nakladni_vozidla.webp",
     },
   ];
 
@@ -398,7 +398,7 @@ const Sluzby = () => {
         </div>
         <TwoOneSection>
           <img
-            src="../nove/Fotky_Nakladni_vozidla/2_nakladni_vozidla.webp"
+            src="../nove/Fotky_nakladni_vozidla/2_nakladni_vozidla.webp"
             alt="auto"
           />
           <div className="text-area">
