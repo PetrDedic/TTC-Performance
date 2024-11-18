@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
   .image {
-    background-image: url("../media/foto/footer.jpg");
+    background-image: url("/media/foto/footer.jpg");
     background-size: cover;
     background-position: center;
     padding: 8rem;
@@ -184,18 +184,15 @@ const Footer = () => {
         <div className="logos">
           <div className="socials">
             <Link href="https://www.facebook.com/ttcperformance">
-              <img src="..\..\iconmonstr-facebook-3.svg" alt="fb logo" />
+              <img src="\iconmonstr-facebook-3.svg" alt="fb logo" />
             </Link>
             <Link href="https://www.instagram.com/ttc_performance/">
-              <img
-                src="..\..\..\..\iconmonstr-instagram-11.svg"
-                alt="ig logo"
-              />
+              <img src="\iconmonstr-instagram-11.svg" alt="ig logo" />
             </Link>
           </div>
           <span></span>
           <img
-            src="..\..\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
+            src="\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
             alt="ttc logo"
           />
           <span></span>

@@ -24,7 +24,7 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("../Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
+    background-image: url("/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
     background-size: cover;
     background-position: 75%;
 
@@ -333,16 +333,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../nove/Fotky_stavebni_technika/2_stavebni_technika.webp",
+      img: "/nove/Fotky_stavebni_technika/2_stavebni_technika.webp",
     },
     {
-      img: "../nove/Fotky_stavebni_technika/3_stavebni_technika.webp",
+      img: "/nove/Fotky_stavebni_technika/3_stavebni_technika.webp",
     },
     {
-      img: "../nove/Fotky_stavebni_technika/4_stavebni_technika.webp",
+      img: "/nove/Fotky_stavebni_technika/4_stavebni_technika.webp",
     },
     {
-      img: "../nove/Fotky_stavebni_technika/5_stavebni_technika.webp",
+      img: "/nove/Fotky_stavebni_technika/5_stavebni_technika.webp",
     },
   ];
 
@@ -401,7 +401,7 @@ const Sluzby = () => {
         </div>
         <TwoOneSection>
           <img
-            src="../nove/Fotky_stavebni_technika/1_stavebni_technika.webp"
+            src="/nove/Fotky_stavebni_technika/1_stavebni_technika.webp"
             alt="auto"
           />
           <div className="text-area">

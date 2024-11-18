@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Link from "next/link";
+import supabase from "@/lib/supabaseClient";
+import { Card, Flex, Image, Text } from "@mantine/core";
 
 const StyledRealizace = styled.main`
-  background-image: url("../../Web_pozadi.svg");
+  background-image: url("/Web_pozadi.svg");
   background-size: cover;
   background-position: top;
 
@@ -26,7 +28,7 @@ const StyledRealizace = styled.main`
       height: 90vh;
     }
 
-    background-image: url("../../media/foto/vozidla.png");
+    background-image: url("/media/foto/vozidla.png");
     background-size: cover;
     background-position: center;
 
@@ -167,29 +169,46 @@ const StyledRealizace = styled.main`
   }
 `;
 
-const Vozidla = () => {
-  const [category, setCategory] = useState("");
+export async function getStaticProps() {
+  const { data: categoryData, error: categoryError } = await supabase
+    .from("categories")
+    .select("id")
+    .eq("name", "bus")
+    .single();
 
-  const [brands, setBrands] = useState([]);
-  const [features, setFeatures] = useState([]);
+  if (categoryError || !categoryData) {
+    console.error("Category fetch error:", categoryError);
+    return { props: { brands: [] }, revalidate: 3600 };
+  }
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(`/api/brands?category=bus`);
-      const json = await res.json();
+  const categoryId = categoryData.id;
 
-      const uniqueArr = json.filter((item, index) => {
-        // Find the index of the first occurrence of the object with the same name
-        const firstIndex = json.findIndex((obj) => obj.name === item.name);
-        // Keep only the first occurrence of the object and remove the rest
-        return index === firstIndex;
-      });
+  const { data: brandCategoryData, error: brandCategoryError } = await supabase
+    .from("brand_categories")
+    .select("brand_id")
+    .eq("category_id", categoryId);
 
-      setBrands(uniqueArr);
-    }
-    fetchData();
-  }, []);
+  if (brandCategoryError || !brandCategoryData) {
+    console.error("Brand-Category fetch error:", brandCategoryError);
+    return { props: { brands: [] }, revalidate: 3600 };
+  }
 
+  const brandIds = brandCategoryData.map((item) => item.brand_id);
+
+  const { data: brands, error: brandsError } = await supabase
+    .from("brands")
+    .select("id, name, url, image")
+    .in("id", brandIds);
+
+  if (brandsError) {
+    console.error("Supabase fetch error:", brandsError);
+    return { props: { brands: [] }, revalidate: 3600 };
+  }
+
+  return { props: { brands }, revalidate: 3600 };
+}
+
+const Vozidla = ({ brands }) => {
   return (
     <>
       <Head>
@@ -208,73 +227,59 @@ const Vozidla = () => {
             <h1>AUTOBUSY</h1>
           </div>
         </div>
+
         <div className="nav">
           <Link href="/vozidla">Značky vozidel</Link>
           {` > Autobusy`}
         </div>
-        <div className="scroll-container container">
+        <Flex
+          gap={16}
+          px="10vw"
+          wrap="wrap"
+          mx="auto"
+          my={32}
+          align="center"
+          justify="center"
+        >
           {brands.map((brand) => (
-            <div
-              key={brand.name}
-              className={category == brand.name ? "item active" : "item"}
-              onClick={() => {
-                setCategory(brand.name);
-                document.getElementById("list").scrollIntoView();
-
-                async function fetchModels() {
-                  const res = await fetch(
-                    `/api/models?` +
-                      new URLSearchParams({
-                        carName: brand.name,
-                        category: "bus",
-                      })
-                  );
-                  const json = await res.json();
-
-                  const itemsWithIds = json.map((item) => {
-                    return {
-                      ...item,
-                      id: Math.random(),
-                    };
-                  });
-
-                  setFeatures(itemsWithIds[0].features);
-                }
-                fetchModels();
-              }}
+            <Link
+              key={brand.id}
+              href={`/vozidla/bus/${encodeURIComponent(brand.name)}`}
+              passHref
+              style={{ color: "inherit", textDecoration: "inherit" }}
             >
-              <p>{brand.name}</p>{" "}
-              <img src={"/media/brands/" + brand.name + ".jpg"} alt="" />
-            </div>
+              <Card
+                radius={8}
+                style={{
+                  boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px",
+                }}
+                w={128}
+                h={160}
+              >
+                <Flex direction="column" justify="space-between" h={128}>
+                  <Text ta="center">{brand.name}</Text>
+                  {brand.image ? (
+                    <Image
+                      width={72}
+                      height={72}
+                      src={brand.image}
+                      style={{ aspectRatio: 1 / 1, objectFit: "contain" }}
+                      alt={brand.name}
+                    />
+                  ) : (
+                    <Image
+                      width={72}
+                      height={72}
+                      src={`/media/brands/${brand.name}.jpg`}
+                      style={{ aspectRatio: 1 / 1, objectFit: "contain" }}
+                      alt={brand.name}
+                    />
+                  )}
+                </Flex>
+              </Card>
+            </Link>
           ))}
-        </div>
-
-        <ul id="list">
-          {features.map((feature) => {
-            if (feature.tag == "h4") {
-              return <h4 key={feature.id}>{feature.mark}</h4>;
-            } else if (feature.tag == "p") {
-              return <p key={feature.id}>{feature.mark}</p>;
-            } else {
-              return (
-                <li key={feature.id}>
-                  <Link
-                    href={
-                      "/vozidla/" +
-                      feature.link.split("/")[6] +
-                      "?name=" +
-                      feature.mark +
-                      " " +
-                      category
-                    }
-                  >
-                    {feature.mark}
-                  </Link>
-                </li>
-              );
-            }
-          })}
-        </ul>
+        </Flex>
 
         <p>&#8203;</p>
       </StyledRealizace>

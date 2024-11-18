@@ -1,3 +1,4 @@
+import { ColorSchemeScript } from "@mantine/core";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -72,6 +73,7 @@ export default function Document() {
             }
           `}
         </style>
+        <ColorSchemeScript defaultColorScheme="light" />
       </Head>
       <body>
         <noscript>

@@ -24,7 +24,7 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("../Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
+    background-image: url("/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
     background-size: cover;
     background-position: 75%;
 
@@ -325,16 +325,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../nove/Fotky_nakladni_vozidla/1_Nakladni_vozidla.webp",
+      img: "/nove/Fotky_nakladni_vozidla/1_Nakladni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_nakladni_vozidla/3_Nakladni_vozidla.webp",
+      img: "/nove/Fotky_nakladni_vozidla/3_Nakladni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_nakladni_vozidla/4_Nakladni_vozidla.webp",
+      img: "/nove/Fotky_nakladni_vozidla/4_Nakladni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_nakladni_vozidla/5_Nakladni_vozidla.webp",
+      img: "/nove/Fotky_nakladni_vozidla/5_Nakladni_vozidla.webp",
     },
   ];
 
@@ -398,7 +398,7 @@ const Sluzby = () => {
         </div>
         <TwoOneSection>
           <img
-            src="../nove/Fotky_nakladni_vozidla/2_Nakladni_vozidla.webp"
+            src="/nove/Fotky_nakladni_vozidla/2_Nakladni_vozidla.webp"
             alt="auto"
           />
           <div className="text-area">

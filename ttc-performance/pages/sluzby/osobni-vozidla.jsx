@@ -24,7 +24,7 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("../Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
+    background-image: url("/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
     background-size: cover;
     background-position: 75%;
 
@@ -333,16 +333,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../nove/Fotky_osobni_vozidla/1_osobni_vozidla.webp",
+      img: "/nove/Fotky_osobni_vozidla/1_osobni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_osobni_vozidla/3_osobni_vozidla.webp",
+      img: "/nove/Fotky_osobni_vozidla/3_osobni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_osobni_vozidla/4_osobni_vozidla.webp",
+      img: "/nove/Fotky_osobni_vozidla/4_osobni_vozidla.webp",
     },
     {
-      img: "../nove/Fotky_osobni_vozidla/5_osobni_vozidla.webp",
+      img: "/nove/Fotky_osobni_vozidla/5_osobni_vozidla.webp",
     },
   ];
 
@@ -407,7 +407,7 @@ const Sluzby = () => {
         </div>
         <TwoOneSection>
           <img
-            src="../nove/Fotky_osobni_vozidla/2_osobni_vozidla.webp"
+            src="/nove/Fotky_osobni_vozidla/2_osobni_vozidla.webp"
             alt="auto"
           />
           <div className="text-area">

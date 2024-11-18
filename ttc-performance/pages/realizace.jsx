@@ -19,7 +19,7 @@ const StyledRealizace = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("./Foty_web_uvodni_hlavni_fotky/Realizace_foto.webp");
+    background-image: url("/Foty_web_uvodni_hlavni_fotky/Realizace_foto.webp");
     background-size: cover;
     background-position: center;
 
@@ -172,17 +172,17 @@ const Realizace = () => {
           </Link>
           <Link href="/making" className="card">
             <p>Nákladní vozidla</p>
-            <img src="./media/icons/van.png" alt="" />
+            <img src="/media/icons/van.png" alt="" />
           </Link>
         </div>
         <div className="container" style={{ marginBottom: "6rem" }}>
           <Link href="/making" className="card">
             <p>Osobní vozidla</p>
-            <img src="./media/icons/car.png" alt="" />
+            <img src="/media/icons/car.png" alt="" />
           </Link>
           <Link href="/making" className="card">
             <p>Stavební technika</p>
-            <img src="./media/icons/const.png" alt="" />
+            <img src="/media/icons/const.png" alt="" />
           </Link>
         </div>
         <p>&#8203;</p>

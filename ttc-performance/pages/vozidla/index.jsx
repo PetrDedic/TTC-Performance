@@ -5,7 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const StyledRealizace = styled.main`
-  background-image: url("../../Web_pozadi.svg");
+  background-image: url("/Web_pozadi.svg");
   background-size: cover;
   background-position: top;
 
@@ -143,20 +143,20 @@ const Vozidla = () => {
           <Link href="/vozidla/osobni">
             <div className="card">
               <p>Osobní vozidla</p>
-              <img src="./media/icons/car.png" alt="" />
+              <img src="/media/icons/car.png" alt="" />
             </div>
           </Link>
           <Link href="/vozidla/nakladni">
             <div className="card">
               <p>Nákladní vozidla</p>
-              <img src="./media/icons/iconmonstr-delivery-1.svg" alt="" />
+              <img src="/media/icons/iconmonstr-delivery-1.svg" alt="" />
             </div>
           </Link>
           <Link href="/vozidla/agro">
             <div className="card">
               <p>Zemědělská a lesní technika</p>
               <img
-                src="./media/icons/tractor-agriculture-torque-construction-equipment-svgrepo-com.svg"
+                src="/media/icons/tractor-agriculture-torque-construction-equipment-svgrepo-com.svg"
                 alt=""
               />
             </div>
@@ -164,13 +164,13 @@ const Vozidla = () => {
           <Link href="/vozidla/bagry">
             <div className="card">
               <p>Stavební technika</p>
-              <img src="./media/icons/iconmonstr-construction-4.svg" alt="" />
+              <img src="/media/icons/iconmonstr-construction-4.svg" alt="" />
             </div>
           </Link>
           <Link href="/vozidla/bus">
             <div className="card">
               <p>Autobusy</p>
-              <img src="./media/icons/iconmonstr-bus-5.svg" alt="" />
+              <img src="/media/icons/iconmonstr-bus-5.svg" alt="" />
             </div>
           </Link>
         </div>
@@ -179,20 +179,20 @@ const Vozidla = () => {
           <Link href="/vozidla/moto">
             <div className="card">
               <p>Motorky</p>
-              <img src="./media/icons/motorcycle-f-svgrepo-com.svg" alt="" />
+              <img src="/media/icons/motorcycle-f-svgrepo-com.svg" alt="" />
             </div>
           </Link>
           <Link href="/vozidla/ctyrkolky">
             <div className="card">
               <p>Čtyřkolky</p>
-              <img src="./media/icons/quad-bike-2-svgrepo-com.svg" alt="" />
+              <img src="/media/icons/quad-bike-2-svgrepo-com.svg" alt="" />
             </div>
           </Link>
-          <Link href="/vozidla/lod">
+          <Link href="/vozidla/lode">
             <div className="card">
               <p>Lodě</p>
               <img
-                src="./media/icons/ship-boat-svgrepo-com.svg"
+                src="/media/icons/ship-boat-svgrepo-com.svg"
                 alt=""
                 style={{ transform: "scaleX(-1)" }}
               />

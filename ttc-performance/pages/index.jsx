@@ -625,22 +625,19 @@ export default function Home() {
         <div className="marks">
           <div className="mark">
             <p>KVALITA</p>
-            <img src="./media/icons/iconmonstr-award-7.svg" />
+            <img src="/media/icons/iconmonstr-award-7.svg" />
           </div>
           <div className="mark">
             <p>RYCHLOST</p>
-            <img src="./media/icons/iconmonstr-time-19.svg" />
+            <img src="/media/icons/iconmonstr-time-19.svg" />
           </div>
           <div className="mark">
             <p>ZÁRUKA</p>
-            <img src="./media/icons/iconmonstr-certificate-12.svg" />
+            <img src="/media/icons/iconmonstr-certificate-12.svg" />
           </div>
         </div>
         <TwoOneSection>
-          <img
-            src="../nove/Fotky_uvodni_stranka/1_foto_text.webp"
-            alt="Uvod 1"
-          />
+          <img src="/nove/Fotky_uvodni_stranka/1_foto_text.webp" alt="Uvod 1" />
           <div className="text-area">
             <p>
               Zaměřujeme se převážně na chiptuning - optimalizace softwaru v
@@ -689,7 +686,7 @@ export default function Home() {
             </div>
             <div className="image">
               <img
-                src="../nove/Fotky_uvodni_stranka/2_foto_text.webp"
+                src="/nove/Fotky_uvodni_stranka/2_foto_text.webp"
                 alt="Traktor brzda"
               />
             </div>

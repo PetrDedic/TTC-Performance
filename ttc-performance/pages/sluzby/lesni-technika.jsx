@@ -24,7 +24,7 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("../Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
+    background-image: url("/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
     background-size: cover;
     background-position: 75%;
 
@@ -325,16 +325,16 @@ export const SixGrid = ({ cards }) => {
 const Sluzby = () => {
   const cardData = [
     {
-      img: "../nove/Fotky_lesni_technika/2_lesni_technika.webp",
+      img: "/nove/Fotky_lesni_technika/2_lesni_technika.webp",
     },
     {
-      img: "../nove/Fotky_lesni_technika/3_lesni_technika.webp",
+      img: "/nove/Fotky_lesni_technika/3_lesni_technika.webp",
     },
     {
-      img: "../nove/Fotky_lesni_technika/4_lesni_technika.webp",
+      img: "/nove/Fotky_lesni_technika/4_lesni_technika.webp",
     },
     {
-      img: "../nove/Fotky_lesni_technika/5_lesni_technika.webp",
+      img: "/nove/Fotky_lesni_technika/5_lesni_technika.webp",
     },
   ];
 
@@ -393,7 +393,7 @@ const Sluzby = () => {
         </div>
         <TwoOneSection>
           <img
-            src="../nove/Fotky_lesni_technika/1_lesni_technika.webp"
+            src="/nove/Fotky_lesni_technika/1_lesni_technika.webp"
             alt="auto"
           />
           <div className="text-area">

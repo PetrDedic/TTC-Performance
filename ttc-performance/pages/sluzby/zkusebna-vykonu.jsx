@@ -24,7 +24,7 @@ const StyledSluzby = styled.main`
     width: 100vw;
     height: 50vh;
 
-    background-image: url("../Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
+    background-image: url("/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
     background-size: cover;
     background-position: 75%;
 
@@ -251,16 +251,16 @@ export const TwoOneSection = styled.section`
 
 const cardData = [
   {
-    img: "../nove/Fotky_mereni_vykonu/4_mereni_vykonu.webp",
+    img: "/nove/Fotky_mereni_vykonu/4_mereni_vykonu.webp",
   },
   {
-    img: "../nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp",
+    img: "/nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp",
   },
   {
-    img: "../nove/Fotky_mereni_vykonu/3_mereni_vykonu.webp",
+    img: "/nove/Fotky_mereni_vykonu/3_mereni_vykonu.webp",
   },
   {
-    img: "../nove/Fotky_mereni_vykonu/1_mereni_vykonu.webp",
+    img: "/nove/Fotky_mereni_vykonu/1_mereni_vykonu.webp",
   },
 ];
 
@@ -307,7 +307,7 @@ const Sluzby = () => {
         </section>
         <TwoOneSection>
           <img
-            src="../nove/Fotky_mereni_vykonu/5_mereni_vykonu.webp"
+            src="/nove/Fotky_mereni_vykonu/5_mereni_vykonu.webp"
             alt="auto"
           />
           <div className="text-area">
@@ -329,7 +329,7 @@ const Sluzby = () => {
         </section>
         <TwoOneSection>
           <img
-            src="../nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp"
+            src="/nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp"
             alt="auto"
           />
           <div className="text-area">

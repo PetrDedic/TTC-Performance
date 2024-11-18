@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -16,7 +18,15 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Component {...pageProps} />
+      <ColorSchemeScript forceColorScheme="light" />
+      <MantineProvider
+        theme={{
+          fontFamily: "Roboto, sans-serif",
+        }}
+        forceColorScheme="light"
+      >
+        <Component {...pageProps} />
+      </MantineProvider>
     </>
   );
 }

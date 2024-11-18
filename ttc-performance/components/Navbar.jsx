@@ -113,7 +113,7 @@ const Navbar = () => {
   return (
     <StyledNavbar>
       <img
-        src="..\..\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
+        src="\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
         alt="Logo"
         onClick={() => router.push("/")}
       />
