@@ -112,15 +112,6 @@ const StyledRealizace = styled.main`
 `;
 
 const Vozidla = () => {
-  const handleSearch = async () => {
-    fetch(
-      `/api/carModels?link=https://www.dynocheck.com/cs/catalog/detail/ducati-748-71kw`
-    )
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
-  };
-
   return (
     <>
       <Head>
