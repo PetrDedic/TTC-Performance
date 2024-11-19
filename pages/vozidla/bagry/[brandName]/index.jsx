@@ -166,6 +166,10 @@ const StyledRealizace = styled.main`
     margin: auto;
     width: 85vw;
   }
+
+  [id^="accordion-item-"] {
+    scroll-margin-top: 160px; /* Adjust to your desired offset */
+  }
 `;
 
 export async function getStaticPaths() {
@@ -224,6 +228,41 @@ export async function getStaticProps({ params }) {
 }
 
 const Vozidla = ({ brand, models }) => {
+  const [accordionValue, setAccordionValue] = useState(null);
+
+  // Load saved state from localStorage
+  useEffect(() => {
+    const savedState = localStorage.getItem("machines-accordionState");
+    if (savedState) {
+      const parsedState = JSON.parse(savedState);
+      setAccordionValue(parsedState);
+      console.log(parsedState);
+    }
+  }, []);
+
+  // Scroll to the open accordion item after the state has updated
+  useEffect(() => {
+    if (accordionValue) {
+      const model = models.find((m) => m.name === accordionValue);
+
+      console.log(model);
+      if (model) {
+        const element = document.getElementById(`accordion-item-${model.id}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          console.log("scroll not possible");
+        }
+      }
+    }
+  }, [accordionValue, models]);
+
+  const handleAccordionChange = (value) => {
+    console.log(value);
+    setAccordionValue(value);
+    localStorage.setItem("machines-accordionState", JSON.stringify(value));
+  };
+
   return (
     <>
       <Head>
@@ -255,15 +294,24 @@ const Vozidla = ({ brand, models }) => {
         </div>
 
         <div className="container">
-          <Accordion variant="separated" w="100%" radius={0} mb={32}>
+          <Accordion
+            multiple={false}
+            value={accordionValue}
+            onChange={handleAccordionChange}
+            variant="separated"
+            w="100%"
+            radius={0}
+            mb={32}
+          >
             {models.map((model) => (
               <Accordion.Item
                 key={model.id}
                 value={model.name}
                 style={{ borderColor: "var(--item-border-color)" }}
                 mt={0}
+                id={`accordion-item-${model.id}`}
               >
-                <Accordion.Control>
+                <Accordion.Control id={`accordion-control-${model.id}`}>
                   <Text size="lg" fw={700}>
                     {model.name}
                   </Text>

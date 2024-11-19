@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import styled from "styled-components";
 
 import Link from "next/link";
@@ -166,6 +166,14 @@ const StyledRealizace = styled.main`
     margin: auto;
     width: 85vw;
   }
+
+  [id^="accordion-item-"] {
+    scroll-margin-top: 160px; /* Adjust to your desired offset */
+  }
+
+  [id^="accordion-item-"] {
+    scroll-margin-top: 160px; /* Adjust to your desired offset */
+  }
 `;
 
 export async function getStaticPaths() {
@@ -224,6 +232,41 @@ export async function getStaticProps({ params }) {
 }
 
 const Vozidla = ({ brand, models }) => {
+  const [accordionValue, setAccordionValue] = useState(null);
+
+  // Load saved state from localStorage
+  useEffect(() => {
+    const savedState = localStorage.getItem("agro-accordionState");
+    if (savedState) {
+      const parsedState = JSON.parse(savedState);
+      setAccordionValue(parsedState);
+      console.log(parsedState);
+    }
+  }, []);
+
+  // Scroll to the open accordion item after the state has updated
+  useEffect(() => {
+    if (accordionValue) {
+      const model = models.find((m) => m.name === accordionValue);
+
+      console.log(model);
+      if (model) {
+        const element = document.getElementById(`accordion-item-${model.id}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          console.log("scroll not possible");
+        }
+      }
+    }
+  }, [accordionValue, models]);
+
+  const handleAccordionChange = (value) => {
+    console.log(value);
+    setAccordionValue(value);
+    localStorage.setItem("agro-accordionState", JSON.stringify(value));
+  };
+
   return (
     <>
       <Head>
@@ -255,13 +298,22 @@ const Vozidla = ({ brand, models }) => {
         </div>
 
         <div className="container">
-          <Accordion variant="separated" w="100%" radius={0} mb={32}>
+          <Accordion
+            multiple={false}
+            value={accordionValue}
+            onChange={handleAccordionChange}
+            variant="separated"
+            w="100%"
+            radius={0}
+            mb={32}
+          >
             {models.map((model) => (
               <Accordion.Item
                 key={model.id}
                 value={model.name}
                 style={{ borderColor: "var(--item-border-color)" }}
                 mt={0}
+                id={`accordion-item-${model.id}`}
               >
                 <Accordion.Control>
                   <Text size="lg" fw={700}>

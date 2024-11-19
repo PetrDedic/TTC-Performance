@@ -167,6 +167,10 @@ const StyledRealizace = styled.main`
     margin: auto;
     width: 85vw;
   }
+
+  [id^="accordion-item-"] {
+    scroll-margin-top: 160px; /* Adjust to your desired offset */
+  }
 `;
 
 export async function getStaticProps() {
