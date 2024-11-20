@@ -7,9 +7,6 @@ import { CircleSpinner, CombSpinner } from "react-spinners-kit";
 import styled from "styled-components";
 
 const StyledDetail = styled.main`
-  background-image: url("/Web_pozadi.svg");
-  background-size: cover;
-  background-position: top;
   padding: 6rem 0 8rem 0;
 
   width: 100%;

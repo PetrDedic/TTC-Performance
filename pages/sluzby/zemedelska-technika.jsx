@@ -9,10 +9,6 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const StyledSluzby = styled.main`
-  background-image: url("./Web_pozadi.svg");
-  background-size: cover;
-  background-position: top;
-
   width: 100%;
   height: auto;
   min-height: 100vh;

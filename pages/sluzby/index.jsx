@@ -8,10 +8,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const StyledSluzby = styled.main`
-  background-image: url("./Web_pozadi.svg");
-  background-size: cover;
-  background-position: top;
-
   width: 100%;
   height: auto;
   min-height: 100vh;

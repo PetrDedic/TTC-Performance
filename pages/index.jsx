@@ -14,10 +14,6 @@ const Main = styled.main`
 
   color: #101c24;
 
-  background-image: url("./Web_pozadi.svg");
-  background-size: cover;
-  background-position: top;
-
   .hero {
     margin-bottom: 8rem;
     width: 100vw;

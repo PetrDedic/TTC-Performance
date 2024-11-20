@@ -9,10 +9,6 @@ import supabase from "@/lib/supabaseClient";
 import { Accordion, Card, Flex, Grid, Image, Text } from "@mantine/core";
 
 const StyledRealizace = styled.main`
-  background-image: url("/Web_pozadi.svg");
-  background-size: cover;
-  background-position: top;
-
   width: 100%;
   height: auto;
   min-height: 100vh;

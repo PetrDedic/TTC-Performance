@@ -16,25 +16,39 @@ export default async function handler(req, res) {
       name,
       email,
       phone,
-      carModel,
+      category,
+      brand,
+      otherBrand,
+      model,
+      otherModel,
+      engine,
+      otherEngine,
       discountCode,
       power,
       modifications,
       consent,
     } = req.body;
 
+    // Determine if "Jiné" (Other) was selected for brand, model, or engine
+    const brandName = brand === "other" ? otherBrand : brand;
+    const modelName = model === "other" ? otherModel : model;
+    const engineName = engine === "other" ? otherEngine : engine;
+
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: "zapletal@ttcperformance.cz",
       subject: "New Contact Form Submission",
       html: `
+        <h1>New Contact Form Submission</h1>
         <p><strong>Jméno:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Telefon:</strong> ${phone}</p>
-        <p><strong>Značka a typ vozidla:</strong> ${carModel}</p>
-        <p><strong>Slevový kód:</strong> ${discountCode}</p>
-        <p><strong>Základní výkon v kW:</strong> ${power}</p>
-        <p><strong>Poptávka:</strong> ${modifications}</p>
+        <p><strong>Kategorie vozidla:</strong> ${category || "N/A"}</p>
+        <p><strong>Značka vozidla:</strong> ${brandName || "N/A"}</p>
+        <p><strong>Model vozidla:</strong> ${modelName || "N/A"}</p>
+        <p><strong>Motor vozidla:</strong> ${engineName || "N/A"}</p>
+        <p><strong>Slevový kód:</strong> ${discountCode || "N/A"}</p>
+        <p><strong>Poptávka:</strong> ${modifications || "N/A"}</p>
         <p><strong>Souhlasím se zpracováním osobních údajů:</strong> ${
           consent ? "Ano" : "Ne"
         }</p>
