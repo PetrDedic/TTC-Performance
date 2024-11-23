@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Flex, Image, Select, Text } from "@mantine/core";
-import supabase from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 
 const Styled30 = styled.div`
   margin: auto;
@@ -362,10 +362,12 @@ const Form = () => {
         <Select
           label="Kategorie vozidla"
           placeholder="Vyberte kategorii"
-          data={categories.map((category) => ({
-            value: category.id.toString(),
-            label: category.name_cz,
-          }))}
+          data={categories
+            .sort((a, b) => a.name_cz.localeCompare(b.name_cz))
+            .map((category) => ({
+              value: category.id.toString(),
+              label: category.name_cz,
+            }))}
           value={formData.category}
           onChange={handleSelectChange("category")}
         />
@@ -377,11 +379,13 @@ const Form = () => {
               label="Značka vozidla"
               placeholder="Vyberte značku"
               data={[
-                ...brands.map((brand) => ({
-                  value: brand.id.toString(),
-                  label: brand.name,
-                  image: brand.image || `/media/brands/${brand.name}.jpg`,
-                })),
+                ...brands
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((brand) => ({
+                    value: brand.id.toString(),
+                    label: brand.name,
+                    image: brand.image || `/media/brands/${brand.name}.jpg`,
+                  })),
                 { value: "other", label: "Jiné" },
               ]}
               value={formData.brand}
@@ -421,10 +425,12 @@ const Form = () => {
               label="Model vozidla"
               placeholder="Vyberte model"
               data={[
-                ...models.map((model) => ({
-                  value: model.id.toString(),
-                  label: model.name,
-                })),
+                ...models
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((model) => ({
+                    value: model.id.toString(),
+                    label: model.name,
+                  })),
                 { value: "other", label: "Jiné" },
               ]}
               value={formData.model}
@@ -451,17 +457,22 @@ const Form = () => {
               placeholder="Vyberte motor"
               data={[
                 ...Object.entries(
-                  engines.reduce((groups, engine) => {
-                    const groupName = engine.engine_types.name_cz;
-                    if (!groups[groupName]) {
-                      groups[groupName] = [];
-                    }
-                    groups[groupName].push({
-                      value: engine.id.toString(),
-                      label: engine.specifications,
-                    });
-                    return groups;
-                  }, {})
+                  engines
+                    .slice() // Create a shallow copy of the array to avoid mutating the original
+                    .sort((a, b) =>
+                      a.specifications.localeCompare(b.specifications)
+                    ) // Sort engines by specifications
+                    .reduce((groups, engine) => {
+                      const groupName = engine.engine_types.name_cz;
+                      if (!groups[groupName]) {
+                        groups[groupName] = [];
+                      }
+                      groups[groupName].push({
+                        value: engine.id.toString(),
+                        label: engine.specifications,
+                      });
+                      return groups;
+                    }, {})
                 ).map(([group, items]) => ({
                   group,
                   items,

@@ -1,6 +1,7 @@
 import Thirty from "@/components/30days";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Form from "@/components/Form";
 import FourGrid from "@/components/FourGrid";
 import Navbar from "@/components/Navbar";
 import Params from "@/components/Params";
@@ -408,7 +409,7 @@ const Sluzby = () => {
         <Params />
         <Thirty />
         <FourGrid cards={cardData} />
-        <Contact />
+        <Form />
       </StyledSluzby>
       <Footer />
     </>

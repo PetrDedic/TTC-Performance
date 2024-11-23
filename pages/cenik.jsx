@@ -1,5 +1,5 @@
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Form from "@/components/Form";
 import MoreInfo from "@/components/MoreInfo";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
@@ -528,7 +528,7 @@ const Cenik = () => {
           <Link href="/sluzby">Více služeb</Link>
         </div>
         <MoreInfo />
-        <Contact />
+        <Form />
       </StyledCenik>
       <Footer />
     </>
