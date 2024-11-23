@@ -174,6 +174,7 @@ export async function getStaticProps() {
     .from("categories")
     .select("id")
     .eq("name", "car")
+    .order("name", { ascending: true })
     .single();
 
   if (categoryError || !categoryData) {
@@ -198,6 +199,7 @@ export async function getStaticProps() {
   const { data: brands, error: brandsError } = await supabase
     .from("brands")
     .select("id, name, url, image")
+    .order("name", { ascending: true })
     .in("id", brandIds);
 
   if (brandsError) {

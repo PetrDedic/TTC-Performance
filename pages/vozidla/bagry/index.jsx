@@ -198,6 +198,7 @@ export async function getStaticProps() {
   const { data: brands, error: brandsError } = await supabase
     .from("brands")
     .select("id, name, url, image")
+    .order("name", { ascending: true })
     .in("id", brandIds);
 
   if (brandsError) {
