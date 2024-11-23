@@ -1,7 +1,8 @@
 // components/admin/Engines.jsx
 
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import supabase from "@/lib/supabaseClient";
+
 import {
   Table,
   Button,

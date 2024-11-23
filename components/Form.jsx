@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Flex, Image, Select, Text } from "@mantine/core";
-import { supabase } from "@/lib/supabaseClient";
+import supabase from "@/lib/supabaseClient";
 
 const Styled30 = styled.div`
   margin: auto;
