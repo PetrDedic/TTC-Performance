@@ -212,7 +212,8 @@ export async function getStaticProps({ params }) {
   const { data: modelsData } = await supabase
     .from("models")
     .select("id, name, engines (id, specifications, engine_types(name))")
-    .eq("brand_id", brandId);
+    .eq("brand_id", brandId)
+    .order("name");
 
   return {
     props: {
