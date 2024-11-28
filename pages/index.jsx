@@ -138,6 +138,7 @@ const Main = styled.main`
 
     @media (max-width: 1280px) {
       flex-direction: column;
+      max-width: 80vw;
 
       img {
         margin: auto !important;
@@ -152,6 +153,7 @@ const Main = styled.main`
       background-size: cover 75%;
       background-position: right;
       padding: 2rem 0;
+      gap: 32px;
 
       color: white;
 
