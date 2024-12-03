@@ -17,7 +17,7 @@ const StyledSluzby = styled.main`
   .hero {
     margin-bottom: 8rem;
     width: 100vw;
-    height: 50vh;
+    height: 480px;
 
     background-image: url("./Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
     background-size: cover;
@@ -290,7 +290,7 @@ const Sluzby = () => {
         <div className="hero">
           <div>
             <h1>NAŠE SLUŽBY</h1>
-            <span style={{ color: "#e84048", fontSize: 20 }}>
+            <span style={{ color: "#e84048", fontSize: 20, lineHeight: 1.2 }}>
               Na co se specializujeme?
             </span>
           </div>

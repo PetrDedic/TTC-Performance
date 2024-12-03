@@ -13,7 +13,7 @@ const StyledRealizace = styled.main`
   .hero {
     margin-bottom: 4rem;
     width: 100vw;
-    height: 50vh;
+    height: 480px;
 
     background-image: url("./Foty_web_uvodni_hlavni_fotky/Znacky_vozidel_foto.webp");
     background-size: cover;

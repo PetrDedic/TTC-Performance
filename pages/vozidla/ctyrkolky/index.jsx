@@ -18,7 +18,7 @@ const StyledRealizace = styled.main`
   .hero {
     margin-bottom: 8rem;
     width: 100vw;
-    height: 50vh;
+    height: 480px;
 
     @media (max-width: 900px) {
       height: 90vh;

@@ -13,7 +13,7 @@ const StyledRealizace = styled.main`
   .hero {
     margin-bottom: 6rem;
     width: 100vw;
-    height: 50vh;
+    height: 480px;
 
     background-image: url("/Foty_web_uvodni_hlavni_fotky/Realizace_foto.webp");
     background-size: cover;

@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import { TwoOneSection } from "./sluzby/lesni-technika";
+import XmasCard from "@/components/XmasCard";
+import { AspectRatio } from "@mantine/core";
 
 const Main = styled.main`
   width: 100%;
@@ -17,7 +19,7 @@ const Main = styled.main`
   .hero {
     margin-bottom: 8rem;
     width: 100vw;
-    height: 50vh;
+    height: 480px;
 
     background-image: url("./Foty_web_uvodni_hlavni_fotky/Uvod_foto.webp");
     background-size: cover;
@@ -613,6 +615,7 @@ export default function Home() {
                 textAlign: "center",
                 margin: "0 auto",
                 padding: "0 1rem",
+                lineHeight: 1.2,
               }}
             >
               Profesionální úpravy řídících jednotek motorů, emisních systémů a
@@ -634,8 +637,31 @@ export default function Home() {
             <img src="/media/icons/iconmonstr-certificate-12.svg" />
           </div>
         </div>
+
+        <XmasCard />
+
         <TwoOneSection>
-          <img src="/nove/Fotky_uvodni_stranka/1_foto_text.webp" alt="Uvod 1" />
+          <AspectRatio
+            ratio={1400 / 1000}
+            w="100%"
+            h="100%"
+            style={{
+              position: "relative",
+              borderRadius: 16,
+              boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+            }}
+          >
+            <img
+              src="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
+              alt="Uvod 1"
+              style={{
+                borderRadius: 16,
+                objectFit: "cover",
+                maxWidth: "unset",
+              }}
+            />
+          </AspectRatio>
+
           <div className="text-area">
             <p>
               Zaměřujeme se převážně na chiptuning - optimalizace softwaru v

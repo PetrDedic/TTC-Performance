@@ -36,7 +36,7 @@ const StyledCenik = styled.main`
   .hero {
     margin-bottom: 2rem;
     width: 100vw;
-    height: 50vh;
+    height: 480px;
 
     background-image: url("./Foty_web_uvodni_hlavni_fotky/Cenik_foto.webp");
     background-size: cover;
@@ -174,7 +174,7 @@ const Cenik = () => {
         <div className="hero">
           <div>
             <h1>NÁŠ CENÍK</h1>
-            <span style={{ color: "#e84048", fontSize: 20 }}>
+            <span style={{ color: "#e84048", fontSize: 20, lineHeight: 1.2 }}>
               Nejlepší ceny na trhu!
             </span>
           </div>
