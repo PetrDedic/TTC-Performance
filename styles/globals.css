@@ -22,9 +22,7 @@ body {
 body {
   overflow-y: scroll;
 
-  background-color: #ffffff !important;
-
-  background-image: url("/Web_pozadi.svg");
+  background-color: #f4f4f4 !important;
   background-size: cover;
   background-position: top;
   background-attachment: scroll;
