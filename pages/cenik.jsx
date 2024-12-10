@@ -1,109 +1,13 @@
 import Footer from "@/components/Footer";
 import Form from "@/components/Form";
+import Hero from "@/components/Hero";
 import MoreInfo from "@/components/MoreInfo";
 import Navbar from "@/components/Navbar";
+import { Button, Card, Flex, Stack, Text, Title } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
-
-const StyledCenik = styled.main`
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
-
-  color: #101c24;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-
-  .text {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 1280px;
-    @media (max-width: 1400px) {
-      max-width: 75vw;
-    }
-    text-align: center;
-    margin: auto;
-  }
-
-  .hero {
-    margin-bottom: 2rem;
-    width: 100vw;
-    height: 480px;
-
-    background-image: url("./Foty_web_uvodni_hlavni_fotky/Cenik_foto.webp");
-    background-size: cover;
-    background-position: 75%;
-
-    display: flex;
-    align-content: center;
-    justify-content: center;
-
-    color: white;
-
-    div {
-      align-self: center;
-      text-align: center;
-
-      h1 {
-        font-size: 4rem;
-        font-weight: bolder;
-        line-height: 4.75rem;
-
-        @media (max-width: 1280px) {
-          font-size: 3rem;
-        }
-        @media (max-width: 600px) {
-          font-size: 2rem;
-        }
-      }
-      p {
-        font-size: 2rem;
-        font-weight: 100;
-
-        @media (max-width: 1280px) {
-          font-size: 1.5rem;
-          letter-spacing: 0;
-        }
-        @media (max-width: 600px) {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-
-  .flexbox {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-
-    a {
-      margin-top: 1rem;
-      background: #e84048;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: 250ms;
-      border: 1px solid #e84048;
-      width: max-content;
-
-      &:hover {
-        background: none;
-        color: #e84048;
-      }
-    }
-  }
-`;
 
 const Header = styled.div`
   width: 100%;
@@ -112,7 +16,6 @@ const Header = styled.div`
   @media (max-width: 1400px) {
     max-width: 75vw;
   }
-  margin: 2rem auto -1rem auto;
   padding: 1rem;
   background-color: #0b1e25;
   border-radius: 1rem;
@@ -158,6 +61,8 @@ const Table = styled.div`
 `;
 
 const Cenik = () => {
+  const smallWindow = useMediaQuery("(max-width: 1200px)");
+
   return (
     <>
       <Head>
@@ -170,366 +75,459 @@ const Cenik = () => {
         />
       </Head>
       <Navbar />
-      <StyledCenik>
-        <div className="hero">
-          <div>
-            <h1>NÁŠ CENÍK</h1>
-            <span style={{ color: "#e84048", fontSize: 20, lineHeight: 1.2 }}>
-              Nejlepší ceny na trhu!
-            </span>
-          </div>
-        </div>
-        <div className="text">
-          <h2>CENY TTC PERFORMANCE</h2>
-        </div>
-        <Header>
-          <h2>Osobní a užitková vozidla</h2>
-        </Header>
-        <Table>
-          <table>
-            <tbody>
-              <tr>
-                <td>Chiptuning s měřením výkonu</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 5 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Oprava systému AdBlue/DPF</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 5 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Programování AUT převodovek</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 5 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Odstranění funkce EGR</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 3 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Omezovače otáček</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 3 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Omezovače rychlosti</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 3 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Měření výkonu na brzdě 4x4</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 3 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Diagnostika (paralelní/sériová)</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 800 Kč
-                </td>
-              </tr>
-              <tr>
-                <td style={{ border: "none" }}></td>
-                <td
-                  style={{
-                    border: "none",
-                    borderLeft: "2px solid #0b1e25",
-                    whiteSpace: "nowrap",
-                  }}
-                ></td>
-              </tr>
-            </tbody>
-          </table>
-          <p style={{ fontStyle: "italic", fontSize: 14 }}>
-            *Veškeré uvedené ceny jsou bez DPH.
-          </p>
-        </Table>
-        <Header>
-          <h2>Nákladní vozidla a autobusy</h2>
-        </Header>
-        <Table>
-          <table>
-            <tbody>
-              <tr>
-                <td>Chiptuning</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 25 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Chip truck</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 25 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Deaktivace systému AdBlue/DPF truck/bus</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 25 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Deaktivace EGR ventilu</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 18 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Snížení dávky vstřikování AdBlue</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 22 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Odstranění nouzového režimu</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 15 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Odstranění nouzového režimu E6</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 20 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Vyjezd mobilního technika</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 3 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Diagnostika</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 1 500 Kč
-                </td>
-              </tr>
-              <tr>
-                <td style={{ border: "none" }}></td>
-                <td
-                  style={{
-                    border: "none",
-                    borderLeft: "2px solid #0b1e25",
-                    whiteSpace: "nowrap",
-                  }}
-                ></td>
-              </tr>
-            </tbody>
-          </table>
-          <p style={{ fontStyle: "italic", fontSize: 14 }}>
-            *Veškeré uvedené ceny jsou bez DPH.
-          </p>
-        </Table>
-        <Header>
-          <h2>Zemědělská technika</h2>
-        </Header>
-        <Table>
-          <table>
-            <tbody>
-              <tr>
-                <td>Chiptuning agro</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 25 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td>Deaktivace AdBlue/DPF agro</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 25 000 Kč (dle výrobce motoru/ECU)
-                </td>
-              </tr>
-              <tr>
-                <td>Diagnostika</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 2 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td style={{ border: "none" }}></td>
-                <td
-                  style={{
-                    border: "none",
-                    borderLeft: "2px solid #0b1e25",
-                    whiteSpace: "nowrap",
-                  }}
-                ></td>
-              </tr>
-            </tbody>
-          </table>
-          <p style={{ fontStyle: "italic", fontSize: 14 }}>
-            *Veškeré uvedené ceny jsou bez DPH.
-          </p>
-        </Table>
-        <Header>
-          <h2>Stavební a lesní technika</h2>
-        </Header>
-        <Table>
-          <table>
-            <tbody>
-              <tr>
-                <td>Chiptuning stavební/lesní</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 25 000 Kč (dle výrobce motoru/ECU)
-                </td>
-              </tr>
-              <tr>
-                <td>Deaktivace AdBlue/DPF stavební/lesní</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 25 000 Kč (dle výrobce motoru/ECU)
-                </td>
-              </tr>
-              <tr>
-                <td>Diagnostika</td>
-                <td
-                  style={{
-                    width: "12rem",
-                    borderLeft: "2px solid #0b1e25",
-                  }}
-                >
-                  od 2 000 Kč
-                </td>
-              </tr>
-              <tr>
-                <td style={{ border: "none" }}></td>
-                <td
-                  style={{
-                    border: "none",
-                    borderLeft: "2px solid #0b1e25",
-                    whiteSpace: "nowrap",
-                  }}
-                ></td>
-              </tr>
-            </tbody>
-          </table>
-          <p style={{ fontStyle: "italic", fontSize: 14 }}>
-            *Veškeré uvedené ceny jsou bez DPH.
-          </p>
-        </Table>
-        <div className="flexbox">
-          <Link href="#form">Kontaktujte nás</Link>
-          <Link href="/sluzby">Více služeb</Link>
-        </div>
-        <MoreInfo />
+      <Hero
+        image="/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp"
+        title="Náš ceník"
+        subText={
+          <Text c="#e84048" fz={20}>
+            Nejlepší ceny na trhu!
+          </Text>
+        }
+      />
+      <Stack
+        px={32}
+        py={128}
+        justify="center"
+        align="center"
+        gap={smallWindow ? 64 : 128}
+        maw={1280}
+        mx="auto"
+        w="100%"
+      >
+        <Title
+          order={3}
+          fz={32}
+          lh={1}
+          style={{ scrollMarginTop: 100 }}
+          ta="center"
+        >
+          CENY TTC PERFORMANCE
+        </Title>
+
+        <Stack gap={8} w="100%">
+          <Header>
+            <h2>Osobní a užitková vozidla</h2>
+          </Header>
+          <Table>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Chiptuning s měřením výkonu</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 5 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Oprava systému AdBlue/DPF</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 5 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Programování AUT převodovek</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 5 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Odstranění funkce EGR</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 3 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Omezovače otáček</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 3 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Omezovače rychlosti</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 3 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Měření výkonu na brzdě 4x4</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 3 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Diagnostika (paralelní/sériová)</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 800 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ border: "none" }}></td>
+                  <td
+                    style={{
+                      border: "none",
+                      borderLeft: "2px solid #0b1e25",
+                      whiteSpace: "nowrap",
+                    }}
+                  ></td>
+                </tr>
+              </tbody>
+            </table>
+            <p style={{ fontStyle: "italic", fontSize: 14 }}>
+              *Veškeré uvedené ceny jsou bez DPH.
+            </p>
+          </Table>
+        </Stack>
+
+        <Stack gap={8} w="100%">
+          <Header>
+            <h2>Nákladní vozidla a autobusy</h2>
+          </Header>
+          <Table>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Chiptuning</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 25 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Chip truck</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 25 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Deaktivace systému AdBlue/DPF truck/bus</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 25 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Deaktivace EGR ventilu</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 18 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Snížení dávky vstřikování AdBlue</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 22 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Odstranění nouzového režimu</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 15 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Odstranění nouzového režimu E6</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 20 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Vyjezd mobilního technika</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 3 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Diagnostika</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 1 500 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ border: "none" }}></td>
+                  <td
+                    style={{
+                      border: "none",
+                      borderLeft: "2px solid #0b1e25",
+                      whiteSpace: "nowrap",
+                    }}
+                  ></td>
+                </tr>
+              </tbody>
+            </table>
+            <p style={{ fontStyle: "italic", fontSize: 14 }}>
+              *Veškeré uvedené ceny jsou bez DPH.
+            </p>
+          </Table>
+        </Stack>
+
+        <Stack gap={8} w="100%">
+          <Header>
+            <h2>Zemědělská technika</h2>
+          </Header>
+          <Table>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Chiptuning agro</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 25 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td>Deaktivace AdBlue/DPF agro</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 25 000 Kč (dle výrobce motoru/ECU)
+                  </td>
+                </tr>
+                <tr>
+                  <td>Diagnostika</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 2 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ border: "none" }}></td>
+                  <td
+                    style={{
+                      border: "none",
+                      borderLeft: "2px solid #0b1e25",
+                      whiteSpace: "nowrap",
+                    }}
+                  ></td>
+                </tr>
+              </tbody>
+            </table>
+            <p style={{ fontStyle: "italic", fontSize: 14 }}>
+              *Veškeré uvedené ceny jsou bez DPH.
+            </p>
+          </Table>
+        </Stack>
+
+        <Stack gap={8} w="100%">
+          <Header>
+            <h2>Stavební a lesní technika</h2>
+          </Header>
+          <Table>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Chiptuning stavební/lesní</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 25 000 Kč (dle výrobce motoru/ECU)
+                  </td>
+                </tr>
+                <tr>
+                  <td>Deaktivace AdBlue/DPF stavební/lesní</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 25 000 Kč (dle výrobce motoru/ECU)
+                  </td>
+                </tr>
+                <tr>
+                  <td>Diagnostika</td>
+                  <td
+                    style={{
+                      width: "12rem",
+                      borderLeft: "2px solid #0b1e25",
+                    }}
+                  >
+                    od 2 000 Kč
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ border: "none" }}></td>
+                  <td
+                    style={{
+                      border: "none",
+                      borderLeft: "2px solid #0b1e25",
+                      whiteSpace: "nowrap",
+                    }}
+                  ></td>
+                </tr>
+              </tbody>
+            </table>
+            <p style={{ fontStyle: "italic", fontSize: 14 }}>
+              *Veškeré uvedené ceny jsou bez DPH.
+            </p>
+          </Table>
+        </Stack>
+
+        <Flex align="center" justify="center" mx="auto" gap={16} wrap="wrap">
+          <Link
+            href="#form"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <Button
+              color="#e84048"
+              variant="filled"
+              size="compact-xl"
+              radius="md"
+              px={32}
+              w={256}
+            >
+              Kontaktujte nás
+            </Button>
+          </Link>
+          <Link
+            href="/sluzby"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <Button
+              color="#e84048"
+              variant="filled"
+              size="compact-xl"
+              radius="md"
+              px={32}
+              w={256}
+            >
+              Více služeb
+            </Button>
+          </Link>
+        </Flex>
+
+        <Card
+          py="5vh"
+          px={32}
+          radius={0}
+          style={{
+            position: "relative",
+            width: "100lvw",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+          }}
+          c="white"
+          bg="#101c24"
+        >
+          <Title order={3} fz={32} lh={1} style={{ scrollMarginTop: 100 }}>
+            Více informací o našich službách?
+          </Title>
+          <Text fz={20} ta="center">
+            Zjistěte více informací o dané službě pro vaše vozidlo.
+          </Text>
+          <Link
+            href="/vozidla"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <Button
+              color="#e84048"
+              variant="filled"
+              size="compact-xl"
+              radius="md"
+              px={32}
+            >
+              Mám zájem
+            </Button>
+          </Link>
+        </Card>
+
         <Form />
-      </StyledCenik>
+      </Stack>
       <Footer />
     </>
   );

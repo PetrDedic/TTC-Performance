@@ -6,7 +6,8 @@ import styled from "styled-components";
 
 import Link from "next/link";
 import supabase from "@/lib/supabaseClient";
-import { Card, Flex, Image, Text } from "@mantine/core";
+import { Card, Flex, Image, Stack, Text } from "@mantine/core";
+import Hero from "@/components/Hero";
 
 const StyledRealizace = styled.main`
   width: 100%;
@@ -222,20 +223,23 @@ const Vozidla = ({ brands }) => {
         />
       </Head>
       <Navbar />
-      <StyledRealizace>
-        <div className="hero">
-          <div>
-            <h1>ZEMĚDĚLSKÁ TECHNIKA</h1>
-          </div>
-        </div>
-
+      <Hero image="/media/foto/vozidla.png" title="Zemědělská technika" />
+      <Stack
+        px={32}
+        py={128}
+        justify="center"
+        align="start"
+        gap={32}
+        maw={1280}
+        mx="auto"
+        w="100%"
+      >
         <div className="nav">
           <Link href="/vozidla">Značky vozidel</Link>
           {` > Zemědělská technika`}
         </div>
         <Flex
           gap={16}
-          px="10vw"
           wrap="wrap"
           mx="auto"
           my={32}
@@ -283,7 +287,7 @@ const Vozidla = ({ brands }) => {
         </Flex>
 
         <p>&#8203;</p>
-      </StyledRealizace>
+      </Stack>
       <Footer />
     </>
   );

@@ -6,8 +6,6 @@ import supabase from "@/lib/supabaseClient";
 
 const Styled30 = styled.div`
   margin: auto;
-  margin-top: 6rem;
-  margin-bottom: 6rem;
   width: 75vw;
   display: flex;
   max-width: 1280px;

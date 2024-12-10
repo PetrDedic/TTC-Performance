@@ -381,7 +381,7 @@ export default function Home() {
             </Grid.Col>
             <Grid.Col span={{ base: 12, sm: 6 }}>
               <Link
-                href="/sluzby/zkusebna-vykonu"
+                href="/sluzby/stavebni-technika"
                 style={{ color: "inherit", textDecoration: "inherit" }}
               >
                 <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
