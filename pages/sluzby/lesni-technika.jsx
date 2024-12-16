@@ -83,7 +83,7 @@ const Sluzby = () => {
       <Navbar />
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp"
-        title="Naše služby"
+        title="Využijte náš široký sortiment služeb, které pro vás nabízíme."
         subText={
           <Text c="#e84048" fz={20}>
             Na co se specializujeme?

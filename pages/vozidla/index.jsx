@@ -76,7 +76,7 @@ const Vozidla = () => {
       <Navbar />
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/Znacky_vozidel_foto.webp"
-        title="Značky vozidel"
+        title="Vyhledejte sou značku vozidla a zjistěte na jaké parametry se lze dostat."
       />
       <Stack
         px={32}
@@ -109,7 +109,14 @@ const Vozidla = () => {
                     }}
                   >
                     <Stack h="100%" align="start" justify="end">
-                      <Title order={3} c="white" tt="uppercase" pl={8}>
+                      <Title
+                        order={3}
+                        c="white"
+                        tt="uppercase"
+                        pl={8}
+                        fz={32}
+                        maw="90%"
+                      >
                         {card.text}
                       </Title>
                     </Stack>
@@ -134,7 +141,13 @@ const Vozidla = () => {
           c="white"
           bg="#101c24"
         >
-          <Title order={3} fz={32} lh={1} style={{ scrollMarginTop: 100 }}>
+          <Title
+            order={3}
+            fz={32}
+            lh={1}
+            style={{ scrollMarginTop: 100 }}
+            ta="center"
+          >
             Nevíte si rady a potřebujete poradit?
           </Title>
           <Text fz={20} ta="center">
@@ -187,7 +200,14 @@ const Vozidla = () => {
                     }}
                   >
                     <Stack h="100%" align="start" justify="end">
-                      <Title order={3} c="white" tt="uppercase" pl={8}>
+                      <Title
+                        order={3}
+                        c="white"
+                        tt="uppercase"
+                        pl={8}
+                        fz={32}
+                        maw="90%"
+                      >
                         {card.text}
                       </Title>
                     </Stack>

@@ -25,7 +25,7 @@ const Realizace = () => {
       <Navbar />
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/Realizace_foto.webp"
-        title="Realizace"
+        title="Do všech našich realizací dáváme maximální úsilí a proto jsou naši klienti vždy spokojeni."
       />
       <Stack
         px={32}

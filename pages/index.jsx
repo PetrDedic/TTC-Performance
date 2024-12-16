@@ -219,7 +219,7 @@ export default function Home() {
             ta="center"
             style={{ scrollMarginTop: 100 }}
           >
-            3 Důvody proč využít naše služby
+            Hlavní důvody, proč si vybrat právě nás!
           </Title>
 
           <Flex
@@ -245,11 +245,11 @@ export default function Home() {
             >
               <Stack w="100%" align="center" justify="center">
                 <Text fz={20} fw={700} c="white" ta="center">
-                  Měření vákonu
+                  Měření výkonu
                 </Text>
                 <Text c="white" ta="center">
                   Dokážeme měřit výkon na 4x4 válcové zkušebně výkonu + Agro
-                  Dyno.
+                  Dyno měření výkonu.
                 </Text>
               </Stack>
             </Card>

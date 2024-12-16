@@ -77,7 +77,7 @@ const Cenik = () => {
       <Navbar />
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp"
-        title="Náš ceník"
+        title="Jsme féroví! Naše ceny optimalizujeme tak, aby byly výhodné pro obě strany."
         subText={
           <Text c="#e84048" fz={20}>
             Nejlepší ceny na trhu!
@@ -94,16 +94,6 @@ const Cenik = () => {
         mx="auto"
         w="100%"
       >
-        <Title
-          order={3}
-          fz={32}
-          lh={1}
-          style={{ scrollMarginTop: 100 }}
-          ta="center"
-        >
-          CENY TTC PERFORMANCE
-        </Title>
-
         <Stack gap={8} w="100%">
           <Header>
             <h2>Osobní a užitková vozidla</h2>
