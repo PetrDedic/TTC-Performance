@@ -1,113 +1,67 @@
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import {
+  AspectRatio,
+  Button,
+  Card,
+  Grid,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import Head from "next/head";
 import Link from "next/link";
-import styled from "styled-components";
+import classes from "../../styles/Index.module.css";
+import Form from "@/components/Form";
 
-const StyledRealizace = styled.main`
-  width: 100%;
-  height: auto;
-
-  color: #101c24;
-
-  .hero {
-    margin-bottom: 4rem;
-    width: 100vw;
-    height: 480px;
-
-    background-image: url("./Foty_web_uvodni_hlavni_fotky/Znacky_vozidel_foto.webp");
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    align-content: center;
-    justify-content: center;
-
-    color: white;
-
-    div {
-      align-self: center;
-      text-align: center;
-
-      h1 {
-        font-size: 4rem;
-        font-weight: bolder;
-        line-height: 4.75rem;
-
-        @media (max-width: 1280px) {
-          font-size: 3rem;
-        }
-        @media (max-width: 600px) {
-          font-size: 2rem;
-        }
-      }
-      p {
-        font-size: 2rem;
-        font-weight: 100;
-
-        @media (max-width: 1280px) {
-          font-size: 1.5rem;
-          letter-spacing: 0;
-        }
-        @media (max-width: 600px) {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-
-  .container {
-    width: 75vw;
-    margin: 0 auto 3rem auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    @media (max-width: 1280px) {
-      flex-wrap: wrap;
-      gap: 3rem;
-    }
-    gap: 3rem;
-
-    a {
-      text-decoration: none !important;
-    }
-
-    .card {
-      width: 8rem;
-      height: 9rem;
-      padding: 1rem;
-      font-size: 0.75rem;
-
-      -webkit-box-shadow: -16px 16px 0px 0px #c3c7ca89;
-      -moz-box-shadow: -16px 16px 0px 0px #c3c7ca89;
-      box-shadow: -16px 16px 0px 0px #c3c7ca89;
-
-      display: flex;
-      flex-direction: column;
-
-      border-radius: 2rem;
-      background-color: #101c24;
-      color: white;
-      text-align: center;
-
-      text-decoration: none !important;
-
-      p {
-        margin-top: auto;
-        text-decoration: none !important;
-      }
-
-      img {
-        padding: 1rem;
-      }
-      svg {
-        padding: 1.5rem;
-      }
-    }
-  }
-`;
+const cardData = [
+  {
+    img: "/nove/Fotky_znacky_vozidel/Osobni_vozidla.webp",
+    text: "Osobní vozidla",
+    link: "/vozidla/osobni",
+  },
+  {
+    img: "/nove/Fotky_znacky_vozidel/Nakladni_vozidla.webp",
+    text: "Nákladní vozidla",
+    link: "/vozidla/nakladni",
+  },
+  {
+    img: "nove/Fotky_znacky_vozidel/Zemedelska_technika.webp",
+    text: "Zemědělská a lesní technika",
+    link: "/vozidla/agro",
+  },
+  {
+    img: "nove/Fotky_znacky_vozidel/Stavebni_technika.webp",
+    text: "Stavební technika",
+    link: "/vozidla/bagry",
+  },
+  {
+    img: "nove/Fotky_znacky_vozidel/Autobusy.webp",
+    text: "Autobusy",
+    link: "/vozidla/bus",
+  },
+  {
+    img: "nove/Fotky_znacky_vozidel/Motorky.webp",
+    text: "Motorky",
+    link: "/vozidla/moto",
+  },
+  {
+    img: "nove/Fotky_znacky_vozidel/Ctyrkolky.webp",
+    text: "Čtyřkolky",
+    link: "/vozidla/ctyrkolky",
+  },
+  {
+    img: "nove/Fotky_znacky_vozidel/Lode.webp",
+    text: "Lodě",
+    link: "/vozidla/lode",
+  },
+];
 
 const Vozidla = () => {
+  const smallWindow = useMediaQuery("(max-width: 1200px)");
+
   return (
     <>
       <Head>
@@ -120,74 +74,152 @@ const Vozidla = () => {
         />
       </Head>
       <Navbar />
-      <StyledRealizace>
-        <div className="hero">
-          <div>
-            <h1 onClick={() => handleSearch()}>ZNAČKY VOZIDEL</h1>
-          </div>
-        </div>
-        <div className="container">
-          <Link href="/vozidla/osobni">
-            <div className="card">
-              <p>Osobní vozidla</p>
-              <img src="/media/icons/car.png" alt="" />
-            </div>
-          </Link>
-          <Link href="/vozidla/nakladni">
-            <div className="card">
-              <p>Nákladní vozidla</p>
-              <img src="/media/icons/iconmonstr-delivery-1.svg" alt="" />
-            </div>
-          </Link>
-          <Link href="/vozidla/agro">
-            <div className="card">
-              <p>Zemědělská a lesní technika</p>
-              <img
-                src="/media/icons/tractor-agriculture-torque-construction-equipment-svgrepo-com.svg"
-                alt=""
-              />
-            </div>
-          </Link>
-          <Link href="/vozidla/bagry">
-            <div className="card">
-              <p>Stavební technika</p>
-              <img src="/media/icons/iconmonstr-construction-4.svg" alt="" />
-            </div>
-          </Link>
-          <Link href="/vozidla/bus">
-            <div className="card">
-              <p>Autobusy</p>
-              <img src="/media/icons/iconmonstr-bus-5.svg" alt="" />
-            </div>
-          </Link>
-        </div>
+      <Hero
+        image="/Foty_web_uvodni_hlavni_fotky/Znacky_vozidel_foto.webp"
+        title="Vyhledejte sou značku vozidla a zjistěte na jaké parametry se lze dostat."
+      />
+      <Stack
+        px={32}
+        py={128}
+        justify="center"
+        align="center"
+        gap={smallWindow ? 64 : 128}
+        maw={1280}
+        mx="auto"
+        w="100%"
+      >
+        <Grid w="100%" gutter={smallWindow ? 24 : 64} mx="auto">
+          {cardData.slice(0, 4).map((card, index) => (
+            <Grid.Col span={{ base: 12, sm: 6 }} key={index}>
+              <Link
+                href={card.link}
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <AspectRatio ratio={16 / 9}>
+                  <Card
+                    radius={16}
+                    className={classes.card}
+                    style={{
+                      backgroundImage: `url("${card.img}")`,
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <Stack h="100%" align="start" justify="end">
+                      <Title
+                        order={3}
+                        c="white"
+                        tt="uppercase"
+                        pl={8}
+                        fz={32}
+                        maw="90%"
+                      >
+                        {card.text}
+                      </Title>
+                    </Stack>
+                  </Card>
+                </AspectRatio>
+              </Link>
+            </Grid.Col>
+          ))}
+        </Grid>
 
-        <div className="container">
-          <Link href="/vozidla/moto">
-            <div className="card">
-              <p>Motorky</p>
-              <img src="/media/icons/motorcycle-f-svgrepo-com.svg" alt="" />
-            </div>
+        <Card
+          py="5vh"
+          px={32}
+          radius={0}
+          style={{
+            position: "relative",
+            width: "100lvw",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+          }}
+          c="white"
+          bg="#101c24"
+        >
+          <Title
+            order={3}
+            fz={32}
+            lh={1}
+            style={{ scrollMarginTop: 100 }}
+            ta="center"
+          >
+            Nevíte si rady a potřebujete poradit?
+          </Title>
+          <Text fz={20} ta="center">
+            Kontaktujte nás na telefonním čísle{" "}
+            <Link
+              href="tel:+420 602 562 650"
+              style={{
+                color: "inherit",
+                whiteSpace: "nowrap",
+              }}
+            >
+              +420 602 562 650
+            </Link>{" "}
+            a nebo vyplňte jednoduchý formulář.
+          </Text>
+          <Link
+            href="#form"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <Button
+              color="#e84048"
+              variant="filled"
+              size="compact-xl"
+              radius="md"
+              px={32}
+            >
+              Kontaktujte nás
+            </Button>
           </Link>
-          <Link href="/vozidla/ctyrkolky">
-            <div className="card">
-              <p>Čtyřkolky</p>
-              <img src="/media/icons/quad-bike-2-svgrepo-com.svg" alt="" />
-            </div>
-          </Link>
-          <Link href="/vozidla/lode">
-            <div className="card">
-              <p>Lodě</p>
-              <img
-                src="/media/icons/ship-boat-svgrepo-com.svg"
-                alt=""
-                style={{ transform: "scaleX(-1)" }}
-              />
-            </div>
-          </Link>
-        </div>
-        <p>&#8203;</p>
-      </StyledRealizace>
+        </Card>
+
+        <Grid w="100%" gutter={smallWindow ? 24 : 64} mx="auto">
+          {cardData.slice(4, 8).map((card, index) => (
+            <Grid.Col span={{ base: 12, sm: 6 }} key={index}>
+              <Link
+                href={card.link}
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <AspectRatio ratio={16 / 9}>
+                  <Card
+                    radius={16}
+                    className={classes.card}
+                    style={{
+                      backgroundImage: `url("${card.img}")`,
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <Stack h="100%" align="start" justify="end">
+                      <Title
+                        order={3}
+                        c="white"
+                        tt="uppercase"
+                        pl={8}
+                        fz={32}
+                        maw="90%"
+                      >
+                        {card.text}
+                      </Title>
+                    </Stack>
+                  </Card>
+                </AspectRatio>
+              </Link>
+            </Grid.Col>
+          ))}
+        </Grid>
+
+        <Form />
+      </Stack>
       <Footer />
     </>
   );

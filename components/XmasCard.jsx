@@ -14,15 +14,7 @@ export default function XmasCard() {
   const smallWindow = useMediaQuery("(max-width: 1280px)");
 
   return (
-    <Card
-      w={smallWindow ? "80vw" : "60vw"}
-      mx="auto"
-      mb={72}
-      radius={16}
-      bg="none"
-      p={0}
-      style={{ overflow: "visible" }}
-    >
+    <Card mx="auto" radius={16} bg="none" p={0} style={{ overflow: "visible" }}>
       <Flex
         gap={smallWindow ? 24 : 64}
         direction={smallWindow ? "column" : "row"}

@@ -6,7 +6,9 @@ import styled from "styled-components";
 
 import Link from "next/link";
 import supabase from "@/lib/supabaseClient";
-import { Card, Flex, Image, Text } from "@mantine/core";
+import { Card, Flex, Image, Stack, Text } from "@mantine/core";
+import Hero from "@/components/Hero";
+import { useMediaQuery } from "@mantine/hooks";
 
 const StyledRealizace = styled.main`
   width: 100%;
@@ -211,6 +213,8 @@ export async function getStaticProps() {
 }
 
 const Vozidla = ({ brands }) => {
+  const smallWindow = useMediaQuery("(max-width: 1200px)");
+
   return (
     <>
       <Head>
@@ -223,20 +227,23 @@ const Vozidla = ({ brands }) => {
         />
       </Head>
       <Navbar />
-      <StyledRealizace>
-        <div className="hero">
-          <div>
-            <h1>OSOBNÍ VOZIDLA</h1>
-          </div>
-        </div>
-
+      <Hero image="/media/foto/vozidla.png" title="Osobní vozidla" />
+      <Stack
+        px={32}
+        py={128}
+        justify="center"
+        align="start"
+        gap={32}
+        maw={1280}
+        mx="auto"
+        w="100%"
+      >
         <div className="nav">
           <Link href="/vozidla">Značky vozidel</Link>
           {` > Osobní vozidla`}
         </div>
         <Flex
           gap={16}
-          px="10vw"
           wrap="wrap"
           mx="auto"
           my={32}
@@ -284,7 +291,7 @@ const Vozidla = ({ brands }) => {
         </Flex>
 
         <p>&#8203;</p>
-      </StyledRealizace>
+      </Stack>
       <Footer />
     </>
   );

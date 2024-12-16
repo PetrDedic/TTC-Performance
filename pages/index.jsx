@@ -7,590 +7,23 @@ import Link from "next/link";
 import styled from "styled-components";
 import { TwoOneSection } from "./sluzby/lesni-technika";
 import XmasCard from "@/components/XmasCard";
-import { AspectRatio } from "@mantine/core";
-
-const Main = styled.main`
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
-
-  color: #101c24;
-
-  .hero {
-    margin-bottom: 8rem;
-    width: 100vw;
-    height: 480px;
-
-    background-image: url("./Foty_web_uvodni_hlavni_fotky/Uvod_foto.webp");
-    background-size: cover;
-    background-position: 50% 60%;
-
-    display: flex;
-    align-content: center;
-    justify-content: center;
-
-    color: white;
-
-    div {
-      align-self: center;
-      text-align: center;
-
-      h1 {
-        font-size: 4rem;
-        font-weight: bolder;
-        line-height: 4.75rem;
-
-        @media (max-width: 1280px) {
-          font-size: 3rem;
-        }
-        @media (max-width: 600px) {
-          font-size: 2rem;
-        }
-      }
-      p {
-        font-size: 2rem;
-        font-weight: 100;
-
-        @media (max-width: 1280px) {
-          font-size: 1.5rem;
-          letter-spacing: 0;
-        }
-        @media (max-width: 600px) {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-
-  .marks {
-    width: 100%;
-    height: auto;
-    position: relative;
-    margin-top: -14rem;
-    margin-bottom: 6rem;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 3%;
-
-    color: #fff;
-
-    @media (max-width: 1280px) {
-      flex-wrap: wrap;
-      gap: 0;
-      .mark {
-        margin: 0.5rem;
-      }
-    }
-
-    .mark {
-      width: 8rem;
-      height: auto;
-      background-color: #101c24cc;
-      border: solid 1px gray;
-      border-radius: 1rem;
-
-      display: flex;
-      flex-direction: column;
-
-      @media (max-width: 600px) {
-        justify-content: center;
-        width: 5rem;
-        height: 7rem;
-        font-size: 1rem;
-
-        p {
-          padding: 1rem 0 !important;
-          font-size: 0.55rem !important;
-        }
-
-        img {
-          margin: 0 !important;
-          height: 2rem !important;
-        }
-      }
-
-      p {
-        font-size: 1rem;
-        padding: 1rem;
-        padding-bottom: 0;
-        text-align: center;
-        font-weight: 700;
-      }
-      img {
-        margin: auto 0;
-        padding: 0 1rem;
-        font-size: 2rem;
-        text-align: center;
-        width: 100%;
-        max-height: 50%;
-      }
-    }
-  }
-
-  section {
-    width: 100%;
-    max-width: 60vw;
-    margin: auto;
-    height: auto;
-
-    display: flex;
-    flex-direction: row-reverse;
-
-    @media (max-width: 1280px) {
-      flex-direction: column;
-      max-width: 80vw;
-
-      img {
-        margin: auto !important;
-      }
-    }
-
-    &.reverse {
-      flex-direction: row-reverse;
-      background: #101c24;
-      border-radius: 2rem;
-      background-repeat: no-repeat;
-      background-size: cover 75%;
-      background-position: right;
-      padding: 2rem 0;
-      gap: 32px;
-
-      color: white;
-
-      ul {
-        list-style: none;
-        font-size: 1.25rem;
-
-        color: #dcdcdc;
-
-        span {
-          color: #fff;
-          font-weight: 700;
-        }
-      }
-
-      h2 {
-        font-size: 4.5rem !important;
-
-        @media (max-width: 1280px) {
-          font-size: 3rem !important;
-        }
-        @media (max-width: 600px) {
-          font-size: 2rem !important;
-        }
-      }
-
-      @media (max-width: 1280px) {
-        flex-direction: column;
-      }
-
-      img {
-        box-shadow: none !important;
-      }
-    }
-
-    .text {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-self: center;
-
-      ul {
-        list-style: none;
-        font-size: 1.25rem;
-        padding-left: 0;
-        text-align: justify;
-        @media (max-width: 900px) {
-          text-align: left;
-        }
-
-        .bold {
-          font-size: 1.15rem;
-          font-weight: 900;
-          text-align: left;
-
-          @media (max-width: 900px) {
-            font-size: 1.25rem;
-            font-weight: 700;
-          }
-        }
-      }
-
-      gap: 1rem;
-
-      h2 {
-        font-size: 5rem;
-        font-weight: 900;
-        text-align: left;
-
-        @media (max-width: 1280px) {
-          text-align: center;
-          font-size: 3.5rem;
-          letter-spacing: 0px;
-        }
-        @media (max-width: 600px) {
-          font-size: 2rem !important;
-        }
-      }
-
-      ul li {
-        text-align: left;
-        font-size: 1.5rem;
-        line-height: 1.2;
-        margin: 1.5rem 0;
-      }
-    }
-
-    .image {
-      width: 100%;
-      height: 100%;
-      align-self: center;
-
-      img {
-        margin: auto;
-        height: 100%;
-        max-height: 30vh;
-        width: 80%;
-        object-fit: cover;
-        border-radius: 1.5rem;
-        aspect-ratio: 4/2.75;
-
-        -webkit-box-shadow: -48px 48px 0px 0px #c3c7ca81;
-        -moz-box-shadow: -48px 48px 0px 0px #c3c7ca81;
-        box-shadow: -48px 48px 0px 0px #c3c7ca81;
-
-        @media (max-width: 900px) {
-          max-height: 25vh;
-          width: 100%;
-          -webkit-box-shadow: -16px 16px 0px 0px #c3c7ca81;
-          -moz-box-shadow: -16px 16px 0px 0px #c3c7ca81;
-          box-shadow: -16px 16px 0px 0px #c3c7ca81;
-          margin-bottom: 2rem !important;
-        }
-      }
-    }
-  }
-
-  .box {
-    margin: 0 auto;
-    margin-top: 8rem;
-
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-align: center;
-      margin-bottom: 3rem;
-      letter-spacing: -2px;
-
-      @media (max-width: 1280px) {
-        text-align: center;
-        font-size: 2.5rem;
-        letter-spacing: 0px;
-      }
-      @media (max-width: 600px) {
-        font-size: 1.5rem !important;
-      }
-    }
-    .boxes {
-      display: flex;
-      flex-wrap: wrap;
-      width: 75vw;
-      height: auto;
-      justify-content: center;
-      gap: 2rem;
-      margin: 0 auto;
-
-      .card {
-        background-color: white;
-        width: 25vw;
-        height: auto;
-        padding: 2rem 1rem;
-        border-radius: 1rem;
-        min-height: 20vh;
-
-        transition: 500ms ease-in-out;
-        &:hover {
-          transform: scale(1.025);
-          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 1);
-        }
-
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
-          0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
-          0 16px 16px rgba(0, 0, 0, 0.12);
-
-        aspect-ratio: 16/9;
-
-        @media (max-width: 1280px) {
-          width: calc(100% - 4rem);
-          aspect-ratio: 1/1;
-
-          &:nth-of-type(1) {
-            background-color: #fff !important;
-            color: #101c24 !important;
-          }
-
-          &:nth-of-type(2) {
-            background-color: #101c24;
-            color: white !important;
-          }
-        }
-
-        @media (max-width: 900px) {
-          h4 {
-            text-align: center;
-            font-size: 1.5rem !important;
-            font-weight: 900 !important;
-          }
-
-          p {
-            font-size: 1rem !important;
-            font-weight: 500 !important;
-            text-align: center;
-          }
-        }
-
-        &:nth-of-type(1) {
-          background-color: #101c24;
-          color: white;
-        }
-        &:nth-of-type(4) {
-          background-color: #101c24;
-          color: white;
-        }
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        h4 {
-          text-align: center;
-          font-size: 2rem;
-          font-weight: 900;
-          margin-bottom: 1rem;
-        }
-
-        p {
-          font-size: 1rem;
-          font-weight: 500;
-          text-align: center;
-        }
-      }
-    }
-  }
-
-  .reasons {
-    margin: 0 auto;
-    margin-top: 8rem;
-    display: flex;
-    flex-direction: column;
-    max-width: 75vw;
-    gap: 3rem;
-
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-align: center;
-      letter-spacing: -2px;
-
-      @media (max-width: 1280px) {
-        text-align: center;
-        font-size: 2.5rem;
-        letter-spacing: 0px;
-      }
-      @media (max-width: 600px) {
-        font-size: 1.5rem !important;
-      }
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 2rem;
-
-      @media (max-width: 1280px) {
-        flex-wrap: wrap;
-      }
-
-      .reason {
-        display: flex;
-        flex-direction: row;
-        width: auto;
-        justify-items: center;
-        gap: 1rem;
-
-        @media (max-width: 900px) {
-          width: 60vw;
-        }
-
-        p {
-          font-size: 1.05rem;
-          justify-self: center;
-          font-weight: 700;
-          height: min-content;
-          margin: auto 1rem;
-
-          @media (max-width: 900px) {
-            font-size: 0.75rem;
-          }
-        }
-
-        div {
-          width: 100%;
-          min-width: 6rem;
-          max-width: 6rem;
-          height: 6rem;
-          border-radius: 1rem;
-          background-color: #101c24;
-          display: flex;
-          align-items: center;
-
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
-            0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.12),
-            0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
-
-          span {
-            color: white;
-            margin: auto;
-            font-size: 3rem;
-            font-weight: 900;
-            text-align: center;
-          }
-
-          @media (max-width: 900px) {
-            width: 100%;
-            min-width: 4rem;
-            max-width: 4rem;
-            height: 4rem;
-            span {
-              font-size: 2rem;
-              letter-spacing: 0px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .diagnose {
-    margin: 3rem auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 75vw;
-    gap: 6rem;
-    margin-bottom: 12rem !important;
-
-    h2 {
-      font-size: 4rem;
-      font-weight: 900;
-      text-align: center;
-      letter-spacing: -2px;
-
-      @media (max-width: 1280px) {
-        text-align: center;
-        font-size: 2.5rem;
-        letter-spacing: 0px;
-      }
-      @media (max-width: 600px) {
-        font-size: 1.5rem !important;
-      }
-    }
-
-    .row {
-      display: flex;
-      flex: row;
-      justify-content: center;
-      justify-items: center;
-      gap: 2rem;
-
-      @media (max-width: 1280px) {
-        flex-wrap: wrap;
-      }
-
-      div {
-        font-size: 3rem;
-        height: min-content;
-        justify-self: center;
-        margin: auto 0;
-      }
-
-      .spacer {
-        font-size: 3.5rem;
-        font-weight: bold;
-        padding: 1.5rem 0 2rem 0;
-        @media (max-width: 1280px) {
-          display: none;
-        }
-      }
-    }
-  }
-
-  .end-text {
-    margin: 3rem auto 0 auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 70vw;
-    gap: 4rem;
-    padding-bottom: 12rem !important;
-
-    p {
-      font-size: 2rem;
-      text-align: center;
-
-      @media (max-width: 1280px) {
-        font-size: 1.5rem;
-        text-align: justify;
-      }
-    }
-  }
-
-  .welcome {
-    max-width: 1024px;
-    width: 100%;
-    margin: 0 auto 6rem auto;
-  }
-
-  .contact-us {
-    font-size: 16px;
-    background: #e84048;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: 250ms;
-    border: 1px solid #e84048;
-    width: 10rem;
-    text-align: center;
-
-    &:hover {
-      background: none;
-      color: #e84048;
-    }
-  }
-
-  .red-button {
-    font-size: 16px;
-    margin-top: 1rem;
-    background: #e84048;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: 250ms;
-    border: 1px solid #e84048;
-    width: 10rem;
-    text-align: center;
-
-    &:hover {
-      background: none;
-      color: #e84048;
-    }
-  }
-`;
+import {
+  AspectRatio,
+  Button,
+  Card,
+  Flex,
+  Grid,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
+import Hero from "@/components/Hero";
+import { useMediaQuery } from "@mantine/hooks";
+import classes from "../styles/Index.module.css";
 
 export default function Home() {
+  const smallWindow = useMediaQuery("(max-width: 1200px)");
+
   return (
     <>
       <Head>
@@ -603,191 +36,424 @@ export default function Home() {
         />
       </Head>
       <Navbar />
-      <Main>
-        <div className="hero">
-          <div>
-            <h1>TTC Performance</h1>
-            <p
-              style={{
-                color: "#e84048",
-                fontSize: 20,
-                maxWidth: 480,
-                textAlign: "center",
-                margin: "0 auto",
-                padding: "0 1rem",
-                lineHeight: 1.2,
-              }}
+      <Hero
+        image="/Foty_web_uvodni_hlavni_fotky/Uvod_foto.webp"
+        title="Profesionální úpravy řídících jednotek motorů a emisních systémů."
+        subText={
+          <Link
+            href="/sluzby"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <Button
+              color="#e84048"
+              variant="filled"
+              size="compact-xl"
+              radius="md"
+              px={32}
             >
-              Profesionální úpravy řídících jednotek motorů, emisních systémů a
-              automatických převodovek.
-            </p>
-          </div>
-        </div>
-        <div className="marks">
-          <div className="mark">
-            <p>KVALITA</p>
-            <img src="/media/icons/iconmonstr-award-7.svg" />
-          </div>
-          <div className="mark">
-            <p>RYCHLOST</p>
-            <img src="/media/icons/iconmonstr-time-19.svg" />
-          </div>
-          <div className="mark">
-            <p>ZÁRUKA</p>
-            <img src="/media/icons/iconmonstr-certificate-12.svg" />
-          </div>
-        </div>
-
+              Zjistit více
+            </Button>
+          </Link>
+        }
+      />
+      <Stack
+        px={32}
+        py={128}
+        justify="center"
+        align="center"
+        gap={smallWindow ? 64 : 128}
+        maw={1280}
+        mx="auto"
+        w="100%"
+      >
         <XmasCard />
 
-        <TwoOneSection>
-          <AspectRatio
-            ratio={1400 / 1000}
-            w="100%"
-            h="100%"
-            style={{
-              position: "relative",
-              borderRadius: 16,
-              boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-            }}
-          >
-            <img
-              src="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
-              alt="Uvod 1"
+        <Grid w="100%" gutter={smallWindow ? 24 : 64}>
+          <Grid.Col span={{ base: 12, sm: 6 }}>
+            <AspectRatio
+              ratio={4 / 3}
               style={{
+                position: "relative",
                 borderRadius: 16,
-                objectFit: "cover",
-                maxWidth: "unset",
+                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
               }}
-            />
-          </AspectRatio>
-
-          <div className="text-area">
-            <p>
-              Zaměřujeme se převážně na chiptuning - optimalizace softwaru v
-              řídicích jednotkách motorů, opravu & deaktivaci emisních systémů
-              jako je SCR AdBlue, DPF a EGR. Dále na diagnostiku vozidel a
-              strojů, řešíme chybová hlášení a kontrolky závad, programování
-              automatických převodovek, opravy elektronických jednotek a mnoho
-              dalšího ...
-            </p>
-            <Link href="/sluzby" className="red-button">
-              Více služeb
-            </Link>
-          </div>
-        </TwoOneSection>
-        <div
-          style={{ backgroundColor: "#101c24", height: "auto", marginTop: 128 }}
-        >
-          <section className="reverse">
-            <div className="text">
-              <ul>
-                <li>
-                  Našimi zákazníky, jsou převážně majitelé dopravní techniky,
-                  zemědělských strojů a osobních aut, kteří chtějí zvýšit výkon,
-                  snížit spotřebu pohonných hmot a optimalizovat své provozní
-                  náklady za opravy a servis emisních systému (SCR AdBlue, DPF a
-                  EGR) a nebo měli problémy po neodborném chiptuningu.
-                </li>
-                <li>
-                  Pokud máte i vy zájem, kontaktujte nás na telefonním čísle{" "}
-                  <a
-                    href="tel:+420 602 562 650"
-                    style={{
-                      fontWeight: 700,
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
-                    +420 602 562 650
-                  </a>{" "}
-                  a nebo vyplňte jednoduchý formulář.
-                </li>
-                <Link href="/sluzby#form" className="contact-us">
-                  Kontaktujte nás
-                </Link>
-              </ul>
-            </div>
-            <div className="image">
-              <img
-                src="/nove/Fotky_uvodni_stranka/2_foto_text.webp"
-                alt="Traktor brzda"
+              h={smallWindow ? 360 : "100%"}
+            >
+              <Image
+                quality={100}
+                src="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
+                alt="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
+                fill
+                sizes="100vw"
+                style={{ borderRadius: 16 }}
               />
-            </div>
-          </section>
-        </div>
-        <div className="reasons">
-          <h2>3 DŮVODY PRO CHIPTUNING U NÁS</h2>
-          <div className="container">
-            <div className="reason">
-              <div>
-                <span>1.</span>
-              </div>
-              <p>
-                Měření výkonu na válcové
-                <br /> zkušebně 4x4 + Agro Dyno{" "}
-              </p>
-            </div>
-            <div className="reason">
-              <div>
-                <span>2.</span>
-              </div>
-              <p>Kvalitní bezpečné úpravy</p>
-            </div>
-            <div className="reason">
-              <div>
-                <span>3.</span>
-              </div>
-              <p>Garance zachování emisních limitů.</p>
-            </div>
-          </div>
-        </div>
-        <div className="box">
-          <h2>NAŠE ZAMĚŘENÍ</h2>
-          <div className="boxes">
-            <Link
-              className="card"
-              href="/sluzby/zkusebna-vykonu"
-              style={{ textDecoration: "inherit" }}
+            </AspectRatio>
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, sm: 6 }}>
+            <Stack
+              align="center"
+              justify="center"
+              w="100%"
+              gap={64}
+              py={smallWindow ? 0 : 32}
             >
-              <h4>Dopravní technika</h4>
-              <p>osobní vozidla</p>
-              <p>nákladní vozy / autobusy</p>
-              <p>dodávky / obytné vozy</p>
-            </Link>
-            <Link
-              className="card"
-              href="/sluzby/zemedelska-technika"
-              style={{ textDecoration: "inherit", color: "inherit" }}
-            >
-              <h4>Zemědělská technika</h4>
-              <p>traktory / kombajny</p>
-              <p>manipulátory / řezačky</p>
-            </Link>
-            <Link
-              className="card"
-              href="/sluzby/stavebni-technika"
-              style={{ textDecoration: "inherit", color: "inherit" }}
-            >
-              <h4>Stavební technika</h4>
-              <p>bagry / nakladače</p>
-              <p>buldozery / traktorbagry</p>
-              <p>drtiče</p>
-            </Link>
-            <Link
-              className="card"
-              href="/sluzby/lesni-technika"
-              style={{ textDecoration: "inherit" }}
-            >
-              <h4>Lesní technika</h4>
-              <p>harvestory / vyvážecí soupravy</p>
-              <p>lesní traktory</p>
-            </Link>
-          </div>
+              <Stack gap={16} justify="center" w="100%">
+                <Title
+                  order={3}
+                  fz={32}
+                  lh={1}
+                  style={{ scrollMarginTop: 100 }}
+                >
+                  Na jaké služby se zaměřujeme?
+                </Title>
+                <Text fz={20} maw={480}>
+                  Zaměřujeme se převážně na chiptuning - optimalizace softwaru v
+                  řídicích jednotkách motorů, opravu & deaktivaci emisních
+                  systémů jako je SCR AdBlue, DPF a EGR. Dále na diagnostiku
+                  vozidel a strojů, řešíme chybová hlášení a kontrolky závad,
+                  programování automatických převodovek, opravy elektronických
+                  jednotek a mnoho dalšího ...
+                </Text>
+                <Link
+                  href="/sluzby"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  <Button
+                    color="#e84048"
+                    variant="filled"
+                    size="compact-xl"
+                    radius="md"
+                    px={32}
+                  >
+                    Více služeb
+                  </Button>
+                </Link>
+              </Stack>
+            </Stack>
+          </Grid.Col>
+        </Grid>
 
-          <Form />
-        </div>
-      </Main>
+        <Card
+          py="5vh"
+          px={32}
+          radius={0}
+          style={{
+            position: "relative",
+            width: "100lvw",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 48,
+          }}
+          c="white"
+          bg="#101c24"
+        >
+          <Grid w="100%" gutter={smallWindow ? 24 : 64} maw={1280} mx="auto">
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <AspectRatio
+                ratio={4 / 3}
+                style={{
+                  position: "relative",
+                  borderRadius: 16,
+                }}
+                h={smallWindow ? 360 : "100%"}
+              >
+                <Image
+                  quality={100}
+                  src="/nove/Fotky_uvodni_stranka/2_foto_text.webp"
+                  alt="/nove/Fotky_uvodni_stranka/2_foto_text.webp"
+                  fill
+                  sizes="100vw"
+                  style={{ borderRadius: 16 }}
+                />
+              </AspectRatio>
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <Stack align="center" justify="center" w="100%" gap={64}>
+                <Stack gap={16} justify="center" w="100%">
+                  <Text fz={20} maw={480}>
+                    Našimi zákazníky, jsou převážně majitelé dopravní techniky,
+                    zemědělských strojů a osobních aut, kteří chtějí zvýšit
+                    výkon, snížit spotřebu pohonných hmot a optimalizovat své
+                    provozní náklady za opravy a servis emisních systému (SCR
+                    AdBlue, DPF a EGR) a nebo měli problémy po neodborném
+                    chiptuningu.
+                  </Text>
+                  <Text fz={20} maw={480}>
+                    Pokud máte i vy zájem, kontaktujte nás na telefonním čísle{" "}
+                    <Link
+                      href="tel:+420 602 562 650"
+                      style={{
+                        color: "inherit",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      +420 602 562 650
+                    </Link>{" "}
+                    a nebo vyplňte jednoduchý formulář.
+                  </Text>
+                  <Link
+                    href="#form"
+                    style={{ color: "inherit", textDecoration: "inherit" }}
+                  >
+                    <Button
+                      color="#e84048"
+                      variant="filled"
+                      size="compact-xl"
+                      radius="md"
+                      px={32}
+                    >
+                      Kontaktujte nás
+                    </Button>
+                  </Link>
+                </Stack>
+              </Stack>
+            </Grid.Col>
+          </Grid>
+        </Card>
+
+        <Stack gap={32} justify="center" w="100%">
+          <Title
+            order={3}
+            fz={32}
+            lh={1}
+            ta="center"
+            style={{ scrollMarginTop: 100 }}
+          >
+            Hlavní důvody, proč si vybrat právě nás!
+          </Title>
+
+          <Flex
+            direction={smallWindow ? "column" : "row"}
+            w="100%"
+            gap={smallWindow ? 24 : 64}
+            maw={1280}
+            mx="auto"
+            align="stretch"
+            justify="center"
+          >
+            <Card
+              h={192}
+              c="white"
+              bg="#101c24"
+              radius={16}
+              p={32}
+              style={{
+                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                justifyContent: "center",
+                flex: "1 1 100%",
+              }}
+            >
+              <Stack w="100%" align="center" justify="center">
+                <Text fz={20} fw={700} c="white" ta="center">
+                  Měření výkonu
+                </Text>
+                <Text c="white" ta="center">
+                  Dokážeme měřit výkon na 4x4 válcové zkušebně výkonu + Agro
+                  Dyno měření výkonu.
+                </Text>
+              </Stack>
+            </Card>
+            <Card
+              h={192}
+              c="white"
+              bg="#101c24"
+              radius={16}
+              p={48}
+              style={{
+                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                justifyContent: "center",
+                flex: "1 1 100%",
+              }}
+            >
+              <Stack w="100%" align="center" justify="center">
+                <Text fz={20} fw={700} c="white" ta="center">
+                  Bezpečnost
+                </Text>
+                <Text c="white" ta="center">
+                  Děláme pouze kvalitní a bezpečné úpravy.
+                </Text>
+              </Stack>
+            </Card>
+            <Card
+              h={192}
+              c="white"
+              bg="#101c24"
+              radius={16}
+              p={48}
+              style={{
+                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                justifyContent: "center",
+                flex: "1 1 100%",
+              }}
+            >
+              <Stack w="100%" align="center" justify="center">
+                <Text fz={20} fw={700} c="white" ta="center">
+                  Garance
+                </Text>
+                <Text c="white" ta="center">
+                  Garantujeme zachování emisních limitů.
+                </Text>
+              </Stack>
+            </Card>
+          </Flex>
+        </Stack>
+
+        <Stack gap={32} justify="center" w="100%">
+          <Title
+            order={3}
+            fz={32}
+            lh={1}
+            style={{ scrollMarginTop: 100 }}
+            ta="center"
+          >
+            Na jaké vozidla a techniku se zaměřujeme?
+          </Title>
+          <Grid w="100%" gutter={32} maw={1280} mx="auto">
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <Link
+                href="/sluzby/zkusebna-vykonu"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
+                  <Card
+                    className={classes.card}
+                    radius={16}
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                      justifyContent: "center",
+                    }}
+                    p={48}
+                  >
+                    <Stack align="center" justify="center" h="100%">
+                      <Text fz={32} fw={700} ta="center">
+                        Dopravní technika
+                      </Text>
+                      <Stack align="center" justify="center" gap={0}>
+                        <Text fz={20} ta="center">
+                          osobní vozidla
+                        </Text>
+                        <Text fz={20} ta="center">
+                          nákladní vozy / autobusy
+                        </Text>
+                        <Text fz={20} ta="center">
+                          dodávky / obytné vozy
+                        </Text>
+                      </Stack>
+                    </Stack>
+                  </Card>
+                </AspectRatio>
+              </Link>
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <Link
+                href="/sluzby/zemedelska-technika"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
+                  <Card
+                    className={classes.card}
+                    radius={16}
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                      justifyContent: "center",
+                    }}
+                    p={48}
+                  >
+                    <Stack align="center" justify="center" h="100%">
+                      <Text fz={32} fw={700} ta="center">
+                        Zemědělská technika
+                      </Text>
+                      <Stack align="center" justify="center" gap={0}>
+                        <Text fz={20} c="white" ta="center">
+                          -
+                        </Text>
+                        <Text fz={20} ta="center">
+                          traktory / kombajny
+                        </Text>
+                        <Text fz={20} ta="center">
+                          manipulátory / řezačky
+                        </Text>
+                      </Stack>
+                    </Stack>
+                  </Card>
+                </AspectRatio>
+              </Link>
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <Link
+                href="/sluzby/stavebni-technika"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
+                  <Card
+                    className={classes.card}
+                    radius={16}
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                      justifyContent: "center",
+                    }}
+                    p={48}
+                  >
+                    <Stack align="center" justify="center" h="100%">
+                      <Text fz={32} fw={700} ta="center">
+                        Stavební technika
+                      </Text>
+                      <Stack align="center" justify="center" gap={0}>
+                        <Text fz={20} ta="center">
+                          bagry / nakladače
+                        </Text>
+                        <Text fz={20} ta="center">
+                          buldozery / traktorbagry
+                        </Text>
+                        <Text fz={20} ta="center">
+                          drtiče
+                        </Text>
+                      </Stack>
+                    </Stack>
+                  </Card>
+                </AspectRatio>
+              </Link>
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <Link
+                href="/sluzby/zkusebna-vykonu"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
+                  <Card
+                    className={classes.card}
+                    radius={16}
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                      justifyContent: "center",
+                    }}
+                    p={48}
+                  >
+                    <Stack align="center" justify="center" h="100%">
+                      <Text fz={32} fw={700} ta="center">
+                        Lesní technika
+                      </Text>
+                      <Stack align="center" justify="center" gap={0}>
+                        <Text fz={20} c="white" ta="center">
+                          -
+                        </Text>
+                        <Text fz={20} ta="center">
+                          harvestory / vyvážecí soupravy
+                        </Text>
+                        <Text fz={20} ta="center">
+                          lesní traktory
+                        </Text>
+                      </Stack>
+                    </Stack>
+                  </Card>
+                </AspectRatio>
+              </Link>
+            </Grid.Col>
+          </Grid>
+        </Stack>
+
+        <Form />
+      </Stack>
       <Footer />
     </>
   );

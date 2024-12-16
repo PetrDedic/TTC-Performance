@@ -1,250 +1,23 @@
-import Thirty from "@/components/30days";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Form from "@/components/Form";
-import FourGrid from "@/components/FourGrid";
+import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
-import Params from "@/components/Params";
+import {
+  AspectRatio,
+  Button,
+  Card,
+  Grid,
+  List,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import Head from "next/head";
 import Link from "next/link";
-import styled from "styled-components";
-
-const StyledSluzby = styled.main`
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
-
-  color: #101c24;
-
-  .hero {
-    margin-bottom: 8rem;
-    width: 100vw;
-    height: 480px;
-
-    background-image: url("/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp");
-    background-size: cover;
-    background-position: 75%;
-
-    display: flex;
-    align-content: center;
-    justify-content: center;
-
-    color: white;
-
-    div {
-      align-self: center;
-      text-align: center;
-
-      h1 {
-        font-size: 4rem;
-        font-weight: bolder;
-        line-height: 4.75rem;
-
-        @media (max-width: 1280px) {
-          font-size: 3rem;
-        }
-        @media (max-width: 600px) {
-          font-size: 2rem;
-        }
-      }
-      p {
-        font-size: 2rem;
-        font-weight: 100;
-
-        @media (max-width: 1280px) {
-          font-size: 1.5rem;
-          letter-spacing: 0;
-        }
-        @media (max-width: 600px) {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-
-  section {
-    max-width: 1280px;
-
-    @media (max-width: 1400px) {
-      max-width: 75vw;
-    }
-
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    &.text {
-      gap: 2rem;
-      font-size: 1.25rem;
-      margin-bottom: 4rem;
-      ul {
-        padding-left: 1rem;
-        list-style-type: "- ";
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
-
-    &.warn {
-      margin-bottom: 4rem;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    &.grid {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-bottom: 4rem;
-      @media (max-width: 1280px) {
-        flex-direction: column;
-      }
-
-      & > .card {
-        width: calc(50% - 2rem);
-        @media (max-width: 1280px) {
-          width: calc(100% - 2rem);
-        }
-        margin: 1rem;
-        aspect-ratio: 16/9;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: end;
-        padding: 2rem;
-        color: white;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        border-radius: 1rem;
-
-        transition: 500ms ease-in-out;
-        &:hover {
-          transform: scale(1.025);
-        }
-      }
-
-      & > .card::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 1rem;
-      }
-
-      h3,
-      p,
-      a {
-        position: relative;
-        z-index: 1;
-      }
-
-      h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      p {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-      }
-
-      a {
-        background: #e84048;
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: 250ms;
-        width: 10rem;
-        text-align: center;
-
-        &:hover {
-          background: white;
-          color: #e84048;
-        }
-      }
-    }
-  }
-`;
-
-export const TwoOneSection = styled.section`
-  max-width: 75vw;
-  margin: auto;
-  display: flex;
-  flex-direction: row !important;
-  gap: 4rem;
-  justify-content: center;
-  align-content: center;
-  margin-bottom: 4rem !important;
-  @media (max-width: 1280px) {
-    flex-direction: column !important;
-  }
-
-  img {
-    height: 100%;
-    max-height: 480px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 1rem;
-    max-width: 50%;
-
-    @media (max-width: 1280px) {
-      max-width: 100%;
-    }
-  }
-
-  .text-area {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: center;
-    align-content: center;
-    font-size: 1.25rem;
-
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    ul {
-      list-style-type: "- ";
-      padding-left: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-  }
-
-  a {
-    font-size: 16px;
-    margin-top: 1rem;
-    background: #e84048;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: 250ms;
-    border: 1px solid #e84048;
-    width: 10rem;
-    text-align: center;
-
-    &:hover {
-      background: none;
-      color: #e84048;
-    }
-  }
-`;
+import { useRouter } from "next/router";
+import classes from "../../styles/Index.module.css";
+import Image from "next/image";
 
 const cardData = [
   {
@@ -262,6 +35,8 @@ const cardData = [
 ];
 
 const Sluzby = () => {
+  const smallWindow = useMediaQuery("(max-width: 1200px)");
+
   return (
     <>
       <Head>
@@ -274,83 +49,253 @@ const Sluzby = () => {
         />
       </Head>
       <Navbar />
-      <StyledSluzby>
-        <div className="hero">
-          <div>
-            <h1>NAŠE SLUŽBY</h1>
-            <span style={{ color: "#e84048", fontSize: 20, lineHeight: 1.2 }}>
-              Na co se specializujeme?
-            </span>
-          </div>
-        </div>
-        <section className="text">
-          <h2>4x4 Válcová zkušebna výkonu</h2>
-          <p>
+      <Hero
+        image="/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp"
+        title="Využijte náš široký sortiment služeb, které pro vás nabízíme."
+        subText={
+          <Text c="#e84048" fz={20}>
+            Na co se specializujeme?
+          </Text>
+        }
+      />
+      <Stack
+        px={32}
+        py={128}
+        justify="center"
+        align="center"
+        gap={smallWindow ? 64 : 128}
+        maw={1280}
+        mx="auto"
+        w="100%"
+      >
+        <Stack gap={32} justify="center" w="100%">
+          <Title order={3} fz={32} lh={1} style={{ scrollMarginTop: 100 }}>
+            4x4 Válcová zkušebna výkonu
+          </Title>
+          <Text fz={20}>
             Řada HP je nejvýkonnějším podvozkovým dynamometrem Bapro. Čtyři
             všechny spojené válce o průměru 400 mm na každou nápravu zaručují
             špičkovou opakovatelnost a přesnost.
-          </p>
-          <p>
+          </Text>
+          <Text fz={20}>
             Elektronicky propojené a synchronizované nápravy prostřednictvím
             softwaru, vytvořené rychlým a přesným vysokofrekvenčním řízením brzd
             s vířivými proudy, s cílem synchronizovat nápravy ve voze 4wd
             (patentovaný systém Bapro).
-          </p>
-          <p>
+          </Text>
+          <Text fz={20}>
             Tato funkce zabraňuje jakémukoli poškození diferenciálů a pomáhá
             provádět přesnější testy, protože je také zabráněno plýtvání výkonem
             kvůli prokluzování uvnitř diferenciálů.
-          </p>
-        </section>
-        <TwoOneSection>
-          <img
-            src="/nove/Fotky_mereni_vykonu/5_mereni_vykonu.webp"
-            alt="auto"
-          />
-          <div className="text-area">
-            <h2>Základní informace</h2>
-            <ul>
-              <li>Maximální rychlost 360 km/h</li>
-              <li>Maximální měřitelný výkon 2 000 HP</li>
-              <li>Maximální absorbovatelný výkon 1 300 HP</li>
-              <li>Maximální tažná síla 3 200 Nm</li>
-            </ul>
-          </div>
-        </TwoOneSection>
-        <section className="text">
-          <h2>AGRO DYNO - Měření výkonu</h2>
-          <p>
+          </Text>
+
+          <Grid w="100%" gutter={smallWindow ? 24 : 64} mt={16}>
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <AspectRatio
+                ratio={4 / 3}
+                style={{
+                  position: "relative",
+                  borderRadius: 16,
+                  boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                }}
+                h={smallWindow ? 360 : "100%"}
+              >
+                <Image
+                  quality={100}
+                  src="/nove/Fotky_mereni_vykonu/5_mereni_vykonu.webp"
+                  alt="/nove/Fotky_mereni_vykonu/5_mereni_vykonu.webp"
+                  fill
+                  sizes="100vw"
+                  style={{ borderRadius: 16 }}
+                />
+              </AspectRatio>
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <Stack align="center" justify="center" w="100%" gap={64}>
+                <Stack
+                  gap={16}
+                  justify="center"
+                  w="100%"
+                  py={smallWindow ? 0 : 64}
+                >
+                  <Title
+                    order={3}
+                    fz={32}
+                    lh={1}
+                    style={{ scrollMarginTop: 100 }}
+                  >
+                    Základní informace
+                  </Title>
+                  <List spacing={16}>
+                    <List.Item>
+                      <Text fz={20}>Maximální rychlost 360 km/h</Text>
+                    </List.Item>
+                    <List.Item>
+                      <Text fz={20}>Maximální měřitelný výkon 2 000 HP</Text>
+                    </List.Item>
+                    <List.Item>
+                      <Text fz={20}>
+                        Maximální absorbovatelný výkon 1 300 HP
+                      </Text>
+                    </List.Item>
+                    <List.Item>
+                      <Text fz={20}>Maximální tažná síla 3 200 Nm</Text>
+                    </List.Item>
+                  </List>
+                </Stack>
+              </Stack>
+            </Grid.Col>
+          </Grid>
+        </Stack>
+
+        <Stack gap={32} justify="center" w="100%">
+          <Title order={3} fz={32} lh={1} style={{ scrollMarginTop: 100 }}>
+            AGRO DYNO - Měření výkonu
+          </Title>
+          <Text fz={20}>
             Mobilní dynamometr pro měření výkonu traktorů přes vývodový hřídel
             PTO. Maximální měřitelný výkon je do 450 Hp a 2 000 Nm.
-          </p>
-        </section>
-        <TwoOneSection>
-          <img
-            src="/nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp"
-            alt="auto"
-          />
-          <div className="text-area">
-            <h2>Zkušební lhůta</h2>
-            <p>
-              Zdarma 30 dní zkušební lhůta,
-              <br />
-              na námi provedenou optimalizaci výkonu.
-            </p>
-            <Link href="#form">Kontaktujte nás</Link>
-          </div>
-        </TwoOneSection>
-        <Params />
-        <section className="text" style={{ marginTop: 64 }}>
-          <h2>Pronájem zkušebny</h2>
-          <ul>
-            <li>Možnost pronájmu zkušebny pro své vlastní účely.</li>
-            <li>Cena pronájmu je od 2 699 Kč na hodinu bez DPH.</li>
-            <li>Po celou dobu s technikem, který zkušebnu bude obsluhovat.</li>
-          </ul>
-        </section>
-        <FourGrid cards={cardData} />
+          </Text>
+          <Grid w="100%" gutter={smallWindow ? 24 : 64} mt={16}>
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <AspectRatio
+                ratio={4 / 3}
+                style={{
+                  position: "relative",
+                  borderRadius: 16,
+                  boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                }}
+                h={smallWindow ? 360 : "100%"}
+              >
+                <Image
+                  quality={100}
+                  src="/nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp"
+                  alt="/nove/Fotky_mereni_vykonu/2_mereni_vykonu.webp"
+                  fill
+                  sizes="100vw"
+                  style={{ borderRadius: 16 }}
+                />
+              </AspectRatio>
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, sm: 6 }}>
+              <Stack
+                gap={16}
+                justify="center"
+                w="100%"
+                py={smallWindow ? 0 : 64}
+              >
+                <Title
+                  order={3}
+                  fz={32}
+                  lh={1}
+                  style={{ scrollMarginTop: 100 }}
+                >
+                  Zkušební lhůta
+                </Title>
+                <Text fz={20}>
+                  Zdarma 30 dní zkušební lhůta, na námi provedenou optimalizaci
+                  výkonu.
+                </Text>
+                <Link
+                  href="#form"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  <Button
+                    color="#e84048"
+                    variant="filled"
+                    size="compact-xl"
+                    radius="md"
+                    px={32}
+                  >
+                    Kontaktujte nás
+                  </Button>
+                </Link>
+              </Stack>
+            </Grid.Col>
+          </Grid>
+        </Stack>
+
+        <Card
+          py="5vh"
+          px={32}
+          radius={0}
+          style={{
+            position: "relative",
+            width: "100lvw",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+          }}
+          c="white"
+          bg="#101c24"
+        >
+          <Title order={3} fz={32} lh={1} style={{ scrollMarginTop: 100 }}>
+            Parametry výkonu
+          </Title>
+          <Text fz={20} ta="center">
+            Zjisti více informací o možném navýšení výkonu svého vozidla.
+          </Text>
+          <Link
+            href="/vozidla"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <Button
+              color="#e84048"
+              variant="filled"
+              size="compact-xl"
+              radius="md"
+              px={32}
+            >
+              Značky vozidel
+            </Button>
+          </Link>
+        </Card>
+
+        <Stack gap={32} justify="center" w="100%">
+          <Title order={3} fz={32} lh={1} style={{ scrollMarginTop: 100 }}>
+            Pronájem zkušebny
+          </Title>
+          <List spacing={16}>
+            <List.Item>
+              <Text fz={20}>
+                Možnost pronájmu zkušebny pro své vlastní účely.
+              </Text>
+            </List.Item>
+            <List.Item>
+              <Text fz={20}>
+                Cena pronájmu je od 2 699 Kč na hodinu bez DPH.
+              </Text>
+            </List.Item>
+            <List.Item>
+              <Text fz={20}>
+                Po celou dobu s technikem, který zkušebnu bude obsluhovat.
+              </Text>
+            </List.Item>
+          </List>
+
+          <Grid w="100%" gutter={smallWindow ? 24 : 64} mx="auto" mt={16}>
+            {cardData.map((card, index) => (
+              <Grid.Col span={{ base: 12, sm: 6 }} key={index}>
+                <AspectRatio ratio={16 / 9}>
+                  <Card
+                    radius={16}
+                    style={{
+                      backgroundImage: `url("${card.img}")`,
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                    }}
+                  />
+                </AspectRatio>
+              </Grid.Col>
+            ))}
+          </Grid>
+        </Stack>
+
         <Form />
-      </StyledSluzby>
+      </Stack>
+
       <Footer />
     </>
   );

@@ -6,7 +6,8 @@ import styled from "styled-components";
 
 import Link from "next/link";
 import supabase from "@/lib/supabaseClient";
-import { Accordion, Card, Flex, Grid, Image, Text } from "@mantine/core";
+import { Accordion, Card, Flex, Grid, Image, Stack, Text } from "@mantine/core";
+import Hero from "@/components/Hero";
 
 const StyledRealizace = styled.main`
   width: 100%;
@@ -275,13 +276,17 @@ const Vozidla = ({ brand, models }) => {
         />
       </Head>
       <Navbar />
-      <StyledRealizace>
-        <div className="hero">
-          <div>
-            <h1>{brand.name} - Modely</h1>
-          </div>
-        </div>
-
+      <Hero image="/media/foto/vozidla.png" title={`${brand.name} - Modely`} />
+      <Stack
+        px={32}
+        py={128}
+        justify="center"
+        align="start"
+        gap={32}
+        maw={1280}
+        mx="auto"
+        w="100%"
+      >
         <div className="nav">
           <Link href="/vozidla">Značky vozidel</Link>
           {" > "}
@@ -290,109 +295,107 @@ const Vozidla = ({ brand, models }) => {
           {brand.name}
         </div>
 
-        <div className="container">
-          <Accordion
-            multiple={false}
-            value={accordionValue}
-            onChange={handleAccordionChange}
-            variant="separated"
-            w="100%"
-            radius={0}
-            mb={32}
-          >
-            {models.map((model) => (
-              <Accordion.Item
-                key={model.id}
-                value={model.name}
-                style={{ borderColor: "var(--item-border-color)" }}
-                mt={0}
-                id={`accordion-item-${model.id}`}
-              >
-                <Accordion.Control id={`accordion-control-${model.id}`}>
-                  <Text size="lg" fw={700}>
-                    {model.name}
-                  </Text>
-                </Accordion.Control>
-                <Accordion.Panel>
-                  <Grid w="100%">
-                    {model.engines.filter(
+        <Accordion
+          multiple={false}
+          value={accordionValue}
+          onChange={handleAccordionChange}
+          variant="separated"
+          w="100%"
+          radius={0}
+          mb={32}
+        >
+          {models.map((model) => (
+            <Accordion.Item
+              key={model.id}
+              value={model.name}
+              style={{ borderColor: "var(--item-border-color)" }}
+              mt={0}
+              id={`accordion-item-${model.id}`}
+            >
+              <Accordion.Control id={`accordion-control-${model.id}`}>
+                <Text size="lg" fw={700}>
+                  {model.name}
+                </Text>
+              </Accordion.Control>
+              <Accordion.Panel>
+                <Grid w="100%">
+                  {model.engines.filter(
+                    (e) => e.engine_types.name === "diesel"
+                  ) &&
+                    model.engines.filter(
                       (e) => e.engine_types.name === "diesel"
-                    ) &&
-                      model.engines.filter(
-                        (e) => e.engine_types.name === "diesel"
-                      ).length > 0 && (
-                        <Grid.Col span={{ base: 12, md: 6 }}>
-                          <Flex direction="column" gap={8}>
-                            <Text fz={16} fw={700}>
-                              Dieselové motory
-                            </Text>
-                            {model.engines
-                              .filter((e) => e.engine_types.name === "diesel")
-                              .map((engine) => (
-                                <Flex
-                                  key={engine.id}
-                                  align="center"
-                                  style={{ marginBottom: "0.5rem" }}
+                    ).length > 0 && (
+                      <Grid.Col span={{ base: 12, md: 6 }}>
+                        <Flex direction="column" gap={8}>
+                          <Text fz={16} fw={700}>
+                            Dieselové motory
+                          </Text>
+                          {model.engines
+                            .filter((e) => e.engine_types.name === "diesel")
+                            .map((engine) => (
+                              <Flex
+                                key={engine.id}
+                                align="center"
+                                style={{ marginBottom: "0.5rem" }}
+                              >
+                                <Link
+                                  href={`/vozidla/ctyrkolky/${encodeURIComponent(
+                                    brand.name
+                                  )}/${encodeURIComponent(engine.id)}`}
+                                  style={{
+                                    fontSize: 16,
+                                    color: "#e84048",
+                                  }}
                                 >
-                                  <Link
-                                    href={`/vozidla/ctyrkolky/${encodeURIComponent(
-                                      brand.name
-                                    )}/${encodeURIComponent(engine.id)}`}
-                                    style={{
-                                      fontSize: 16,
-                                      color: "#e84048",
-                                    }}
-                                  >
-                                    {engine.specifications}
-                                  </Link>
-                                </Flex>
-                              ))}
-                          </Flex>
-                        </Grid.Col>
-                      )}
+                                  {engine.specifications}
+                                </Link>
+                              </Flex>
+                            ))}
+                        </Flex>
+                      </Grid.Col>
+                    )}
 
-                    {model.engines.filter(
+                  {model.engines.filter(
+                    (e) => e.engine_types.name === "gasoline"
+                  ) &&
+                    model.engines.filter(
                       (e) => e.engine_types.name === "gasoline"
-                    ) &&
-                      model.engines.filter(
-                        (e) => e.engine_types.name === "gasoline"
-                      ).length > 0 && (
-                        <Grid.Col span={{ base: 12, md: 6 }}>
-                          <Flex direction="column" gap={8}>
-                            <Text fz={16} fw={700}>
-                              Benzínové motory
-                            </Text>
-                            {model.engines
-                              .filter((e) => e.engine_types.name === "gasoline")
-                              .map((engine) => (
-                                <Flex
-                                  key={engine.id}
-                                  align="center"
-                                  style={{ marginBottom: "0.5rem" }}
+                    ).length > 0 && (
+                      <Grid.Col span={{ base: 12, md: 6 }}>
+                        <Flex direction="column" gap={8}>
+                          <Text fz={16} fw={700}>
+                            Benzínové motory
+                          </Text>
+                          {model.engines
+                            .filter((e) => e.engine_types.name === "gasoline")
+                            .map((engine) => (
+                              <Flex
+                                key={engine.id}
+                                align="center"
+                                style={{ marginBottom: "0.5rem" }}
+                              >
+                                <Link
+                                  href={`/vozidla/ctyrkolky/${encodeURIComponent(
+                                    brand.name
+                                  )}/${encodeURIComponent(engine.id)}`}
+                                  style={{
+                                    fontSize: 16,
+                                    color: "#e84048",
+                                  }}
                                 >
-                                  <Link
-                                    href={`/vozidla/ctyrkolky/${encodeURIComponent(
-                                      brand.name
-                                    )}/${encodeURIComponent(engine.id)}`}
-                                    style={{
-                                      fontSize: 16,
-                                      color: "#e84048",
-                                    }}
-                                  >
-                                    {engine.specifications}
-                                  </Link>
-                                </Flex>
-                              ))}
-                          </Flex>
-                        </Grid.Col>
-                      )}
-                  </Grid>
-                </Accordion.Panel>
-              </Accordion.Item>
-            ))}
-          </Accordion>
-        </div>
-      </StyledRealizace>
+                                  {engine.specifications}
+                                </Link>
+                              </Flex>
+                            ))}
+                        </Flex>
+                      </Grid.Col>
+                    )}
+                </Grid>
+              </Accordion.Panel>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </Stack>
       <Footer />
     </>
   );
