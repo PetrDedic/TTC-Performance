@@ -66,8 +66,6 @@ export default function Home() {
         mx="auto"
         w="100%"
       >
-        <XmasCard />
-
         <Grid w="100%" gutter={smallWindow ? 24 : 64}>
           <Grid.Col span={{ base: 12, sm: 6 }}>
             <AspectRatio
