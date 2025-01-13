@@ -141,7 +141,7 @@ const Sluzby = () => {
                   lh={1}
                   style={{ scrollMarginTop: 100 }}
                 >
-                  S využitím naších služeb, Vaše lesní technika dosáhne zcela
+                  S využitím naších služeb, Vaše osobní vozidlo dosáhne zcela
                   jiných rozměrů!
                 </Title>
               </Stack>
