@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "../styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import supabase from "@/lib/supabaseClient";
+import supabase from "../lib/supabaseClient";
 
 import Brands from "@/components/admin/Brands";
 import { Button, Flex, Stack, Text, Title } from "@mantine/core";
