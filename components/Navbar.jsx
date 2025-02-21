@@ -127,6 +127,9 @@ const Navbar = () => {
         >
           Služby
         </Link>
+        <Link href="/ecu" className={router.pathname == "/ecu" ? "active" : ""}>
+          Odemčení ECU
+        </Link>
         <Link
           href="/cenik"
           className={router.pathname == "/cenik" ? "active" : ""}
@@ -170,6 +173,9 @@ const Navbar = () => {
           className={router.pathname == "/sluzby" ? "active" : ""}
         >
           Služby
+        </Link>
+        <Link href="/ecu" className={router.pathname == "/ecu" ? "active" : ""}>
+          Odemčení ECU
         </Link>
         <Link
           href="/cenik"
