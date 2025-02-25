@@ -150,7 +150,6 @@ export default function Home() {
               Vozidla BMW do roku 2025
             </Title>
             <Card
-              my={smallWindow ? 64 : 128}
               py={smallWindow ? "2.5vh" : "7.5vh"}
               px={32}
               radius={0}
@@ -163,22 +162,27 @@ export default function Home() {
                 overflow: "visible",
               }}
               c="white"
-              bg="#101c24"
+              bg="none"
             >
-              <AspectRatio
-                ratio={4.5 / 1}
-                maw={1280}
-                mx="auto"
-                style={{ position: "absolute" }}
-              >
-                <MantineImage
-                  w="100%"
-                  quality={100}
-                  src="/Fotky_WEBP/BMW.webp"
-                  alt="/Fotky_WEBP/BMW.webp"
-                  style={{ objectFit: "cover", objectPosition: "top" }}
-                />
-              </AspectRatio>
+              <div
+                style={{
+                  position: "absolute",
+                  zIndex: -1,
+                  width: "100%",
+                  height: smallWindow ? "5vh" : "10vh",
+                  top: "30%",
+                  background: "#101c24",
+                }}
+              />
+              <MantineImage
+                w="100%"
+                h="100%"
+                maw={960}
+                quality={100}
+                src="/Fotky_WEBP/BMW.webp"
+                alt="/Fotky_WEBP/BMW.webp"
+                style={{ objectFit: "cover", objectPosition: "top" }}
+              />
             </Card>
           </Stack>
         </Link>
@@ -436,7 +440,6 @@ export default function Home() {
                 Vozidla Mercedes do roku 2025
               </Title>
               <Card
-                my={smallWindow ? 64 : 128}
                 py={smallWindow ? "2.5vh" : "7.5vh"}
                 px={32}
                 radius={0}
@@ -449,22 +452,27 @@ export default function Home() {
                   overflow: "visible",
                 }}
                 c="white"
-                bg="#101c24"
+                bg="none"
               >
-                <AspectRatio
-                  ratio={4.5 / 1}
-                  maw={1280}
-                  mx="auto"
-                  style={{ position: "absolute" }}
-                >
-                  <MantineImage
-                    w="100%"
-                    quality={100}
-                    src="/Fotky_WEBP/Mercedes.webp"
-                    alt="/Fotky_WEBP/Mercedes.webp"
-                    style={{ objectFit: "cover", objectPosition: "top" }}
-                  />
-                </AspectRatio>
+                <div
+                  style={{
+                    position: "absolute",
+                    zIndex: -1,
+                    width: "100%",
+                    height: smallWindow ? "5vh" : "10vh",
+                    top: "30%",
+                    background: "#101c24",
+                  }}
+                />
+                <MantineImage
+                  w="100%"
+                  h="100%"
+                  maw={960}
+                  quality={100}
+                  src="/Fotky_WEBP/Mercedes.webp"
+                  alt="/Fotky_WEBP/Mercedes.webp"
+                  style={{ objectFit: "cover", objectPosition: "top" }}
+                />
               </Card>
             </Stack>
           </Link>
@@ -579,7 +587,6 @@ export default function Home() {
                 Vozidla Audi RS3 & Cupra Formentor VZ5 do roku 2025
               </Title>
               <Card
-                my={smallWindow ? 64 : 128}
                 py={smallWindow ? "2.5vh" : "7.5vh"}
                 px={32}
                 radius={0}
@@ -592,22 +599,27 @@ export default function Home() {
                   overflow: "visible",
                 }}
                 c="white"
-                bg="#101c24"
+                bg="none"
               >
-                <AspectRatio
-                  ratio={3.5 / 1}
-                  maw={1280}
-                  mx="auto"
-                  style={{ position: "absolute", top: -64 }}
-                >
-                  <MantineImage
-                    w="100%"
-                    quality={100}
-                    src="/Fotky_WEBP/Audi_Cupra.webp"
-                    alt="/Fotky_WEBP/Audi_Cupra.webp"
-                    style={{ objectFit: "cover", objectPosition: "top" }}
-                  />
-                </AspectRatio>
+                <div
+                  style={{
+                    position: "absolute",
+                    zIndex: -1,
+                    width: "100%",
+                    height: smallWindow ? "5vh" : "10vh",
+                    top: "30%",
+                    background: "#101c24",
+                  }}
+                />
+                <MantineImage
+                  w="100%"
+                  h="100%"
+                  maw={960}
+                  quality={100}
+                  src="/Fotky_WEBP/Audi_Cupra.webp"
+                  alt="/Fotky_WEBP/Audi_Cupra.webp"
+                  style={{ objectFit: "cover", objectPosition: "top" }}
+                />
               </Card>
             </Stack>
           </Link>
