@@ -270,10 +270,7 @@ const Vozidla = ({ brand, models }) => {
           content="Modely a specifikace motorů pro vybranou značku"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="icon"
-          href="/media/Premium Package/Logos (Vector Format)/Transparent.svg"
-        />
+        <link rel="icon" href="TTC_WEB_Icon.svg" />
       </Head>
       <Navbar />
       <Hero image="/media/foto/vozidla.png" title={`${brand.name} - Modely`} />

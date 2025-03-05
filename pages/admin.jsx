@@ -6,6 +6,8 @@ import Brands from "@/components/admin/Brands";
 import { Button, Flex, Stack, Text, Title } from "@mantine/core";
 import Models from "@/components/admin/Models";
 import Engines from "@/components/admin/Engines";
+import Realizations from "@/components/admin/Realizations";
+import PromotionalBanners from "@/components/admin/PromotionalBanners";
 
 const Admin = () => {
   const [user, setUser] = useState(null);
@@ -51,6 +53,8 @@ const Admin = () => {
         <Brands />
         <Models />
         <Engines />
+        <Realizations />
+        <PromotionalBanners />
       </Stack>
     </Stack>
   );

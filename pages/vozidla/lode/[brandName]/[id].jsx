@@ -282,10 +282,7 @@ const Detail = ({ brandName, engineDetails, engineData }) => {
           name="description"
           content="Detailed specifications for selected engine."
         />
-        <link
-          rel="icon"
-          href="/media/Premium Package/Logos (Vector Format)/Transparent.svg"
-        />
+        <link rel="icon" href="TTC_WEB_Icon.svg" />
       </Head>
       <Navbar />
 

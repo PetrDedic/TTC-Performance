@@ -1,199 +1,343 @@
+import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import Form from "@/components/Form";
 import Navbar from "@/components/Navbar";
-import { AspectRatio, Card, Flex, Grid, Stack, Text } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
+import supabase from "@/lib/supabaseClient";
+import {
+  AspectRatio,
+  Card,
+  Flex,
+  Grid,
+  Stack,
+  Text,
+  Title,
+  Image,
+  Chip,
+  Group,
+  Badge,
+  Skeleton,
+  Container,
+  createStyles,
+} from "@mantine/core";
+import Hero from "@/components/Hero";
+import { Carousel } from "@mantine/carousel";
+import { useMediaQuery } from "@mantine/hooks";
+import "@mantine/carousel/styles.css";
+import classes from "../styles/Index.module.css";
 
-const Realizace = () => {
+export default function Realizations() {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
+  const mobileView = useMediaQuery("(max-width: 768px)");
+
+  const [realizations, setRealizations] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [photosMap, setPhotosMap] = useState({});
+
+  useEffect(() => {
+    fetchCategories();
+    fetchRealizations();
+  }, []);
+
+  useEffect(() => {
+    if (realizations.length > 0) {
+      fetchAllPhotos();
+    }
+  }, [realizations]);
+
+  // Fetch categories
+  const fetchCategories = async () => {
+    const { data, error } = await supabase
+      .from("categories")
+      .select("*")
+      .order("name_cz", { ascending: true });
+
+    if (error) {
+      console.error("Error fetching categories:", error);
+    } else {
+      setCategories(data);
+    }
+  };
+
+  // Fetch realizations
+  const fetchRealizations = async () => {
+    setLoading(true);
+
+    // First get all realizations
+    const { data: realizationsData, error: realizationsError } = await supabase
+      .from("realizations")
+      .select("*")
+      .order("realization_date", { ascending: false });
+
+    if (realizationsError) {
+      console.error("Error fetching realizations:", realizationsError);
+      setLoading(false);
+      return;
+    }
+
+    // Then get the category relationships
+    const { data: categoriesData, error: categoriesError } = await supabase
+      .from("realization_categories")
+      .select("*");
+
+    if (categoriesError) {
+      console.error("Error fetching realization categories:", categoriesError);
+      setLoading(false);
+      return;
+    }
+
+    // Map categories to realizations
+    const realizationsWithCategories = realizationsData.map((realization) => {
+      const categoryIds = categoriesData
+        .filter((rc) => rc.realization_id === realization.id)
+        .map((rc) => rc.category_id);
+
+      return {
+        ...realization,
+        categoryIds,
+      };
+    });
+
+    setRealizations(realizationsWithCategories);
+    setLoading(false);
+  };
+
+  // Fetch all photos for all realizations
+  const fetchAllPhotos = async () => {
+    const realizationIds = realizations.map((r) => r.id);
+
+    // Get all photos for the realizations
+    const { data, error } = await supabase
+      .from("realization_photos")
+      .select("*")
+      .in("realization_id", realizationIds)
+      .order("display_order", { ascending: true });
+
+    if (error) {
+      console.error("Error fetching photos:", error);
+      return;
+    }
+
+    // Group photos by realization_id
+    const photosGrouped = {};
+    data.forEach((photo) => {
+      if (!photosGrouped[photo.realization_id]) {
+        photosGrouped[photo.realization_id] = [];
+      }
+      photosGrouped[photo.realization_id].push(photo);
+    });
+
+    setPhotosMap(photosGrouped);
+  };
+
+  // Filter realizations based on selected categories
+  const filteredRealizations =
+    selectedCategories.length > 0
+      ? realizations.filter((realization) =>
+          selectedCategories.some((categoryId) =>
+            realization.categoryIds.includes(categoryId)
+          )
+        )
+      : realizations;
+
+  // Format date to Czech locale
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("cs-CZ");
+  };
+
+  // Render image or carousel based on available photos
+  const renderMedia = (realizationId) => {
+    const photos = photosMap[realizationId];
+
+    if (!photos || photos.length === 0) {
+      return (
+        <AspectRatio ratio={16 / 9} style={{ borderRadius: 4 }}>
+          <Skeleton />
+        </AspectRatio>
+      );
+    }
+
+    if (photos.length === 1) {
+      return (
+        <AspectRatio ratio={16 / 9} style={{ borderRadius: 4 }}>
+          <Image
+            radius={4}
+            src={photos[0].photo_url}
+            alt={photos[0].alt_text || "Fotografie realizace"}
+            fit="cover"
+          />
+        </AspectRatio>
+      );
+    }
+
+    return (
+      <Carousel
+        withIndicators
+        loop
+        style={{ borderRadius: 4 }}
+        styles={{ viewport: { borderRadius: 4 } }}
+      >
+        {photos.map((photo) => (
+          <Carousel.Slide key={photo.id} style={{ borderRadius: 4 }}>
+            <AspectRatio ratio={16 / 9} style={{ borderRadius: 4 }}>
+              <Image
+                radius={4}
+                src={photo.photo_url}
+                alt={photo.alt_text || "Fotografie realizace"}
+                fit="cover"
+                w="100%"
+                h="100%"
+              />
+            </AspectRatio>
+          </Carousel.Slide>
+        ))}
+      </Carousel>
+    );
+  };
 
   return (
     <>
       <Head>
-        <title>TTC Performance</title>
-        <meta name="description" content="Generated by create next app" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="icon"
-          href="/media/Premium Package/Logos (Vector Format)/Transparent.svg"
+        <title>Realizace | TTC Performance</title>
+        <meta
+          name="description"
+          content="Prohlédněte si naše realizace z oblasti automobilového průmyslu. TTC Performance vám přináší ty nejlepší služby s důrazem na kvalitu."
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="TTC_WEB_Icon.svg" />
       </Head>
+
       <Navbar />
+
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/Realizace_foto.webp"
         title="Do všech našich realizací dáváme maximální úsilí a proto jsou naši klienti vždy spokojeni."
       />
+
+      <Container size="xl" py={64}>
+        <Stack spacing={48}>
+          {/* Category filter */}
+          <Stack spacing={16}>
+            <Title order={2} align="center">
+              Filtrovat podle kategorie
+            </Title>
+            <Chip.Group
+              multiple
+              value={selectedCategories}
+              onChange={setSelectedCategories}
+            >
+              <Group position="center" spacing={12}>
+                {categories
+                  .sort((a, b) => a.name_cz.localeCompare(b.name_cz))
+                  .map((category) => (
+                    <Chip
+                      key={category.id}
+                      value={category.id}
+                      color="blue"
+                      variant="outline"
+                    >
+                      {category.name_cz}
+                    </Chip>
+                  ))}
+              </Group>
+            </Chip.Group>
+          </Stack>
+
+          {/* Realizations grid */}
+          {loading ? (
+            <Grid>
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <Grid.Col key={i} md={6} lg={4}>
+                  <Skeleton height={320} radius="md" />
+                </Grid.Col>
+              ))}
+            </Grid>
+          ) : (
+            <>
+              {filteredRealizations.length === 0 ? (
+                <Text align="center" size="lg" color="dimmed">
+                  Nebyly nalezeny žádné realizace odpovídající vybraným
+                  kategoriím.
+                </Text>
+              ) : (
+                <Grid gutter={mobileView ? 16 : 24}>
+                  {filteredRealizations.map((realization) => (
+                    <Grid.Col
+                      span={{ base: 12, sm: 6, md: 4 }}
+                      key={realization.id}
+                    >
+                      <Card
+                        shadow="sm"
+                        p="lg"
+                        radius="md"
+                        withBorder
+                        h="100%"
+                        sx={{ cursor: "pointer" }}
+                      >
+                        <Card.Section>
+                          <AspectRatio ratio={16 / 9}>
+                            {renderMedia(realization.id)}
+                          </AspectRatio>
+                        </Card.Section>
+
+                        <Stack spacing="xs" mt="md">
+                          <Text weight={700} size="xl" lineClamp={1} fw={700}>
+                            {realization.name}
+                          </Text>
+
+                          <Group spacing={8}>
+                            {realization.categoryIds.map((categoryId) => {
+                              const category = categories.find(
+                                (c) => c.id === categoryId
+                              );
+                              return (
+                                category && (
+                                  <Badge
+                                    key={categoryId}
+                                    color="blue"
+                                    variant="light"
+                                  >
+                                    {category.name_cz}
+                                  </Badge>
+                                )
+                              );
+                            })}
+                          </Group>
+
+                          <Text size="sm" color="dimmed">
+                            {formatDate(realization.realization_date)}
+                          </Text>
+
+                          <Text lineClamp={3} size="sm">
+                            {realization.description || ""}
+                          </Text>
+                        </Stack>
+                      </Card>
+                    </Grid.Col>
+                  ))}
+                </Grid>
+              )}
+            </>
+          )}
+        </Stack>
+      </Container>
+
       <Stack
         px={32}
-        py={128}
+        py={64}
         justify="center"
         align="center"
-        gap={smallWindow ? 64 : 128}
-        maw={720}
+        maw={1280}
         mx="auto"
         w="100%"
       >
-        <Grid w="100%" gutter={32} maw={1280} mx="auto">
-          <Grid.Col span={{ md: 6, sm: 12 }}>
-            <Card
-              bg="#101c24"
-              radius={16}
-              style={{
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                justifyContent: "center",
-              }}
-            >
-              <Flex align="center" justify="center" gap={32}>
-                <AspectRatio
-                  ratio={1}
-                  style={{
-                    position: "relative",
-                  }}
-                  h={128}
-                  w={128}
-                >
-                  <Stack align="center" justify="center" h="100%" maw={96}>
-                    <svg
-                      fill="#fff"
-                      version="1.2"
-                      baseProfile="tiny"
-                      id="tractor_by_Adioma"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 256 196"
-                    >
-                      <path
-                        d="M175.9,154.3c0,21.6,17.5,39.1,39.1,39.1s39.1-17.5,39.1-39.1c0-21.6-17.5-39.1-39.1-39.1S175.9,132.7,175.9,154.3z
-	 M202.2,154.3c0-7,5.7-12.7,12.7-12.7c7,0,12.7,5.7,12.7,12.7c0,7-5.7,12.7-12.7,12.7C207.9,167,202.2,161.3,202.2,154.3z M2,148
-	c0,25,20.3,45.3,45.3,45.3c25,0,45.3-20.3,45.3-45.3s-20.3-45.3-45.3-45.3C22.3,102.7,2,123,2,148z M28.4,148c0-2.7,0.6-5.3,1.6-7.6
-	c2.9-6.7,9.6-11.3,17.3-11.3s14.4,4.7,17.3,11.3c1,2.3,1.6,4.9,1.6,7.6c0,10.4-8.5,18.9-18.9,18.9S28.4,158.5,28.4,148z M99.7,140.4
-	h70.6c5.9-19,23.7-32.8,44.6-32.8V75.4c0-8.1-6.6-14.7-14.7-14.7h-15.5V16.2h-12.5v44.5h-45.4L105.2,8.3c-1.5-3.3-4.8-5.5-8.4-5.5
-	H34.4v57.9L11.8,81.4v27.4c9.4-8.5,21.9-13.7,35.6-13.7C73.9,95.1,96,114.8,99.7,140.4z M47.3,60.7v-45H94l16.2,45H47.3z"
-                      />
-                    </svg>
-                  </Stack>
-                </AspectRatio>
-                <Stack align="center" justify="center" w="100%">
-                  <Text fz={20} c="white">
-                    Zemědělská technika
-                  </Text>
-                </Stack>
-              </Flex>
-            </Card>
-          </Grid.Col>
-          <Grid.Col span={{ md: 6, sm: 12 }}>
-            <Card
-              bg="#101c24"
-              radius={16}
-              style={{
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                justifyContent: "center",
-              }}
-            >
-              <Flex align="center" justify="center" gap={32}>
-                <AspectRatio
-                  ratio={1}
-                  style={{
-                    position: "relative",
-                  }}
-                  h={128}
-                  w={128}
-                >
-                  <Image
-                    quality={100}
-                    src="/media/icons/van.png"
-                    alt="/media/icons/van.png"
-                    fill
-                    sizes="100vw"
-                    style={{ borderRadius: 16, objectFit: "contain" }}
-                  />
-                </AspectRatio>
-                <Stack align="center" justify="center" w="100%">
-                  <Text fz={20} c="white">
-                    Nákladní vozidla
-                  </Text>
-                </Stack>
-              </Flex>
-            </Card>
-          </Grid.Col>
-          <Grid.Col span={{ md: 6, sm: 12 }}>
-            <Card
-              bg="#101c24"
-              radius={16}
-              style={{
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                justifyContent: "center",
-              }}
-            >
-              <Flex align="center" justify="center" gap={32}>
-                <AspectRatio
-                  ratio={1}
-                  style={{
-                    position: "relative",
-                  }}
-                  h={128}
-                  w={128}
-                >
-                  <Image
-                    quality={100}
-                    src="/media/icons/car.png"
-                    alt="/media/icons/car.png"
-                    fill
-                    sizes="100vw"
-                    style={{ borderRadius: 16, objectFit: "contain" }}
-                  />
-                </AspectRatio>
-                <Stack align="center" justify="center" w="100%">
-                  <Text fz={20} c="white">
-                    Osobní vozidla
-                  </Text>
-                </Stack>
-              </Flex>
-            </Card>
-          </Grid.Col>
-          <Grid.Col span={{ md: 6, sm: 12 }}>
-            <Card
-              bg="#101c24"
-              radius={16}
-              style={{
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                justifyContent: "center",
-              }}
-            >
-              <Flex align="center" justify="center" gap={32}>
-                <AspectRatio
-                  ratio={1}
-                  style={{
-                    position: "relative",
-                  }}
-                  h={128}
-                  w={128}
-                >
-                  <Image
-                    quality={100}
-                    src="/media/icons/const.png"
-                    alt="/media/icons/const.png"
-                    fill
-                    sizes="100vw"
-                    style={{ borderRadius: 16, objectFit: "contain" }}
-                  />
-                </AspectRatio>
-                <Stack align="center" justify="center" w="100%">
-                  <Text fz={20} c="white">
-                    Stavební technika
-                  </Text>
-                </Stack>
-              </Flex>
-            </Card>
-          </Grid.Col>
-        </Grid>
+        <Form />
       </Stack>
+
       <Footer />
     </>
   );
-};
-
-export default Realizace;
+}
