@@ -85,9 +85,7 @@ export default function Document() {
           ></iframe>
         </noscript>
         <div id="top"></div>
-        <div id="spin-cont">
-          <div id="spinner">TTC</div>
-        </div>
+
         <Main />
         <NextScript />
       </body>

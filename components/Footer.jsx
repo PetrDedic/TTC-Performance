@@ -220,7 +220,17 @@ const Footer = () => {
           TTC Performance s. r. o., Cimburk 563, 768 33 Morkovice-Slížany, +420
           604 892 755
         </p>
-        <p style={{ fontWeight: "600" }}>Designed by: paryn design</p>
+        <p style={{ fontWeight: "600" }}>
+          Designed by:{" "}
+          <Link
+            style={{ color: "inherit", textDecoration: "inherit" }}
+            href="https://www.paryndesign.cz/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            paryn design
+          </Link>
+        </p>
       </div>
     </StyledFooter>
   );

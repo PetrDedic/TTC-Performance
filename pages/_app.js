@@ -13,11 +13,6 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     document.getElementById("top").scrollIntoView();
   }, [router.asPath]);
-  useEffect(() => {
-    setTimeout(() => {
-      document.getElementById("spin-cont").classList.add("hidden");
-    }, 2000);
-  }, []);
 
   return (
     <>

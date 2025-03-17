@@ -22,6 +22,8 @@ import { useMediaQuery } from "@mantine/hooks";
 import classes from "../styles/Index.module.css";
 import LatestRealizations from "@/components/LatestRealizations";
 import PromotionalBanner from "@/components/PromotionalBanner";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { StaggeredItem, StaggeredItems } from "@/components/StaggeredItems";
 
 export default function Home() {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
@@ -67,101 +69,26 @@ export default function Home() {
       >
         <PromotionalBanner />
 
-        <Grid w="100%" gutter={smallWindow ? 24 : 64}>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <AspectRatio
-              ratio={4 / 3}
-              style={{
-                position: "relative",
-                borderRadius: 16,
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-              }}
-              h={smallWindow ? 360 : "100%"}
-            >
-              <Image
-                quality={100}
-                src="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
-                alt="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
-                fill
-                sizes="100vw"
-                style={{ borderRadius: 16 }}
-              />
-            </AspectRatio>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <Stack
-              align="center"
-              justify="center"
-              w="100%"
-              gap={64}
-              py={smallWindow ? 0 : 32}
-            >
-              <Stack gap={16} justify="center" w="100%">
-                <Title
-                  order={3}
-                  fz={32}
-                  lh={1}
-                  style={{ scrollMarginTop: 100 }}
-                >
-                  Na jaké služby se zaměřujeme?
-                </Title>
-                <Text fz={20} maw={480}>
-                  Zaměřujeme se převážně na chiptuning - optimalizace softwaru v
-                  řídicích jednotkách motorů, opravu & deaktivaci emisních
-                  systémů jako je SCR AdBlue, DPF a EGR. Dále na diagnostiku
-                  vozidel a strojů, řešíme chybová hlášení a kontrolky závad,
-                  programování automatických převodovek, opravy elektronických
-                  jednotek a mnoho dalšího ...
-                </Text>
-                <Link
-                  href="/sluzby"
-                  style={{ color: "inherit", textDecoration: "inherit" }}
-                >
-                  <Button
-                    color="#e84048"
-                    variant="filled"
-                    size="compact-xl"
-                    radius="md"
-                    px={32}
-                  >
-                    Více služeb
-                  </Button>
-                </Link>
-              </Stack>
-            </Stack>
-          </Grid.Col>
-        </Grid>
-
-        <LatestRealizations />
-
-        <Card
-          py="5vh"
-          px={32}
-          radius={0}
-          style={{
-            position: "relative",
-            width: "100lvw",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 48,
-          }}
-          c="white"
-          bg="#101c24"
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
         >
-          <Grid w="100%" gutter={smallWindow ? 24 : 64} maw={1280} mx="auto">
+          <Grid w="100%" gutter={smallWindow ? 24 : 64}>
             <Grid.Col span={{ base: 12, sm: 6 }}>
               <AspectRatio
                 ratio={4 / 3}
                 style={{
                   position: "relative",
                   borderRadius: 16,
+                  boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
                 }}
                 h={smallWindow ? 360 : "100%"}
               >
                 <Image
                   quality={100}
-                  src="/nove/Fotky_uvodni_stranka/2_foto_text.webp"
-                  alt="/nove/Fotky_uvodni_stranka/2_foto_text.webp"
+                  src="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
+                  alt="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
                   fill
                   sizes="100vw"
                   style={{ borderRadius: 16 }}
@@ -169,31 +96,32 @@ export default function Home() {
               </AspectRatio>
             </Grid.Col>
             <Grid.Col span={{ base: 12, sm: 6 }}>
-              <Stack align="center" justify="center" w="100%" gap={64}>
+              <Stack
+                align="center"
+                justify="center"
+                w="100%"
+                gap={64}
+                py={smallWindow ? 0 : 32}
+              >
                 <Stack gap={16} justify="center" w="100%">
+                  <Title
+                    order={3}
+                    fz={32}
+                    lh={1}
+                    style={{ scrollMarginTop: 100 }}
+                  >
+                    Na jaké služby se zaměřujeme?
+                  </Title>
                   <Text fz={20} maw={480}>
-                    Našimi zákazníky, jsou převážně majitelé dopravní techniky,
-                    zemědělských strojů a osobních aut, kteří chtějí zvýšit
-                    výkon, snížit spotřebu pohonných hmot a optimalizovat své
-                    provozní náklady za opravy a servis emisních systému (SCR
-                    AdBlue, DPF a EGR) a nebo měli problémy po neodborném
-                    chiptuningu.
-                  </Text>
-                  <Text fz={20} maw={480}>
-                    Pokud máte i vy zájem, kontaktujte nás na telefonním čísle{" "}
-                    <Link
-                      href="tel:+420 602 562 650"
-                      style={{
-                        color: "inherit",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      +420 602 562 650
-                    </Link>{" "}
-                    a nebo vyplňte jednoduchý formulář.
+                    Zaměřujeme se převážně na chiptuning - optimalizace softwaru
+                    v řídicích jednotkách motorů, řešení problémů s emisními
+                    systémy SCR (AdBlue), DPF a EGR... Dále na diagnostiku
+                    vozidel a strojů, řešíme chybová hlášení a kontrolky závad,
+                    programování automatických převodovek, opravy elektronických
+                    jednotek a mnoho dalšího ...
                   </Text>
                   <Link
-                    href="#form"
+                    href="/sluzby"
                     style={{ color: "inherit", textDecoration: "inherit" }}
                   >
                     <Button
@@ -203,14 +131,102 @@ export default function Home() {
                       radius="md"
                       px={32}
                     >
-                      Kontaktujte nás
+                      Více služeb
                     </Button>
                   </Link>
                 </Stack>
               </Stack>
             </Grid.Col>
           </Grid>
-        </Card>
+        </AnimatedSection>
+
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
+        >
+          <LatestRealizations />
+        </AnimatedSection>
+
+        <AnimatedSection animationType="fadeIn" delay={0.2}>
+          <Card
+            py="5vh"
+            px={32}
+            radius={0}
+            style={{
+              position: "relative",
+              width: "100lvw",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 48,
+            }}
+            c="white"
+            bg="#101c24"
+          >
+            <Grid w="100%" gutter={smallWindow ? 24 : 64} maw={1280} mx="auto">
+              <Grid.Col span={{ base: 12, sm: 6 }}>
+                <AspectRatio
+                  ratio={4 / 3}
+                  style={{
+                    position: "relative",
+                    borderRadius: 16,
+                  }}
+                  h={smallWindow ? 360 : "100%"}
+                >
+                  <Image
+                    quality={100}
+                    src="/nove/Fotky_uvodni_stranka/2_foto_text.webp"
+                    alt="/nove/Fotky_uvodni_stranka/2_foto_text.webp"
+                    fill
+                    sizes="100vw"
+                    style={{ borderRadius: 16 }}
+                  />
+                </AspectRatio>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, sm: 6 }}>
+                <Stack align="center" justify="center" w="100%" gap={64}>
+                  <Stack gap={16} justify="center" w="100%">
+                    <Text fz={20} maw={480}>
+                      Našimi zákazníky, jsou převážně majitelé dopravní
+                      techniky, zemědělských strojů a osobních aut, kteří chtějí
+                      zvýšit výkon, snížit spotřebu pohonných hmot a
+                      optimalizovat své provozní náklady za opravy a servis
+                      emisních systému (SCR AdBlue, DPF a EGR) a nebo měli
+                      problémy po neodborném chiptuningu.
+                    </Text>
+                    <Text fz={20} maw={480}>
+                      Pokud máte i vy zájem, kontaktujte nás na telefonním čísle{" "}
+                      <Link
+                        href="tel:+420 602 562 650"
+                        style={{
+                          color: "inherit",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        +420 602 562 650
+                      </Link>{" "}
+                      a nebo vyplňte jednoduchý formulář.
+                    </Text>
+                    <Link
+                      href="#form"
+                      style={{ color: "inherit", textDecoration: "inherit" }}
+                    >
+                      <Button
+                        color="#e84048"
+                        variant="filled"
+                        size="compact-xl"
+                        radius="md"
+                        px={32}
+                      >
+                        Kontaktujte nás
+                      </Button>
+                    </Link>
+                  </Stack>
+                </Stack>
+              </Grid.Col>
+            </Grid>
+          </Card>
+        </AnimatedSection>
 
         <Stack gap={32} justify="center" w="100%">
           <Title
@@ -309,148 +325,158 @@ export default function Home() {
           >
             Na jaké vozidla a techniku se zaměřujeme?
           </Title>
-          <Grid w="100%" gutter={32} maw={1280} mx="auto">
-            <Grid.Col span={{ base: 12, sm: 6 }}>
-              <Link
-                href="/sluzby/zkusebna-vykonu"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
-                  <Card
-                    className={classes.card}
-                    radius={16}
-                    style={{
-                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                      justifyContent: "center",
-                    }}
-                    p={48}
+          <StaggeredItems>
+            <Grid w="100%" gutter={32} maw={1280} mx="auto">
+              <Grid.Col span={{ base: 12, sm: 6 }}>
+                <StaggeredItem>
+                  <Link
+                    href="/sluzby/zkusebna-vykonu"
+                    style={{ color: "inherit", textDecoration: "inherit" }}
                   >
-                    <Stack align="center" justify="center" h="100%">
-                      <Text fz={32} fw={700} ta="center">
-                        Dopravní technika
-                      </Text>
-                      <Stack align="center" justify="center" gap={0}>
-                        <Text fz={20} ta="center">
-                          osobní vozidla
-                        </Text>
-                        <Text fz={20} ta="center">
-                          nákladní vozy / autobusy
-                        </Text>
-                        <Text fz={20} ta="center">
-                          dodávky / obytné vozy
-                        </Text>
-                      </Stack>
-                    </Stack>
-                  </Card>
-                </AspectRatio>
-              </Link>
-            </Grid.Col>
-            <Grid.Col span={{ base: 12, sm: 6 }}>
-              <Link
-                href="/sluzby/zemedelska-technika"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
-                  <Card
-                    className={classes.card}
-                    radius={16}
-                    style={{
-                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                      justifyContent: "center",
-                    }}
-                    p={48}
+                    <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
+                      <Card
+                        className={classes.card}
+                        radius={16}
+                        style={{
+                          boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                          justifyContent: "center",
+                        }}
+                        p={48}
+                      >
+                        <Stack align="center" justify="center" h="100%">
+                          <Text fz={32} fw={700} ta="center">
+                            Dopravní technika
+                          </Text>
+                          <Stack align="center" justify="center" gap={0}>
+                            <Text fz={20} ta="center">
+                              osobní vozidla
+                            </Text>
+                            <Text fz={20} ta="center">
+                              nákladní vozy / autobusy
+                            </Text>
+                            <Text fz={20} ta="center">
+                              dodávky / obytné vozy
+                            </Text>
+                          </Stack>
+                        </Stack>
+                      </Card>
+                    </AspectRatio>
+                  </Link>
+                </StaggeredItem>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, sm: 6 }}>
+                <StaggeredItem>
+                  <Link
+                    href="/sluzby/zemedelska-technika"
+                    style={{ color: "inherit", textDecoration: "inherit" }}
                   >
-                    <Stack align="center" justify="center" h="100%">
-                      <Text fz={32} fw={700} ta="center">
-                        Zemědělská technika
-                      </Text>
-                      <Stack align="center" justify="center" gap={0}>
-                        <Text fz={20} c="white" ta="center">
-                          -
-                        </Text>
-                        <Text fz={20} ta="center">
-                          traktory / kombajny
-                        </Text>
-                        <Text fz={20} ta="center">
-                          manipulátory / řezačky
-                        </Text>
-                      </Stack>
-                    </Stack>
-                  </Card>
-                </AspectRatio>
-              </Link>
-            </Grid.Col>
-            <Grid.Col span={{ base: 12, sm: 6 }}>
-              <Link
-                href="/sluzby/stavebni-technika"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
-                  <Card
-                    className={classes.card}
-                    radius={16}
-                    style={{
-                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                      justifyContent: "center",
-                    }}
-                    p={48}
+                    <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
+                      <Card
+                        className={classes.card}
+                        radius={16}
+                        style={{
+                          boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                          justifyContent: "center",
+                        }}
+                        p={48}
+                      >
+                        <Stack align="center" justify="center" h="100%">
+                          <Text fz={32} fw={700} ta="center">
+                            Zemědělská technika
+                          </Text>
+                          <Stack align="center" justify="center" gap={0}>
+                            <Text fz={20} c="white" ta="center">
+                              -
+                            </Text>
+                            <Text fz={20} ta="center">
+                              traktory / kombajny
+                            </Text>
+                            <Text fz={20} ta="center">
+                              manipulátory / řezačky
+                            </Text>
+                          </Stack>
+                        </Stack>
+                      </Card>
+                    </AspectRatio>
+                  </Link>
+                </StaggeredItem>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, sm: 6 }}>
+                <StaggeredItem>
+                  <Link
+                    href="/sluzby/stavebni-technika"
+                    style={{ color: "inherit", textDecoration: "inherit" }}
                   >
-                    <Stack align="center" justify="center" h="100%">
-                      <Text fz={32} fw={700} ta="center">
-                        Stavební technika
-                      </Text>
-                      <Stack align="center" justify="center" gap={0}>
-                        <Text fz={20} ta="center">
-                          bagry / nakladače
-                        </Text>
-                        <Text fz={20} ta="center">
-                          buldozery / traktorbagry
-                        </Text>
-                        <Text fz={20} ta="center">
-                          drtiče
-                        </Text>
-                      </Stack>
-                    </Stack>
-                  </Card>
-                </AspectRatio>
-              </Link>
-            </Grid.Col>
-            <Grid.Col span={{ base: 12, sm: 6 }}>
-              <Link
-                href="/sluzby/zkusebna-vykonu"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
-                  <Card
-                    className={classes.card}
-                    radius={16}
-                    style={{
-                      boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                      justifyContent: "center",
-                    }}
-                    p={48}
+                    <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
+                      <Card
+                        className={classes.card}
+                        radius={16}
+                        style={{
+                          boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                          justifyContent: "center",
+                        }}
+                        p={48}
+                      >
+                        <Stack align="center" justify="center" h="100%">
+                          <Text fz={32} fw={700} ta="center">
+                            Stavební technika
+                          </Text>
+                          <Stack align="center" justify="center" gap={0}>
+                            <Text fz={20} ta="center">
+                              bagry / nakladače
+                            </Text>
+                            <Text fz={20} ta="center">
+                              buldozery / traktorbagry
+                            </Text>
+                            <Text fz={20} ta="center">
+                              drtiče
+                            </Text>
+                          </Stack>
+                        </Stack>
+                      </Card>
+                    </AspectRatio>
+                  </Link>
+                </StaggeredItem>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, sm: 6 }}>
+                <StaggeredItem>
+                  <Link
+                    href="/sluzby/zkusebna-vykonu"
+                    style={{ color: "inherit", textDecoration: "inherit" }}
                   >
-                    <Stack align="center" justify="center" h="100%">
-                      <Text fz={32} fw={700} ta="center">
-                        Lesní technika
-                      </Text>
-                      <Stack align="center" justify="center" gap={0}>
-                        <Text fz={20} c="white" ta="center">
-                          -
-                        </Text>
-                        <Text fz={20} ta="center">
-                          harvestory / vyvážecí soupravy
-                        </Text>
-                        <Text fz={20} ta="center">
-                          lesní traktory
-                        </Text>
-                      </Stack>
-                    </Stack>
-                  </Card>
-                </AspectRatio>
-              </Link>
-            </Grid.Col>
-          </Grid>
+                    <AspectRatio ratio={smallWindow ? 1 / 1 : 16 / 9}>
+                      <Card
+                        className={classes.card}
+                        radius={16}
+                        style={{
+                          boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
+                          justifyContent: "center",
+                        }}
+                        p={48}
+                      >
+                        <Stack align="center" justify="center" h="100%">
+                          <Text fz={32} fw={700} ta="center">
+                            Lesní technika
+                          </Text>
+                          <Stack align="center" justify="center" gap={0}>
+                            <Text fz={20} c="white" ta="center">
+                              -
+                            </Text>
+                            <Text fz={20} ta="center">
+                              harvestory / vyvážecí soupravy
+                            </Text>
+                            <Text fz={20} ta="center">
+                              lesní traktory
+                            </Text>
+                          </Stack>
+                        </Stack>
+                      </Card>
+                    </AspectRatio>
+                  </Link>
+                </StaggeredItem>
+              </Grid.Col>
+            </Grid>
+          </StaggeredItems>
         </Stack>
 
         <Form />
