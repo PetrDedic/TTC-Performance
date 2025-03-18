@@ -224,7 +224,7 @@ export default function Home() {
                     boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
                   }}
                 >
-                  Vozidla Audi RS6/RSQ8
+                  Vozidla Audi RS6/RS7/RSQ8/Lamborghini
                 </Button>
               </Link>
             </StaggeredItem>
@@ -244,7 +244,7 @@ export default function Home() {
                     boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
                   }}
                 >
-                  Vozidla Lamborghini & Porsche
+                  Vozidla GT3/GT3RS/GT4RS
                 </Button>
               </Link>
             </StaggeredItem>
