@@ -113,9 +113,10 @@ const Navbar = () => {
   return (
     <StyledNavbar>
       <img
-        src="\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
+        src="TTC_new_logo.svg"
         alt="Logo"
         onClick={() => router.push("/")}
+        style={{ padding: "16px", marginLeft: "16px" }}
       />
       <div className="links">
         <Link href="/" className={router.pathname == "/" ? "active" : ""}>

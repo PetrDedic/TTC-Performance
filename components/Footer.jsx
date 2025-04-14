@@ -192,8 +192,9 @@ const Footer = () => {
           </div>
           <span></span>
           <img
-            src="\media\Premium Package\Logos (Vector Format)\Transparent White.svg"
+            src="TTC_new_logo.svg"
             alt="ttc logo"
+            style={{ padding: "16px" }}
           />
           <span></span>
           <p className="width">

@@ -16,6 +16,33 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <link rel="icon" href="TTC_WEB_Icon.svg" />
+        <title>TTC Performance</title>
+        <meta
+          name="description"
+          content="TTC Performance - Odborný a profesionální chiptuning. Řešíme problémy s emisními systémy SCR (AdBlue), DPF, EGR, úpravy řídících jednotek motorů a automatických převodovek. Nákladní vozidla, Zemědělská, Stavební a Lesní technika, Osobní vozidla a Autobusy."
+        />
+        <meta
+          name="keywords"
+          content="chiptuning, emisní systémy, DPF, EGR, řídící jednotky, automatické převodovky, nákladní vozidla, zemědělská technika, stavební technika, lesní technika, osobní vozidla, autobusy"
+        />
+        <meta name="author" content="TTC Performance s.r.o." />
+        <meta property="og:title" content="TTC Performance" />
+        <meta
+          property="og:description"
+          content="TTC Performance - Odborný a profesionální chiptuning. Řešíme problémy s emisními systémy SCR (AdBlue), DPF, EGR, úpravy řídících jednotek motorů a automatických převodovek. Nákladní vozidla, Zemědělská, Stavební a Lesní technika, Osobní vozidla a Autobusy."
+        />
+        <meta property="og:image" content="nahled_obrazek_web" />
+        <meta property="og:url" content="https://www.ttcperformance.cz" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="cs_CZ" />
+        <meta property="og:site_name" content="TTC Performance" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="TTC Performance Logo" />
+        <meta property="og:image:type" content="image/webp" />
+      </Head>
       <ColorSchemeScript forceColorScheme="light" />
       <MantineProvider
         theme={{
