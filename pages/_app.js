@@ -6,6 +6,7 @@ import "@mantine/notifications/styles.css";
 import "@mantine/core/styles.css";
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
