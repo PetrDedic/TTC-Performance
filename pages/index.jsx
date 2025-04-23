@@ -140,13 +140,41 @@ export default function Home() {
           </Grid>
         </AnimatedSection>
 
-        <AnimatedSection
-          animationType="fadeIn"
-          delay={0.2}
-          style={{ width: "100%" }}
-        >
-          <LatestRealizations />
-        </AnimatedSection>
+        <Stack gap={32}>
+          <AnimatedSection
+            animationType="fadeIn"
+            delay={0.2}
+            style={{ width: "100%" }}
+          >
+            <LatestRealizations
+              categoryIds={["fe2ecd8c-a425-4ad9-8402-caca529ae690"]}
+              title="Nejnovější realizace osobních vozidel"
+              subText="Podívejte se na naše nejnovější projekty a přesvědčte se o kvalitě našich služeb"
+              showButton={false}
+            />
+          </AnimatedSection>
+          <AnimatedSection
+            animationType="fadeIn"
+            delay={0.2}
+            style={{ width: "100%" }}
+          >
+            <LatestRealizations
+              categoryIds={[
+                "3b2aa847-0708-4317-a850-7fbf2a47e653",
+                "5cad46f3-5bce-4b40-b65d-9ec2f2547ee3",
+                "5dd4eb6c-bb4c-4c63-b290-6a554aefff44",
+                "6c86f851-a4b6-4496-b706-139ac6517e78",
+                "9ea2c9c3-e82e-40ca-ac22-357a4b198f0d",
+                "a2dd1a47-8043-46fe-9091-772b7f08ee56",
+                "aa8b5fd2-3493-4d3e-9904-0aea8763b374",
+                "b973b975-5b7f-4768-9975-3911fd0c8690",
+              ]}
+              title="Nejnovější realizace vozidel a techniky"
+              subText="Podívejte se na další realizace a přesvědčte se o kvalitě našich služeb"
+              showButton={true}
+            />
+          </AnimatedSection>
+        </Stack>
 
         <AnimatedSection animationType="fadeIn" delay={0.2}>
           <Card

@@ -20,7 +20,12 @@ import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import "@mantine/carousel/styles.css";
 
-export default function LatestRealizations() {
+export default function LatestRealizations({
+  categoryIds,
+  title,
+  subText,
+  showButton = true,
+}) {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
   const mobileView = useMediaQuery("(max-width: 768px)");
 
@@ -30,9 +35,9 @@ export default function LatestRealizations() {
   const [photosMap, setPhotosMap] = useState({});
 
   useEffect(() => {
-    fetchCategories();
-    fetchLatestRealizations();
-  }, []);
+    fetchCategories(categoryIds);
+    fetchLatestRealizations(categoryIds);
+  }, [categoryIds]);
 
   useEffect(() => {
     if (realizations.length > 0) {
@@ -41,25 +46,33 @@ export default function LatestRealizations() {
   }, [realizations]);
 
   // Fetch categories
-  const fetchCategories = async () => {
-    const { data, error } = await supabase.from("categories").select("*");
+  const fetchCategories = async (categoryIds) => {
+    const { data, error } = await supabase
+      .from("categories")
+      .select("*")
+      .in("id", categoryIds);
     if (error) {
       console.error("Error fetching categories:", error);
     } else {
       setCategories(data);
+
+      console.log(data);
     }
   };
 
   // Fetch latest 3 realizations
-  const fetchLatestRealizations = async () => {
+  const fetchLatestRealizations = async (categoryIds) => {
     setLoading(true);
 
     // Get latest 3 realizations
     const { data: realizationsData, error: realizationsError } = await supabase
       .from("realizations")
-      .select("*")
+      .select("*, realization_categories!inner(category_id)")
       .order("realization_date", { ascending: false })
+      .in("realization_categories.category_id", categoryIds)
       .limit(3);
+
+    console.log(realizationsData);
 
     if (realizationsError) {
       console.error("Error fetching realizations:", realizationsError);
@@ -184,11 +197,10 @@ export default function LatestRealizations() {
     <Stack gap={32} w="100%" maw={1280} mx="auto">
       <Stack spacing={8} align="center">
         <Title order={3} fz={32} lh={1} ta="center">
-          Naše nejnovější realizace
+          {title}
         </Title>
         <Text ta="center" size="lg" c="dimmed" maw={700} mx="auto">
-          Podívejte se na naše nejnovější projekty a přesvědčte se o kvalitě
-          našich služeb
+          {subText}
         </Text>
       </Stack>
 
@@ -256,19 +268,21 @@ export default function LatestRealizations() {
         </Grid>
       )}
 
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Link href="/realizace" style={{ textDecoration: "none" }}>
-          <Button
-            color="#e84048"
-            variant="filled"
-            size="compact-xl"
-            radius="md"
-            px={32}
-          >
-            Zobrazit všechny realizace
-          </Button>
-        </Link>
-      </div>
+      {showButton && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Link href="/realizace" style={{ textDecoration: "none" }}>
+            <Button
+              color="#e84048"
+              variant="filled"
+              size="compact-xl"
+              radius="md"
+              px={32}
+            >
+              Zobrazit všechny realizace
+            </Button>
+          </Link>
+        </div>
+      )}
     </Stack>
   );
 }
