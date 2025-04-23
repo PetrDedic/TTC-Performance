@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
           property="og:description"
           content="TTC Performance - Odborný a profesionální chiptuning. Řešíme problémy s emisními systémy SCR (AdBlue), DPF, EGR, úpravy řídících jednotek motorů a automatických převodovek. Nákladní vozidla, Zemědělská, Stavební a Lesní technika, Osobní vozidla a Autobusy."
         />
-        <meta property="og:image" content="nahled_obrazek_web.webp" />
+        <meta property="og:image" content="/nahled_obrazek_web.webp" />
         <meta property="og:url" content="https://www.ttcperformance.cz" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="cs_CZ" />
