@@ -171,7 +171,10 @@ export default function LatestRealizations({
     return (
       <Carousel
         withIndicators
-        loop
+        emblaOptions={{
+          loop: true,
+          align: "center",
+        }}
         style={{ borderRadius: 4 }}
         styles={{ viewport: { borderRadius: 4 } }}
       >

@@ -4,9 +4,6 @@ import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import styled from "styled-components";
-import { TwoOneSection } from "./sluzby/lesni-technika";
-import XmasCard from "@/components/XmasCard";
 import {
   AspectRatio,
   Button,
@@ -21,11 +18,19 @@ import Hero from "@/components/Hero";
 import { useMediaQuery } from "@mantine/hooks";
 import classes from "../styles/Index.module.css";
 import LatestRealizations from "@/components/LatestRealizations";
-import PromotionalBanner from "@/components/PromotionalBanner";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { StaggeredItem, StaggeredItems } from "@/components/StaggeredItems";
+import dynamic from "next/dynamic";
+import supabase from "@/lib/supabaseClient";
 
-export default function Home() {
+const PromotionalBanner = dynamic(
+  () => import("../components/PromotionalBanner"),
+  {
+    ssr: false,
+  }
+);
+
+export default function Home({ data }) {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
 
   return (
@@ -67,7 +72,7 @@ export default function Home() {
         mx="auto"
         w="100%"
       >
-        <PromotionalBanner />
+        {data.length > 0 && <PromotionalBanner data={data} />}
 
         <AnimatedSection
           animationType="fadeIn"
@@ -513,3 +518,28 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const now = new Date().toISOString();
+
+  const { data, error } = await supabase
+    .from("promotional_banners")
+    .select("*")
+    .eq("is_active", true)
+    .or(`start_date.is.null,start_date.lte.${now}`)
+    .or(`end_date.is.null,end_date.gte.${now}`)
+    .order("display_order", { ascending: true });
+
+  if (error) {
+    console.error("Error fetching promotional banners:", error);
+    return {
+      props: { data: [] },
+      revalidate: 120, // 2 minutes
+    };
+  }
+
+  return {
+    props: { data },
+    revalidate: 120, // 2 minutes
+  };
+};
