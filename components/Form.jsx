@@ -28,6 +28,7 @@ const Styled30 = styled.div`
 
   form {
     max-width: 720px;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -74,22 +75,27 @@ const Styled30 = styled.div`
   }
 `;
 
-const Form = () => {
+const Form = ({ simplified = false }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    category: "",
-    brand: "",
-    otherBrand: "",
-    model: "",
-    otherModel: "",
-    engine: "",
-    otherEngine: "",
-    discountCode: "",
-    power: "",
-    modifications: "",
-    consent: false,
+    message: "",
+    ...(simplified
+      ? {}
+      : {
+          category: "",
+          brand: "",
+          otherBrand: "",
+          model: "",
+          otherModel: "",
+          engine: "",
+          otherEngine: "",
+          discountCode: "",
+          power: "",
+          modifications: "",
+          consent: false,
+        }),
   });
 
   // State for options
@@ -249,6 +255,43 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (simplified) {
+      try {
+        const response = await fetch("/api/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          alert("Email byl úspěšně odeslán!");
+
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: "form_sent",
+              lead_type: "contact",
+            });
+          }
+
+          // Reset form
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+        } else {
+          alert("Error sending email");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Error sending email");
+      }
+      return;
+    }
+
     // Find the category name_cz based on the selected id
     const categoryName =
       categories.find((c) => c.id.toString() === formData.category)?.name_cz ||
@@ -356,168 +399,187 @@ const Form = () => {
           />
         </div>
 
-        {/* Category Select */}
-        <Select
-          label="Kategorie vozidla"
-          placeholder="Vyberte kategorii"
-          data={categories
-            .sort((a, b) => a.name_cz.localeCompare(b.name_cz))
-            .map((category) => ({
-              value: category.id.toString(),
-              label: category.name_cz,
-            }))}
-          value={formData.category}
-          onChange={handleSelectChange("category")}
-        />
-
-        {/* Brand Select */}
-        {formData.category && (
-          <>
-            <Select
-              label="Značka vozidla"
-              placeholder="Vyberte značku"
-              data={[
-                ...brands
-                  .sort((a, b) => a.name.localeCompare(b.name))
-                  .map((brand) => ({
-                    value: brand.id.toString(),
-                    label: brand.name,
-                    image: brand.image || `/media/brands/${brand.name}.jpg`,
-                  })),
-                { value: "other", label: "Jiné" },
-              ]}
-              value={formData.brand}
-              onChange={handleSelectChange("brand")}
-              disabled={!formData.category}
-              renderOption={({ option }) => (
-                <Flex gap={8} align="center">
-                  {option.value !== "other" && (
-                    <Image
-                      width={24}
-                      height={24}
-                      src={option.image}
-                      style={{ aspectRatio: 1 / 1, objectFit: "contain" }}
-                      alt={option.label}
-                    />
-                  )}
-                  <Text>{option.label}</Text>
-                </Flex>
-              )}
-            />
-            {formData.brand === "other" && (
-              <input
-                type="text"
-                name="otherBrand"
-                placeholder="Zadejte značku vozidla"
-                value={formData.otherBrand}
-                onChange={handleChange}
-              />
-            )}
-          </>
-        )}
-
-        {/* Model Select */}
-        {formData.brand && (
-          <>
-            <Select
-              label="Model vozidla"
-              placeholder="Vyberte model"
-              data={[
-                ...models
-                  .sort((a, b) => a.name.localeCompare(b.name))
-                  .map((model) => ({
-                    value: model.id.toString(),
-                    label: model.name,
-                  })),
-                { value: "other", label: "Jiné" },
-              ]}
-              value={formData.model}
-              onChange={handleSelectChange("model")}
-              disabled={!formData.brand}
-            />
-            {formData.model === "other" && (
-              <input
-                type="text"
-                name="otherModel"
-                placeholder="Zadejte model vozidla"
-                value={formData.otherModel}
-                onChange={handleChange}
-              />
-            )}
-          </>
-        )}
-
-        {/* Engine Select */}
-        {formData.model && (
-          <>
-            <Select
-              label="Motor vozidla"
-              placeholder="Vyberte motor"
-              data={[
-                ...Object.entries(
-                  engines
-                    .slice() // Create a shallow copy of the array to avoid mutating the original
-                    .sort((a, b) =>
-                      a.specifications.localeCompare(b.specifications)
-                    ) // Sort engines by specifications
-                    .reduce((groups, engine) => {
-                      const groupName = engine.engine_types.name_cz;
-                      if (!groups[groupName]) {
-                        groups[groupName] = [];
-                      }
-                      groups[groupName].push({
-                        value: engine.id.toString(),
-                        label: engine.specifications,
-                      });
-                      return groups;
-                    }, {})
-                ).map(([group, items]) => ({
-                  group,
-                  items,
-                })),
-                { group: "Jiné", items: [{ value: "other", label: "Jiné" }] },
-              ]}
-              value={formData.engine}
-              onChange={handleSelectChange("engine")}
-              disabled={!formData.model}
-            />
-            {formData.engine === "other" && (
-              <input
-                type="text"
-                name="otherEngine"
-                placeholder="Zadejte motor vozidla"
-                value={formData.otherEngine}
-                onChange={handleChange}
-              />
-            )}
-          </>
-        )}
-
-        <textarea
-          rows="4"
-          name="modifications"
-          placeholder="Poptávka úpravy na daném vozidle"
-          value={formData.modifications}
-          onChange={handleChange}
-        />
-        <div className="checkbox">
-          <input
-            type="checkbox"
-            name="consent"
-            checked={formData.consent}
+        {simplified ? (
+          <textarea
+            rows="4"
+            name="message"
+            placeholder="Vaše zpráva"
+            value={formData.message}
             onChange={handleChange}
             required
           />
-          <label>
-            Souhlasím se{" "}
-            <Link
-              href="/gdpr"
-              style={{ textDecoration: "underline", color: "white" }}
-            >
-              zpracováním osobních údajů
-            </Link>
-          </label>
-        </div>
+        ) : (
+          <>
+            {/* Category Select */}
+            <Select
+              label="Kategorie vozidla"
+              placeholder="Vyberte kategorii"
+              data={categories
+                .sort((a, b) => a.name_cz.localeCompare(b.name_cz))
+                .map((category) => ({
+                  value: category.id.toString(),
+                  label: category.name_cz,
+                }))}
+              value={formData.category}
+              onChange={handleSelectChange("category")}
+            />
+
+            {/* Brand Select */}
+            {formData.category && (
+              <>
+                <Select
+                  label="Značka vozidla"
+                  placeholder="Vyberte značku"
+                  data={[
+                    ...brands
+                      .sort((a, b) => a.name.localeCompare(b.name))
+                      .map((brand) => ({
+                        value: brand.id.toString(),
+                        label: brand.name,
+                        image: brand.image || `/media/brands/${brand.name}.jpg`,
+                      })),
+                    { value: "other", label: "Jiné" },
+                  ]}
+                  value={formData.brand}
+                  onChange={handleSelectChange("brand")}
+                  disabled={!formData.category}
+                  renderOption={({ option }) => (
+                    <Flex gap={8} align="center">
+                      {option.value !== "other" && (
+                        <Image
+                          width={24}
+                          height={24}
+                          src={option.image}
+                          style={{ aspectRatio: 1 / 1, objectFit: "contain" }}
+                          alt={option.label}
+                        />
+                      )}
+                      <Text>{option.label}</Text>
+                    </Flex>
+                  )}
+                />
+                {formData.brand === "other" && (
+                  <input
+                    type="text"
+                    name="otherBrand"
+                    placeholder="Zadejte značku vozidla"
+                    value={formData.otherBrand}
+                    onChange={handleChange}
+                  />
+                )}
+              </>
+            )}
+
+            {/* Model Select */}
+            {formData.brand && (
+              <>
+                <Select
+                  label="Model vozidla"
+                  placeholder="Vyberte model"
+                  data={[
+                    ...models
+                      .sort((a, b) => a.name.localeCompare(b.name))
+                      .map((model) => ({
+                        value: model.id.toString(),
+                        label: model.name,
+                      })),
+                    { value: "other", label: "Jiné" },
+                  ]}
+                  value={formData.model}
+                  onChange={handleSelectChange("model")}
+                  disabled={!formData.brand}
+                />
+                {formData.model === "other" && (
+                  <input
+                    type="text"
+                    name="otherModel"
+                    placeholder="Zadejte model vozidla"
+                    value={formData.otherModel}
+                    onChange={handleChange}
+                  />
+                )}
+              </>
+            )}
+
+            {/* Engine Select */}
+            {formData.model && (
+              <>
+                <Select
+                  label="Motor vozidla"
+                  placeholder="Vyberte motor"
+                  data={[
+                    ...Object.entries(
+                      engines
+                        .slice() // Create a shallow copy of the array to avoid mutating the original
+                        .sort((a, b) =>
+                          a.specifications.localeCompare(b.specifications)
+                        ) // Sort engines by specifications
+                        .reduce((groups, engine) => {
+                          const groupName = engine.engine_types.name_cz;
+                          if (!groups[groupName]) {
+                            groups[groupName] = [];
+                          }
+                          groups[groupName].push({
+                            value: engine.id.toString(),
+                            label: engine.specifications,
+                          });
+                          return groups;
+                        }, {})
+                    ).map(([group, items]) => ({
+                      group,
+                      items,
+                    })),
+                    {
+                      group: "Jiné",
+                      items: [{ value: "other", label: "Jiné" }],
+                    },
+                  ]}
+                  value={formData.engine}
+                  onChange={handleSelectChange("engine")}
+                  disabled={!formData.model}
+                />
+                {formData.engine === "other" && (
+                  <input
+                    type="text"
+                    name="otherEngine"
+                    placeholder="Zadejte motor vozidla"
+                    value={formData.otherEngine}
+                    onChange={handleChange}
+                  />
+                )}
+              </>
+            )}
+
+            <textarea
+              rows="4"
+              name="modifications"
+              placeholder="Poptávka úpravy na daném vozidle"
+              value={formData.modifications}
+              onChange={handleChange}
+            />
+          </>
+        )}
+
+        {!simplified && (
+          <div className="checkbox">
+            <input
+              type="checkbox"
+              name="consent"
+              checked={formData.consent}
+              onChange={handleChange}
+              required
+            />
+            <label>
+              Souhlasím se{" "}
+              <Link
+                href="/gdpr"
+                style={{ textDecoration: "underline", color: "white" }}
+              >
+                zpracováním osobních údajů
+              </Link>
+            </label>
+          </div>
+        )}
         <input type="submit" value="Odeslat dotazník" />
       </form>
     </Styled30>

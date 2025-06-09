@@ -512,7 +512,7 @@ export default function Home({ data }) {
           </StaggeredItems>
         </Stack>
 
-        <Form />
+        <Form simplified />
       </Stack>
       <Footer />
     </>

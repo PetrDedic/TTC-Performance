@@ -16,6 +16,7 @@ export default async function handler(req, res) {
       name,
       email,
       phone,
+      message,
       category,
       brand,
       otherBrand,
@@ -34,15 +35,30 @@ export default async function handler(req, res) {
     const modelName = model === "other" ? otherModel : model;
     const engineName = engine === "other" ? otherEngine : engine;
 
+    // Check if this is a simplified form submission
+    const isSimplified = !category && !brand && !model && !engine;
+
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: "zapletal@ttcperformance.cz",
-      subject: "New Contact Form Submission",
+      subject: isSimplified
+        ? "New Simple Contact Form Submission"
+        : "New Contact Form Submission",
       html: `
-        <h1>New Contact Form Submission</h1>
+        <h1>${
+          isSimplified
+            ? "New Simple Contact Form Submission"
+            : "New Contact Form Submission"
+        }</h1>
         <p><strong>Jméno:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Telefon:</strong> ${phone}</p>
+        ${
+          isSimplified
+            ? `
+        <p><strong>Zpráva:</strong> ${message || "N/A"}</p>
+        `
+            : `
         <p><strong>Kategorie vozidla:</strong> ${category || "N/A"}</p>
         <p><strong>Značka vozidla:</strong> ${brandName || "N/A"}</p>
         <p><strong>Model vozidla:</strong> ${modelName || "N/A"}</p>
@@ -52,11 +68,15 @@ export default async function handler(req, res) {
         <p><strong>Souhlasím se zpracováním osobních údajů:</strong> ${
           consent ? "Ano" : "Ne"
         }</p>
+        `
+        }
       `,
     };
 
     try {
-      await transporter.sendMail(mailOptions);
+      await transporter.sendMail(mailOptions).then((info) => {
+        console.log("Email sent:", info);
+      });
       res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {
       console.error("Error sending email:", error);

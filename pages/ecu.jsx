@@ -1227,7 +1227,7 @@ export default function Home() {
           </Grid.Col>
         </Grid>
 
-        <Form />
+        <Form simplified />
       </Stack>
       <Footer />
     </>
