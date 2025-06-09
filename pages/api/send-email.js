@@ -28,6 +28,7 @@ export default async function handler(req, res) {
       power,
       modifications,
       consent,
+      mailTo,
     } = req.body;
 
     // Determine if "Jiné" (Other) was selected for brand, model, or engine
@@ -40,7 +41,7 @@ export default async function handler(req, res) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "zapletal@ttcperformance.cz",
+      to: mailTo || "zapletal@ttcperformance.cz",
       subject: isSimplified
         ? "New Simple Contact Form Submission"
         : "New Contact Form Submission",

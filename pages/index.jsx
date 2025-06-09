@@ -46,20 +46,37 @@ export default function Home({ data }) {
         image="/Foty_web_uvodni_hlavni_fotky/Uvod_foto.webp"
         title="Profesionální úpravy řídících jednotek motorů a emisních systémů."
         subText={
-          <Link
-            href="/sluzby"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Button
-              color="#e84048"
-              variant="filled"
-              size="compact-xl"
-              radius="md"
-              px={32}
+          <Flex gap={16} wrap="wrap" justify="center" align="center">
+            <Link
+              href="/sluzby"
+              style={{ color: "inherit", textDecoration: "inherit" }}
             >
-              Zjistit více
-            </Button>
-          </Link>
+              <Button
+                color="#e84048"
+                variant="filled"
+                size="compact-xl"
+                radius="md"
+                px={32}
+              >
+                Zjistit více
+              </Button>
+            </Link>
+            <a
+              href="tel:+420 602 562 650"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
+              <Button
+                color="#e840486f"
+                c="#ffF"
+                variant="filled"
+                size="compact-xl"
+                radius="md"
+                px={32}
+              >
+                Zavolejte nám
+              </Button>
+            </a>
+          </Flex>
         }
       />
       <Stack

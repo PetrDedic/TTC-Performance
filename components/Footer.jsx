@@ -192,8 +192,13 @@ const Footer = () => {
           </div>
           <span></span>
           <img
-            src="TTC_new_logo.svg"
+            src="/TTC_new_logo.svg"
             alt="ttc logo"
+            style={{ padding: "16px" }}
+          />
+          <img
+            src="/MC_logo_bile.svg"
+            alt="mc performance logo"
             style={{ padding: "16px" }}
           />
           <span></span>

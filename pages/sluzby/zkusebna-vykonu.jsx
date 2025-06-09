@@ -290,7 +290,7 @@ const Sluzby = () => {
           </Grid>
         </Stack>
 
-        <Form />
+        <Form mailTo="mc@ttcperformance.cz" />
       </Stack>
 
       <Footer />

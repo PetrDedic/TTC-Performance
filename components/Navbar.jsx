@@ -113,7 +113,7 @@ const Navbar = () => {
   return (
     <StyledNavbar>
       <img
-        src="TTC_new_logo.svg"
+        src="/TTC_new_logo.svg"
         alt="Logo"
         onClick={() => router.push("/")}
         style={{ padding: "16px", marginLeft: "16px" }}
@@ -128,8 +128,11 @@ const Navbar = () => {
         >
           Služby
         </Link>
-        <Link href="/ecu" className={router.pathname == "/ecu" ? "active" : ""}>
-          Odemčení ECU
+        <Link
+          href="/mc-performance"
+          className={router.pathname == "/mc-performance" ? "active" : ""}
+        >
+          MC Performance
         </Link>
         <Link
           href="/cenik"
@@ -175,8 +178,11 @@ const Navbar = () => {
         >
           Služby
         </Link>
-        <Link href="/ecu" className={router.pathname == "/ecu" ? "active" : ""}>
-          Odemčení ECU
+        <Link
+          href="/mc-performance"
+          className={router.pathname == "/mc-performance" ? "active" : ""}
+        >
+          MC Performance
         </Link>
         <Link
           href="/cenik"

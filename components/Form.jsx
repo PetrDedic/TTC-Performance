@@ -75,7 +75,10 @@ const Styled30 = styled.div`
   }
 `;
 
-const Form = ({ simplified = false }) => {
+const Form = ({
+  simplified = false,
+  mailTo = "zapletal@ttcperformance.cz",
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -262,7 +265,7 @@ const Form = ({ simplified = false }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({ ...formData, mailTo }),
         });
 
         if (response.ok) {
@@ -322,7 +325,7 @@ const Form = ({ simplified = false }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(submissionData),
+        body: JSON.stringify({ ...submissionData, mailTo }),
       });
 
       if (response.ok) {

@@ -1,12 +1,19 @@
 import { Card, Flex, Stack, Text, Title } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
+import Head from "next/head";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Hero = ({ image, title, subText }) => {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
+  const { route } = useRouter();
 
   return (
     <Stack gap={0} w="100%">
+      <Head>
+        <link rel="preload" href={image} as="image" fetchPriority="high" />
+      </Head>
       <Card
         radius={0}
         w="100%"
@@ -27,15 +34,29 @@ const Hero = ({ image, title, subText }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Text
-                fz={smallWindow ? 16 : 20}
-                fw={100}
-                c="white"
-                lts={2}
-                ta="center"
-              >
-                TTC PERFORMANCE
-              </Text>
+              {route === "/mc-performance" ? (
+                <Image
+                  src="/MC_logo_bile.svg"
+                  alt="MC Performance logo"
+                  width={200}
+                  height={69}
+                  quality={100}
+                  priority
+                  style={{
+                    objectFit: "contain",
+                  }}
+                />
+              ) : (
+                <Text
+                  fz={smallWindow ? 16 : 20}
+                  fw={100}
+                  c="white"
+                  lts={2}
+                  ta="center"
+                >
+                  TTC PERFORMANCE
+                </Text>
+              )}
             </motion.div>
 
             <motion.div

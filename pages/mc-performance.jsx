@@ -1227,7 +1227,7 @@ export default function Home() {
           </Grid.Col>
         </Grid>
 
-        <Form simplified />
+        <Form simplified mailTo="mc@ttcperformance.cz" />
       </Stack>
       <Footer />
     </>
