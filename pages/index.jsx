@@ -20,17 +20,11 @@ import classes from "../styles/Index.module.css";
 import LatestRealizations from "@/components/LatestRealizations";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { StaggeredItem, StaggeredItems } from "@/components/StaggeredItems";
-import dynamic from "next/dynamic";
 import supabase from "@/lib/supabaseClient";
+import PromotionalBanner from "@/components/PromotionalBanner";
+import ReviewCard from "@/components/ReviewCard";
 
-const PromotionalBanner = dynamic(
-  () => import("../components/PromotionalBanner"),
-  {
-    ssr: false,
-  }
-);
-
-export default function Home({ data }) {
+export default function Home({ banners, reviews }) {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
 
   return (
@@ -89,7 +83,7 @@ export default function Home({ data }) {
         mx="auto"
         w="100%"
       >
-        {data.length > 0 && <PromotionalBanner data={data} />}
+        {banners.length > 0 && <PromotionalBanner data={banners} />}
 
         <AnimatedSection
           animationType="fadeIn"
@@ -529,6 +523,18 @@ export default function Home({ data }) {
           </StaggeredItems>
         </Stack>
 
+        <StaggeredItems>
+          <Grid w="100%" gutter={32} maw={1280} mx="auto">
+            <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
+              {reviews.map((review) => (
+                <StaggeredItem key={review.id}>
+                  <ReviewCard review={review} />
+                </StaggeredItem>
+              ))}
+            </Grid.Col>
+          </Grid>
+        </StaggeredItems>
+
         <Form simplified />
       </Stack>
       <Footer />
@@ -539,7 +545,7 @@ export default function Home({ data }) {
 export const getStaticProps = async () => {
   const now = new Date().toISOString();
 
-  const { data, error } = await supabase
+  const { data: banners, error: bannersError } = await supabase
     .from("promotional_banners")
     .select("*")
     .eq("is_active", true)
@@ -547,16 +553,22 @@ export const getStaticProps = async () => {
     .or(`end_date.is.null,end_date.gte.${now}`)
     .order("display_order", { ascending: true });
 
-  if (error) {
-    console.error("Error fetching promotional banners:", error);
+  const { data: reviews, error: reviewsError } = await supabase
+    .from("reviews")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (bannersError || reviewsError) {
+    console.error("Error fetching promotional banners:", bannersError);
+    console.error("Error fetching reviews:", reviewsError);
     return {
-      props: { data: [] },
+      props: { banners: [], reviews: [] },
       revalidate: 120, // 2 minutes
     };
   }
 
   return {
-    props: { data },
+    props: { banners, reviews },
     revalidate: 120, // 2 minutes
   };
 };

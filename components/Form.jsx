@@ -1,79 +1,8 @@
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Flex, Image, Select, Text } from "@mantine/core";
 import supabase from "@/lib/supabaseClient";
-
-const Styled30 = styled.div`
-  margin: auto;
-  width: 75vw;
-  display: flex;
-  max-width: 1280px;
-  flex-direction: column;
-  gap: 2rem;
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: #101c24;
-    transition: 250ms;
-
-    &:hover {
-      color: #e84048;
-    }
-  }
-
-  form {
-    max-width: 720px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: #0b1e25;
-    padding: 2rem;
-    border-radius: 1rem;
-
-    .flex {
-      display: flex;
-      gap: 1rem;
-      @media (max-width: 1280px) {
-        flex-direction: column;
-      }
-      & > * {
-        width: 100%;
-      }
-    }
-  }
-
-  input,
-  textarea {
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 1rem;
-  }
-
-  input[type="submit"] {
-    background-color: #e84048;
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-  }
-
-  label {
-    color: white;
-  }
-
-  .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-`;
+import styles from "./Form.module.css";
 
 const Form = ({
   simplified = false,
@@ -365,7 +294,7 @@ const Form = ({
   };
 
   return (
-    <Styled30 id="form">
+    <div className={styles.form} id="form">
       <h3 style={{ textAlign: "center" }}>Kontaktujte nás</h3>
       <p style={{ textAlign: "center" }}>
         Kontaktujte nás na telefonním čísle{" "}
@@ -391,7 +320,7 @@ const Form = ({
           onChange={handleChange}
           required
         />
-        <div className="flex">
+        <div className={styles.flex}>
           <input
             type="tel"
             name="phone"
@@ -564,7 +493,7 @@ const Form = ({
         )}
 
         {!simplified && (
-          <div className="checkbox">
+          <div className={styles.checkbox}>
             <input
               type="checkbox"
               name="consent"
@@ -585,7 +514,7 @@ const Form = ({
         )}
         <input type="submit" value="Odeslat dotazník" />
       </form>
-    </Styled30>
+    </div>
   );
 };
 

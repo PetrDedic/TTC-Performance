@@ -1,77 +1,5 @@
-import styled from "styled-components";
 import { useState } from "react";
-
-const Styled30 = styled.div`
-  margin: auto;
-  margin-top: 6rem;
-  margin-bottom: 6rem;
-  width: 75vw;
-  display: flex;
-  max-width: 1280px;
-  flex-direction: column;
-  gap: 2rem;
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: #101c24;
-    transition: 250ms;
-
-    &:hover {
-      color: #e84048;
-    }
-  }
-
-  form {
-    max-width: 720px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: #0b1e25;
-    padding: 2rem;
-    border-radius: 1rem;
-
-    .flex {
-      display: flex;
-      gap: 1rem;
-      @media (max-width: 1280px) {
-        flex-direction: column;
-      }
-      & > * {
-        width: 100%;
-      }
-    }
-  }
-
-  input,
-  textarea {
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 1rem;
-  }
-
-  input[type="submit"] {
-    background-color: #e84048;
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-  }
-
-  label {
-    color: white;
-  }
-
-  .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-`;
+import styles from "./Contact.module.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -135,7 +63,7 @@ const Contact = () => {
   };
 
   return (
-    <Styled30 id="form">
+    <div className={styles.contact} id="form">
       <h3 style={{ textAlign: "center" }}>Kontaktujte nás</h3>
       <p style={{ textAlign: "center" }}>
         Kontaktujte nás na telefonním čísle{" "}
@@ -159,7 +87,7 @@ const Contact = () => {
           onChange={handleChange}
           required
         />
-        <div className="flex">
+        <div className={styles.flex}>
           <input
             type="tel"
             name="phone"
@@ -176,7 +104,7 @@ const Contact = () => {
             onChange={handleChange}
           />
         </div>
-        <div className="flex">
+        <div className={styles.flex}>
           <input
             type="text"
             name="discountCode"
@@ -199,7 +127,7 @@ const Contact = () => {
           value={formData.modifications}
           onChange={handleChange}
         />
-        <div className="checkbox">
+        <div className={styles.checkbox}>
           <input
             type="checkbox"
             name="consent"
@@ -210,7 +138,7 @@ const Contact = () => {
         </div>
         <input type="submit" value="Odeslat dotazník" />
       </form>
-    </Styled30>
+    </div>
   );
 };
 

@@ -1,0 +1,74 @@
+.form {
+  margin: auto;
+  width: 75vw;
+  display: flex;
+  max-width: 1280px;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form h3 {
+  font-size: 1.75rem;
+}
+
+.form a {
+  text-decoration: none;
+  color: #101c24;
+  transition: 250ms;
+}
+
+.form a:hover {
+  color: #e84048;
+}
+
+.form form {
+  max-width: 720px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #0b1e25;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.flex > * {
+  width: 100%;
+}
+
+.form input,
+.form textarea {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+}
+
+.form input[type="submit"] {
+  background-color: #e84048;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.form label {
+  color: white;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 1280px) {
+  .flex {
+    flex-direction: column;
+  }
+}

@@ -7,58 +7,7 @@ import { Button, Card, Flex, Stack, Text, Title } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import Head from "next/head";
 import Link from "next/link";
-import styled from "styled-components";
-
-const Header = styled.div`
-  width: 100%;
-  max-width: 1280px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  @media (max-width: 1400px) {
-    max-width: 75vw;
-  }
-  padding: 1rem;
-  background-color: #0b1e25;
-  border-radius: 1rem;
-  color: white;
-  text-align: center;
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-`;
-
-const Table = styled.div`
-  width: 100%;
-  max-width: 1280px;
-  margin: auto;
-  border-collapse: collapse;
-  text-align: left;
-  background-color: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  @media (max-width: 1400px) {
-    max-width: 75vw;
-    padding: 1rem;
-  }
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  table {
-    width: 100%;
-    border-spacing: 0;
-    th,
-    td {
-      padding: 2rem 1rem 0.5rem;
-      border-bottom: 2px solid #0b1e25;
-      @media (max-width: 1400px) {
-        padding: 1rem 0.5rem;
-      }
-    }
-
-    th {
-      font-weight: bold;
-    }
-  }
-`;
+import styles from "./cenik.module.css";
 
 const Cenik = () => {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
@@ -92,10 +41,10 @@ const Cenik = () => {
         w="100%"
       >
         <Stack gap={8} w="100%">
-          <Header>
+          <div className={styles.header}>
             <h2>Osobní a užitková vozidla</h2>
-          </Header>
-          <Table>
+          </div>
+          <div className={styles.table}>
             <table>
               <tbody>
                 <tr>
@@ -201,14 +150,14 @@ const Cenik = () => {
             <p style={{ fontStyle: "italic", fontSize: 14 }}>
               *Veškeré uvedené ceny jsou bez DPH.
             </p>
-          </Table>
+          </div>
         </Stack>
 
         <Stack gap={8} w="100%">
-          <Header>
+          <div className={styles.header}>
             <h2>Nákladní vozidla a autobusy</h2>
-          </Header>
-          <Table>
+          </div>
+          <div className={styles.table}>
             <table>
               <tbody>
                 <tr>
@@ -325,14 +274,14 @@ const Cenik = () => {
             <p style={{ fontStyle: "italic", fontSize: 14 }}>
               *Veškeré uvedené ceny jsou bez DPH.
             </p>
-          </Table>
+          </div>
         </Stack>
 
         <Stack gap={8} w="100%">
-          <Header>
+          <div className={styles.header}>
             <h2>Zemědělská technika</h2>
-          </Header>
-          <Table>
+          </div>
+          <div className={styles.table}>
             <table>
               <tbody>
                 <tr>
@@ -383,14 +332,14 @@ const Cenik = () => {
             <p style={{ fontStyle: "italic", fontSize: 14 }}>
               *Veškeré uvedené ceny jsou bez DPH.
             </p>
-          </Table>
+          </div>
         </Stack>
 
         <Stack gap={8} w="100%">
-          <Header>
+          <div className={styles.header}>
             <h2>Stavební a lesní technika</h2>
-          </Header>
-          <Table>
+          </div>
+          <div className={styles.table}>
             <table>
               <tbody>
                 <tr>
@@ -441,7 +390,7 @@ const Cenik = () => {
             <p style={{ fontStyle: "italic", fontSize: 14 }}>
               *Veškeré uvedené ceny jsou bez DPH.
             </p>
-          </Table>
+          </div>
         </Stack>
 
         <Flex align="center" justify="center" mx="auto" gap={16} wrap="wrap">

@@ -8,6 +8,7 @@ import Models from "@/components/admin/Models";
 import Engines from "@/components/admin/Engines";
 import Realizations from "@/components/admin/Realizations";
 import PromotionalBanners from "@/components/admin/PromotionalBanners";
+import Reviews from "@/components/admin/Reviews";
 
 const Admin = () => {
   const [user, setUser] = useState(null);
@@ -55,6 +56,7 @@ const Admin = () => {
         <Engines />
         <Realizations />
         <PromotionalBanners />
+        <Reviews />
       </Stack>
     </Stack>
   );

@@ -46,17 +46,32 @@ const Hero = ({ image, title, subText }) => {
                     objectFit: "contain",
                   }}
                 />
-              ) : (
-                <Text
-                  fz={smallWindow ? 16 : 20}
-                  fw={100}
-                  c="white"
-                  lts={2}
-                  ta="center"
-                >
-                  TTC PERFORMANCE
-                </Text>
-              )}
+              ) : route === "/" ? (
+                <Flex align="center" justify="center" gap={32}>
+                  <Image
+                    src="/TTC_new_logo.svg"
+                    alt="TTC Performance logo"
+                    width={200}
+                    height={69}
+                    quality={100}
+                    priority
+                    style={{
+                      objectFit: "contain",
+                    }}
+                  />
+                  <Image
+                    src="/MC_logo_bile.svg"
+                    alt="MC Performance logo"
+                    width={200}
+                    height={69}
+                    quality={100}
+                    priority
+                    style={{
+                      objectFit: "contain",
+                    }}
+                  />
+                </Flex>
+              ) : null}
             </motion.div>
 
             <motion.div
@@ -75,97 +90,9 @@ const Hero = ({ image, title, subText }) => {
                 {title}
               </Title>
             </motion.div>
-
-            {subText && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                {subText}
-              </motion.div>
-            )}
           </Stack>
         </Stack>
       </Card>
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-      >
-        <Flex
-          w="100%"
-          bg="#e84048"
-          align="center"
-          justify="center"
-          gap={smallWindow ? 4 : 16}
-          p={8}
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 1.0 }}
-          >
-            <Text
-              c="white"
-              tt="uppercase"
-              fw={700}
-              lts={smallWindow ? 0.75 : 1}
-              fz={smallWindow ? 12 : 16}
-            >
-              ODBORNÉ ÚPRAVY
-            </Text>
-          </motion.div>
-          <Text
-            c="white"
-            tt="uppercase"
-            fw={700}
-            lts={smallWindow ? 0.75 : 1}
-            fz={smallWindow ? 12 : 16}
-          >
-            -
-          </Text>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 1.2 }}
-          >
-            <Text
-              c="white"
-              tt="uppercase"
-              fw={700}
-              lts={smallWindow ? 0.75 : 1}
-              fz={smallWindow ? 12 : 16}
-            >
-              RYCHLOST
-            </Text>
-          </motion.div>
-          <Text
-            c="white"
-            tt="uppercase"
-            fw={700}
-            lts={smallWindow ? 0.75 : 1}
-            fz={smallWindow ? 12 : 16}
-          >
-            -
-          </Text>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 1.4 }}
-          >
-            <Text
-              c="white"
-              tt="uppercase"
-              fw={700}
-              lts={smallWindow ? 0.75 : 1}
-              fz={smallWindow ? 12 : 16}
-            >
-              ZÁRUKA NA SLUŽBY
-            </Text>
-          </motion.div>
-        </Flex>
-      </motion.div>
     </Stack>
   );
 };

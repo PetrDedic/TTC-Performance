@@ -1,0 +1,43 @@
+.grid {
+  margin: auto;
+  margin-top: 6rem;
+  width: 75vw;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  width: calc(33.3333% - 1rem);
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card h4 {
+  margin: 0.5rem 0;
+}
+
+.card p {
+  margin: 0.5rem 0;
+}
+
+.card .price {
+  color: red;
+  font-weight: bold;
+}
+
+@media (max-width: 1280px) {
+  .card {
+    width: calc(50% - 1rem);
+  }
+}

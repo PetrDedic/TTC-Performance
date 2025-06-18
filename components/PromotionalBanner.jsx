@@ -1,15 +1,12 @@
 "use client";
 
-// components/PromotionalBanner.jsx
-// This component displays promotional banners that are active and within their date range
-// It automatically switches between desktop and mobile versions based on screen size
-// Uses Mantine Carousel for smooth transitions between multiple banners
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { Image, AspectRatio } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import Autoplay from "embla-carousel-autoplay";
+import { motion } from "framer-motion";
 import styles from "../styles/PromotionalBanner.module.css";
 
 const PromotionalBanner = ({ data }) => {
@@ -60,63 +57,74 @@ const PromotionalBanner = ({ data }) => {
 
   // For multiple banners, use carousel
   return (
-    <Carousel
-      loop
-      withIndicators
-      withControls={data.length > 1}
-      emblaOptions={{
-        loop: true,
-        dragFree: true,
-        align: "center",
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
       }}
-      slideGap={32}
-      plugins={[autoplay.current]}
-      onMouseEnter={autoplay.current.stop}
-      onMouseLeave={() => autoplay.current.play()}
-      style={{ maxWidth: 960, borderRadius: 32 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
       className={styles.carousel}
-      classNames={{
-        indicator: styles.indicator,
-      }}
     >
-      {data.map((banner) => {
-        const imageUrl = isMobile
-          ? banner.mobile_image_url
-          : banner.desktop_image_url;
+      <Carousel
+        loop
+        withIndicators
+        withControls={data.length > 1}
+        emblaOptions={{
+          loop: true,
+          dragFree: true,
+          align: "center",
+        }}
+        slideGap={32}
+        plugins={[autoplay.current]}
+        onMouseEnter={autoplay.current.stop}
+        onMouseLeave={() => autoplay.current.play()}
+        style={{ maxWidth: 960, borderRadius: 32 }}
+        className={styles.carousel}
+        classNames={{
+          indicator: styles.indicator,
+        }}
+      >
+        {data.map((banner) => {
+          const imageUrl = isMobile
+            ? banner.mobile_image_url
+            : banner.desktop_image_url;
 
-        const slideContent = (
-          <AspectRatio
-            ratio={isMobile ? 4 / 5 : 16 / 9}
-            style={{ borderRadius: 32 }}
-          >
-            <Image
-              src={imageUrl}
-              alt={banner.title}
-              fit="cover"
-              w="100%"
-              h="100%"
+          const slideContent = (
+            <AspectRatio
+              ratio={isMobile ? 4 / 5 : 16 / 9}
               style={{ borderRadius: 32 }}
-            />
-          </AspectRatio>
-        );
+            >
+              <Image
+                src={imageUrl}
+                alt={banner.title}
+                fit="cover"
+                w="100%"
+                h="100%"
+                style={{ borderRadius: 32 }}
+              />
+            </AspectRatio>
+          );
 
-        return (
-          <Carousel.Slide key={banner.id} style={{ borderRadius: 32 }}>
-            {banner.link_url ? (
-              <Link
-                href={banner.link_url}
-                passHref
-                style={{ textDecoration: "none" }}
-              >
-                {slideContent}
-              </Link>
-            ) : (
-              <React.Fragment key={banner.id}>{slideContent}</React.Fragment>
-            )}
-          </Carousel.Slide>
-        );
-      })}
-    </Carousel>
+          return (
+            <Carousel.Slide key={banner.id} style={{ borderRadius: 32 }}>
+              {banner.link_url ? (
+                <Link
+                  href={banner.link_url}
+                  passHref
+                  style={{ textDecoration: "none" }}
+                >
+                  {slideContent}
+                </Link>
+              ) : (
+                <React.Fragment key={banner.id}>{slideContent}</React.Fragment>
+              )}
+            </Carousel.Slide>
+          );
+        })}
+      </Carousel>
+    </motion.div>
   );
 };
 

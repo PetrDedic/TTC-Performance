@@ -1,153 +1,23 @@
 import Link from "next/link";
-import styled from "styled-components";
-
-const StyledFooter = styled.footer`
-  .image {
-    background-image: url("/media/foto/footer.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 8rem;
-    padding-bottom: 4rem;
-    height: auto;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 4rem;
-
-    @media (max-width: 900px) {
-      padding: 4rem;
-    }
-  }
-
-  .flex {
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    justify-content: center;
-
-    @media (max-width: 1280px) {
-      flex-direction: column;
-    }
-
-    .map {
-      width: 50%;
-      max-height: 100%;
-
-      @media (max-width: 1280px) {
-        width: 100%;
-        height: 256px;
-      }
-    }
-
-    .text {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-
-      width: max-content;
-      @media (max-width: 1280px) {
-        width: 100%;
-        font-size: 1.25rem;
-      }
-      color: white;
-      font-weight: 100;
-
-      span {
-        line-height: 2.5;
-      }
-
-      .name {
-        font-weight: 600;
-      }
-    }
-  }
-
-  .logos {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    justify-content: center;
-
-    .socials {
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      justify-content: center;
-
-      a {
-        display: flex;
-      }
-
-      img {
-        width: 2rem;
-        min-width: 2rem;
-        height: 2rem;
-        min-height: 2rem;
-      }
-    }
-
-    @media (max-width: 900px) {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    span {
-      align-self: center;
-      height: min-content;
-      height: 3rem;
-      border: 1px solid white;
-
-      @media (max-width: 900px) {
-        border: 0px solid white;
-        display: none;
-      }
-    }
-
-    img {
-      height: 4rem;
-      width: auto;
-      align-self: center;
-    }
-
-    p {
-      color: white;
-      align-self: center;
-      height: min-content;
-    }
-  }
-
-  .paryn {
-    text-align: center;
-    font-size: 0.75rem;
-    padding: 1rem;
-    @media (max-width: 1280px) {
-      width: 100%;
-      font-size: 1rem;
-    }
-  }
-
-  .width {
-    max-width: 400px;
-  }
-`;
+import styles from "./Footer.module.css";
+import { Divider, Flex, Text } from "@mantine/core";
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <StyledFooter id="contact">
-      <div className="image">
-        <div className="flex">
-          <div className="map">
+    <footer id="contact" className={styles.footer}>
+      <div className={styles.image}>
+        <div className={styles.flex}>
+          <div className={styles.map}>
             <iframe
               src="https://frame.mapy.cz/s/cojetuvuvo"
               width="100%"
               height="100%"
-              frameborder="0"
+              frameBorder="0"
             ></iframe>
           </div>
-          <div className="text">
-            <p className="name">TTC Performance s. r. o.</p>
+          <div className={styles.text}>
+            <p className={styles.name}>TTC Performance s. r. o.</p>
             <p>
               Kotojedy 110
               <br />
@@ -181,34 +51,116 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="logos">
-          <div className="socials">
-            <Link href="https://www.facebook.com/ttcperformance">
-              <img src="\iconmonstr-facebook-3.svg" alt="fb logo" />
+        <Flex
+          justify="center"
+          align="center"
+          gap="32px 72px"
+          direction={{ base: "column", sm: "row" }}
+        >
+          <Flex gap={16} align="center">
+            <Link
+              href="https://www.facebook.com/ttcperformance"
+              style={{
+                color: "inherit",
+                textDecoration: "inherit",
+                width: 32,
+                height: 32,
+              }}
+            >
+              <Image
+                height={32}
+                width={32}
+                src="\iconmonstr-facebook-3.svg"
+                alt="fb logo"
+              />
             </Link>
-            <Link href="https://www.instagram.com/ttc_performance/">
-              <img src="\iconmonstr-instagram-11.svg" alt="ig logo" />
+            <Link
+              href="https://www.instagram.com/ttc_performance/"
+              style={{
+                color: "inherit",
+                textDecoration: "inherit",
+                width: 32,
+                height: 32,
+              }}
+            >
+              <Image
+                height={32}
+                width={32}
+                src="\iconmonstr-instagram-11.svg"
+                alt="ig logo"
+              />
             </Link>
-          </div>
-          <span></span>
-          <img
-            src="/TTC_new_logo.svg"
-            alt="ttc logo"
-            style={{ padding: "16px" }}
-          />
-          <img
-            src="/MC_logo_bile.svg"
-            alt="mc performance logo"
-            style={{ padding: "16px" }}
-          />
-          <span></span>
-          <p className="width">
-            Společnost je zapsaná v obchodním rejstříku vedeném u Krajského
-            soudu v Brně, spisová značka C 125704.
-          </p>
-        </div>
+            <Divider orientation="vertical" />
+            <Image
+              src="/TTC_new_logo.svg"
+              alt="TTC Performance logo"
+              width={200 / 1.5}
+              height={69 / 1.5}
+              quality={100}
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+            />
+          </Flex>
+
+          <Flex
+            gap={16}
+            align="center"
+            direction={{ base: "row-reverse", sm: "row" }}
+          >
+            <Image
+              src="/MC_logo_bile.svg"
+              alt="MC Performance logo"
+              width={200 / 1.5}
+              height={69 / 1.5}
+              quality={100}
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+            />
+            <Divider orientation="vertical" />
+            <Link
+              href="https://www.facebook.com/mcperformancecz"
+              style={{
+                color: "inherit",
+                textDecoration: "inherit",
+                width: 32,
+                height: 32,
+              }}
+            >
+              <Image
+                height={32}
+                width={32}
+                src="\iconmonstr-facebook-3.svg"
+                alt="fb logo"
+              />
+            </Link>
+            <Link
+              href="https://www.instagram.com/mc_performance_cz/"
+              style={{
+                color: "inherit",
+                textDecoration: "inherit",
+                width: 32,
+                height: 32,
+              }}
+            >
+              <Image
+                height={32}
+                width={32}
+                src="\iconmonstr-instagram-11.svg"
+                alt="ig logo"
+              />
+            </Link>
+          </Flex>
+        </Flex>
+        <Text ta="center" fz="sm" c="white">
+          Společnost je zapsaná v obchodním rejstříku vedeném u Krajského soudu
+          v Brně, spisová značka C 125704.
+        </Text>
       </div>
-      <div className="paryn">
+      <div className={styles.paryn}>
         <Link
           href="/gdpr"
           style={{
@@ -238,7 +190,7 @@ const Footer = () => {
           </Link>
         </p>
       </div>
-    </StyledFooter>
+    </footer>
   );
 };
 

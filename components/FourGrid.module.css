@@ -1,0 +1,29 @@
+.grid {
+  margin: auto;
+  margin-top: 6rem;
+  width: 75vw;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.image {
+  width: calc(50% - 1rem);
+  aspect-ratio: 16/9;
+  border-radius: 1rem;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+@media (max-width: 1280px) {
+  .image {
+    width: calc(100%);
+  }
+}

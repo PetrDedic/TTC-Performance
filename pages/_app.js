@@ -1,13 +1,19 @@
-import "../styles/globals.css";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 import "@mantine/carousel/styles.css";
+import "../styles/globals.css";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
 import Head from "next/head";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+});
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -45,10 +51,9 @@ export default function App({ Component, pageProps }) {
         <meta property="og:image:alt" content="TTC Performance Logo" />
         <meta property="og:image:type" content="image/webp" />
       </Head>
-      <ColorSchemeScript forceColorScheme="light" />
       <MantineProvider
         theme={{
-          fontFamily: "Roboto, sans-serif",
+          fontFamily: roboto.style.fontFamily,
         }}
         forceColorScheme="light"
       >

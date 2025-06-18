@@ -2,127 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import Link from "next/link";
-import styled from "styled-components";
-
-const StyledRealizace = styled.main`
-  width: 100%;
-  height: auto;
-
-  color: #101c24;
-
-  .hero {
-    margin-bottom: 6rem;
-    width: 100vw;
-    height: 480px;
-
-    background-image: url("/media/foto/realizace.webp");
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    align-content: center;
-    justify-content: center;
-
-    color: white;
-
-    div {
-      align-self: center;
-      text-align: center;
-
-      h1 {
-        font-size: 4rem;
-        font-weight: bolder;
-        line-height: 4.75rem;
-
-        @media (max-width: 1280px) {
-          font-size: 3rem;
-        }
-        @media (max-width: 600px) {
-          font-size: 2rem;
-        }
-      }
-      p {
-        font-size: 2rem;
-        font-weight: 100;
-
-        @media (max-width: 1280px) {
-          font-size: 1.5rem;
-          letter-spacing: 0;
-        }
-        @media (max-width: 600px) {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-
-  .container {
-    width: 75vw;
-    margin: 0 auto 3rem auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    @media (max-width: 1280px) {
-      flex-wrap: wrap;
-      gap: 3rem;
-    }
-    gap: 6rem;
-
-    .card {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
-        0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
-        0 16px 16px rgba(0, 0, 0, 0.12);
-      width: 18rem;
-      height: 8rem;
-      padding: 1rem;
-
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: center;
-
-      border-radius: 1rem;
-      background-color: #101c24;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-
-      p {
-        align-self: center;
-        text-align: left;
-        height: max-content;
-        width: min-content;
-        border-left: 2px white solid;
-        padding-left: 1rem;
-        text-decoration: none;
-      }
-
-      img {
-        height: 6rem;
-        width: 6rem;
-        object-fit: contain;
-        padding-right: 1rem;
-      }
-      svg {
-        height: 6rem;
-        width: 6rem;
-        padding-right: 1rem;
-      }
-    }
-  }
-
-  p.text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 4rem;
-    max-width: 80vw;
-    margin: 6rem auto 4rem auto;
-
-    @media (max-width: 900px) {
-      font-size: 1rem;
-    }
-  }
-`;
+import styles from "./making.module.css";
 
 const Realizace = () => {
   return (
@@ -134,17 +14,17 @@ const Realizace = () => {
         <link rel="icon" href="TTC_WEB_Icon.svg" />
       </Head>
       <Navbar />
-      <StyledRealizace>
-        <div className="hero">
+      <main className={styles.realizace}>
+        <div className={styles.hero}>
           <div>
             <h1>PŘIPRAVUJEME</h1>
           </div>
         </div>
-        <p className="text">
+        <p className={styles.text}>
           Nastala chyba! Tato stránka se teprve připravuje :(
         </p>
         <p>&#8203;</p>
-      </StyledRealizace>
+      </main>
       <Footer />
     </>
   );
