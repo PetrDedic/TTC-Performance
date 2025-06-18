@@ -22,13 +22,13 @@
 
 .params a {
   margin-top: 1rem;
-  background: #e84048;
+  background: #dc1735;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
   transition: 250ms;
-  border: 1px solid #e84048;
+  border: 1px solid #dc1735;
   width: 10rem;
   text-align: center;
 }

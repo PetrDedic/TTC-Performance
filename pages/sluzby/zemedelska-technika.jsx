@@ -87,7 +87,7 @@ const Sluzby = () => {
         image="/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp"
         title="Využijte náš široký sortiment služeb, které pro vás nabízíme."
         subText={
-          <Text c="#e84048" fz={20}>
+          <Text c="#dc1735" fz={20}>
             Na co se specializujeme?
           </Text>
         }
@@ -176,7 +176,7 @@ const Sluzby = () => {
                       <Text fz={20} ta="center">
                         {card.description}
                       </Text>
-                      <Text c="#e84048" fz={20} ta="center">
+                      <Text c="#dc1735" fz={20} ta="center">
                         {card.price}
                       </Text>
                     </Stack>
@@ -191,10 +191,10 @@ const Sluzby = () => {
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <Button
-                color="#e84048"
+                color="#dc1735"
                 variant="filled"
                 size="compact-xl"
-                radius="md"
+                radius="lg"
                 px={32}
                 w={256}
               >
@@ -206,10 +206,10 @@ const Sluzby = () => {
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <Button
-                color="#e84048"
+                color="#dc1735"
                 variant="filled"
                 size="compact-xl"
-                radius="md"
+                radius="lg"
                 px={32}
                 w={256}
               >
@@ -244,10 +244,10 @@ const Sluzby = () => {
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <Button
-              color="#e84048"
+              color="#dc1735"
               variant="filled"
               size="compact-xl"
-              radius="md"
+              radius="lg"
               px={32}
             >
               Značky vozidel

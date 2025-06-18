@@ -40,17 +40,17 @@ export default function Home() {
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/ECU_foto.webp"
         title="Profesionální úpravy motorů včetně odemčení ECU. "
-        subText={
+        buttons={
           <Flex wrap="wrap" gap={16} align="center" justify="center">
             <Link
               href="#form"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <Button
-                color="#e84048"
+                color="#dc1735"
                 variant="filled"
                 size="compact-xl"
-                radius="md"
+                radius="lg"
                 px={32}
               >
                 Mám zájem!
@@ -61,10 +61,10 @@ export default function Home() {
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <Button
-                color="#e84048"
+                color="#dc1735"
                 variant="filled"
                 size="compact-xl"
-                radius="md"
+                radius="lg"
                 px={32}
               >
                 +420 602 562 650
@@ -156,7 +156,7 @@ export default function Home() {
                 <Button
                   variant="filled"
                   size="compact-xl"
-                  radius="md"
+                  radius="lg"
                   px={32}
                   bg="white"
                   c="black"
@@ -176,7 +176,7 @@ export default function Home() {
                 <Button
                   variant="filled"
                   size="compact-xl"
-                  radius="md"
+                  radius="lg"
                   px={32}
                   bg="white"
                   c="black"
@@ -196,7 +196,7 @@ export default function Home() {
                 <Button
                   variant="filled"
                   size="compact-xl"
-                  radius="md"
+                  radius="lg"
                   px={32}
                   bg="white"
                   c="black"
@@ -216,7 +216,7 @@ export default function Home() {
                 <Button
                   variant="filled"
                   size="compact-xl"
-                  radius="md"
+                  radius="lg"
                   px={32}
                   bg="white"
                   c="black"
@@ -236,7 +236,7 @@ export default function Home() {
                 <Button
                   variant="filled"
                   size="compact-xl"
-                  radius="md"
+                  radius="lg"
                   px={32}
                   bg="white"
                   c="black"
@@ -384,10 +384,10 @@ export default function Home() {
                     style={{ color: "inherit", textDecoration: "inherit" }}
                   >
                     <Button
-                      color="#e84048"
+                      color="#dc1735"
                       variant="filled"
                       size="compact-xl"
-                      radius="md"
+                      radius="lg"
                       px={32}
                     >
                       +420 602 562 650
@@ -398,10 +398,10 @@ export default function Home() {
                     style={{ color: "inherit", textDecoration: "inherit" }}
                   >
                     <Button
-                      color="#e84048"
+                      color="#dc1735"
                       variant="filled"
                       size="compact-xl"
-                      radius="md"
+                      radius="lg"
                       px={32}
                     >
                       Vyplnit formulář
@@ -536,10 +536,10 @@ export default function Home() {
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <Button
-              color="#e84048"
+              color="#dc1735"
               variant="filled"
               size="compact-xl"
-              radius="md"
+              radius="lg"
               px={32}
             >
               Vyplnit formulář
@@ -669,10 +669,10 @@ export default function Home() {
                       style={{ color: "inherit", textDecoration: "inherit" }}
                     >
                       <Button
-                        color="#e84048"
+                        color="#dc1735"
                         variant="filled"
                         size="compact-xl"
-                        radius="md"
+                        radius="lg"
                         px={32}
                       >
                         +420 602 562 650
@@ -683,10 +683,10 @@ export default function Home() {
                       style={{ color: "inherit", textDecoration: "inherit" }}
                     >
                       <Button
-                        color="#e84048"
+                        color="#dc1735"
                         variant="filled"
                         size="compact-xl"
-                        radius="md"
+                        radius="lg"
                         px={32}
                       >
                         Vyplnit formulář
@@ -803,10 +803,10 @@ export default function Home() {
                   style={{ color: "inherit", textDecoration: "inherit" }}
                 >
                   <Button
-                    color="#e84048"
+                    color="#dc1735"
                     variant="filled"
                     size="compact-xl"
-                    radius="md"
+                    radius="lg"
                     px={32}
                   >
                     +420 602 562 650
@@ -817,10 +817,10 @@ export default function Home() {
                   style={{ color: "inherit", textDecoration: "inherit" }}
                 >
                   <Button
-                    color="#e84048"
+                    color="#dc1735"
                     variant="filled"
                     size="compact-xl"
-                    radius="md"
+                    radius="lg"
                     px={32}
                   >
                     Vyplnit formulář
@@ -981,10 +981,10 @@ export default function Home() {
                   style={{ color: "inherit", textDecoration: "inherit" }}
                 >
                   <Button
-                    color="#e84048"
+                    color="#dc1735"
                     variant="filled"
                     size="compact-xl"
-                    radius="md"
+                    radius="lg"
                     px={32}
                   >
                     +420 602 562 650
@@ -995,10 +995,10 @@ export default function Home() {
                   style={{ color: "inherit", textDecoration: "inherit" }}
                 >
                   <Button
-                    color="#e84048"
+                    color="#dc1735"
                     variant="filled"
                     size="compact-xl"
-                    radius="md"
+                    radius="lg"
                     px={32}
                   >
                     Vyplnit formulář
@@ -1157,10 +1157,10 @@ export default function Home() {
                   style={{ color: "inherit", textDecoration: "inherit" }}
                 >
                   <Button
-                    color="#e84048"
+                    color="#dc1735"
                     variant="filled"
                     size="compact-xl"
-                    radius="md"
+                    radius="lg"
                     px={32}
                   >
                     +420 602 562 650
@@ -1171,10 +1171,10 @@ export default function Home() {
                   style={{ color: "inherit", textDecoration: "inherit" }}
                 >
                   <Button
-                    color="#e84048"
+                    color="#dc1735"
                     variant="filled"
                     size="compact-xl"
-                    radius="md"
+                    radius="lg"
                     px={32}
                   >
                     Vyplnit formulář

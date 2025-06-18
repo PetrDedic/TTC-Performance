@@ -18,7 +18,7 @@
 }
 
 .form a:hover {
-  color: #e84048;
+  color: #dc1735;
 }
 
 .form form {
@@ -50,7 +50,7 @@
 }
 
 .form input[type="submit"] {
-  background-color: #e84048;
+  background-color: #dc1735;
   color: white;
   border: none;
   padding: 1rem;

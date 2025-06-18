@@ -275,10 +275,10 @@ export default function LatestRealizations({
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Link href="/realizace" style={{ textDecoration: "none" }}>
             <Button
-              color="#e84048"
+              color="#dc1735"
               variant="filled"
               size="compact-xl"
-              radius="md"
+              radius="lg"
               px={32}
             >
               Zobrazit všechny realizace

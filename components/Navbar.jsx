@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from "./Navbar.module.css";
+import Image from "next/image";
+import { Flex } from "@mantine/core";
 
 const Navbar = () => {
   const router = useRouter();
@@ -9,12 +11,21 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <img
-        src="/TTC_new_logo.svg"
-        alt="Logo"
-        onClick={() => router.push("/")}
-        style={{ padding: "16px", marginLeft: "16px" }}
-      />
+      <Flex align="center" justify="center">
+        <Link href="/">
+          <Image
+            src="/TTC_new_logo.svg"
+            alt="TTC Performance logo"
+            width={200}
+            height={40}
+            quality={100}
+            priority
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        </Link>
+      </Flex>
       <div className={styles.links}>
         <Link href="/" className={router.pathname == "/" ? styles.active : ""}>
           Úvod

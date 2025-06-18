@@ -25,7 +25,7 @@ const Cenik = () => {
         image="/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp"
         title="Jsme féroví! Naše ceny optimalizujeme tak, aby byly výhodné pro obě strany."
         subText={
-          <Text c="#e84048" fz={20}>
+          <Text c="#dc1735" fz={20}>
             Nejlepší ceny na trhu!
           </Text>
         }
@@ -399,10 +399,10 @@ const Cenik = () => {
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <Button
-              color="#e84048"
+              color="#dc1735"
               variant="filled"
               size="compact-xl"
-              radius="md"
+              radius="lg"
               px={32}
               w={256}
             >
@@ -414,10 +414,10 @@ const Cenik = () => {
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <Button
-              color="#e84048"
+              color="#dc1735"
               variant="filled"
               size="compact-xl"
-              radius="md"
+              radius="lg"
               px={32}
               w={256}
             >
@@ -451,10 +451,10 @@ const Cenik = () => {
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <Button
-              color="#e84048"
+              color="#dc1735"
               variant="filled"
               size="compact-xl"
-              radius="md"
+              radius="lg"
               px={32}
             >
               Mám zájem

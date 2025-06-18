@@ -5,7 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-const Hero = ({ image, title, subText }) => {
+const Hero = ({ image, title, buttons }) => {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
   const { route } = useRouter();
 
@@ -38,7 +38,7 @@ const Hero = ({ image, title, subText }) => {
                 <Image
                   src="/MC_logo_bile.svg"
                   alt="MC Performance logo"
-                  width={200}
+                  width={210}
                   height={69}
                   quality={100}
                   priority
@@ -51,7 +51,7 @@ const Hero = ({ image, title, subText }) => {
                   <Image
                     src="/TTC_new_logo.svg"
                     alt="TTC Performance logo"
-                    width={200}
+                    width={240}
                     height={69}
                     quality={100}
                     priority
@@ -90,6 +90,16 @@ const Hero = ({ image, title, subText }) => {
                 {title}
               </Title>
             </motion.div>
+
+            {buttons && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                {buttons}
+              </motion.div>
+            )}
           </Stack>
         </Stack>
       </Card>

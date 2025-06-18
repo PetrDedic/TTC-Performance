@@ -73,7 +73,7 @@ const Vozidla = () => {
       <Navbar />
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/Znacky_vozidel_foto.webp"
-        title="Vyhledejte sou značku vozidla a zjistěte na jaké parametry se lze dostat."
+        title="Vyhledejte značku vozidla a zjistěte na jaké parametry se lze dostat."
       />
       <Stack
         px={32}
@@ -165,10 +165,10 @@ const Vozidla = () => {
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <Button
-              color="#e84048"
+              color="#dc1735"
               variant="filled"
               size="compact-xl"
-              radius="md"
+              radius="lg"
               px={32}
             >
               Kontaktujte nás

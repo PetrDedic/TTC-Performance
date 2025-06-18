@@ -20,7 +20,7 @@
 }
 
 .contact a:hover {
-  color: #e84048;
+  color: #dc1735;
 }
 
 .contact form {
@@ -57,7 +57,7 @@
 }
 
 .contact input[type="submit"] {
-  background-color: #e84048;
+  background-color: #dc1735;
   color: white;
   border: none;
   padding: 1rem;

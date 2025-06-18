@@ -80,7 +80,7 @@ const Sluzby = () => {
         image="/Foty_web_uvodni_hlavni_fotky/Sluzby_foto.webp"
         title="Využijte náš široký sortiment služeb, které pro vás nabízíme."
         subText={
-          <Text c="#e84048" fz={20}>
+          <Text c="#dc1735" fz={20}>
             Na co se specializujeme?
           </Text>
         }
@@ -163,10 +163,10 @@ const Sluzby = () => {
                         </Text>
                       )}
                       <Button
-                        color="#e84048"
+                        color="#dc1735"
                         variant="filled"
                         size="compact-md"
-                        radius="md"
+                        radius="lg"
                         px={32}
                         w="max-content"
                       >

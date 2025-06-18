@@ -56,7 +56,7 @@
 
 .row:nth-of-type(even) .param,
 .row:nth-of-type(even) p {
-  color: #e84048;
+  color: #dc1735;
 }
 
 .param {
@@ -120,7 +120,7 @@
 }
 
 .racing p {
-  color: #e84048;
+  color: #dc1735;
 }
 
 .racing p span {

@@ -179,7 +179,7 @@ const Vozidla = ({ brand, models }) => {
                                   )}/${encodeURIComponent(engine.id)}`}
                                   style={{
                                     fontSize: 16,
-                                    color: "#e84048",
+                                    color: "#dc1735",
                                   }}
                                 >
                                   {engine.specifications}
@@ -215,7 +215,7 @@ const Vozidla = ({ brand, models }) => {
                                   )}/${encodeURIComponent(engine.id)}`}
                                   style={{
                                     fontSize: 16,
-                                    color: "#e84048",
+                                    color: "#dc1735",
                                   }}
                                 >
                                   {engine.specifications}

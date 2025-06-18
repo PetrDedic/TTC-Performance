@@ -39,20 +39,20 @@ export default function Home({ banners, reviews }) {
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/Uvod_foto.webp"
         title="Profesionální úpravy řídících jednotek motorů a emisních systémů."
-        subText={
+        buttons={
           <Flex gap={16} wrap="wrap" justify="center" align="center">
             <Link
               href="/sluzby"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <Button
-                color="#e84048"
+                color="#dc1735"
                 variant="filled"
                 size="compact-xl"
-                radius="md"
+                radius="lg"
                 px={32}
               >
-                Zjistit více
+                Více informací
               </Button>
             </Link>
             <a
@@ -60,14 +60,14 @@ export default function Home({ banners, reviews }) {
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <Button
-                color="#e840486f"
+                color="#dc1735"
                 c="#ffF"
                 variant="filled"
                 size="compact-xl"
-                radius="md"
+                radius="lg"
                 px={32}
               >
-                Zavolejte nám
+                +420 602 562 650
               </Button>
             </a>
           </Flex>
@@ -141,10 +141,10 @@ export default function Home({ banners, reviews }) {
                     style={{ color: "inherit", textDecoration: "inherit" }}
                   >
                     <Button
-                      color="#e84048"
+                      color="#dc1735"
                       variant="filled"
                       size="compact-xl"
-                      radius="md"
+                      radius="lg"
                       px={32}
                     >
                       Více služeb
@@ -256,10 +256,10 @@ export default function Home({ banners, reviews }) {
                       style={{ color: "inherit", textDecoration: "inherit" }}
                     >
                       <Button
-                        color="#e84048"
+                        color="#dc1735"
                         variant="filled"
                         size="compact-xl"
-                        radius="md"
+                        radius="lg"
                         px={32}
                       >
                         Kontaktujte nás
