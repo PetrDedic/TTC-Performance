@@ -47,30 +47,66 @@ const Hero = ({ image, title, buttons }) => {
                   }}
                 />
               ) : route === "/" ? (
-                <Flex align="center" justify="center" gap={32}>
-                  <Image
-                    src="/TTC_new_logo.svg"
-                    alt="TTC Performance logo"
-                    width={240}
-                    height={69}
-                    quality={100}
-                    priority
-                    style={{
-                      objectFit: "contain",
-                    }}
-                  />
-                  <Image
-                    src="/MC_logo_bile.svg"
-                    alt="MC Performance logo"
-                    width={200}
-                    height={69}
-                    quality={100}
-                    priority
-                    style={{
-                      objectFit: "contain",
-                    }}
-                  />
-                </Flex>
+                <>
+                  <Flex
+                    align="center"
+                    justify="center"
+                    gap={32}
+                    visibleFrom="md"
+                  >
+                    <Image
+                      src="/TTC_new_logo.svg"
+                      alt="TTC Performance logo"
+                      width={240}
+                      height={69}
+                      quality={100}
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                    <Image
+                      src="/MC_logo_bile.svg"
+                      alt="MC Performance logo"
+                      width={200}
+                      height={69}
+                      quality={100}
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </Flex>
+                  <Flex
+                    align="center"
+                    justify="center"
+                    gap={32}
+                    hiddenFrom="md"
+                  >
+                    <Image
+                      src="/TTC_new_logo.svg"
+                      alt="TTC Performance logo"
+                      width={240 / 1.5}
+                      height={69 / 1.5}
+                      quality={100}
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                    <Image
+                      src="/MC_logo_bile.svg"
+                      alt="MC Performance logo"
+                      width={200 / 1.5}
+                      height={69 / 1.5}
+                      quality={100}
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </Flex>
+                </>
               ) : null}
             </motion.div>
 
