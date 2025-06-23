@@ -525,13 +525,16 @@ export default function Home({ banners, reviews }) {
 
         <StaggeredItems>
           <Grid w="100%" gutter={32} maw={1280} mx="auto">
-            <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
-              {reviews.map((review) => (
-                <StaggeredItem key={review.id}>
+            {reviews.slice(0, 4).map((review) => (
+              <Grid.Col
+                span={{ base: 12, sm: 6, md: 4, lg: 3 }}
+                key={review.id}
+              >
+                <StaggeredItem>
                   <ReviewCard review={review} />
                 </StaggeredItem>
-              ))}
-            </Grid.Col>
+              </Grid.Col>
+            ))}
           </Grid>
         </StaggeredItems>
 
