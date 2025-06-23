@@ -22,10 +22,49 @@ import {
 import Hero from "@/components/Hero";
 import { useMediaQuery } from "@mantine/hooks";
 import classes from "../styles/Index.module.css";
+import promotionalBannerClasses from "../styles/PromotionalBanner.module.css";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { StaggeredItem, StaggeredItems } from "@/components/StaggeredItems";
+import { IconBrandInstagram } from "@tabler/icons-react";
+import { Carousel } from "@mantine/carousel";
+import supabase from "@/lib/supabaseClient";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  // Fetch multiple image sections for different carousels
+  const sectionKeys = [
+    "mc-performance-luxury-cars",
+    "mc-performance-porsche",
+    "mc-performance-bmw-audi-mercedes",
+    "mc-performance-audi-rs6-rs7-rsq8",
+    "mc-performance-mercedes",
+  ];
+
+  const { data: imageSections, error: imageSectionsError } = await supabase
+    .from("image_sections")
+    .select("*")
+    .in("section_key", sectionKeys);
+
+  if (imageSectionsError) {
+    console.error("Error fetching image sections:", imageSectionsError);
+    return {
+      props: { imageSections: [] },
+      revalidate: 120, // 2 minutes
+    };
+  }
+
+  // Convert array to object for easier access
+  const imageSectionsMap = {};
+  imageSections.forEach((section) => {
+    imageSectionsMap[section.section_key] = section;
+  });
+
+  return {
+    props: { imageSections: imageSectionsMap },
+    revalidate: 120, // 2 minutes
+  };
+};
+
+export default function Home({ imageSections }) {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
 
   return (
@@ -39,7 +78,7 @@ export default function Home() {
       <Navbar />
       <Hero
         image="/Foty_web_uvodni_hlavni_fotky/ECU_foto.webp"
-        title="Profesionální úpravy motorů včetně odemčení ECU. "
+        title="Specialisté na performance úpravy motorů sportovních a luxusních aut."
         buttons={
           <Flex wrap="wrap" gap={16} align="center" justify="center">
             <Link
@@ -53,7 +92,7 @@ export default function Home() {
                 radius="lg"
                 px={32}
               >
-                Mám zájem!
+                Získat nabídku
               </Button>
             </Link>
             <Link
@@ -90,7 +129,6 @@ export default function Home() {
             gap: 48,
           }}
           c="white"
-          bg="#e9e9e9"
         >
           <Stack align="center" justify="center" w="100%" gap={64}>
             <Stack>
@@ -102,12 +140,14 @@ export default function Home() {
                 c="black"
                 ta="center"
               >
-                Jaké úpravy nabízíme?
+                Konec problémů s nedostatkem výkonu
               </Title>
-              <Text fz={20} maw={640} ta="center" c="black">
-                Zaměřujeme se především na softwarové úpravy motorů - STAGE 1-3,
-                Performance úpravy - výfukové systémy & svody, sportovní sání,
-                brzdové systémy, sportovní podvozky atd...
+              <Text fz={20} maw={720} ta="center" c="black">
+                Využijte naše služby, pro získání vyššího výkonu, na svém
+                vozidle! Zaměřujeme se na softwarové úpravy motorů - STAGE 1-3,
+                automatických pořevodovek a Performance úpravy, mezi které
+                patří: Turba, intercoolery, výfukové systémy a svody, sportovní
+                sání, atd...
               </Text>
             </Stack>
             <Stack>
@@ -119,16 +159,131 @@ export default function Home() {
                 c="black"
                 ta="center"
               >
-                Performance díly z celého světa
+                Nabízíme performance díly z celého světa
               </Title>
-              <Text fz={20} maw={640} ta="center" c="black">
-                Akrapovič, Milltek sport, Remus, Eventuri, Forge Motorsport,
-                Wagner Tuning, K&N, Do88 Performance a další..
+              <Text fz={20} maw={720} ta="center" c="black">
+                Pro naše úpravy používáme ty nejznámější světové značky dílů
+                jako je: Remus, Milltek sport, Eventuri, Forge Motorsport,
+                Wagner Tuning, K&N, Do88 Performance, Akrapovič a další..
               </Text>
             </Stack>
           </Stack>
         </Card>
       </AnimatedSection>
+      <AnimatedSection
+        animationType="fadeIn"
+        delay={0.2}
+        style={{ width: "100%" }}
+      >
+        <Card
+          py="5vh"
+          px={32}
+          radius={0}
+          style={{
+            position: "relative",
+            width: "100lvw",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 48,
+          }}
+          c="white"
+          bg="#e9e9e9"
+        >
+          <Stack align="center" justify="center" w="100%" gap={64}>
+            <Stack justify="center" align="center">
+              <Image
+                src="/RRahmani.webp"
+                alt="RRahmani logo"
+                width={256}
+                height={100}
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
+              />
+              <Title
+                maw={800}
+                order={3}
+                fz={32}
+                lh={1}
+                style={{ scrollMarginTop: 100 }}
+                c="black"
+                ta="center"
+              >
+                Jako jediní v České republice jsme oficiálním partnerem RRahmani
+                Performance.
+              </Title>
+              <Text fz={20} maw={720} ta="center" c="black">
+                RRahmani je celosvětově jedním z nejvyhledávanějších úpravců
+                sportovních a luxusních aut jako je: Ferrari, Lamborghini,
+                McLeren, Porsche, Audi, BMW, Mercedes a další.
+              </Text>
+              <Link
+                href="https://www.instagram.com/rrahmani_performance"
+                target="_blank"
+              >
+                <Flex align="center" gap={8}>
+                  <Flex
+                    w={32}
+                    h={32}
+                    align="center"
+                    justify="center"
+                    bg="#dc1735"
+                    radius="lg"
+                    style={{
+                      borderRadius: 8,
+                    }}
+                  >
+                    <IconBrandInstagram color="white" size={24} />
+                  </Flex>
+                  <Text fz={20} maw={720} ta="center" c="black" td="underline">
+                    rrahmani_performance
+                  </Text>
+                </Flex>
+              </Link>
+            </Stack>
+          </Stack>
+        </Card>
+      </AnimatedSection>
+
+      <AnimatedSection
+        animationType="fadeIn"
+        delay={0.2}
+        style={{ width: "100%" }}
+      >
+        <Card
+          py="7.5vh"
+          px={32}
+          radius={0}
+          style={{
+            position: "relative",
+            width: "100lvw",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 48,
+          }}
+          c="white"
+          bg="#101c24"
+        >
+          <Stack justify="center" align="center">
+            <Title
+              maw={800}
+              order={3}
+              fz={32}
+              lh={1}
+              style={{ scrollMarginTop: 100 }}
+              c="white"
+              ta="center"
+            >
+              Chiptuning pro luxusní vozidla
+            </Title>
+            <Text fz={20} maw={720} ta="center" c="#dc1735">
+              McLeren, Ferrari, Lamborghini, Porsche, Bentley
+            </Text>
+          </Stack>
+        </Card>
+      </AnimatedSection>
+
       <Stack
         px={32}
         py={128}
@@ -139,299 +294,323 @@ export default function Home() {
         mx="auto"
         w="100%"
       >
-        <StaggeredItems>
-          <Flex
-            wrap="wrap"
-            align="center"
-            justify="center"
-            gap={16}
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
+        >
+          <Stack w="100%" align="center" justify="center" gap={64}>
+            <Stack w="100%" align="center" justify="center" gap={32}>
+              <Text fz={20} maw={720} ta="center" c="black">
+                Zaměřujeme se na softwarové úpravy výkonu těchto luxusních
+                automobilových značek.
+              </Text>
+              <Text fz={20} maw={720} ta="center" c="black">
+                Nabízíme optimalizaci softwaru řídících jednotek motorů (ECU),
+                úpravy automatických převodovek a mnoho dalších služeb, abychom
+                odemkli maximální potenciál vašeho auta.
+              </Text>
+              <Text fz={20} maw={720} ta="center" c="black">
+                Všechny naše úpravy ladíme na 4x4 válcové zkušebně výkonu.
+              </Text>
+            </Stack>
+            <Carousel
+              w="100%"
+              maw={1280}
+              mx="auto"
+              withIndicators={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-luxury-cars"]?.image_urls
+                      ?.length > 3
+              }
+              withControls={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-luxury-cars"]?.image_urls
+                      ?.length > 3
+              }
+              slideSize={{ base: "100%", sm: "33.333333%" }}
+              slideGap="md"
+              emblaOptions={{ loop: true, align: "start", slidesToScroll: 1 }}
+              classNames={{
+                indicator: promotionalBannerClasses.indicator,
+              }}
+            >
+              {imageSections["mc-performance-luxury-cars"]?.image_urls?.map(
+                (image, index) => (
+                  <Carousel.Slide key={index}>
+                    <AspectRatio
+                      ratio={16 / 9}
+                      w="100%"
+                      h="100%"
+                      style={{
+                        borderRadius: 16,
+                        aspectRatio: 16 / 9,
+                        position: "relative",
+                      }}
+                    >
+                      <Image
+                        src={image}
+                        alt={
+                          imageSections["mc-performance-luxury-cars"]
+                            ?.section_key +
+                          " " +
+                          index
+                        }
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center",
+                          borderRadius: 16,
+                        }}
+                      />
+                    </AspectRatio>
+                  </Carousel.Slide>
+                )
+              ) || []}
+            </Carousel>
+            <Title order={3} fz={32} lh={1} c="#dc1735" ta="center" maw={800}>
+              Díky spolupráci s RRahmani Performance, vám přinášíme ty
+              nejkvalitnější úpravy na světovém trhu!
+            </Title>
+          </Stack>
+        </AnimatedSection>
+
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
+        >
+          <Stack w="100%" align="center" justify="center">
+            <Title order={3} fz={32} lh={1} c="black" ta="center" maw={800}>
+              Odemkněte skrytý potenciál vašeho Porsche!
+            </Title>
+            <Text fz={20} maw={720} ta="center" c="black">
+              Díky našemu významnému partnerovi, vám nabízíme optimalizaci
+              softwaru řídících jednotek motorů (ECU) STAGE 1-3 a úpravy
+              automatických převodovek. Jedná se zejména o vozidla: Porsche GT3,
+              GT3RS, GT4RS.
+            </Text>
+            <Carousel
+              w="100%"
+              maw={1280}
+              mx="auto"
+              withIndicators={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-porsche"]?.image_urls
+                      ?.length > 3
+              }
+              withControls={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-porsche"]?.image_urls
+                      ?.length > 3
+              }
+              slideSize={{ base: "100%", sm: "33.333333%" }}
+              slideGap="md"
+              emblaOptions={{ loop: true, align: "start", slidesToScroll: 1 }}
+              classNames={{
+                indicator: promotionalBannerClasses.indicator,
+              }}
+            >
+              {imageSections["mc-performance-porsche"]?.image_urls?.map(
+                (image, index) => (
+                  <Carousel.Slide key={index}>
+                    <AspectRatio
+                      ratio={16 / 9}
+                      w="100%"
+                      h="100%"
+                      style={{
+                        borderRadius: 16,
+                        aspectRatio: 16 / 9,
+                        position: "relative",
+                      }}
+                    >
+                      <Image
+                        src={image}
+                        alt={
+                          imageSections["mc-performance-porsche"]?.section_key +
+                          " " +
+                          index
+                        }
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center",
+                          borderRadius: 16,
+                        }}
+                      />
+                    </AspectRatio>
+                  </Carousel.Slide>
+                )
+              ) || []}
+            </Carousel>
+          </Stack>
+        </AnimatedSection>
+
+        <AnimatedSection animationType="fadeIn" delay={0.2}>
+          <Card
+            py="7.5vh"
+            px={32}
+            radius={0}
+            style={{
+              position: "relative",
+              width: "100lvw",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 48,
+            }}
+            c="white"
+            bg="#101c24"
+          >
+            <Text
+              order={3}
+              fz={36}
+              lh={1}
+              c="white"
+              ta="center"
+              maw={800}
+              fw={700}
+            >
+              Pro získání cenové nabídky vyplňte formulář, nebo zavolejte na
+              níže uvedené číslo.
+            </Text>
+            <Flex wrap="wrap" gap={16} align="center" justify="center">
+              <Link
+                href="#form"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <Button
+                  color="#dc1735"
+                  variant="filled"
+                  size="compact-xl"
+                  radius="lg"
+                  px={32}
+                >
+                  Získat cenu
+                </Button>
+              </Link>
+              <Link
+                href="tel:+420 602 562 650"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <Button
+                  color="#dc1735"
+                  variant="filled"
+                  size="compact-xl"
+                  radius="lg"
+                  px={32}
+                >
+                  +420 602 562 650
+                </Button>
+              </Link>
+            </Flex>
+          </Card>
+        </AnimatedSection>
+
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
+        >
+          <Stack w="100%" align="center" justify="center">
+            <Title order={3} fz={32} lh={1} c="black" ta="center" maw={800}>
+              Chiptuning pro BMW, Audi, Mercedes
+            </Title>
+            <Text fz={20} maw={720} ta="center" c="black">
+              Nabízíme optimalizaci softwaru řídících jednotek motorů (ECU),
+              úpravy automatických převodovek a mnoho dalších služeb pro vozidla
+              do roku 2025.
+            </Text>
+            <Text fz={20} maw={720} ta="center" c="black">
+              Všechny naše úpravy ladíme na 4x4 válcové zkušebně výkonu.
+            </Text>
+            <Carousel
+              w="100%"
+              maw={1280}
+              mx="auto"
+              withIndicators={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-bmw-audi-mercedes"]
+                      ?.image_urls?.length > 3
+              }
+              withControls={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-bmw-audi-mercedes"]
+                      ?.image_urls?.length > 3
+              }
+              slideSize={{ base: "100%", sm: "33.333333%" }}
+              slideGap="md"
+              emblaOptions={{ loop: true, align: "start", slidesToScroll: 1 }}
+              classNames={{
+                indicator: promotionalBannerClasses.indicator,
+              }}
+            >
+              {imageSections[
+                "mc-performance-bmw-audi-mercedes"
+              ]?.image_urls?.map((image, index) => (
+                <Carousel.Slide key={index}>
+                  <AspectRatio
+                    ratio={16 / 9}
+                    w="100%"
+                    h="100%"
+                    style={{
+                      borderRadius: 16,
+                      aspectRatio: 16 / 9,
+                      position: "relative",
+                    }}
+                  >
+                    <Image
+                      src={image}
+                      alt={
+                        imageSections["mc-performance-bmw-audi-mercedes"]
+                          ?.section_key +
+                        " " +
+                        index
+                      }
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "center",
+                        borderRadius: 16,
+                      }}
+                    />
+                  </AspectRatio>
+                </Carousel.Slide>
+              )) || []}
+            </Carousel>
+          </Stack>
+        </AnimatedSection>
+
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
+        >
+          <Stack w="100%" align="center" justify="center">
+            <Title order={3} fz={32} lh={1} c="black" ta="center" maw={800}>
+              Co si lze zakoupit?
+            </Title>
+            <Text fz={20} maw={720} ta="center" c="black">
+              Vždy je nutné mít zakoupenou licenci "Flasher License" a poté si
+              lze koupit "STAGE 1" & "STAGE 2", nebo "ULTIMATE PACKAGE", který
+              obsahuje obě verze.
+            </Text>
+          </Stack>
+          <Grid
+            w="100%"
+            gutter={smallWindow ? 24 : 64}
+            mt={32}
             maw={960}
             mx="auto"
           >
-            <StaggeredItem>
-              <Link
-                href="#bmv"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <Button
-                  variant="filled"
-                  size="compact-xl"
-                  radius="lg"
-                  px={32}
-                  bg="white"
-                  c="black"
-                  style={{
-                    boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                  }}
-                >
-                  Vozidla BMW
-                </Button>
-              </Link>
-            </StaggeredItem>
-            <StaggeredItem>
-              <Link
-                href="#Mercedes"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <Button
-                  variant="filled"
-                  size="compact-xl"
-                  radius="lg"
-                  px={32}
-                  bg="white"
-                  c="black"
-                  style={{
-                    boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                  }}
-                >
-                  Vozidla Mercedes
-                </Button>
-              </Link>
-            </StaggeredItem>
-            <StaggeredItem>
-              <Link
-                href="#Audi"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <Button
-                  variant="filled"
-                  size="compact-xl"
-                  radius="lg"
-                  px={32}
-                  bg="white"
-                  c="black"
-                  style={{
-                    boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                  }}
-                >
-                  Vozidla Audi RS3 & Cupra
-                </Button>
-              </Link>
-            </StaggeredItem>
-            <StaggeredItem>
-              <Link
-                href="#RS6"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <Button
-                  variant="filled"
-                  size="compact-xl"
-                  radius="lg"
-                  px={32}
-                  bg="white"
-                  c="black"
-                  style={{
-                    boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                  }}
-                >
-                  Vozidla Audi RS6/RS7/RSQ8/Lamborghini
-                </Button>
-              </Link>
-            </StaggeredItem>
-            <StaggeredItem>
-              <Link
-                href="#Porsche"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <Button
-                  variant="filled"
-                  size="compact-xl"
-                  radius="lg"
-                  px={32}
-                  bg="white"
-                  c="black"
-                  style={{
-                    boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                  }}
-                >
-                  Vozidla GT3/GT3RS/GT4RS
-                </Button>
-              </Link>
-            </StaggeredItem>
-          </Flex>
-        </StaggeredItems>
-
-        <AnimatedSection animationType="fadeIn" delay={0.2}>
-          <Link
-            id="bmv"
-            href="/vozidla/osobni/BMW"
-            style={{
-              color: "inherit",
-              textDecoration: "inherit",
-              scrollMarginTop: 128,
-            }}
-          >
-            <Stack>
-              <Title
-                order={3}
-                fz={32}
-                lh={1}
-                style={{ scrollMarginTop: 100 }}
-                c="black"
-                ta="center"
-              >
-                BMW do roku 2025
-              </Title>
-              <Card
-                py={smallWindow ? "2.5vh" : "7.5vh"}
-                px={32}
-                radius={0}
-                style={{
-                  position: "relative",
-                  width: "100lvw",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 48,
-                  overflow: "visible",
-                }}
-                c="white"
-                bg="none"
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    zIndex: -1,
-                    width: "100%",
-                    height: smallWindow ? "5vh" : "10vh",
-                    top: "30%",
-                    background: "#101c24",
-                  }}
-                />
-                <MantineImage
-                  w="100%"
-                  h="100%"
-                  maw={960}
-                  quality={100}
-                  src="/Fotky_WEBP/BMW.webp"
-                  alt="/Fotky_WEBP/BMW.webp"
-                  style={{ objectFit: "cover", objectPosition: "top" }}
-                />
-              </Card>
-            </Stack>
-          </Link>
-        </AnimatedSection>
-
-        <Title
-          order={3}
-          fz={48}
-          lh={1}
-          style={{ scrollMarginTop: 100 }}
-          c="black"
-          ta="center"
-          maw={720}
-        >
-          Jediný oficiální dealer MG Flasher v České Republice! 🇨🇿
-        </Title>
-
-        <Grid w="100%" gutter={smallWindow ? 24 : 64}>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <AspectRatio
-              ratio={4 / 3}
-              style={{
-                position: "relative",
-                borderRadius: 16,
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-              }}
-              h={smallWindow ? 360 : "100%"}
-            >
-              <Image
-                quality={100}
-                src="/Fotky_WEBP/BMW_2.webp"
-                alt="/Fotky_WEBP/BMW_2.webp"
-                fill
-                sizes="100vw"
-                style={{ borderRadius: 16 }}
-              />
-            </AspectRatio>
-          </Grid.Col>
-
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <Stack
-              align="center"
-              justify="center"
-              w="100%"
-              gap={64}
-              py={smallWindow ? 0 : 32}
-            >
-              <Stack gap={16} justify="center" w="100%">
-                <Title
-                  order={3}
-                  fz={32}
-                  lh={1}
-                  style={{ scrollMarginTop: 100 }}
-                >
-                  Vylepšete své BMW vozidlo!
-                </Title>
-                <Text maw={480}>
-                  MG Flasher je mobilní aplikace vyvinutá pro poskytování
-                  možností ladění OBD u BMW řady Fxx/Gxx vybavených motory
-                  generace 1 & 2 B46, B48 nebo B58 a také motory S58 a S63. MG
-                  Flasher je dostupný pro uživatele s operačními systémy Android
-                  a iOS. Proces ladění je poté zcela jednoduchý: Stáhnete si
-                  aplikaci, připojíte ENET Wi-Fi adaptér, nebo ENET kabel a
-                  flashujte libovolnou z našich nabízených OTS map, tak aby
-                  vyhovovaly vašim specifickým potřebám vašeho vozidla! Doba
-                  zápisu mapy je 15 - 20 sekund!
-                </Text>
-                <Flex
-                  wrap="wrap"
-                  gap={16}
-                  align={smallWindow ? "center" : "start"}
-                  justify={smallWindow ? "center" : "start"}
-                >
-                  <Link
-                    href="tel:+420 602 562 650"
-                    style={{ color: "inherit", textDecoration: "inherit" }}
-                  >
-                    <Button
-                      color="#dc1735"
-                      variant="filled"
-                      size="compact-xl"
-                      radius="lg"
-                      px={32}
-                    >
-                      +420 602 562 650
-                    </Button>
-                  </Link>
-                  <Link
-                    href="#form"
-                    style={{ color: "inherit", textDecoration: "inherit" }}
-                  >
-                    <Button
-                      color="#dc1735"
-                      variant="filled"
-                      size="compact-xl"
-                      radius="lg"
-                      px={32}
-                    >
-                      Vyplnit formulář
-                    </Button>
-                  </Link>
-                </Flex>
-              </Stack>
-            </Stack>
-          </Grid.Col>
-        </Grid>
-
-        <Stack w="100%" align="center" gap={32}>
-          <Title
-            order={3}
-            fz={32}
-            lh={1}
-            style={{ scrollMarginTop: 100 }}
-            c="black"
-            ta="center"
-            maw={720}
-          >
-            Co si lze zakoupit?
-          </Title>
-          <Text fz={20} maw={640} ta="center" c="black">
-            Vždy je nutné mít zakoupenou licenci “Flasher License” a poté si lze
-            koupit “STAGE 1” & “STAGE 2”, lze si také zakoupit “ULTIMATE
-            PACKAGE”, který obsahuje obě verze. Pro správnou funkci je nutné mít
-            Wi-Fi adaptér a stáhnout si aplikaci pro ovládání.
-          </Text>
-          <Grid w="100%" gutter={smallWindow ? 24 : 64} mt={32}>
             <Grid.Col span={{ base: 6, sm: 3 }}>
               <AspectRatio ratio={3 / 4}>
                 <Card
@@ -497,735 +676,238 @@ export default function Home() {
               </AspectRatio>
             </Grid.Col>
           </Grid>
-        </Stack>
+        </AnimatedSection>
 
-        <Card
-          py="12.5vh"
-          px={32}
-          radius={0}
-          style={{
-            position: "relative",
-            width: "100lvw",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 48,
-            backgroundImage: `url("/Fotky_WEBP/Audi_poptavkova_lista.webp")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          c="white"
+        <AnimatedSection animationType="fadeIn" delay={0.2}>
+          <Card
+            py="7.5vh"
+            px={32}
+            radius={0}
+            style={{
+              position: "relative",
+              width: "100lvw",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 48,
+            }}
+            c="white"
+            bg="#101c24"
+          >
+            <Stack w="100%" align="center" justify="center" gap={32}>
+              <Text
+                order={3}
+                fz={36}
+                lh={1}
+                c="white"
+                ta="center"
+                maw={800}
+                fw={700}
+              >
+                Nevíte si rady a potřebujete poradit?
+              </Text>
+              <Text fz={20} maw={720} ta="center" c="white">
+                Vyplňte jednoduchý poptávkový formulář, nebo nám rovnou
+                zavolejte na níže uvedené číslo.
+              </Text>
+            </Stack>
+            <Flex wrap="wrap" gap={16} align="center" justify="center">
+              <Link
+                href="#form"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <Button
+                  color="#dc1735"
+                  variant="filled"
+                  size="compact-xl"
+                  radius="lg"
+                  px={32}
+                >
+                  Vyplnit formulář
+                </Button>
+              </Link>
+              <Link
+                href="tel:+420 602 562 650"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <Button
+                  color="#dc1735"
+                  variant="filled"
+                  size="compact-xl"
+                  radius="lg"
+                  px={32}
+                >
+                  +420 602 562 650
+                </Button>
+              </Link>
+            </Flex>
+          </Card>
+        </AnimatedSection>
+
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
         >
-          <Title order={3} fz={32} lh={1} style={{ scrollMarginTop: 100 }}>
-            Nevíte si rady a potřebujete poradit?
-          </Title>
-          <Text fz={20} ta="center" maw={480}>
-            Vyplňte jednoduchý poptávkový formulář, nebo nám rovnou zavolejte na{" "}
-            <Link
-              href="tel:+420 602 562 650"
-              style={{
-                color: "inherit",
-                textDecoration: "underline",
-                fontWeight: 700,
+          <Stack w="100%" align="center" justify="center">
+            <Title order={3} fz={32} lh={1} c="black" ta="center" maw={800}>
+              Vylepšete svá vozidla Audi RS3 8Y / Cupra Formentor VZ5!
+            </Title>
+            <Text fz={20} maw={720} ta="center" c="black">
+              Představujeme revoluční optimalizaci řídící jednotky pro Audi RS3
+              a Cupra Formentor VZ5 s motory 2.5TFSI 390PS 400PS s kódy motoru
+              DNWB a DNWC.
+            </Text>
+          </Stack>
+        </AnimatedSection>
+
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
+        >
+          <Stack w="100%" align="center" justify="center">
+            <Title order={3} fz={32} lh={1} c="black" ta="center" maw={800}>
+              Audi RS6, RS7, RSQ8, Lamborghini Urus, Porsche Cayenne Turbo GT do
+              roku 2025
+            </Title>
+            <Text fz={20} maw={720} ta="center" c="black">
+              Díky našemu významnému partnerovi, vám přinášíme možnost odemčení
+              řídící jednotky motoru, optimalizaci softwaru STAGE 1-3 a úpravy
+              automatických převodovek. Jedná se zejména o vozidla: Audi RS6,
+              RS7, RSQ8, Lamborghini Urus & Porsche Cayenne Turbo GT.
+            </Text>
+            <Carousel
+              w="100%"
+              maw={1280}
+              mx="auto"
+              withIndicators={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-audi-rs6-rs7-rsq8"]
+                      ?.image_urls?.length > 3
+              }
+              withControls={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-audi-rs6-rs7-rsq8"]
+                      ?.image_urls?.length > 3
+              }
+              slideSize={{ base: "100%", sm: "33.333333%" }}
+              slideGap="md"
+              emblaOptions={{ loop: true, align: "start", slidesToScroll: 1 }}
+              classNames={{
+                indicator: promotionalBannerClasses.indicator,
               }}
             >
-              +420 602 562 650.
-            </Link>
-          </Text>
-          <Link
-            href="#form"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Button
-              color="#dc1735"
-              variant="filled"
-              size="compact-xl"
-              radius="lg"
-              px={32}
-            >
-              Vyplnit formulář
-            </Button>
-          </Link>
-        </Card>
+              {imageSections[
+                "mc-performance-audi-rs6-rs7-rsq8"
+              ]?.image_urls?.map((image, index) => (
+                <Carousel.Slide key={index}>
+                  <AspectRatio
+                    ratio={16 / 9}
+                    w="100%"
+                    h="100%"
+                    style={{
+                      borderRadius: 16,
+                      aspectRatio: 16 / 9,
+                      position: "relative",
+                    }}
+                  >
+                    <Image
+                      src={image}
+                      alt={
+                        imageSections["mc-performance-audi-rs6-rs7-rsq8"]
+                          ?.section_key +
+                        " " +
+                        index
+                      }
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "center",
+                        borderRadius: 16,
+                      }}
+                    />
+                  </AspectRatio>
+                </Carousel.Slide>
+              )) || []}
+            </Carousel>
+          </Stack>
+        </AnimatedSection>
 
-        <Stack
-          w="100%"
-          align="center"
-          justify="center"
-          id="Mercedes"
-          style={{ scrollMarginTop: 128 }}
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
         >
-          <Link
-            href="/vozidla/osobni/Mercedes"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Stack>
-              <Title
-                order={3}
-                fz={32}
-                lh={1}
-                style={{ scrollMarginTop: 100 }}
-                c="black"
-                ta="center"
-              >
-                Mercedes do roku 2025
-              </Title>
-              <Card
-                py={smallWindow ? "2.5vh" : "7.5vh"}
-                px={32}
-                radius={0}
-                style={{
-                  position: "relative",
-                  width: "100lvw",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 48,
-                  overflow: "visible",
-                }}
-                c="white"
-                bg="none"
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    zIndex: -1,
-                    width: "100%",
-                    height: smallWindow ? "5vh" : "10vh",
-                    top: "30%",
-                    background: "#101c24",
-                  }}
-                />
-                <MantineImage
-                  w="100%"
-                  h="100%"
-                  maw={960}
-                  quality={100}
-                  src="/Fotky_WEBP/Mercedes.webp"
-                  alt="/Fotky_WEBP/Mercedes.webp"
-                  style={{ objectFit: "cover", objectPosition: "top" }}
-                />
-              </Card>
-            </Stack>
-          </Link>
-
-          <Grid w="100%" gutter={smallWindow ? 24 : 64}>
-            <Grid.Col span={{ base: 12, sm: 6 }}>
-              <AspectRatio
-                ratio={4 / 3}
-                style={{
-                  position: "relative",
-                  borderRadius: 16,
-                  boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-                }}
-                h={smallWindow ? 360 : "100%"}
-              >
-                <Image
-                  quality={100}
-                  src="/Fotky_WEBP/Mercedes_2.webp"
-                  alt="/Fotky_WEBP/Mercedes_2.webp"
-                  fill
-                  sizes="100vw"
-                  style={{ borderRadius: 16 }}
-                />
-              </AspectRatio>
-            </Grid.Col>
-
-            <Grid.Col span={{ base: 12, sm: 6 }}>
-              <Stack
-                align="center"
-                justify="center"
-                w="100%"
-                gap={64}
-                py={smallWindow ? 0 : 32}
-              >
-                <Stack gap={16} justify="center" w="100%">
-                  <Title
-                    order={3}
-                    fz={32}
-                    lh={1}
-                    style={{ scrollMarginTop: 100 }}
-                  >
-                    Vylepšete svůj Mercedes!
-                  </Title>
-                  <Text maw={480}>
-                    Nabízíme exkluzivní a dlouho očekávané úpravy pro vozy
-                    Mercedes MD1/MG1 do roku 2025.
-                  </Text>
-                  <Text maw={480}>Podporované typy motorů:</Text>
-                  <Text fz={20} maw={480} fw={700}>
-                    OM656, OM654, M139, M256
-                  </Text>
-                  <Text maw={480}>
-                    Jste připraveni vylepšit svůj Mercedes? Kontaktujte nás
-                    nyní!
-                  </Text>
-                  <Flex
-                    wrap="wrap"
-                    gap={16}
-                    align={smallWindow ? "center" : "start"}
-                    justify={smallWindow ? "center" : "start"}
-                  >
-                    <Link
-                      href="tel:+420 602 562 650"
-                      style={{ color: "inherit", textDecoration: "inherit" }}
+          <Stack w="100%" align="center" justify="center">
+            <Title order={3} fz={32} lh={1} c="black" ta="center" maw={800}>
+              Exkluzivní úpravy pro vozidla Mercedes
+            </Title>
+            <Text fz={20} maw={720} ta="center" c="black">
+              Vhodné pro všechny vozidla Mercedes MD1/MG1 do roku 2025.
+              Podporované typy motorů: OM656, OM654, M139, M256
+            </Text>
+            <Carousel
+              w="100%"
+              maw={1280}
+              mx="auto"
+              withIndicators={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-mercedes"]?.image_urls
+                      ?.length > 3
+              }
+              withControls={
+                smallWindow
+                  ? true
+                  : imageSections["mc-performance-mercedes"]?.image_urls
+                      ?.length > 3
+              }
+              slideSize={{ base: "100%", sm: "33.333333%" }}
+              slideGap="md"
+              emblaOptions={{ loop: true, align: "start", slidesToScroll: 1 }}
+              classNames={{
+                indicator: promotionalBannerClasses.indicator,
+              }}
+            >
+              {imageSections["mc-performance-mercedes"]?.image_urls?.map(
+                (image, index) => (
+                  <Carousel.Slide key={index}>
+                    <AspectRatio
+                      ratio={16 / 9}
+                      w="100%"
+                      h="100%"
+                      style={{
+                        borderRadius: 16,
+                        aspectRatio: 16 / 9,
+                        position: "relative",
+                      }}
                     >
-                      <Button
-                        color="#dc1735"
-                        variant="filled"
-                        size="compact-xl"
-                        radius="lg"
-                        px={32}
-                      >
-                        +420 602 562 650
-                      </Button>
-                    </Link>
-                    <Link
-                      href="#form"
-                      style={{ color: "inherit", textDecoration: "inherit" }}
-                    >
-                      <Button
-                        color="#dc1735"
-                        variant="filled"
-                        size="compact-xl"
-                        radius="lg"
-                        px={32}
-                      >
-                        Vyplnit formulář
-                      </Button>
-                    </Link>
-                  </Flex>
-                </Stack>
-              </Stack>
-            </Grid.Col>
-          </Grid>
-        </Stack>
-
-        <Stack
-          align="center"
-          justify="center"
-          w="100%"
-          id="Audi"
-          style={{ scrollMarginTop: 128 }}
-        >
-          <Link
-            href="/vozidla/osobni"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Stack align="center" justify="center">
-              <Title
-                order={3}
-                fz={32}
-                lh={1}
-                style={{ scrollMarginTop: 100 }}
-                c="black"
-                ta="center"
-                maw={720}
-              >
-                Audi RS3 & Cupra Formentor VZ5 do roku 2025
-              </Title>
-              <Card
-                py={smallWindow ? "2.5vh" : "7.5vh"}
-                px={32}
-                radius={0}
-                style={{
-                  position: "relative",
-                  width: "100lvw",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 48,
-                  overflow: "visible",
-                }}
-                c="white"
-                bg="none"
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    zIndex: -1,
-                    width: "100%",
-                    height: smallWindow ? "5vh" : "10vh",
-                    top: "30%",
-                    background: "#101c24",
-                  }}
-                />
-                <MantineImage
-                  w="100%"
-                  h="100%"
-                  maw={960}
-                  quality={100}
-                  src="/Fotky_WEBP/Audi_Cupra.webp"
-                  alt="/Fotky_WEBP/Audi_Cupra.webp"
-                  style={{ objectFit: "cover", objectPosition: "top" }}
-                />
-              </Card>
-            </Stack>
-          </Link>
-
-          <Stack
-            mt={smallWindow ? 64 : 0}
-            align="center"
-            justify="center"
-            gap={64}
-            py={smallWindow ? 0 : 32}
-          >
-            <Stack gap={16} justify="center" w="100%" align="center">
-              <Title
-                order={3}
-                fz={32}
-                lh={1}
-                style={{ scrollMarginTop: 100 }}
-                ta="center"
-                maw={720}
-              >
-                Vylepšete svá vozidla Audi RS3 8Y / Cupra Formentor VZ5!
-              </Title>
-              <Text ta="center" maw={720}>
-                Představujeme revoluční optimalizaci řídící jednotky pro Audi
-                RS3 a Cupra Formentor VZ5 s motory 2.5TFSI 390PS 400PS s kódy
-                motoru DNWB a DNWC.
-              </Text>
-              <Text ta="center" maw={720}>
-                Všechny úpravy prošly dlouhodobým testováním a jedná se o
-                nejlepší úpravy na našem trhu.
-              </Text>
-              <Text ta="center" maw={720}>
-                Jste připraveni na nový zážitek z vaší jízdy? Kontaktujte nás
-                nyní!
-              </Text>
-
-              <Flex
-                wrap="wrap"
-                gap={16}
-                align={smallWindow ? "center" : "start"}
-                justify={smallWindow ? "center" : "start"}
-              >
-                <Link
-                  href="tel:+420 602 562 650"
-                  style={{ color: "inherit", textDecoration: "inherit" }}
-                >
-                  <Button
-                    color="#dc1735"
-                    variant="filled"
-                    size="compact-xl"
-                    radius="lg"
-                    px={32}
-                  >
-                    +420 602 562 650
-                  </Button>
-                </Link>
-                <Link
-                  href="#form"
-                  style={{ color: "inherit", textDecoration: "inherit" }}
-                >
-                  <Button
-                    color="#dc1735"
-                    variant="filled"
-                    size="compact-xl"
-                    radius="lg"
-                    px={32}
-                  >
-                    Vyplnit formulář
-                  </Button>
-                </Link>
-              </Flex>
-            </Stack>
+                      <Image
+                        src={image}
+                        alt={
+                          imageSections["mc-performance-mercedes"]
+                            ?.section_key +
+                          " " +
+                          index
+                        }
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center",
+                          borderRadius: 16,
+                        }}
+                      />
+                    </AspectRatio>
+                  </Carousel.Slide>
+                )
+              ) || []}
+            </Carousel>
           </Stack>
-        </Stack>
-        <Grid w="100%" gutter={smallWindow ? 24 : 64}>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <AspectRatio
-              ratio={16 / 9}
-              style={{
-                position: "relative",
-                borderRadius: 16,
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-              }}
-              h={smallWindow ? 360 : 480}
-            >
-              <Image
-                quality={100}
-                src="/Fotky_WEBP/Cupra.webp"
-                alt="/Fotky_WEBP/Cupra.webp"
-                fill
-                sizes="100vw"
-                style={{ borderRadius: 16 }}
-              />
-            </AspectRatio>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <AspectRatio
-              ratio={16 / 9}
-              style={{
-                position: "relative",
-                borderRadius: 16,
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-              }}
-              h={smallWindow ? 360 : 480}
-            >
-              <Image
-                quality={100}
-                src="/Fotky_WEBP/Audi.webp"
-                alt="/Fotky_WEBP/Audi.webp"
-                fill
-                sizes="100vw"
-                style={{ borderRadius: 16 }}
-              />
-            </AspectRatio>
-          </Grid.Col>
-        </Grid>
-
-        <Stack
-          align="center"
-          justify="center"
-          w="100%"
-          id="RS6"
-          style={{ scrollMarginTop: 128 }}
-        >
-          <Link
-            href="/vozidla/osobni"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Stack align="center" justify="center">
-              <Title
-                order={3}
-                fz={32}
-                lh={1}
-                style={{ scrollMarginTop: 100 }}
-                c="black"
-                ta="center"
-                maw={720}
-              >
-                Audi RS6, RS7, RSQ8, Lamborghini Urus, Porsche Cayenne Turbo GT
-                do roku 2025
-              </Title>
-              <Card
-                py={smallWindow ? "2.5vh" : "7.5vh"}
-                px={32}
-                radius={0}
-                style={{
-                  position: "relative",
-                  width: "100lvw",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 48,
-                  overflow: "visible",
-                }}
-                c="white"
-                bg="none"
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    zIndex: -1,
-                    width: "100%",
-                    height: smallWindow ? "5vh" : "10vh",
-                    top: "30%",
-                    background: "#101c24",
-                  }}
-                />
-                <MantineImage
-                  w="100%"
-                  h="100%"
-                  maw={960}
-                  quality={100}
-                  src="/Fotky_WEBP/Lambo_Audi.webp"
-                  alt="/Fotky_WEBP/Lambo_Audi.webp"
-                  style={{ objectFit: "cover", objectPosition: "top" }}
-                />
-              </Card>
-            </Stack>
-          </Link>
-
-          <Stack
-            mt={smallWindow ? 64 : 0}
-            align="center"
-            justify="center"
-            gap={64}
-            py={smallWindow ? 0 : 32}
-          >
-            <Stack gap={16} justify="center" w="100%" align="center">
-              <Title
-                order={3}
-                fz={32}
-                lh={1}
-                style={{ scrollMarginTop: 100 }}
-                ta="center"
-                maw={720}
-              >
-                Zvyšte výkon na svém vozidle pomocí odemčení ECU a úpravy
-                softwaru!
-              </Title>
-              <Text ta="center" maw={720}>
-                Díky našemu významnému partnerovi, Vám jako jediní v České
-                Republice nabízíme odemčení ECU a úpravu softwaru společně s
-                performance úpravami STAGE 1-3. Jedná se zejména o vozidla Audi
-                RS6, RS7, RSQ8, Lamborghini Urus & Porsche Cayenne Turbo GT s
-                řídícími jednotkami HW31 & HW80.
-              </Text>
-              <Text ta="center" maw={720}>
-                Všechny úpravy prošly dlouhodobým testováním a jedná se o
-                nejlepší úpravy na našem trhu.
-              </Text>
-              <Text ta="center" maw={720}>
-                Už vás nebaví stávající výkon vašeho vozidla? Kontaktujte nás
-                nyní!
-              </Text>
-
-              <Flex
-                wrap="wrap"
-                gap={16}
-                align={smallWindow ? "center" : "start"}
-                justify={smallWindow ? "center" : "start"}
-              >
-                <Link
-                  href="tel:+420 602 562 650"
-                  style={{ color: "inherit", textDecoration: "inherit" }}
-                >
-                  <Button
-                    color="#dc1735"
-                    variant="filled"
-                    size="compact-xl"
-                    radius="lg"
-                    px={32}
-                  >
-                    +420 602 562 650
-                  </Button>
-                </Link>
-                <Link
-                  href="#form"
-                  style={{ color: "inherit", textDecoration: "inherit" }}
-                >
-                  <Button
-                    color="#dc1735"
-                    variant="filled"
-                    size="compact-xl"
-                    radius="lg"
-                    px={32}
-                  >
-                    Vyplnit formulář
-                  </Button>
-                </Link>
-              </Flex>
-            </Stack>
-          </Stack>
-        </Stack>
-        <Grid w="100%" gutter={smallWindow ? 24 : 64}>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <AspectRatio
-              ratio={16 / 9}
-              style={{
-                position: "relative",
-                borderRadius: 16,
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-              }}
-              h={smallWindow ? 360 : 480}
-            >
-              <Image
-                quality={100}
-                src="/Fotky_WEBP/Porsche_Cayene.webp"
-                alt="/Fotky_WEBP/Porsche_Cayene.webp"
-                fill
-                sizes="100vw"
-                style={{ borderRadius: 16 }}
-              />
-            </AspectRatio>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <AspectRatio
-              ratio={16 / 9}
-              style={{
-                position: "relative",
-                borderRadius: 16,
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-              }}
-              h={smallWindow ? 360 : 480}
-            >
-              <Image
-                quality={100}
-                src="/Fotky_WEBP/Audi_RS7.webp"
-                alt="/Fotky_WEBP/Audi_RS7.webp"
-                fill
-                sizes="100vw"
-                style={{ borderRadius: 16 }}
-              />
-            </AspectRatio>
-          </Grid.Col>
-        </Grid>
-
-        <Stack
-          align="center"
-          justify="center"
-          w="100%"
-          id="Porsche"
-          style={{ scrollMarginTop: 128 }}
-        >
-          <Link
-            href="/vozidla/osobni"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-          >
-            <Stack align="center" justify="center">
-              <Title
-                order={3}
-                fz={32}
-                lh={1}
-                style={{ scrollMarginTop: 100 }}
-                c="black"
-                ta="center"
-                maw={720}
-              >
-                Porsche GT3/GT3RS/GT4RS do roku 2025
-              </Title>
-              <Card
-                py={smallWindow ? "2.5vh" : "7.5vh"}
-                px={32}
-                radius={0}
-                style={{
-                  position: "relative",
-                  width: "100lvw",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 48,
-                  overflow: "visible",
-                }}
-                c="white"
-                bg="none"
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    zIndex: -1,
-                    width: "100%",
-                    height: smallWindow ? "5vh" : "10vh",
-                    top: "30%",
-                    background: "#101c24",
-                  }}
-                />
-                <MantineImage
-                  w="100%"
-                  h="100%"
-                  maw={960}
-                  quality={100}
-                  src="/Fotky_WEBP/Porsche.webp"
-                  alt="/Fotky_WEBP/Porsche.webp"
-                  style={{ objectFit: "cover", objectPosition: "top" }}
-                />
-              </Card>
-            </Stack>
-          </Link>
-
-          <Stack
-            mt={smallWindow ? 64 : 0}
-            align="center"
-            justify="center"
-            gap={64}
-            py={smallWindow ? 0 : 32}
-          >
-            <Stack gap={16} justify="center" w="100%" align="center">
-              <Title
-                order={3}
-                fz={32}
-                lh={1}
-                style={{ scrollMarginTop: 100 }}
-                ta="center"
-                maw={720}
-              >
-                Odemkněte skrytý potenciál vašeho Porsche a zažijte jedinečný
-                pocit z jízdy!
-              </Title>
-              <Text ta="center" maw={720}>
-                Díky našemu významnému partnerovi, Vám jako jediní v České
-                Republice nabízíme odemčení ECU a úpravu softwaru společně s
-                performance úpravami STAGE 1-3. Jedná se zejména o vozidla
-                Porsche GT3, GT3RS, GT4RS.
-              </Text>
-              <Text ta="center" maw={720}>
-                Všechny úpravy prošly dlouhodobým testováním a jedná se o
-                nejlepší úpravy na našem trhu.
-              </Text>
-              <Text ta="center" maw={720}>
-                Chcete zažít ještě větší adrenalin z vašeho vozidla? Kontaktujte
-                nás nyní!
-              </Text>
-
-              <Flex
-                wrap="wrap"
-                gap={16}
-                align={smallWindow ? "center" : "start"}
-                justify={smallWindow ? "center" : "start"}
-              >
-                <Link
-                  href="tel:+420 602 562 650"
-                  style={{ color: "inherit", textDecoration: "inherit" }}
-                >
-                  <Button
-                    color="#dc1735"
-                    variant="filled"
-                    size="compact-xl"
-                    radius="lg"
-                    px={32}
-                  >
-                    +420 602 562 650
-                  </Button>
-                </Link>
-                <Link
-                  href="#form"
-                  style={{ color: "inherit", textDecoration: "inherit" }}
-                >
-                  <Button
-                    color="#dc1735"
-                    variant="filled"
-                    size="compact-xl"
-                    radius="lg"
-                    px={32}
-                  >
-                    Vyplnit formulář
-                  </Button>
-                </Link>
-              </Flex>
-            </Stack>
-          </Stack>
-        </Stack>
-        <Grid w="100%" gutter={smallWindow ? 24 : 64}>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <AspectRatio
-              ratio={16 / 9}
-              style={{
-                position: "relative",
-                borderRadius: 16,
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-              }}
-              h={smallWindow ? 360 : 480}
-            >
-              <Image
-                quality={100}
-                src="/Fotky_WEBP/Porsche_GT4RS.webp"
-                alt="/Fotky_WEBP/Porsche_GT4RS.webp"
-                fill
-                sizes="100vw"
-                style={{ borderRadius: 16 }}
-              />
-            </AspectRatio>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, sm: 6 }}>
-            <AspectRatio
-              ratio={16 / 9}
-              style={{
-                position: "relative",
-                borderRadius: 16,
-                boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px",
-              }}
-              h={smallWindow ? 360 : 480}
-            >
-              <Image
-                quality={100}
-                src="/Fotky_WEBP/Porsche_GT3RS.webp"
-                alt="/Fotky_WEBP/Porsche_GT3RS.webp"
-                fill
-                sizes="100vw"
-                style={{ borderRadius: 16 }}
-              />
-            </AspectRatio>
-          </Grid.Col>
-        </Grid>
+        </AnimatedSection>
 
         <Form simplified mailTo="mc@ttcperformance.cz" />
       </Stack>

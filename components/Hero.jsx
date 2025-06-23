@@ -36,7 +36,7 @@ const Hero = ({ image, title, buttons }) => {
             >
               {route === "/mc-performance" ? (
                 <Image
-                  src="/MC_logo_bile.svg"
+                  src="/MC_logo_cervene.svg"
                   alt="MC Performance logo"
                   width={210}
                   height={69}

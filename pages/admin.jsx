@@ -9,6 +9,7 @@ import Engines from "@/components/admin/Engines";
 import Realizations from "@/components/admin/Realizations";
 import PromotionalBanners from "@/components/admin/PromotionalBanners";
 import Reviews from "@/components/admin/Reviews";
+import ImageSections from "@/components/admin/ImageSections";
 
 const Admin = () => {
   const [user, setUser] = useState(null);
@@ -57,6 +58,7 @@ const Admin = () => {
         <Realizations />
         <PromotionalBanners />
         <Reviews />
+        <ImageSections />
       </Stack>
     </Stack>
   );
