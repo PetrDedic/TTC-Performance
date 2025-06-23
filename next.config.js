@@ -8,6 +8,11 @@ const nextConfig = {
         destination: "/PRAVIDLA%20ZPRACOVÁNÍ%20OSOBNÍCH%20ÚDAJŮ.pdf",
         permanent: true,
       },
+      {
+        source: "/ecu",
+        destination: "/mc-performance",
+        permanent: false,
+      },
     ];
   },
   images: {

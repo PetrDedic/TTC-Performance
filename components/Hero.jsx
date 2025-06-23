@@ -19,12 +19,14 @@ const Hero = ({ image, title, buttons }) => {
         w="100%"
         px={16}
         py="15vh"
-        mah={600}
+        mih={{ base: "60vh", md: 600 }}
         style={{
           background: `url(${image})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Stack gap={48} align="center" justify="center">
@@ -51,60 +53,34 @@ const Hero = ({ image, title, buttons }) => {
                   <Flex
                     align="center"
                     justify="center"
-                    gap={32}
+                    gap={12}
                     visibleFrom="md"
                   >
-                    <Image
-                      src="/TTC_new_logo.svg"
-                      alt="TTC Performance logo"
-                      width={240}
-                      height={69}
-                      quality={100}
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                    <Image
-                      src="/MC_logo_bile.svg"
-                      alt="MC Performance logo"
-                      width={200}
-                      height={69}
-                      quality={100}
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
+                    <Text fz="xl" c="white" fw={300}>
+                      TTC Performance
+                    </Text>
+                    <Text fz="xl" c="white" fw={300}>
+                      &
+                    </Text>
+                    <Text fz="xl" c="white" fw={300}>
+                      MC Performance
+                    </Text>
                   </Flex>
                   <Flex
                     align="center"
                     justify="center"
-                    gap={32}
+                    gap={12}
                     hiddenFrom="md"
                   >
-                    <Image
-                      src="/TTC_new_logo.svg"
-                      alt="TTC Performance logo"
-                      width={240 / 1.5}
-                      height={69 / 1.5}
-                      quality={100}
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                    <Image
-                      src="/MC_logo_bile.svg"
-                      alt="MC Performance logo"
-                      width={200 / 1.5}
-                      height={69 / 1.5}
-                      quality={100}
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
+                    <Text fz="sm" c="white" fw={300} lh={1}>
+                      TTC Performance
+                    </Text>
+                    <Text fz="sm" c="white" fw={300} lh={1}>
+                      &
+                    </Text>
+                    <Text fz="sm" c="white" fw={300} lh={1}>
+                      MC Performance
+                    </Text>
                   </Flex>
                 </>
               ) : null}

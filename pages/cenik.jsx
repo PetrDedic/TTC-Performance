@@ -40,7 +40,7 @@ const Cenik = () => {
         mx="auto"
         w="100%"
       >
-        <Stack gap={8} w="100%">
+        <Stack gap={8} w="100%" align="center">
           <div className={styles.header}>
             <h2>Osobní a užitková vozidla</h2>
           </div>
@@ -153,7 +153,7 @@ const Cenik = () => {
           </div>
         </Stack>
 
-        <Stack gap={8} w="100%">
+        <Stack gap={8} w="100%" align="center">
           <div className={styles.header}>
             <h2>Nákladní vozidla a autobusy</h2>
           </div>
@@ -277,7 +277,7 @@ const Cenik = () => {
           </div>
         </Stack>
 
-        <Stack gap={8} w="100%">
+        <Stack gap={8} w="100%" align="center">
           <div className={styles.header}>
             <h2>Zemědělská technika</h2>
           </div>
@@ -335,7 +335,7 @@ const Cenik = () => {
           </div>
         </Stack>
 
-        <Stack gap={8} w="100%">
+        <Stack gap={8} w="100%" align="center">
           <div className={styles.header}>
             <h2>Stavební a lesní technika</h2>
           </div>
@@ -440,7 +440,13 @@ const Cenik = () => {
           c="white"
           bg="#101c24"
         >
-          <Title order={3} fz={32} lh={1} style={{ scrollMarginTop: 100 }}>
+          <Title
+            order={3}
+            fz={32}
+            lh={1}
+            style={{ scrollMarginTop: 100 }}
+            ta="center"
+          >
             Více informací o našich službách?
           </Title>
           <Text fz={20} ta="center">
