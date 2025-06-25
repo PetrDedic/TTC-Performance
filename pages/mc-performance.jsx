@@ -596,6 +596,24 @@ export default function Home({ imageSections }) {
         >
           <Stack w="100%" align="center" justify="center">
             <Title order={3} fz={32} lh={1} c="black" ta="center" maw={800}>
+              Vylepšete své BMW pomocí MG Flasher
+            </Title>
+            <Text fz={20} maw={720} ta="center" c="black">
+              MG Flasher je mobilní aplikace vyvinutá pro možnost ladění přes
+              palubní diagnostiku u BMW řady Fxx/Gxx vybavených motory generace
+              1 & 2 B46, B48 nebo B58 a také motory S58 a S63. Veškerý proces je
+              poté velice jednoduchý a doba zápisu mapy je 15 - 20 sekund!
+            </Text>
+          </Stack>
+        </AnimatedSection>
+
+        <AnimatedSection
+          animationType="fadeIn"
+          delay={0.2}
+          style={{ width: "100%" }}
+        >
+          <Stack w="100%" align="center" justify="center">
+            <Title order={3} fz={32} lh={1} c="black" ta="center" maw={800}>
               Co si lze zakoupit?
             </Title>
             <Text fz={20} maw={720} ta="center" c="black">

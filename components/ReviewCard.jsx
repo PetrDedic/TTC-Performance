@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Text, Group, Stack, Avatar, Rating } from "@mantine/core";
+import { Card, Text, Group, Stack, Avatar, Rating, Flex } from "@mantine/core";
 import { IconQuote } from "@tabler/icons-react";
 
 /*
@@ -51,15 +51,49 @@ export default function ReviewCard({ review }) {
   };
 
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder h="100%" bg="white">
-      <Stack h="100%" justify="space-between">
+    <Card
+      style={{
+        boxShadow: "rgba(0, 0, 0, 0.1) 0px 5px 10px",
+      }}
+      padding="lg"
+      radius="md"
+      h="100%"
+      bg="white"
+    >
+      <Flex
+        direction="column"
+        h="100%"
+        justify="space-between"
+        gap={{ base: 8, sm: 16 }}
+      >
         <Stack gap="xs">
-          <Group justify="apart" align="flex-start">
-            <IconQuote size={24} color="#8999ff" />
-            <Rating value={review.rating} readOnly />
+          <Group justify="apart" align="flex-start" visibleFrom="sm">
+            <IconQuote size={32} color="#8999ff" />
+            <Rating value={review.rating} readOnly size="lg" />
+          </Group>
+          <Group justify="apart" align="flex-start" hiddenFrom="sm">
+            <IconQuote size={20} color="#8999ff" />
+            <Rating value={review.rating} readOnly size="sm" />
           </Group>
 
-          <Text size="sm" lineClamp={4} style={{ flexGrow: 1 }} c="black">
+          <Text
+            fz={{ base: "xs", sm: "sm" }}
+            lineClamp={4}
+            style={{ flexGrow: 1 }}
+            c="black"
+            title={review.review_text}
+            visibleFrom="sm"
+          >
+            {review.review_text}
+          </Text>
+          <Text
+            fz={{ base: "xs", sm: "sm" }}
+            lineClamp={3}
+            style={{ flexGrow: 1 }}
+            c="black"
+            title={review.review_text}
+            hiddenFrom="sm"
+          >
             {review.review_text}
           </Text>
         </Stack>
@@ -70,7 +104,7 @@ export default function ReviewCard({ review }) {
               {getInitials(review.reviewer_name)}
             </Avatar>
             <div>
-              <Text fw={500} c="black">
+              <Text fw={500} c="black" fz={{ base: "sm", sm: "md" }}>
                 {review.reviewer_name}
               </Text>
               <Text size="xs" c="dimmed">
@@ -79,7 +113,7 @@ export default function ReviewCard({ review }) {
             </div>
           </Group>
         </Group>
-      </Stack>
+      </Flex>
     </Card>
   );
 }

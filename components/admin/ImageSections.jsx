@@ -19,6 +19,7 @@ import {
   Grid,
   AspectRatio,
   Card,
+  Box,
 } from "@mantine/core";
 import {
   IconEdit,
@@ -26,6 +27,8 @@ import {
   IconUpload,
   IconX,
   IconPlus,
+  IconArrowUp,
+  IconArrowDown,
 } from "@tabler/icons-react";
 import { modals } from "@mantine/modals";
 import { notifications } from "@mantine/notifications";
@@ -119,6 +122,30 @@ const ImageSections = () => {
   // Handle image file changes
   const handleImageFilesChange = (files) => {
     setImageFiles(files);
+  };
+
+  // Move image up in order
+  const moveImageUp = (index) => {
+    if (index === 0) return;
+
+    const newImageUrls = [...formData.image_urls];
+    const temp = newImageUrls[index];
+    newImageUrls[index] = newImageUrls[index - 1];
+    newImageUrls[index - 1] = temp;
+
+    setFormData({ ...formData, image_urls: newImageUrls });
+  };
+
+  // Move image down in order
+  const moveImageDown = (index) => {
+    if (index === formData.image_urls.length - 1) return;
+
+    const newImageUrls = [...formData.image_urls];
+    const temp = newImageUrls[index];
+    newImageUrls[index] = newImageUrls[index + 1];
+    newImageUrls[index + 1] = temp;
+
+    setFormData({ ...formData, image_urls: newImageUrls });
   };
 
   // Handle Form Submission
@@ -308,7 +335,7 @@ const ImageSections = () => {
         opened={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title={editingSection ? "Upravit sekci" : "Přidat sekci"}
-        size="lg"
+        size="xl"
       >
         <form onSubmit={handleSubmit}>
           <Stack gap={16}>
@@ -323,35 +350,58 @@ const ImageSections = () => {
               disabled={!!editingSection} // Can't change key when editing
             />
 
-            {/* Current Images */}
+            {/* Current Images with Arrow Buttons */}
             {formData.image_urls.length > 0 && (
               <Stack gap={8}>
                 <Text size="sm" fw={500}>
-                  Aktuální obrázky:
+                  Aktuální obrázky (použijte šipky pro změnu pořadí):
                 </Text>
-                <Grid>
+                <Grid gutter="xs">
                   {formData.image_urls.map((url, index) => (
-                    <Grid.Col span={4} key={index}>
+                    <Grid.Col key={index} span={4}>
                       <Card p={8} withBorder>
                         <AspectRatio ratio={16 / 9}>
                           <Image src={url} alt={`Obrázek ${index + 1}`} />
                         </AspectRatio>
-                        <Button
-                          size="xs"
-                          color="red"
-                          variant="light"
-                          mt={8}
-                          fullWidth
-                          onClick={() => {
-                            const newUrls = formData.image_urls.filter(
-                              (_, i) => i !== index
-                            );
-                            setFormData({ ...formData, image_urls: newUrls });
-                          }}
-                        >
-                          <IconX size={12} />
-                          Odstranit
-                        </Button>
+                        <Text size="xs" ta="center" c="dimmed" mt={4}>
+                          Pořadí: {index + 1}
+                        </Text>
+                        <Group gap={4} mt={8}>
+                          <ActionIcon
+                            size="xs"
+                            variant="light"
+                            color="blue"
+                            onClick={() => moveImageUp(index)}
+                            disabled={index === 0}
+                          >
+                            <IconArrowUp size={12} />
+                          </ActionIcon>
+                          <ActionIcon
+                            size="xs"
+                            variant="light"
+                            color="blue"
+                            onClick={() => moveImageDown(index)}
+                            disabled={index === formData.image_urls.length - 1}
+                          >
+                            <IconArrowDown size={12} />
+                          </ActionIcon>
+                          <ActionIcon
+                            size="xs"
+                            variant="light"
+                            color="red"
+                            onClick={() => {
+                              const newUrls = formData.image_urls.filter(
+                                (_, i) => i !== index
+                              );
+                              setFormData({
+                                ...formData,
+                                image_urls: newUrls,
+                              });
+                            }}
+                          >
+                            <IconX size={12} />
+                          </ActionIcon>
+                        </Group>
                       </Card>
                     </Grid.Col>
                   ))}
@@ -362,7 +412,7 @@ const ImageSections = () => {
             {/* Upload New Images */}
             <FileInput
               label="Přidat nové obrázky"
-              placeholder="Vyberte obrázky"
+              placeholder="Vyberte obrázky (můžete vybrat více najednou)"
               accept="image/*"
               multiple
               value={imageFiles}

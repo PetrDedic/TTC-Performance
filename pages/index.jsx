@@ -23,6 +23,7 @@ import { StaggeredItem, StaggeredItems } from "@/components/StaggeredItems";
 import supabase from "@/lib/supabaseClient";
 import PromotionalBanner from "@/components/PromotionalBanner";
 import ReviewCard from "@/components/ReviewCard";
+import Marquee from "react-fast-marquee";
 
 export default function Home({ banners, reviews }) {
   const smallWindow = useMediaQuery("(max-width: 1200px)");
@@ -523,20 +524,41 @@ export default function Home({ banners, reviews }) {
           </StaggeredItems>
         </Stack>
 
-        <StaggeredItems>
-          <Grid w="100%" gutter={32} maw={1280} mx="auto">
-            {reviews.slice(0, 4).map((review) => (
-              <Grid.Col
-                span={{ base: 12, sm: 6, md: 4, lg: 3 }}
-                key={review.id}
+        <AnimatedSection animationType="fadeIn" delay={0.2}>
+          <Stack gap={32} justify="center" w="100%">
+            <Title
+              order={3}
+              fz={32}
+              lh={1}
+              style={{ scrollMarginTop: 100 }}
+              ta="center"
+            >
+              Co říkají naši zákazníci?
+            </Title>
+            <Marquee
+              speed={30}
+              pauseOnHover
+              style={{ width: "100vw", height: 260 }}
+            >
+              <Flex
+                w="100%"
+                gap={{ base: 16, sm: 32 }}
+                mr={{ base: 16, sm: 32 }}
               >
-                <StaggeredItem>
-                  <ReviewCard review={review} />
-                </StaggeredItem>
-              </Grid.Col>
-            ))}
-          </Grid>
-        </StaggeredItems>
+                {reviews.map((review) => (
+                  <AspectRatio
+                    ratio={16 / 9}
+                    key={review.id}
+                    h={{ base: 200, sm: 260 }}
+                    p={{ base: 8, sm: 16 }}
+                  >
+                    <ReviewCard review={review} />
+                  </AspectRatio>
+                ))}
+              </Flex>
+            </Marquee>
+          </Stack>
+        </AnimatedSection>
 
         <Form simplified />
       </Stack>
