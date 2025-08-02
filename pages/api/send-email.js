@@ -29,6 +29,7 @@ export default async function handler(req, res) {
       modifications,
       consent,
       mailTo,
+      pageSource,
     } = req.body;
 
     // Determine if "Jiné" (Other) was selected for brand, model, or engine
@@ -43,17 +44,20 @@ export default async function handler(req, res) {
       from: process.env.EMAIL_USER,
       to: mailTo || "zapletal@ttcperformance.cz",
       subject: isSimplified
-        ? "New Simple Contact Form Submission"
-        : "New Contact Form Submission",
+        ? `Nový jednoduchý kontaktní formulář - ${
+            pageSource || "Neznámá stránka"
+          }`
+        : `Nový kontaktní formulář - ${pageSource || "Neznámá stránka"}`,
       html: `
         <h1>${
           isSimplified
-            ? "New Simple Contact Form Submission"
-            : "New Contact Form Submission"
-        }</h1>
+            ? "Nový jednoduchý kontaktní formulář"
+            : "Nový kontaktní formulář"
+        } - ${pageSource || "Neznámá stránka"}</h1>
         <p><strong>Jméno:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Telefon:</strong> ${phone}</p>
+        <p><strong>Stránka:</strong> ${pageSource || "Neznámá stránka"}</p>
         ${
           isSimplified
             ? `

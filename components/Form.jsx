@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Flex, Image, Select, Text } from "@mantine/core";
 import supabase from "@/lib/supabaseClient";
 import styles from "./Form.module.css";
@@ -8,6 +9,55 @@ const Form = ({
   simplified = false,
   mailTo = "zapletal@ttcperformance.cz",
 }) => {
+  const router = useRouter();
+
+  // Function to get page name in Czech
+  const getPageNameInCzech = (pathname) => {
+    const pageNames = {
+      "/": "Úvodní stránka",
+      "/cenik": "Ceník",
+      "/making": "Making of",
+      "/realizace": "Realizace",
+      "/mc-performance": "MC Performance",
+      "/sluzby": "Služby",
+      "/sluzby/osobni-vozidla": "Služby - Osobní vozidla",
+      "/sluzby/nakladni-vozidla": "Služby - Nákladní vozidla",
+      "/sluzby/stavebni-technika": "Služby - Stavební technika",
+      "/sluzby/zemedelska-technika": "Služby - Zemědělská technika",
+      "/sluzby/lesni-technika": "Služby - Lesní technika",
+      "/sluzby/zkusebna-vykonu": "Služby - Zkušebna výkonu",
+      "/vozidla": "Vozidla",
+      "/vozidla/osobni": "Vozidla - Osobní",
+      "/vozidla/nakladni": "Vozidla - Nákladní",
+      "/vozidla/moto": "Vozidla - Motocykly",
+      "/vozidla/ctyrkolky": "Vozidla - Čtyřkolky",
+      "/vozidla/bus": "Vozidla - Autobusy",
+      "/vozidla/lode": "Vozidla - Lodě",
+      "/vozidla/agro": "Vozidla - Agro",
+      "/vozidla/bagry": "Vozidla - Bagry",
+    };
+
+    // Check for exact match first
+    if (pageNames[pathname]) {
+      return pageNames[pathname];
+    }
+
+    // Check for dynamic routes (vehicle detail pages)
+    if (pathname.startsWith("/vozidla/")) {
+      const parts = pathname.split("/");
+      if (parts.length >= 4) {
+        const category = parts[2];
+        const brandName = parts[3];
+        return `Vozidla - ${
+          category.charAt(0).toUpperCase() + category.slice(1)
+        } - ${brandName}`;
+      }
+    }
+
+    // Default fallback
+    return "Neznámá stránka";
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -189,12 +239,13 @@ const Form = ({
 
     if (simplified) {
       try {
+        const pageSource = getPageNameInCzech(router.pathname);
         const response = await fetch("/api/send-email", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ ...formData, mailTo }),
+          body: JSON.stringify({ ...formData, mailTo, pageSource }),
         });
 
         if (response.ok) {
@@ -249,12 +300,13 @@ const Form = ({
     };
 
     try {
+      const pageSource = getPageNameInCzech(router.pathname);
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...submissionData, mailTo }),
+        body: JSON.stringify({ ...submissionData, mailTo, pageSource }),
       });
 
       if (response.ok) {
