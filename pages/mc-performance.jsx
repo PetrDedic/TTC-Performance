@@ -216,7 +216,7 @@ export default function Home({ imageSections }) {
               <Text fz={20} maw={720} ta="center" c="black">
                 RRahmani je celosvětově jedním z nejvyhledávanějších úpravců
                 sportovních a luxusních aut jako je: Ferrari, Lamborghini,
-                McLeren, Porsche, Audi, BMW, Mercedes a další.
+                McLaren, Porsche, Audi, BMW, Mercedes a další.
               </Text>
               <Link
                 href="https://www.instagram.com/rrahmani_performance"
@@ -278,7 +278,7 @@ export default function Home({ imageSections }) {
               Chiptuning pro luxusní vozidla
             </Title>
             <Text fz={20} maw={720} ta="center" c="#dc1735">
-              McLeren, Ferrari, Lamborghini, Porsche, Bentley
+              McLaren, Ferrari, Lamborghini, Porsche, Bentley
             </Text>
           </Stack>
         </Card>
