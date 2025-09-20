@@ -107,7 +107,7 @@ export default function Home({ banners, reviews }) {
                   src="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
                   alt="/nove/Fotky_uvodni_stranka/1_foto_text.webp"
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ borderRadius: 16 }}
                 />
               </AspectRatio>

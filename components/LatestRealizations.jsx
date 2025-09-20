@@ -9,7 +9,6 @@ import {
   Stack,
   Text,
   Title,
-  Image,
   Group,
   Badge,
   Skeleton,
@@ -19,6 +18,7 @@ import {
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import "@mantine/carousel/styles.css";
+import Image from "next/image";
 
 export default function LatestRealizations({
   categoryIds,
@@ -149,7 +149,12 @@ export default function LatestRealizations({
 
     if (!photos || photos.length === 0) {
       return (
-        <AspectRatio ratio={16 / 9} style={{ borderRadius: 4 }}>
+        <AspectRatio
+          w="100%"
+          h="100%"
+          ratio={16 / 9}
+          style={{ borderRadius: 4 }}
+        >
           <Skeleton />
         </AspectRatio>
       );
@@ -157,12 +162,18 @@ export default function LatestRealizations({
 
     if (photos.length === 1) {
       return (
-        <AspectRatio ratio={16 / 9} style={{ borderRadius: 4 }}>
+        <AspectRatio
+          w="100%"
+          h="100%"
+          ratio={16 / 9}
+          style={{ borderRadius: 4, position: "relative" }}
+        >
           <Image
-            radius={4}
             src={photos[0].photo_url}
             alt={photos[0].alt_text || "Fotografie realizace"}
-            fit="cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{ borderRadius: 4, objectFit: "cover" }}
           />
         </AspectRatio>
       );
@@ -176,18 +187,25 @@ export default function LatestRealizations({
           align: "center",
         }}
         style={{ borderRadius: 4 }}
-        styles={{ viewport: { borderRadius: 4 } }}
+        styles={{
+          viewport: { borderRadius: 4, height: "100%" },
+          container: { height: "100%" },
+        }}
       >
         {photos.map((photo) => (
           <Carousel.Slide key={photo.id} style={{ borderRadius: 4 }}>
-            <AspectRatio ratio={16 / 9} style={{ borderRadius: 4 }}>
+            <AspectRatio
+              w="100%"
+              h="100%"
+              ratio={16 / 9}
+              style={{ borderRadius: 4, position: "relative" }}
+            >
               <Image
-                radius={4}
                 src={photo.photo_url}
                 alt={photo.alt_text || "Fotografie realizace"}
-                fit="cover"
-                w="100%"
-                h="100%"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ borderRadius: 4, objectFit: "cover" }}
               />
             </AspectRatio>
           </Carousel.Slide>
@@ -232,7 +250,7 @@ export default function LatestRealizations({
                 sx={{ cursor: "pointer" }}
               >
                 <Card.Section>
-                  <AspectRatio ratio={16 / 9}>
+                  <AspectRatio w="100%" h="100%" ratio={16 / 9}>
                     {renderMedia(realization.id)}
                   </AspectRatio>
                 </Card.Section>
